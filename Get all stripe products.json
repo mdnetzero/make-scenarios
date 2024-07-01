@@ -1,0 +1,835 @@
+{
+    "name": "Get all stripe products",
+    "flow": [
+        {
+            "id": 7,
+            "module": "stripe:watchEvents",
+            "version": 1,
+            "parameters": {
+                "__IMTHOOK__": 1388577
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -867,
+                    "y": -7
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTHOOK__": {
+                            "data": {
+                                "editable": "false"
+                            },
+                            "label": "Stripe product updates"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTHOOK__",
+                        "type": "hook:stripe2",
+                        "label": "Webhook",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "created",
+                        "type": "date",
+                        "label": "Created"
+                    },
+                    {
+                        "name": "event_type",
+                        "type": "text",
+                        "label": "Event Type"
+                    },
+                    {
+                        "name": "event_id",
+                        "type": "text",
+                        "label": "Event ID"
+                    },
+                    {
+                        "name": "object",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "Id"
+                            },
+                            {
+                                "name": "object",
+                                "type": "text",
+                                "label": "Object"
+                            },
+                            {
+                                "name": "active",
+                                "type": "boolean",
+                                "label": "Active"
+                            },
+                            {
+                                "name": "attributes",
+                                "spec": [],
+                                "type": "array",
+                                "label": "Attributes"
+                            },
+                            {
+                                "name": "caption",
+                                "type": "text",
+                                "label": "Caption"
+                            },
+                            {
+                                "name": "created",
+                                "type": "number",
+                                "label": "Created"
+                            },
+                            {
+                                "name": "deactivate_on",
+                                "type": "array",
+                                "label": "Deactivate on"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "Description"
+                            },
+                            {
+                                "name": "images",
+                                "type": "array",
+                                "label": "Images"
+                            },
+                            {
+                                "name": "livemode",
+                                "type": "boolean",
+                                "label": "Livemode"
+                            },
+                            {
+                                "name": "metadata",
+                                "spec": [],
+                                "type": "collection",
+                                "label": "Metadata"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "package_dimensions",
+                                "spec": [
+                                    {
+                                        "name": "height",
+                                        "type": "number",
+                                        "label": "Height"
+                                    },
+                                    {
+                                        "name": "length",
+                                        "type": "number",
+                                        "label": "Length"
+                                    },
+                                    {
+                                        "name": "weight",
+                                        "type": "number",
+                                        "label": "Weight"
+                                    },
+                                    {
+                                        "name": "width",
+                                        "type": "number",
+                                        "label": "Width"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Package dimensions"
+                            },
+                            {
+                                "name": "shippable",
+                                "type": "boolean",
+                                "label": "Shippable"
+                            },
+                            {
+                                "name": "skus",
+                                "spec": [
+                                    {
+                                        "name": "object",
+                                        "type": "text",
+                                        "label": "Object"
+                                    },
+                                    {
+                                        "name": "data",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "Id"
+                                            },
+                                            {
+                                                "name": "object",
+                                                "type": "text",
+                                                "label": "Object"
+                                            },
+                                            {
+                                                "name": "active",
+                                                "type": "boolean",
+                                                "label": "Active"
+                                            },
+                                            {
+                                                "name": "attributes",
+                                                "spec": [
+                                                    {
+                                                        "name": "size",
+                                                        "type": "text",
+                                                        "label": "Size"
+                                                    },
+                                                    {
+                                                        "name": "gender",
+                                                        "type": "text",
+                                                        "label": "Gender"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Attributes"
+                                            },
+                                            {
+                                                "name": "created",
+                                                "type": "number",
+                                                "label": "Created"
+                                            },
+                                            {
+                                                "name": "currency",
+                                                "type": "text",
+                                                "label": "Currency"
+                                            },
+                                            {
+                                                "name": "image",
+                                                "type": "text",
+                                                "label": "Image"
+                                            },
+                                            {
+                                                "name": "inventory",
+                                                "spec": [
+                                                    {
+                                                        "name": "quantity",
+                                                        "type": "number",
+                                                        "label": "Quantity"
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "text",
+                                                        "label": "Type"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": "text",
+                                                        "label": "Value"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Inventory"
+                                            },
+                                            {
+                                                "name": "livemode",
+                                                "type": "boolean",
+                                                "label": "Livemode"
+                                            },
+                                            {
+                                                "name": "metadata",
+                                                "spec": [],
+                                                "type": "collection",
+                                                "label": "Metadata"
+                                            },
+                                            {
+                                                "name": "package_dimensions",
+                                                "type": "text",
+                                                "label": "Package dimensions"
+                                            },
+                                            {
+                                                "name": "price",
+                                                "type": "number",
+                                                "label": "Price"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "type": "text",
+                                                "label": "Product"
+                                            },
+                                            {
+                                                "name": "updated",
+                                                "type": "number",
+                                                "label": "Updated"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Data"
+                                    },
+                                    {
+                                        "name": "has_more",
+                                        "type": "boolean",
+                                        "label": "Has more"
+                                    },
+                                    {
+                                        "name": "total_count",
+                                        "type": "number",
+                                        "label": "Total count"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "text",
+                                        "label": "Url"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Skus"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "updated",
+                                "type": "number",
+                                "label": "Updated"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text",
+                                "label": "Url"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Object"
+                    },
+                    {
+                        "name": "raw",
+                        "spec": [],
+                        "type": "collection",
+                        "label": "Raw Webhook Data"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "module": "stripe:makeAnApiCall",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 2565522
+            },
+            "mapper": {
+                "qs": [
+                    {
+                        "key": "limit",
+                        "value": "100"
+                    }
+                ],
+                "url": "/v1/products",
+                "body": "",
+                "method": "GET",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": -512,
+                    "y": -83
+                },
+                "restore": {
+                    "expect": {
+                        "qs": {
+                            "items": [
+                                null
+                            ]
+                        },
+                        "method": {
+                            "label": "GET"
+                        },
+                        "headers": {
+                            "items": [
+                                null
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "stripe"
+                            },
+                            "label": "MD Stripe live connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:stripe",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "builtin:BasicFeeder",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "array": "{{1.body.data}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": -165,
+                    "y": -86
+                },
+                "restore": {
+                    "expect": {
+                        "array": {
+                            "mode": "edit"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "mode": "edit",
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "app4R2qm7WvWIFspd",
+                "view": "viwB6PupzY09ApQiz",
+                "table": "tblmrdEbnsxDIV2EU",
+                "fields": [
+                    "ID"
+                ],
+                "formula": "{ID} = \"{{2.id}}\"",
+                "maxRecords": "10",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 157,
+                    "y": -88
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy Courses"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose",
+                            "label": "Grid view"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Stripe products"
+                        },
+                        "fields": {
+                            "mode": "chose",
+                            "label": [
+                                "ID"
+                            ]
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "dynamic": true,
+                                "options": []
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sort"
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "ID",
+                        "type": "text",
+                        "label": "ID"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "airtable:upsertRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "app4R2qm7WvWIFspd",
+                "table": "tblmrdEbnsxDIV2EU",
+                "record": {
+                    "fld1oq8lWbILRcpgh": "{{2.created}}",
+                    "fldDK9puXkjppSETO": "{{2.description}}",
+                    "fldOEk8Fd0o0Im9Kv": "{{2.default_price}}",
+                    "fldeCigfxE87XseAJ": "{{2.name}}",
+                    "fldldABEUXPJepFui": "{{2.id}}",
+                    "fldmGTb9ZUtXpWMaa": "{{2.active}}"
+                },
+                "recordId": "{{4.id}}",
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 435,
+                    "y": -86
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "NetZero Academy Courses"
+                        },
+                        "table": {
+                            "label": "Stripe products"
+                        },
+                        "record": {
+                            "nested": {
+                                "fldmGTb9ZUtXpWMaa": {
+                                    "mode": "edit"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "recordId",
+                        "type": "text",
+                        "label": "Record ID"
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fldldABEUXPJepFui",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "fldmGTb9ZUtXpWMaa",
+                                "type": "boolean",
+                                "label": "Active"
+                            },
+                            {
+                                "name": "fld1oq8lWbILRcpgh",
+                                "type": "number",
+                                "label": "Created"
+                            },
+                            {
+                                "name": "fldOEk8Fd0o0Im9Kv",
+                                "type": "text",
+                                "label": "Default price id"
+                            },
+                            {
+                                "name": "fldDK9puXkjppSETO",
+                                "type": "text",
+                                "label": "Description"
+                            },
+                            {
+                                "name": "fldeCigfxE87XseAJ",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "ID",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "Active",
+                        "type": "boolean",
+                        "label": "Active"
+                    },
+                    {
+                        "name": "Created",
+                        "type": "number",
+                        "label": "Created"
+                    },
+                    {
+                        "name": "Default price id",
+                        "type": "text",
+                        "label": "Default price id"
+                    },
+                    {
+                        "name": "Description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "Name",
+                        "type": "text",
+                        "label": "Name"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}
