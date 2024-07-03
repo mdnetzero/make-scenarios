@@ -1942,63 +1942,92 @@
             },
             "mapper": {
                 "base": "appIW2NHG67L20Pxm",
-                "table": "tbl8ae04kDMBVj8Te",
+                "typecast": false,
+                "useColumnId": true,
+                "table": "tbl19hQjrCHtZsdEi",
                 "record": {
-                    "fld2uXropjxed3nqt": "storno",
-                    "fldEOyTLKX4av5LD3": [
+                    "fld9EG29SEeU9fRy2": "{{102.invoiceNumber}}",
+                    "fldxNBJ0RWZ2zeQo7": [
                         {
                             "url": "{{94.webContentLink}}",
                             "filename": "{{94.name}}"
                         }
                     ],
-                    "fldKQbhAyLtVTG4eD": "{{98.id}}"
-                },
-                "typecast": false,
-                "useColumnId": true
+                    "fldCQ7lTQbALuXKQ3": "{{102.id}}",
+                    "fldVt0hDwis6hcsbx": "storno",
+                    "fld15F4am5NTFirKG": [
+                        "{{90.recID}}"
+                    ]
+                }
             },
             "metadata": {
                 "designer": {
                     "x": 1500,
                     "y": 0,
-                    "name": "add to 'sevDesk documents' (WILL BE DELETED)"
+                    "name": "Add to SD Invoices"
                 },
                 "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
                     "expect": {
                         "base": {
                             "label": "NetZero Academy"
                         },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
                         "table": {
-                            "label": "sevDesk documents",
                             "nested": [
                                 {
                                     "name": "record",
                                     "spec": [
                                         {
-                                            "name": "fldEOyTLKX4av5LD3",
-                                            "spec": [
-                                                {
-                                                    "help": "Airtable will download the file at the given url and keep its own copy of it.",
-                                                    "name": "url",
-                                                    "type": "text",
-                                                    "label": "File URL"
-                                                },
-                                                {
-                                                    "help": "If empty, Airtable will generate the name automatically.",
-                                                    "name": "filename",
-                                                    "type": "filename",
-                                                    "label": "File name"
-                                                }
-                                            ],
-                                            "type": "array",
-                                            "label": "file",
-                                            "editable": true
+                                            "name": "fld9EG29SEeU9fRy2",
+                                            "label": "SD Invoice Number",
+                                            "type": "text"
                                         },
                                         {
-                                            "mode": "edit",
-                                            "name": "fld2uXropjxed3nqt",
-                                            "type": "select",
+                                            "name": "fldxNBJ0RWZ2zeQo7",
+                                            "label": "SD Invoice",
+                                            "type": "array",
+                                            "editable": true,
+                                            "spec": [
+                                                {
+                                                    "name": "url",
+                                                    "label": "File URL",
+                                                    "type": "text",
+                                                    "help": "Airtable will download the file at the given url and keep its own copy of it."
+                                                },
+                                                {
+                                                    "name": "filename",
+                                                    "label": "File name",
+                                                    "type": "filename",
+                                                    "help": "If empty, Airtable will generate the name automatically."
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "fldCQ7lTQbALuXKQ3",
+                                            "label": "SD Invoice ID",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fldVt0hDwis6hcsbx",
                                             "label": "type",
+                                            "type": "select",
+                                            "mode": "edit",
                                             "dynamic": true,
+                                            "validate": false,
                                             "options": [
                                                 {
                                                     "label": "invoice",
@@ -2012,48 +2041,42 @@
                                                     "label": "storno",
                                                     "value": "storno"
                                                 }
-                                            ],
-                                            "validate": false
+                                            ]
                                         },
                                         {
-                                            "name": "fldKQbhAyLtVTG4eD",
-                                            "type": "text",
-                                            "label": "Invoices"
+                                            "name": "fld15F4am5NTFirKG",
+                                            "label": "Invoices",
+                                            "type": "array",
+                                            "spec": {
+                                                "label": "Record ID"
+                                            }
                                         }
                                     ],
                                     "type": "collection",
                                     "label": "Record"
                                 }
-                            ]
+                            ],
+                            "label": "SD Invoices"
                         },
                         "record": {
                             "nested": {
-                                "fld2uXropjxed3nqt": {
+                                "fldxNBJ0RWZ2zeQo7": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
+                                },
+                                "fldVt0hDwis6hcsbx": {
                                     "mode": "chose",
                                     "label": "storno"
                                 },
-                                "fldEOyTLKX4av5LD3": {
+                                "fld15F4am5NTFirKG": {
                                     "mode": "chose",
                                     "items": [
                                         null
                                     ]
                                 }
                             }
-                        },
-                        "typecast": {
-                            "mode": "chose"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -2092,38 +2115,52 @@
                     },
                     {
                         "name": "record",
+                        "type": "collection",
+                        "label": "Record",
                         "spec": [
                             {
-                                "name": "fldEOyTLKX4av5LD3",
+                                "name": "fld9EG29SEeU9fRy2",
+                                "type": "text",
+                                "label": "SD Invoice Number"
+                            },
+                            {
+                                "name": "fldxNBJ0RWZ2zeQo7",
+                                "type": "array",
+                                "label": "SD Invoice",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "file"
+                                ]
                             },
                             {
-                                "mode": "edit",
-                                "name": "fld2uXropjxed3nqt",
-                                "type": "select",
-                                "label": "type"
-                            },
-                            {
-                                "name": "fldKQbhAyLtVTG4eD",
+                                "name": "fldCQ7lTQbALuXKQ3",
                                 "type": "text",
-                                "label": "Invoices"
+                                "label": "SD Invoice ID"
+                            },
+                            {
+                                "name": "fldVt0hDwis6hcsbx",
+                                "type": "select",
+                                "label": "type",
+                                "mode": "edit"
+                            },
+                            {
+                                "name": "fld15F4am5NTFirKG",
+                                "type": "array",
+                                "label": "Invoices",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Record"
+                        ]
                     }
                 ],
                 "interface": [
@@ -2138,12 +2175,14 @@
                         "label": "Created Time"
                     },
                     {
-                        "name": "fldgFDcULFj256MNY",
-                        "type": "text",
-                        "label": "recID"
+                        "name": "fld9EG29SEeU9fRy2",
+                        "label": "SD Invoice Number",
+                        "type": "text"
                     },
                     {
-                        "name": "fldEOyTLKX4av5LD3",
+                        "name": "fldxNBJ0RWZ2zeQo7",
+                        "label": "SD Invoice",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -2167,14 +2206,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2191,12 +2234,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2213,12 +2256,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2235,37 +2278,39 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
+                        ]
+                    },
+                    {
+                        "name": "fldCQ7lTQbALuXKQ3",
+                        "label": "SD Invoice ID",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldVt0hDwis6hcsbx",
+                        "label": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldfjC70M3sNg30mI",
+                        "label": "Created",
+                        "type": "date"
+                    },
+                    {
+                        "name": "fldneZO7ZvunYMRvk",
+                        "label": "Created By",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld15F4am5NTFirKG",
+                        "label": "Invoices",
                         "type": "array",
-                        "label": "file"
-                    },
-                    {
-                        "name": "fld2uXropjxed3nqt",
-                        "type": "text",
-                        "label": "type"
-                    },
-                    {
-                        "name": "fldmkzhLF4xVcUVBE",
-                        "type": "date",
-                        "label": "Created"
-                    },
-                    {
-                        "name": "fldKQbhAyLtVTG4eD",
-                        "type": "text",
-                        "label": "Invoices"
-                    },
-                    {
-                        "name": "fldmVhH5N8rdiA9z3",
-                        "type": "array",
-                        "label": "Invoice ID (from Invoices)"
+                        "spec": {
+                            "label": "Record ID"
+                        }
                     }
                 ],
                 "advanced": true

@@ -1859,6 +1859,9 @@
                                 "fld1vvWjkw24nknEE": {
                                     "mode": "edit"
                                 },
+                                "fld5RxJEP7Wb6rTqQ": {
+                                    "mode": "chose"
+                                },
                                 "fldC6ozVO1ufD7sL1": {
                                     "mode": "edit"
                                 },
@@ -1892,6 +1895,9 @@
                                 "flddjyk5mp7CRZEMQ": {
                                     "mode": "chose"
                                 },
+                                "flddwHPD4A4sSiNn6": {
+                                    "mode": "chose"
+                                },
                                 "fldisdDXHlCn2vOZt": {
                                     "mode": "chose"
                                 },
@@ -1902,6 +1908,12 @@
                                     "mode": "chose"
                                 },
                                 "fldmno5O7ln1dIlxm": {
+                                    "mode": "chose"
+                                },
+                                "fldr9D8Ga0wfi940F": {
+                                    "mode": "chose"
+                                },
+                                "fldtWSNDpx1qV0pTh": {
                                     "mode": "chose"
                                 },
                                 "flduZb5WFZ2fVeRAX": {
@@ -2029,7 +2041,7 @@
                             },
                             {
                                 "name": "flda2x7PSWryzD0t9",
-                                "time": false,
+                                "time": true,
                                 "type": "date",
                                 "label": "Date created"
                             },
@@ -2224,16 +2236,6 @@
                                 "label": "SD invoice"
                             },
                             {
-                                "name": "fldZfCtK1SNVRsQfr",
-                                "type": "text",
-                                "label": "SD offer ID"
-                            },
-                            {
-                                "name": "fldyCy6KNpSdsjP61",
-                                "type": "text",
-                                "label": "SD invoice ID"
-                            },
-                            {
                                 "name": "fldjPIwm6LavAtnf1",
                                 "spec": [
                                     {
@@ -2254,6 +2256,70 @@
                                 "name": "fldez59YFbZVsSjsw",
                                 "type": "text",
                                 "label": "SD invoice number"
+                            },
+                            {
+                                "name": "fld5RxJEP7Wb6rTqQ",
+                                "spec": [
+                                    {
+                                        "name": "url",
+                                        "type": "text",
+                                        "label": "File URL"
+                                    },
+                                    {
+                                        "name": "filename",
+                                        "type": "filename",
+                                        "label": "File name"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "SD storno"
+                            },
+                            {
+                                "name": "fldquVWBGUZEQOu7f",
+                                "type": "text",
+                                "label": "SD storno number"
+                            },
+                            {
+                                "name": "fldr9D8Ga0wfi940F",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Offer request"
+                            },
+                            {
+                                "name": "fldZfCtK1SNVRsQfr",
+                                "type": "text",
+                                "label": "SD offer ID"
+                            },
+                            {
+                                "name": "fldyCy6KNpSdsjP61",
+                                "type": "text",
+                                "label": "SD invoice ID"
+                            },
+                            {
+                                "name": "fldnmxj6ZyjJ8S2F2",
+                                "type": "text",
+                                "label": "SD storno ID"
+                            },
+                            {
+                                "name": "flddwHPD4A4sSiNn6",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "SD Invoices"
+                            },
+                            {
+                                "name": "fldtWSNDpx1qV0pTh",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "SD Offers"
                             }
                         ],
                         "type": "collection",
@@ -2417,7 +2483,7 @@
                     },
                     {
                         "name": "flda2x7PSWryzD0t9",
-                        "time": false,
+                        "time": true,
                         "type": "date",
                         "label": "Date created"
                     },
@@ -2471,40 +2537,6 @@
                         "name": "fldzyaeaHqStZoORB",
                         "type": "number",
                         "label": "Net_after_stripe_fee"
-                    },
-                    {
-                        "name": "fld621Zxh46jVjMQS",
-                        "spec": [
-                            {
-                                "name": "label",
-                                "type": "text",
-                                "label": "Label"
-                            },
-                            {
-                                "name": "url",
-                                "type": "url",
-                                "label": "URL"
-                            }
-                        ],
-                        "type": "collection",
-                        "label": "Create invoice"
-                    },
-                    {
-                        "name": "fldJJtqiBHuBZXx30",
-                        "spec": [
-                            {
-                                "name": "label",
-                                "type": "text",
-                                "label": "Label"
-                            },
-                            {
-                                "name": "url",
-                                "type": "url",
-                                "label": "URL"
-                            }
-                        ],
-                        "type": "collection",
-                        "label": "Create Offer"
                     },
                     {
                         "name": "fldmno5O7ln1dIlxm",
@@ -2889,23 +2921,6 @@
                         "label": "Storno_Invoice"
                     },
                     {
-                        "name": "fld7x4doKVj35N4bo",
-                        "spec": [
-                            {
-                                "name": "label",
-                                "type": "text",
-                                "label": "Label"
-                            },
-                            {
-                                "name": "url",
-                                "type": "url",
-                                "label": "URL"
-                            }
-                        ],
-                        "type": "collection",
-                        "label": "Storno Invoice"
-                    },
-                    {
                         "name": "fldzzg1zEkMRPmhSn",
                         "type": "array",
                         "label": "Value"
@@ -3139,16 +3154,6 @@
                         "label": "SD invoice"
                     },
                     {
-                        "name": "fldZfCtK1SNVRsQfr",
-                        "type": "text",
-                        "label": "SD offer ID"
-                    },
-                    {
-                        "name": "fldyCy6KNpSdsjP61",
-                        "type": "text",
-                        "label": "SD invoice ID"
-                    },
-                    {
                         "name": "fldjPIwm6LavAtnf1",
                         "spec": [
                             {
@@ -3257,221 +3262,9 @@
                         "name": "fldez59YFbZVsSjsw",
                         "type": "text",
                         "label": "SD invoice number"
-                    }
-                ],
-                "advanced": true
-            }
-        },
-        {
-            "id": 95,
-            "module": "airtable:ActionCreateRecord",
-            "version": 3,
-            "parameters": {
-                "__IMTCONN__": 2456185
-            },
-            "mapper": {
-                "base": "appIW2NHG67L20Pxm",
-                "table": "tbl8ae04kDMBVj8Te",
-                "record": {
-                    "fld2uXropjxed3nqt": "invoice",
-                    "fldEOyTLKX4av5LD3": [
-                        {
-                            "url": "{{94.webContentLink}}",
-                            "filename": "{{94.name}}"
-                        }
-                    ]
-                },
-                "typecast": false,
-                "useColumnId": true
-            },
-            "metadata": {
-                "designer": {
-                    "x": 2100,
-                    "y": 0,
-                    "name": "add to 'sevDesk documents' (WILL BE DELETED)"
-                },
-                "restore": {
-                    "expect": {
-                        "base": {
-                            "label": "NetZero Academy"
-                        },
-                        "table": {
-                            "label": "sevDesk documents",
-                            "nested": [
-                                {
-                                    "name": "record",
-                                    "spec": [
-                                        {
-                                            "name": "fldEOyTLKX4av5LD3",
-                                            "spec": [
-                                                {
-                                                    "help": "Airtable will download the file at the given url and keep its own copy of it.",
-                                                    "name": "url",
-                                                    "type": "text",
-                                                    "label": "File URL"
-                                                },
-                                                {
-                                                    "help": "If empty, Airtable will generate the name automatically.",
-                                                    "name": "filename",
-                                                    "type": "filename",
-                                                    "label": "File name"
-                                                }
-                                            ],
-                                            "type": "array",
-                                            "label": "file",
-                                            "editable": true
-                                        },
-                                        {
-                                            "mode": "edit",
-                                            "name": "fld2uXropjxed3nqt",
-                                            "type": "select",
-                                            "label": "type",
-                                            "dynamic": true,
-                                            "options": [
-                                                {
-                                                    "label": "invoice",
-                                                    "value": "invoice"
-                                                },
-                                                {
-                                                    "label": "offer",
-                                                    "value": "offer"
-                                                },
-                                                {
-                                                    "label": "storno",
-                                                    "value": "storno"
-                                                }
-                                            ],
-                                            "validate": false
-                                        },
-                                        {
-                                            "name": "fldKQbhAyLtVTG4eD",
-                                            "type": "text",
-                                            "label": "Invoices"
-                                        }
-                                    ],
-                                    "type": "collection",
-                                    "label": "Record"
-                                }
-                            ]
-                        },
-                        "record": {
-                            "nested": {
-                                "fld2uXropjxed3nqt": {
-                                    "mode": "chose",
-                                    "label": "invoice"
-                                },
-                                "fldEOyTLKX4av5LD3": {
-                                    "mode": "chose",
-                                    "items": [
-                                        null
-                                    ]
-                                }
-                            }
-                        },
-                        "typecast": {
-                            "mode": "chose"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "__IMTCONN__",
-                        "type": "account:airtable3,airtable2",
-                        "label": "Connection",
-                        "required": true
-                    }
-                ],
-                "expect": [
-                    {
-                        "name": "base",
-                        "type": "select",
-                        "label": "Base",
-                        "required": true
                     },
                     {
-                        "name": "typecast",
-                        "type": "boolean",
-                        "label": "Smart links",
-                        "required": true
-                    },
-                    {
-                        "name": "useColumnId",
-                        "type": "boolean",
-                        "label": "Use Column ID",
-                        "required": true
-                    },
-                    {
-                        "name": "table",
-                        "type": "select",
-                        "label": "Table",
-                        "required": true
-                    },
-                    {
-                        "name": "record",
-                        "spec": [
-                            {
-                                "name": "fldEOyTLKX4av5LD3",
-                                "spec": [
-                                    {
-                                        "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
-                                    },
-                                    {
-                                        "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
-                                    }
-                                ],
-                                "type": "array",
-                                "label": "file"
-                            },
-                            {
-                                "mode": "edit",
-                                "name": "fld2uXropjxed3nqt",
-                                "type": "select",
-                                "label": "type"
-                            },
-                            {
-                                "name": "fldKQbhAyLtVTG4eD",
-                                "type": "text",
-                                "label": "Invoices"
-                            }
-                        ],
-                        "type": "collection",
-                        "label": "Record"
-                    }
-                ],
-                "interface": [
-                    {
-                        "name": "id",
-                        "type": "text",
-                        "label": "ID"
-                    },
-                    {
-                        "name": "createdTime",
-                        "type": "date",
-                        "label": "Created Time"
-                    },
-                    {
-                        "name": "fldgFDcULFj256MNY",
-                        "type": "text",
-                        "label": "recID"
-                    },
-                    {
-                        "name": "fldEOyTLKX4av5LD3",
+                        "name": "fld5RxJEP7Wb6rTqQ",
                         "spec": [
                             {
                                 "name": "id",
@@ -3573,27 +3366,610 @@
                             }
                         ],
                         "type": "array",
-                        "label": "file"
+                        "label": "SD storno"
                     },
                     {
-                        "name": "fld2uXropjxed3nqt",
+                        "name": "fldquVWBGUZEQOu7f",
+                        "type": "text",
+                        "label": "SD storno number"
+                    },
+                    {
+                        "name": "fldrGLcm4TgTe7yzH",
+                        "type": "array",
+                        "label": "Earliest Course start date"
+                    },
+                    {
+                        "name": "fldW7Nh967EQmeuk1",
+                        "type": "array",
+                        "label": "Latest Course end date"
+                    },
+                    {
+                        "name": "fldr9D8Ga0wfi940F",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Offer request"
+                    },
+                    {
+                        "name": "fld621Zxh46jVjMQS",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Create invoice"
+                    },
+                    {
+                        "name": "fldJJtqiBHuBZXx30",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Create Offer"
+                    },
+                    {
+                        "name": "fld7x4doKVj35N4bo",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Storno Invoice"
+                    },
+                    {
+                        "name": "fldZfCtK1SNVRsQfr",
+                        "type": "text",
+                        "label": "SD offer ID"
+                    },
+                    {
+                        "name": "fldyCy6KNpSdsjP61",
+                        "type": "text",
+                        "label": "SD invoice ID"
+                    },
+                    {
+                        "name": "fldnmxj6ZyjJ8S2F2",
+                        "type": "text",
+                        "label": "SD storno ID"
+                    },
+                    {
+                        "name": "fld5meb3zeLAQFsfn",
+                        "type": "text",
+                        "label": "New offer request"
+                    },
+                    {
+                        "name": "flddwHPD4A4sSiNn6",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "SD Invoices"
+                    },
+                    {
+                        "name": "fld8gnglK3Gz5OfCO",
+                        "type": "array",
+                        "label": "SD Invoice Number (from SD Invoices)"
+                    },
+                    {
+                        "name": "fldtWSNDpx1qV0pTh",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "SD Offers"
+                    },
+                    {
+                        "name": "fld2S2TmP4hJU37pk",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "SD Offer (from SD Offers)"
+                    },
+                    {
+                        "name": "fldWtc16rfFHJ5zSZ",
+                        "type": "array",
+                        "label": "Created (from SD Offers)"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 95,
+            "module": "airtable:ActionCreateRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "appIW2NHG67L20Pxm",
+                "table": "tbl19hQjrCHtZsdEi",
+                "record": {
+                    "fld15F4am5NTFirKG": "{{90.recID}}",
+                    "fld9EG29SEeU9fRy2": "{{99.invoiceNumber}}",
+                    "fldCQ7lTQbALuXKQ3": "{{99.id}}",
+                    "fldVt0hDwis6hcsbx": "invoice",
+                    "fldxNBJ0RWZ2zeQo7": [
+                        {
+                            "url": "{{94.webContentLink}}",
+                            "filename": "{{94.name}}"
+                        }
+                    ]
+                },
+                "typecast": false,
+                "useColumnId": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2100,
+                    "y": 0,
+                    "name": "Add to SD Invoices"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "NetZero Academy"
+                        },
+                        "table": {
+                            "label": "SD Invoices",
+                            "nested": [
+                                {
+                                    "name": "record",
+                                    "spec": [
+                                        {
+                                            "name": "fld9EG29SEeU9fRy2",
+                                            "type": "text",
+                                            "label": "SD Invoice Number"
+                                        },
+                                        {
+                                            "name": "fldxNBJ0RWZ2zeQo7",
+                                            "spec": [
+                                                {
+                                                    "help": "Airtable will download the file at the given url and keep its own copy of it.",
+                                                    "name": "url",
+                                                    "type": "text",
+                                                    "label": "File URL"
+                                                },
+                                                {
+                                                    "help": "If empty, Airtable will generate the name automatically.",
+                                                    "name": "filename",
+                                                    "type": "filename",
+                                                    "label": "File name"
+                                                }
+                                            ],
+                                            "type": "array",
+                                            "label": "SD Invoice",
+                                            "editable": true
+                                        },
+                                        {
+                                            "name": "fldCQ7lTQbALuXKQ3",
+                                            "type": "text",
+                                            "label": "SD Invoice ID"
+                                        },
+                                        {
+                                            "mode": "edit",
+                                            "name": "fldVt0hDwis6hcsbx",
+                                            "type": "select",
+                                            "label": "type",
+                                            "dynamic": true,
+                                            "options": [
+                                                {
+                                                    "label": "invoice",
+                                                    "value": "invoice"
+                                                },
+                                                {
+                                                    "label": "offer",
+                                                    "value": "offer"
+                                                },
+                                                {
+                                                    "label": "storno",
+                                                    "value": "storno"
+                                                }
+                                            ],
+                                            "validate": false
+                                        },
+                                        {
+                                            "name": "fld15F4am5NTFirKG",
+                                            "spec": {
+                                                "label": "Record ID"
+                                            },
+                                            "type": "array",
+                                            "label": "Invoices"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Record"
+                                }
+                            ]
+                        },
+                        "record": {
+                            "nested": {
+                                "fld15F4am5NTFirKG": {
+                                    "mode": "edit"
+                                },
+                                "fldVt0hDwis6hcsbx": {
+                                    "mode": "chose",
+                                    "label": "invoice"
+                                },
+                                "fldxNBJ0RWZ2zeQo7": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fld9EG29SEeU9fRy2",
+                                "type": "text",
+                                "label": "SD Invoice Number"
+                            },
+                            {
+                                "name": "fldxNBJ0RWZ2zeQo7",
+                                "spec": [
+                                    {
+                                        "name": "url",
+                                        "type": "text",
+                                        "label": "File URL"
+                                    },
+                                    {
+                                        "name": "filename",
+                                        "type": "filename",
+                                        "label": "File name"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "SD Invoice"
+                            },
+                            {
+                                "name": "fldCQ7lTQbALuXKQ3",
+                                "type": "text",
+                                "label": "SD Invoice ID"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldVt0hDwis6hcsbx",
+                                "type": "select",
+                                "label": "type"
+                            },
+                            {
+                                "name": "fld15F4am5NTFirKG",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Invoices"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "fld9EG29SEeU9fRy2",
+                        "type": "text",
+                        "label": "SD Invoice Number"
+                    },
+                    {
+                        "name": "fldxNBJ0RWZ2zeQo7",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "SD Invoice"
+                    },
+                    {
+                        "name": "fldCQ7lTQbALuXKQ3",
+                        "type": "text",
+                        "label": "SD Invoice ID"
+                    },
+                    {
+                        "name": "fldVt0hDwis6hcsbx",
                         "type": "text",
                         "label": "type"
                     },
                     {
-                        "name": "fldmkzhLF4xVcUVBE",
+                        "name": "fldfjC70M3sNg30mI",
                         "type": "date",
                         "label": "Created"
                     },
                     {
-                        "name": "fldKQbhAyLtVTG4eD",
+                        "name": "fldneZO7ZvunYMRvk",
                         "type": "text",
-                        "label": "Invoices"
+                        "label": "Created By"
                     },
                     {
-                        "name": "fldmVhH5N8rdiA9z3",
+                        "name": "fld15F4am5NTFirKG",
+                        "spec": {
+                            "label": "Record ID"
+                        },
                         "type": "array",
-                        "label": "Invoice ID (from Invoices)"
+                        "label": "Invoices"
                     }
                 ],
                 "advanced": true
