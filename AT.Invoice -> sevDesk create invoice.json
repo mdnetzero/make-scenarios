@@ -12,8 +12,8 @@
             "mapper": {},
             "metadata": {
                 "designer": {
-                    "x": -179,
-                    "y": -10
+                    "x": 0,
+                    "y": 0
                 },
                 "restore": {
                     "parameters": {
@@ -55,8 +55,8 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 64,
-                    "y": -6,
+                    "x": 300,
+                    "y": 0,
                     "name": "get Invoice record"
                 },
                 "restore": {
@@ -1266,7 +1266,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 300,
+                    "x": 600,
                     "y": 0,
                     "name": "Invoice/Factory/createInvoiceFromOrder"
                 },
@@ -1380,7 +1380,7 @@
             },
             "mapper": {
                 "url": "/api/v1/Invoice/Factory/saveInvoice",
-                "body": "{\n  \"invoice\": {\n    \"id\":{{92.body.objects.id}},\n    \"deliveryDate\": \"{{102.`Earliest Course start date`[1]}}\",\n    \"deliveryDateUntil\": \"{{102.`Latest Course end date`[1]}}\",\n    \"objectName\": \"Invoice\",\n    \"timeToPay\": 7,\n    \"mapAll\": true\n  }\n}",
+                "body": "{\n  \"invoice\": {\n    \"id\":{{92.body.objects.id}},\n    \"deliveryDate\": \"{{102.`Earliest Course start date`[1]}}\",\n    \"deliveryDateUntil\": \"{{102.`Latest Course end date`[1]}}\",\n    \"objectName\": \"Invoice\",\n    \"timeToPay\": 7,\n    \"mapAll\": true,\n  \"costCentre\": {\n    \"id\": \"223659\",     \n     \"objectName\": \"CostCentre\"  \n   }\n  }\n}",
                 "method": "POST",
                 "headers": [
                     {
@@ -1391,9 +1391,9 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 600,
+                    "x": 900,
                     "y": 0,
-                    "name": "add timeToPay"
+                    "name": "add timeToPay and CostCentre"
                 },
                 "restore": {
                     "expect": {
@@ -1508,7 +1508,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 900,
+                    "x": 1200,
                     "y": 0,
                     "name": "mark as sent and enshrine invoice"
                 },
@@ -1598,7 +1598,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 1200,
+                    "x": 1500,
                     "y": 0,
                     "name": "download invoice PDF"
                 },
@@ -1719,7 +1719,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 1500,
+                    "x": 1800,
                     "y": 0
                 },
                 "restore": {
@@ -1842,7 +1842,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 1800,
+                    "x": 2100,
                     "y": 0,
                     "name": "add to Invoices"
                 },
@@ -3624,7 +3624,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 2100,
+                    "x": 2400,
                     "y": 0,
                     "name": "Add to SD Invoices"
                 },
@@ -3991,7 +3991,7 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 2400,
+                    "x": 2700,
                     "y": 0
                 },
                 "restore": {
