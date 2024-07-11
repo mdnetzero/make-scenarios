@@ -1,0 +1,1513 @@
+{
+    "name": "Stripe payment link",
+    "flow": [
+        {
+            "id": 7,
+            "module": "stripe:watchEvents",
+            "version": 1,
+            "parameters": {
+                "__IMTHOOK__": 1388847
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTHOOK__": {
+                            "data": {
+                                "editable": "false"
+                            },
+                            "label": "Stripe payment links"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTHOOK__",
+                        "type": "hook:stripe2",
+                        "label": "Webhook",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "created",
+                        "type": "date",
+                        "label": "Created"
+                    },
+                    {
+                        "name": "event_type",
+                        "type": "text",
+                        "label": "Event Type"
+                    },
+                    {
+                        "name": "event_id",
+                        "type": "text",
+                        "label": "Event ID"
+                    },
+                    {
+                        "name": "object",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "Payment Link ID"
+                            },
+                            {
+                                "name": "object",
+                                "type": "text",
+                                "label": "Object"
+                            },
+                            {
+                                "name": "active",
+                                "type": "boolean",
+                                "label": "Active"
+                            },
+                            {
+                                "name": "after_completion",
+                                "spec": [
+                                    {
+                                        "name": "hosted_confirmation",
+                                        "spec": [
+                                            {
+                                                "name": "custom_message",
+                                                "type": "text",
+                                                "label": "Custom Message"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Hosted Confirmation"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "text",
+                                        "label": "Type"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "After Completion"
+                            },
+                            {
+                                "name": "allow_promotion_codes",
+                                "type": "boolean",
+                                "label": "Allow Promotion Codes"
+                            },
+                            {
+                                "name": "application_fee_amount",
+                                "type": "number",
+                                "label": "Application Fee Amount"
+                            },
+                            {
+                                "name": "application_fee_percent",
+                                "type": "number",
+                                "label": "Application Fee Percent"
+                            },
+                            {
+                                "name": "automatic_tax",
+                                "spec": [
+                                    {
+                                        "name": "enabled",
+                                        "type": "boolean",
+                                        "label": "Enabled"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Automatic Tax"
+                            },
+                            {
+                                "name": "billing_address_collection",
+                                "type": "text",
+                                "label": "Billing Address Collection"
+                            },
+                            {
+                                "name": "consent_collection",
+                                "spec": [
+                                    {
+                                        "name": "promotions",
+                                        "type": "text",
+                                        "label": "Promotions"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Consent Collection"
+                            },
+                            {
+                                "name": "currency",
+                                "type": "text",
+                                "label": "Currency"
+                            },
+                            {
+                                "name": "customer_creation",
+                                "type": "text",
+                                "label": "Customer Creation"
+                            },
+                            {
+                                "name": "livemode",
+                                "type": "boolean",
+                                "label": "Livemode"
+                            },
+                            {
+                                "name": "metadata",
+                                "spec": [],
+                                "type": "collection",
+                                "label": "Metadata"
+                            },
+                            {
+                                "name": "on_behalf_of",
+                                "type": "text",
+                                "label": "On Behalf Of"
+                            },
+                            {
+                                "name": "payment_intent_data",
+                                "spec": [
+                                    {
+                                        "name": "capture_method",
+                                        "type": "text",
+                                        "label": "Capture Method"
+                                    },
+                                    {
+                                        "name": "setup_future_usage",
+                                        "type": "text",
+                                        "label": "Setup Future Usage"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Payment Intent Data"
+                            },
+                            {
+                                "name": "payment_method_collection",
+                                "type": "text",
+                                "label": "Payment Method Collection"
+                            },
+                            {
+                                "name": "payment_method_types",
+                                "spec": {
+                                    "type": "text"
+                                },
+                                "type": "array",
+                                "label": "Payment Method Types"
+                            },
+                            {
+                                "name": "phone_number_collection",
+                                "spec": [
+                                    {
+                                        "name": "enabled",
+                                        "type": "boolean",
+                                        "label": "Enabled"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Phone Number Collection"
+                            },
+                            {
+                                "name": "shipping_address_collection",
+                                "spec": [
+                                    {
+                                        "name": "allowed_countries",
+                                        "spec": {
+                                            "type": "text"
+                                        },
+                                        "type": "array",
+                                        "label": "Allowed Countries"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Shipping Address Collection"
+                            },
+                            {
+                                "name": "shipping_options",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "shipping_amount",
+                                            "type": "number",
+                                            "label": "Shipping Amount"
+                                        },
+                                        {
+                                            "name": "shipping_rate",
+                                            "type": "text",
+                                            "label": "Shipping Rate"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Shipping Options"
+                            },
+                            {
+                                "name": "submit_type",
+                                "type": "text",
+                                "label": "Submit Type"
+                            },
+                            {
+                                "name": "subscription_data",
+                                "spec": [
+                                    {
+                                        "name": "trial_period_days",
+                                        "type": "uinteger",
+                                        "label": "Trial Period Days"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Subscription Data"
+                            },
+                            {
+                                "name": "tax_id_collection",
+                                "spec": [
+                                    {
+                                        "name": "enabled",
+                                        "type": "boolean",
+                                        "label": "Enabled"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Tax ID Collection"
+                            },
+                            {
+                                "name": "transfer_data",
+                                "spec": [
+                                    {
+                                        "name": "destination",
+                                        "type": "text",
+                                        "label": "Destination"
+                                    },
+                                    {
+                                        "name": "amount",
+                                        "type": "number",
+                                        "label": "Amount"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Transfer Data"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Object"
+                    },
+                    {
+                        "name": "raw",
+                        "spec": [],
+                        "type": "collection",
+                        "label": "Raw Webhook Data"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "json:TransformToJSON",
+            "version": 1,
+            "parameters": {
+                "space": "4"
+            },
+            "mapper": {
+                "object": "{{7.object.custom_fields}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "Custom Fields to JSON"
+                },
+                "restore": {
+                    "parameters": {
+                        "space": {
+                            "label": "4 spaces"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "space",
+                        "type": "select",
+                        "label": "Indentation",
+                        "validate": {
+                            "enum": [
+                                "tab",
+                                "2",
+                                "4"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "object",
+                        "type": "any",
+                        "label": "Object"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 9,
+            "module": "stripe:makeAnApiCall",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 2565522
+            },
+            "mapper": {
+                "qs": [],
+                "url": "/v1/payment_links/{{7.object.id}}/line_items",
+                "body": "",
+                "method": "GET",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "Get line_items"
+                },
+                "restore": {
+                    "expect": {
+                        "method": {
+                            "label": "GET"
+                        },
+                        "headers": {
+                            "items": [
+                                null
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "stripe"
+                            },
+                            "label": "MD Stripe live connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:stripe,stripe2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "app4R2qm7WvWIFspd",
+                "view": "viw7HUBiVNpYGXfNk",
+                "table": "tblloVojSHYAlzGW0",
+                "fields": [
+                    "Name-ID"
+                ],
+                "formula": "{ID} = \"{{7.object.id}}\"",
+                "maxRecords": "10",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy Courses"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose",
+                            "label": "Grid view"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Stripe payment links"
+                        },
+                        "fields": {
+                            "mode": "chose",
+                            "label": [
+                                "Name-ID"
+                            ]
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "dynamic": true,
+                                "options": []
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sort"
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Name-ID",
+                        "type": "text",
+                        "label": "Name-ID"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "airtable:upsertRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "app4R2qm7WvWIFspd",
+                "table": "tblloVojSHYAlzGW0",
+                "record": {
+                    "fld0ErWffcweckBx4": "{{7.object.active}}",
+                    "fld1ZII1jAdZwRv3o": "{{6.json}}",
+                    "fld1m0VaoPyUxyTrJ": "{{7.object.tax_id_collection.enabled}}",
+                    "fld2LXUN48dcrd2nN": "{{7.object.after_completion.type}}",
+                    "fld5cmAX5LfDe43mB": "{{9.body.data[].price.unit_amount}}",
+                    "fldQYyJyBZCN0QiyD": "{{9.body.data[].price.product}}",
+                    "fldQbAbv2Y7smsloM": "{{9.body.data[].price.id}}",
+                    "fldW8v422KL0gf89S": "{{7.object.allow_promotion_codes}}",
+                    "fldc0IGosKVDZB8nL": "{{7.object.url}}",
+                    "fldhkivyVwtxTRrK2": "{{7.object.id}}",
+                    "fldizhdhXrysAYOtE": "{{7.object.automatic_tax.enabled}}"
+                },
+                "recordId": "{{2.id}}",
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "NetZero Academy Courses"
+                        },
+                        "table": {
+                            "label": "Stripe payment links"
+                        },
+                        "record": {
+                            "nested": {
+                                "fld0ErWffcweckBx4": {
+                                    "mode": "edit"
+                                },
+                                "fld1m0VaoPyUxyTrJ": {
+                                    "mode": "edit"
+                                },
+                                "fldRXuJBQBHbtMCxK": {
+                                    "mode": "chose"
+                                },
+                                "fldW8v422KL0gf89S": {
+                                    "mode": "edit"
+                                },
+                                "fldo7ZeAuvN4k35EB": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "recordId",
+                        "type": "text",
+                        "label": "Record ID"
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fld0ErWffcweckBx4",
+                                "type": "boolean",
+                                "label": "Active"
+                            },
+                            {
+                                "name": "fldQYyJyBZCN0QiyD",
+                                "type": "text",
+                                "label": "Product ID"
+                            },
+                            {
+                                "name": "fldo7ZeAuvN4k35EB",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Stripe products"
+                            },
+                            {
+                                "name": "fldW8v422KL0gf89S",
+                                "type": "boolean",
+                                "label": "Allow promotion codes"
+                            },
+                            {
+                                "name": "fld1m0VaoPyUxyTrJ",
+                                "type": "boolean",
+                                "label": "Tax ID collection"
+                            },
+                            {
+                                "name": "fld2LXUN48dcrd2nN",
+                                "type": "text",
+                                "label": "After completion"
+                            },
+                            {
+                                "name": "fld1ZII1jAdZwRv3o",
+                                "type": "text",
+                                "label": "Custom fields"
+                            },
+                            {
+                                "name": "fldQbAbv2Y7smsloM",
+                                "type": "text",
+                                "label": "Price ID"
+                            },
+                            {
+                                "name": "fldizhdhXrysAYOtE",
+                                "type": "text",
+                                "label": "Tax behaviour"
+                            },
+                            {
+                                "name": "fldc0IGosKVDZB8nL",
+                                "type": "text",
+                                "label": "Url"
+                            },
+                            {
+                                "name": "fld5cmAX5LfDe43mB",
+                                "type": "number",
+                                "label": "Unit amount"
+                            },
+                            {
+                                "name": "fldRXuJBQBHbtMCxK",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Courses"
+                            },
+                            {
+                                "name": "fldhkivyVwtxTRrK2",
+                                "type": "text",
+                                "label": "ID"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Name-ID",
+                        "type": "text",
+                        "label": "Name-ID"
+                    },
+                    {
+                        "name": "Active",
+                        "type": "boolean",
+                        "label": "Active"
+                    },
+                    {
+                        "name": "Product ID",
+                        "type": "text",
+                        "label": "Product ID"
+                    },
+                    {
+                        "name": "Stripe products",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Stripe products"
+                    },
+                    {
+                        "name": "Name (from Stripe products)",
+                        "type": "array",
+                        "label": "Name (from Stripe products)"
+                    },
+                    {
+                        "name": "Description (from Stripe products)",
+                        "type": "array",
+                        "label": "Description (from Stripe products)"
+                    },
+                    {
+                        "name": "Allow promotion codes",
+                        "type": "boolean",
+                        "label": "Allow promotion codes"
+                    },
+                    {
+                        "name": "Tax ID collection",
+                        "type": "boolean",
+                        "label": "Tax ID collection"
+                    },
+                    {
+                        "name": "After completion",
+                        "type": "text",
+                        "label": "After completion"
+                    },
+                    {
+                        "name": "Custom fields",
+                        "type": "text",
+                        "label": "Custom fields"
+                    },
+                    {
+                        "name": "Price ID",
+                        "type": "text",
+                        "label": "Price ID"
+                    },
+                    {
+                        "name": "Price",
+                        "type": "text",
+                        "label": "Price"
+                    },
+                    {
+                        "name": "Tax behaviour",
+                        "type": "text",
+                        "label": "Tax behaviour"
+                    },
+                    {
+                        "name": "Url",
+                        "type": "text",
+                        "label": "Url"
+                    },
+                    {
+                        "name": "Unit amount",
+                        "type": "number",
+                        "label": "Unit amount"
+                    },
+                    {
+                        "name": "Courses",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Courses"
+                    },
+                    {
+                        "name": "ID",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "Created",
+                        "type": "date",
+                        "label": "Created"
+                    },
+                    {
+                        "name": "Last Modified",
+                        "type": "date",
+                        "label": "Last Modified"
+                    },
+                    {
+                        "name": "recordID",
+                        "type": "text",
+                        "label": "recordID"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "module": "discord:createMessage",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 2470463
+            },
+            "mapper": {
+                "select": "channel",
+                "content": "STRIPE: payment link updated:{{4.`Name (from Stripe products)`[]}}",
+                "channelId": "1212429146635116574",
+                "message_reference": {}
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "tts": {
+                            "mode": "chose"
+                        },
+                        "files": {
+                            "mode": "chose"
+                        },
+                        "embeds": {
+                            "mode": "chose"
+                        },
+                        "select": {
+                            "label": "Send a Message to a Channel"
+                        },
+                        "channelId": {
+                            "mode": "chose",
+                            "label": "automations"
+                        },
+                        "components": {
+                            "mode": "chose"
+                        },
+                        "sticker_ids": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "discord"
+                            },
+                            "label": "My Discord connection (Integromat (integromat))"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:discord",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Choose a Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "channel",
+                                "thread",
+                                "user"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Message"
+                    },
+                    {
+                        "name": "tts",
+                        "type": "boolean",
+                        "label": "Is TTS message"
+                    },
+                    {
+                        "name": "embeds",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Title"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "Description"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "timestamp",
+                                "type": "date",
+                                "label": "Timestamp"
+                            },
+                            {
+                                "name": "color",
+                                "type": "uinteger",
+                                "label": "Color"
+                            },
+                            {
+                                "name": "footer",
+                                "spec": [
+                                    {
+                                        "name": "text",
+                                        "type": "text",
+                                        "label": "Text"
+                                    },
+                                    {
+                                        "name": "icon_url",
+                                        "type": "url",
+                                        "label": "Icon URL"
+                                    },
+                                    {
+                                        "name": "proxy_icon_url",
+                                        "type": "url",
+                                        "label": "Proxy Icon URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Footer"
+                            },
+                            {
+                                "name": "image",
+                                "spec": [
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "proxy_url",
+                                        "type": "url",
+                                        "label": "Proxy URL"
+                                    },
+                                    {
+                                        "name": "height",
+                                        "type": "uinteger",
+                                        "label": "Height"
+                                    },
+                                    {
+                                        "name": "width",
+                                        "type": "uinteger",
+                                        "label": "Width"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Image"
+                            },
+                            {
+                                "name": "thumbnail",
+                                "spec": [
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "proxy_url",
+                                        "type": "url",
+                                        "label": "Proxy URL"
+                                    },
+                                    {
+                                        "name": "height",
+                                        "type": "uinteger",
+                                        "label": "Height"
+                                    },
+                                    {
+                                        "name": "width",
+                                        "type": "uinteger",
+                                        "label": "Width"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnail"
+                            },
+                            {
+                                "name": "video",
+                                "spec": [
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "height",
+                                        "type": "uinteger",
+                                        "label": "Height"
+                                    },
+                                    {
+                                        "name": "width",
+                                        "type": "uinteger",
+                                        "label": "Width"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Video"
+                            },
+                            {
+                                "name": "provider",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Provider"
+                            },
+                            {
+                                "name": "author",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "icon_url",
+                                        "type": "url",
+                                        "label": "Icon URL"
+                                    },
+                                    {
+                                        "name": "proxy_icon_url",
+                                        "type": "url",
+                                        "label": "Proxy Icon URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Author"
+                            },
+                            {
+                                "name": "fields",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    },
+                                    {
+                                        "name": "inline",
+                                        "type": "boolean",
+                                        "label": "Inline Flag"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Fields"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Embeds"
+                    },
+                    {
+                        "name": "sticker_ids",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "Sticker ID",
+                                "required": true
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Stickers"
+                    },
+                    {
+                        "name": "components",
+                        "spec": [
+                            {
+                                "name": "type",
+                                "type": "select",
+                                "label": "Component Type",
+                                "options": [
+                                    {
+                                        "label": "A New Row",
+                                        "value": 1,
+                                        "nested": [
+                                            {
+                                                "name": "components",
+                                                "spec": [
+                                                    {
+                                                        "name": "type",
+                                                        "type": "select",
+                                                        "label": "Row Component Type",
+                                                        "options": [
+                                                            {
+                                                                "label": "Button",
+                                                                "value": 2,
+                                                                "nested": [
+                                                                    {
+                                                                        "name": "style",
+                                                                        "type": "select",
+                                                                        "label": "Style",
+                                                                        "options": [
+                                                                            {
+                                                                                "label": "Primary (blurple)",
+                                                                                "value": 1,
+                                                                                "nested": [
+                                                                                    {
+                                                                                        "help": "A developer-defined identifier for the button, max 100 characters.",
+                                                                                        "name": "custom_id",
+                                                                                        "type": "text",
+                                                                                        "label": "Custom ID",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "label": "Secondary (grey)",
+                                                                                "value": 2,
+                                                                                "nested": [
+                                                                                    {
+                                                                                        "help": "A developer-defined identifier for the button, max 100 characters.",
+                                                                                        "name": "custom_id",
+                                                                                        "type": "text",
+                                                                                        "label": "Custom ID",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "label": "Success (green)",
+                                                                                "value": 3,
+                                                                                "nested": [
+                                                                                    {
+                                                                                        "help": "A developer-defined identifier for the button, max 100 characters.",
+                                                                                        "name": "custom_id",
+                                                                                        "type": "text",
+                                                                                        "label": "Custom ID",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "label": "Danger (red)",
+                                                                                "value": 4,
+                                                                                "nested": [
+                                                                                    {
+                                                                                        "help": "A developer-defined identifier for the button, max 100 characters.",
+                                                                                        "name": "custom_id",
+                                                                                        "type": "text",
+                                                                                        "label": "Custom ID",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "label": "Link (grey)",
+                                                                                "value": 5,
+                                                                                "nested": [
+                                                                                    {
+                                                                                        "help": "A URL for link-style buttons.",
+                                                                                        "name": "url",
+                                                                                        "type": "url",
+                                                                                        "label": "URL",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ],
+                                                                        "required": true
+                                                                    },
+                                                                    {
+                                                                        "help": "Text that appears on the button, max 80 characters.",
+                                                                        "name": "label",
+                                                                        "type": "text",
+                                                                        "label": "Label"
+                                                                    },
+                                                                    {
+                                                                        "name": "disabled",
+                                                                        "type": "boolean",
+                                                                        "label": "Disabled"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "label": "Select Menu",
+                                                                "value": 3,
+                                                                "nested": [
+                                                                    {
+                                                                        "help": "A developer-defined identifier for the button, max 100 characters.",
+                                                                        "name": "custom_id",
+                                                                        "type": "text",
+                                                                        "label": "Custom ID",
+                                                                        "required": true
+                                                                    },
+                                                                    {
+                                                                        "name": "options",
+                                                                        "spec": [
+                                                                            {
+                                                                                "help": "The user-facing name of the option, max 100 characters.",
+                                                                                "name": "label",
+                                                                                "type": "text",
+                                                                                "label": "Label",
+                                                                                "required": true
+                                                                            },
+                                                                            {
+                                                                                "help": "The dev-defined value of the option, max 100 characters.",
+                                                                                "name": "value",
+                                                                                "type": "text",
+                                                                                "label": "Value",
+                                                                                "required": true
+                                                                            },
+                                                                            {
+                                                                                "help": "An additional description of the option, max 100 characters.",
+                                                                                "name": "description",
+                                                                                "type": "text",
+                                                                                "label": "Description"
+                                                                            },
+                                                                            {
+                                                                                "name": "default",
+                                                                                "type": "boolean",
+                                                                                "label": "Default"
+                                                                            }
+                                                                        ],
+                                                                        "type": "array",
+                                                                        "label": "Options",
+                                                                        "required": true,
+                                                                        "validate": {
+                                                                            "maxItems": 25
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "help": "Custom placeholder text if nothing is selected, max 150 characters.",
+                                                                        "name": "placeholder",
+                                                                        "type": "text",
+                                                                        "label": "Placeholder"
+                                                                    },
+                                                                    {
+                                                                        "help": "The minimum number of items that must be chosen; default 1, min 0, max 2.",
+                                                                        "name": "min_values",
+                                                                        "type": "uinteger",
+                                                                        "label": "Minimum values"
+                                                                    },
+                                                                    {
+                                                                        "help": "The maximum number of items that must be chosen; default 1, max 25.",
+                                                                        "name": "max_values",
+                                                                        "type": "uinteger",
+                                                                        "label": "Maximum values"
+                                                                    },
+                                                                    {
+                                                                        "name": "disabled",
+                                                                        "type": "boolean",
+                                                                        "label": "Disabled"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Row Components",
+                                                "required": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "required": true
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Components"
+                    },
+                    {
+                        "name": "files",
+                        "spec": [
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File Name",
+                                "required": true,
+                                "semantic": "file:name"
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Data",
+                                "required": true,
+                                "semantic": "file:data"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Files"
+                    },
+                    {
+                        "name": "message_reference",
+                        "spec": [
+                            {
+                                "name": "message_id",
+                                "type": "text",
+                                "label": "Message ID"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Message Reference"
+                    },
+                    {
+                        "name": "channelId",
+                        "type": "select",
+                        "label": "Channel ID",
+                        "required": true
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}
