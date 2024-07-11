@@ -7,14 +7,13 @@
             "version": 3,
             "parameters": {
                 "base": "appIW2NHG67L20Pxm",
-                "view": "",
                 "table": "tblrxVQzWpoKXDhnV",
                 "config": {
                     "labelField": "transactionUid",
                     "triggerField": "Created"
                 },
                 "formula": "{AT status}=\"new\"",
-                "maxRecords": 200,
+                "maxRecords": 1,
                 "__IMTCONN__": 2456185,
                 "useColumnId": false
             },
@@ -28,9 +27,6 @@
                     "parameters": {
                         "base": {
                             "label": "NetZero Academy"
-                        },
-                        "view": {
-                            "label": "Empty"
                         },
                         "table": {
                             "label": "getmyinvoice Banking"
@@ -205,6 +201,67 @@
                         "name": "Created By",
                         "type": "text",
                         "label": "Created By"
+                    },
+                    {
+                        "name": "SDCustomerNumber",
+                        "type": "text",
+                        "label": "SDCustomerNumber"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "module": "util:SetVariable2",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "name": "sdCustomerNumberOrInvoiceNumber",
+                "scope": "roundtrip",
+                "value": "{{if(1.SDCustomerNumber; 1.SDCustomerNumber; 1.`Invoice number`)}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 450
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Variable name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "label": "Variable value"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "sdCustomerNumberOrInvoiceNumber",
+                        "type": "any",
+                        "label": "sdCustomerNumberOrInvoiceNumber"
                     }
                 ]
             }
@@ -215,17 +272,22 @@
             "version": 1,
             "parameters": {},
             "mapper": {
-                "array": "{{1.`Invoice number`}}"
+                "array": [
+                    "{{14.sdCustomerNumberOrInvoiceNumber}}"
+                ]
             },
             "metadata": {
                 "designer": {
-                    "x": 300,
+                    "x": 600,
                     "y": 450
                 },
                 "restore": {
                     "expect": {
                         "array": {
-                            "mode": "edit"
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
                         }
                     }
                 },
@@ -249,26 +311,42 @@
             },
             "mapper": {
                 "base": "appIW2NHG67L20Pxm",
+                "useColumnId": false,
                 "table": "tblBD9y2t07Ry7tni",
+                "formula": "OR({Invoice ID}=\"{{2.value}}\",\n   {SD invoice number}=\"{{2.value}}\", \n   AND({Contact SDCustomerNumber}=\"{{2.value}}\",\n       OR(\n          offer_Invoice_status = \"Offer sent\",\n          offer_Invoice_status = \"Payment reminder sent\",\n          offer_Invoice_status = \"Payment received\",\n          offer_Invoice_status = \"Stripe payment - no invoice\",\n          offer_Invoice_status = \"First Payment done\",\n          offer_Invoice_status = \"Storno\",\n          offer_Invoice_status = \"Fristverlängerung\",\n          offer_Invoice_status = \"Manual check required\",\n          offer_Invoice_status = \"Payment received - create invoice/check\",\n          offer_Invoice_status = \"work in progress\"\n         ),\n         DATETIME_DIFF(\"{{1.bookingDate}}\", {Date created}, \"days\") > 0\n     )\n)",
+                "maxRecords": "1",
                 "fields": [
                     "Invoice ID",
                     "Grand_total"
-                ],
-                "formula": "{Invoice ID}=\"{{2.value}}\"",
-                "maxRecords": "1",
-                "useColumnId": false
+                ]
             },
             "metadata": {
                 "designer": {
-                    "x": 600,
+                    "x": 900,
                     "y": 450,
                     "name": "Search matching invoice"
                 },
                 "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
                     "expect": {
                         "base": {
                             "mode": "chose",
                             "label": "NetZero Academy"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Invoices"
                         },
                         "sort": {
                             "mode": "chose"
@@ -276,28 +354,12 @@
                         "view": {
                             "mode": "chose"
                         },
-                        "table": {
-                            "mode": "chose",
-                            "label": "Invoices"
-                        },
                         "fields": {
                             "mode": "chose",
                             "label": [
                                 "Invoice ID",
                                 "Grand_total"
                             ]
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -340,13 +402,15 @@
                     },
                     {
                         "name": "sort",
+                        "type": "array",
+                        "label": "Sort",
                         "spec": [
                             {
                                 "name": "field",
                                 "type": "select",
                                 "label": "Field",
-                                "dynamic": true,
-                                "options": []
+                                "options": [],
+                                "dynamic": true
                             },
                             {
                                 "name": "direction",
@@ -363,9 +427,7 @@
                                     }
                                 ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Sort"
+                        ]
                     },
                     {
                         "name": "view",
@@ -381,16 +443,6 @@
                 ],
                 "interface": [
                     {
-                        "name": "__IMTLENGTH__",
-                        "type": "uinteger",
-                        "label": "Total number of bundles"
-                    },
-                    {
-                        "name": "__IMTINDEX__",
-                        "type": "uinteger",
-                        "label": "Bundle order position"
-                    },
-                    {
                         "name": "id",
                         "type": "text",
                         "label": "ID"
@@ -402,13 +454,13 @@
                     },
                     {
                         "name": "Invoice ID",
-                        "type": "text",
-                        "label": "Invoice ID"
+                        "label": "Invoice ID",
+                        "type": "text"
                     },
                     {
                         "name": "Grand_total",
-                        "type": "text",
-                        "label": "Grand_total"
+                        "label": "Grand_total",
+                        "type": "text"
                     }
                 ]
             }
@@ -423,7 +475,7 @@
             "mapper": null,
             "metadata": {
                 "designer": {
-                    "x": 900,
+                    "x": 1200,
                     "y": 450
                 }
             },
@@ -465,7 +517,7 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 1200,
+                                    "x": 1500,
                                     "y": 150,
                                     "name": "Invoice: bookdate+status(Paym received + Create I)"
                                 },
@@ -2048,7 +2100,7 @@
                                     },
                                     "metadata": {
                                         "designer": {
-                                            "x": 1500,
+                                            "x": 1800,
                                             "y": 300,
                                             "name": "banking record: status 'ERROR'"
                                         },
@@ -2303,7 +2355,7 @@
                                     },
                                     "metadata": {
                                         "designer": {
-                                            "x": 1800,
+                                            "x": 2100,
                                             "y": 300
                                         },
                                         "restore": {
@@ -2849,7 +2901,7 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 1500,
+                                    "x": 1800,
                                     "y": 0,
                                     "name": "banking record: status 'processed'"
                                 },
@@ -3120,7 +3172,7 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 1200,
+                                    "x": 1500,
                                     "y": 750,
                                     "name": "Invoice book. date + state (Manual check required)"
                                 },
@@ -4318,7 +4370,7 @@
                                     },
                                     "metadata": {
                                         "designer": {
-                                            "x": 1500,
+                                            "x": 1800,
                                             "y": 900,
                                             "name": "banking record: status 'ERROR'"
                                         },
@@ -4573,7 +4625,7 @@
                                     },
                                     "metadata": {
                                         "designer": {
-                                            "x": 1800,
+                                            "x": 2100,
                                             "y": 900
                                         },
                                         "restore": {
@@ -5119,7 +5171,7 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 1500,
+                                    "x": 1800,
                                     "y": 600,
                                     "name": "banking record: status 'processed'"
                                 },
