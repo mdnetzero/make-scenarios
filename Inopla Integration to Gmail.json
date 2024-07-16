@@ -19,8 +19,8 @@
             "mapper": {},
             "metadata": {
                 "designer": {
-                    "x": -501,
-                    "y": -11
+                    "x": 0,
+                    "y": 0
                 },
                 "restore": {
                     "parameters": {
@@ -129,8 +129,8 @@
             },
             "metadata": {
                 "designer": {
-                    "x": -195,
-                    "y": -4
+                    "x": 300,
+                    "y": 0
                 },
                 "restore": {},
                 "parameters": [
@@ -207,8 +207,8 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 125,
-                    "y": -8,
+                    "x": 600,
+                    "y": 0,
                     "name": "Search if Contact exists"
                 },
                 "restore": {
@@ -395,8 +395,8 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 538,
-                    "y": -9,
+                    "x": 900,
+                    "y": 0,
                     "name": "Create new Contact"
                 },
                 "restore": {
@@ -4628,6 +4628,138 @@
             }
         },
         {
+            "id": 8,
+            "module": "google-email:ActionSetFlagSeen",
+            "version": 2,
+            "parameters": {
+                "account": 2698556
+            },
+            "mapper": {
+                "id": "{{1.id}}",
+                "folder": "Inopla"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "folder": {
+                            "mode": "chose",
+                            "path": [
+                                "Inopla"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "account": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-restricted"
+                            },
+                            "label": "GMail NZ Service Account (service@netzeroacademy.de)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "account",
+                        "type": "account:google-restricted",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "folder",
+                        "type": "folder",
+                        "label": "Folder",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "number",
+                        "label": "Email ID (UID)",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "module": "google-email:ActionMoveEmail",
+            "version": 2,
+            "parameters": {
+                "account": 2698556
+            },
+            "mapper": {
+                "folder": "Inopla",
+                "destinationFolder": "[Gmail]/Trash",
+                "id": "{{1.id}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0,
+                    "name": "Move to Trash"
+                },
+                "restore": {
+                    "parameters": {
+                        "account": {
+                            "label": "GMail NZ Service Account (service@netzeroacademy.de)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-restricted"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "folder": {
+                            "mode": "chose",
+                            "path": [
+                                "Inopla"
+                            ]
+                        },
+                        "destinationFolder": {
+                            "mode": "chose",
+                            "path": [
+                                "Trash"
+                            ]
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "account",
+                        "type": "account:google-restricted",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "folder",
+                        "type": "folder",
+                        "label": "Folder",
+                        "required": true
+                    },
+                    {
+                        "name": "destinationFolder",
+                        "type": "folder",
+                        "label": "Destination folder",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "number",
+                        "label": "Email ID (UID)",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
             "id": 7,
             "module": "discord:createMessage",
             "version": 2,
@@ -4642,8 +4774,8 @@
             },
             "metadata": {
                 "designer": {
-                    "x": 896,
-                    "y": -17
+                    "x": 1800,
+                    "y": 0
                 },
                 "restore": {
                     "expect": {
