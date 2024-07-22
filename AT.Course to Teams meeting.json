@@ -1,0 +1,2333 @@
+{
+    "name": "AT.Course to Teams meeting",
+    "flow": [
+        {
+            "id": 6,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "variables": [
+                    {
+                        "name": "courseRecID",
+                        "value": "rece6VbFjPqsVXIU1"
+                    },
+                    {
+                        "name": "data-uri",
+                        "value": "data:text/html,%3cdiv+style%3d%22max-width%3a+520px%3b+color%3a+%23242424%3b+font-family%3a%27Segoe+UI%27%2c%27Helvetica+Neue%27%2cHelvetica%2cArial%2csans-serif%22+class%3d%22me-email-text%22%3e%0d%0a++%3cdiv+style%3d%22margin-bottom%3a24px%3boverflow%3ahidden%3bwhite-space%3anowrap%3b%22%3e________________________________________________________________________________%3c%2fdiv%3e%0d%0a%0d%0a++%3cdiv+style%3d%22margin-bottom%3a+12px%3b%22%3e%0d%0a++++%3cspan+class%3d%22me-email-text%22+style%3d%22font-size%3a+24px%3bfont-weight%3a+700%3b+margin-right%3a12px%3b%22%3eMicrosoft+Teams%3c%2fspan%3e%0d%0a++++%3ca+id%3d%22meet_invite_block.action.help%22+class%3d%22me-email-link%22+style%3d%22font-size%3a14px%3b+text-decoration%3aunderline%3b+color%3a+%235B5FC7%3b%22+href%3d%22https%3a%2f%2faka.ms%2fJoinTeamsMeeting%3fomkt%3den-US%22%3eNeed+help%3f%3c%2fa%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a++%3cdiv+style%3d%22margin-bottom%3a+6px%3b%22%3e%0d%0a++++%3ca+id%3d%22meet_invite_block.action.join_link%22+title%3d%22Meeting+join+link%22+class%3d%22me-email-headline%22+style%3d%22font-size%3a+20px%3b+font-weight%3a600%3b+text-decoration%3a+underline%3b+color%3a+%235B5FC7%3b%22+href%3d%22https%3a%2f%2fteams.microsoft.com%2fl%2fmeetup-join%2f19%253ameeting_NDg1MjhkMGUtYjc2ZC00NWMwLTg1MGUtNjkzZjMyYzI5NTNj%2540thread.v2%2f0%3fcontext%3d%257b%2522Tid%2522%253a%2522fb961057-cc71-4c95-87e6-45c287a737b3%2522%252c%2522Oid%2522%253a%252253c65544-8faa-481a-838f-c2403bdd4732%2522%257d%22+target%3d%22_blank%22+rel%3d%22noreferrer+noopener%22%3eJoin+the+meeting+now%3c%2fa%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a++%3cdiv+style%3d%22margin-bottom%3a+6px%3b%22%3e%0d%0a++++%3cspan+class%3d%22me-email-text-secondary%22+style%3d%22font-size%3a+14px%3b+color%3a+%23616161%3b%22%3eMeeting+ID%3a+%3c%2fspan%3e%0d%0a++++%3cspan+class%3d%22me-email-text%22+style%3d%22font-size%3a+14px%3b+color%3a+%23242424%3b%22%3e379+151+758+171%3c%2fspan%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a%0d%0a%0d%0a++%3cdiv+style%3d%22margin-bottom%3a+24px%3b+max-width%3a+532px%3b%22%3e%0d%0a++++%3chr+style%3d%22border%3a+0%3b+background%3a+%23D1D1D1%3b+height%3a+1px%3b%22%3e%3c%2fhr%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a%0d%0a%0d%0a%0d%0a%0d%0a++%3cdiv%3e%0d%0a++++%3cspan+class%3d%22me-email-text-secondary%22+style%3d%22font-size%3a+14px%3b+color%3a+%23616161%3b%22%3eFor+organizers%3a+%3c%2fspan%3e%0d%0a++++%3ca+id%3d%22meet_invite_block.action.organizer_meet_options%22+class%3d%22me-email-link%22+style%3d%22font-size%3a+14px%3b+text-decoration%3a+underline%3b+color%3a+%235B5FC7%3b%22+target%3d%22_blank%22+href%3d%22https%3a%2f%2fteams.microsoft.com%2fmeetingOptions%2f%3forganizerId%3d53c65544-8faa-481a-838f-c2403bdd4732%26tenantId%3dfb961057-cc71-4c95-87e6-45c287a737b3%26threadId%3d19_meeting_NDg1MjhkMGUtYjc2ZC00NWMwLTg1MGUtNjkzZjMyYzI5NTNj%40thread.v2%26messageId%3d0%26language%3den-US%22+rel%3d%22noreferrer+noopener%22%3eMeeting+options%3c%2fa%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a++%3cdiv+style%3d%22margin-top%3a+24px%3b+margin-bottom%3a+6px%3b%22%3e%0d%0a++++%3cimg+style%3d%22height%3a+32px%3b+display%3a+block%3b+margin-bottom%3a+6px%3b%22+src%3d%22https%3a%2f%2fsoftr-prod.imgix.net%2fapplications%2f24a0ca2f-ea75-42f4-a6aa-3fe8d0cd7412%2fassets%2fe3f405f7-3c38-4e5d-b799-32b866594d20.png%22%2f%3e%0d%0a++++%3cdiv+class%3d%22me-email-text-secondary%22+style%3d%22color%3a+%23616161%3b+font-size%3a+14px%3b%22%3eF%c3%bcr+weitere+Fragen+stehen+wir+gerne+jederzeit+zur+Verf%c3%bcgung%2c+unter+https%3a%2f%2fwww.netzeroacademy.de%2ffaq%3c%2fdiv%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a++%3cdiv+style%3d%22margin-bottom%3a+24px%3b%22%3e%0d%0a++++%3ca+id%3d%22meet_invite_block.action.org_help%22+class%3d%22me-email-link%22+style%3d%22font-size%3a+14px%3b+text-decoration%3a+underline%3b+color%3a+%235B5FC7%3b%22+target%3d%22_blank%22+href%3d%22https%3a%2f%2fwww.netzeroacademy.de%2ffaq%22+rel%3d%22noreferrer+noopener%22%3eOrg+help%3c%2fa%3e%0d%0a++++%3cspan+style%3d%22color%3a+%23D1D1D1%22%3e%7c%3c%2fspan%3e%0d%0a++++%3ca+id%3d%22meet_invite_block.action.org_privacy%22+class%3d%22me-email-link%22+style%3d%22font-size%3a+14px%3b+text-decoration%3a+underline%3b+color%3a+%235B5FC7%3b%22+target%3d%22_blank%22+href%3d%22https%3a%2f%2fwww.netzeroacademy.de%2fprivacypolicy%22+rel%3d%22noreferrer+noopener%22%3ePrivacy+and+security%3c%2fa%3e%0d%0a++%3c%2fdiv%3e%0d%0a%0d%0a++%3cdiv+style%3d%22margin-bottom%3a24px%3boverflow%3ahidden%3bwhite-space%3anowrap%3b%22%3e________________________________________________________________________________%3c%2fdiv%3e%0d%0a%0d%0a%3c%2fdiv%3e"
+                    }
+                ],
+                "scope": "roundtrip"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "variables": {
+                            "items": [
+                                null,
+                                null
+                            ]
+                        },
+                        "scope": {
+                            "label": "One cycle"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "type": "array",
+                        "label": "Variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "label": "Variable name",
+                                "type": "text",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "label": "Variable value",
+                                "type": "any"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "courseRecID",
+                        "label": "courseRecID",
+                        "type": "any"
+                    },
+                    {
+                        "name": "data-uri",
+                        "label": "data-uri",
+                        "type": "any"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "module": "regexp:Replace",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "pattern": "^data:text/html,",
+                "value": "{{emptystring}}",
+                "global": false,
+                "sensitive": true,
+                "multiline": false,
+                "singleline": false,
+                "text": "{{6.`data-uri`}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "global": {
+                            "mode": "chose"
+                        },
+                        "sensitive": {
+                            "mode": "chose"
+                        },
+                        "multiline": {
+                            "mode": "chose"
+                        },
+                        "singleline": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "pattern",
+                        "type": "text",
+                        "label": "Pattern",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "New value"
+                    },
+                    {
+                        "name": "global",
+                        "type": "boolean",
+                        "label": "Global match",
+                        "required": true
+                    },
+                    {
+                        "name": "sensitive",
+                        "type": "boolean",
+                        "label": "Case sensitive",
+                        "required": true
+                    },
+                    {
+                        "name": "multiline",
+                        "type": "boolean",
+                        "label": "Multiline",
+                        "required": true
+                    },
+                    {
+                        "name": "singleline",
+                        "type": "boolean",
+                        "label": "Singleline",
+                        "required": true
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "regexp:Replace",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "pattern": "\\+",
+                "value": " ",
+                "global": true,
+                "sensitive": true,
+                "multiline": false,
+                "singleline": false,
+                "text": "{{11.text}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "replace + with SPACE"
+                },
+                "restore": {
+                    "expect": {
+                        "global": {
+                            "mode": "chose"
+                        },
+                        "sensitive": {
+                            "mode": "chose"
+                        },
+                        "multiline": {
+                            "mode": "chose"
+                        },
+                        "singleline": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "pattern",
+                        "type": "text",
+                        "label": "Pattern",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "New value"
+                    },
+                    {
+                        "name": "global",
+                        "type": "boolean",
+                        "label": "Global match",
+                        "required": true
+                    },
+                    {
+                        "name": "sensitive",
+                        "type": "boolean",
+                        "label": "Case sensitive",
+                        "required": true
+                    },
+                    {
+                        "name": "multiline",
+                        "type": "boolean",
+                        "label": "Multiline",
+                        "required": true
+                    },
+                    {
+                        "name": "singleline",
+                        "type": "boolean",
+                        "label": "Singleline",
+                        "required": true
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "airtable:ActionGetRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "id": "{{6.courseRecID}}",
+                "base": "app4R2qm7WvWIFspd",
+                "table": "tblH4U1AWOEVTkoNE",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0,
+                    "name": "read Course"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy Courses"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Courses"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "Sorting_Website",
+                        "type": "number",
+                        "label": "Sorting_Website"
+                    },
+                    {
+                        "name": "Courses_Page_live",
+                        "type": "boolean",
+                        "label": "Courses_Page_live"
+                    },
+                    {
+                        "name": "Seminars_Homepage",
+                        "type": "boolean",
+                        "label": "Seminars_Homepage"
+                    },
+                    {
+                        "name": "Seminars_Homepage copy",
+                        "type": "boolean",
+                        "label": "Seminars_Homepage copy"
+                    },
+                    {
+                        "name": "On List BK",
+                        "type": "boolean",
+                        "label": "On List BK"
+                    },
+                    {
+                        "name": "On List WG",
+                        "type": "boolean",
+                        "label": "On List WG"
+                    },
+                    {
+                        "name": "Image",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "Lecturer",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Lecturer"
+                    },
+                    {
+                        "name": "Lecturer_description",
+                        "type": "array",
+                        "label": "Lecturer_description"
+                    },
+                    {
+                        "name": "Webpage_lecturer",
+                        "type": "array",
+                        "label": "Webpage_lecturer"
+                    },
+                    {
+                        "name": "lecturer_email",
+                        "type": "array",
+                        "label": "lecturer_email"
+                    },
+                    {
+                        "name": "lecturer_name",
+                        "type": "array",
+                        "label": "lecturer_name"
+                    },
+                    {
+                        "name": "Career Paths",
+                        "type": "text",
+                        "label": "Career Paths"
+                    },
+                    {
+                        "name": "Automated_webinar_invite_trigger",
+                        "type": "text",
+                        "label": "Automated_webinar_invite_trigger"
+                    },
+                    {
+                        "name": "Bookable",
+                        "type": "boolean",
+                        "label": "Bookable"
+                    },
+                    {
+                        "name": "Type (from Career Paths)",
+                        "type": "array",
+                        "label": "Type (from Career Paths)"
+                    },
+                    {
+                        "name": "Live on webpage",
+                        "type": "boolean",
+                        "label": "Live on webpage"
+                    },
+                    {
+                        "name": "Whatsapp URL",
+                        "type": "text",
+                        "label": "Whatsapp URL"
+                    },
+                    {
+                        "name": "Description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "Page URL",
+                        "type": "text",
+                        "label": "Page URL"
+                    },
+                    {
+                        "name": "Post-course",
+                        "type": "text",
+                        "label": "Post-course",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Preconditions",
+                        "type": "text",
+                        "label": "Preconditions"
+                    },
+                    {
+                        "name": "Category",
+                        "type": "array",
+                        "label": "Category",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "availablility",
+                        "type": "text",
+                        "label": "availablility"
+                    },
+                    {
+                        "name": "Course URL",
+                        "type": "text",
+                        "label": "Course URL"
+                    },
+                    {
+                        "name": "Start",
+                        "time": false,
+                        "type": "date",
+                        "label": "Start"
+                    },
+                    {
+                        "name": "formula_date",
+                        "type": "text",
+                        "label": "formula_date"
+                    },
+                    {
+                        "name": "time_of_day",
+                        "type": "text",
+                        "label": "time_of_day"
+                    },
+                    {
+                        "name": "End",
+                        "time": false,
+                        "type": "date",
+                        "label": "End"
+                    },
+                    {
+                        "name": "Capacity",
+                        "type": "number",
+                        "label": "Capacity"
+                    },
+                    {
+                        "name": "number_participants",
+                        "type": "text",
+                        "label": "number_participants"
+                    },
+                    {
+                        "name": "Course Length",
+                        "type": "text",
+                        "label": "Course Length"
+                    },
+                    {
+                        "name": "Price",
+                        "type": "number",
+                        "label": "Price"
+                    },
+                    {
+                        "name": "RSVP",
+                        "type": "number",
+                        "label": "RSVP"
+                    },
+                    {
+                        "name": "Checkout_URL",
+                        "type": "text",
+                        "label": "Checkout_URL"
+                    },
+                    {
+                        "name": "Course-Checkout-Page-URL",
+                        "type": "text",
+                        "label": "Course-Checkout-Page-URL"
+                    },
+                    {
+                        "name": "RecordID",
+                        "type": "text",
+                        "label": "RecordID"
+                    },
+                    {
+                        "name": "Contact",
+                        "type": "text",
+                        "label": "Contact",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Link_word",
+                        "type": "number",
+                        "label": "Link_word"
+                    },
+                    {
+                        "name": "Seminar_URL",
+                        "type": "text",
+                        "label": "Seminar_URL"
+                    },
+                    {
+                        "name": "event_google",
+                        "type": "text",
+                        "label": "event_google"
+                    },
+                    {
+                        "name": "event_outlook",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "event_outlook"
+                    },
+                    {
+                        "name": "Contacts",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Contacts"
+                    },
+                    {
+                        "name": "Date_time",
+                        "type": "text",
+                        "label": "Date_time"
+                    },
+                    {
+                        "name": "E-Mails_participants",
+                        "type": "array",
+                        "label": "E-Mails_participants"
+                    },
+                    {
+                        "name": "Waiting list",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Waiting list"
+                    },
+                    {
+                        "name": "Users",
+                        "type": "text",
+                        "label": "Users"
+                    },
+                    {
+                        "name": "Registry_button_link",
+                        "type": "text",
+                        "label": "Registry_button_link",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Contact copy",
+                        "type": "text",
+                        "label": "Contact copy"
+                    },
+                    {
+                        "name": "Presenter_slides",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Presenter_slides"
+                    },
+                    {
+                        "name": "Sendout_slides",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sendout_slides"
+                    },
+                    {
+                        "name": "Recording_link",
+                        "type": "text",
+                        "label": "Recording_link"
+                    },
+                    {
+                        "name": "Sendout_slides_link",
+                        "type": "text",
+                        "label": "Sendout_slides_link"
+                    },
+                    {
+                        "name": "Approve_to_archive?",
+                        "type": "text",
+                        "label": "Approve_to_archive?"
+                    },
+                    {
+                        "name": "Invoice line items",
+                        "type": "text",
+                        "label": "Invoice line items"
+                    },
+                    {
+                        "name": "webinar_when_softr",
+                        "type": "text",
+                        "label": "webinar_when_softr"
+                    },
+                    {
+                        "name": "Line Items",
+                        "type": "text",
+                        "label": "Line Items"
+                    },
+                    {
+                        "name": "Duration",
+                        "type": "text",
+                        "label": "Duration"
+                    },
+                    {
+                        "name": "Workdays_till_start",
+                        "type": "text",
+                        "label": "Workdays_till_start"
+                    },
+                    {
+                        "name": "Line Items 2",
+                        "type": "text",
+                        "label": "Line Items 2"
+                    },
+                    {
+                        "name": "Webinar_Energiesparkommissar",
+                        "type": "text",
+                        "label": "Webinar_Energiesparkommissar"
+                    },
+                    {
+                        "name": "Basiskurs",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Basiskurs"
+                    },
+                    {
+                        "name": "Basiskurs copy",
+                        "type": "text",
+                        "label": "Basiskurs copy"
+                    },
+                    {
+                        "name": "Documents_for_students",
+                        "type": "text",
+                        "label": "Documents_for_students"
+                    },
+                    {
+                        "name": "Document (from Documents_for_students)",
+                        "type": "array",
+                        "label": "Document (from Documents_for_students)"
+                    },
+                    {
+                        "name": "1.0_Basiskurs_participants copy",
+                        "type": "text",
+                        "label": "1.0_Basiskurs_participants copy"
+                    },
+                    {
+                        "name": "1.0_Basiskurs_participants copy 2",
+                        "type": "text",
+                        "label": "1.0_Basiskurs_participants copy 2"
+                    },
+                    {
+                        "name": "Basiskurs 2",
+                        "type": "text",
+                        "label": "Basiskurs 2"
+                    },
+                    {
+                        "name": "Basiskurs 3",
+                        "type": "text",
+                        "label": "Basiskurs 3"
+                    },
+                    {
+                        "name": "230717_Basiskurs copy 2",
+                        "type": "text",
+                        "label": "230717_Basiskurs copy 2"
+                    },
+                    {
+                        "name": "230911_WG copy",
+                        "type": "text",
+                        "label": "230911_WG copy"
+                    },
+                    {
+                        "name": "231030_WG copy",
+                        "type": "text",
+                        "label": "231030_WG copy"
+                    },
+                    {
+                        "name": "231204_WG copy",
+                        "type": "text",
+                        "label": "231204_WG copy"
+                    },
+                    {
+                        "name": "231016_Basiskurs copy",
+                        "type": "text",
+                        "label": "231016_Basiskurs copy"
+                    },
+                    {
+                        "name": "230717_Basiskurs copy",
+                        "type": "text",
+                        "label": "230717_Basiskurs copy"
+                    },
+                    {
+                        "name": "231111_Basiskurs copy",
+                        "type": "text",
+                        "label": "231111_Basiskurs copy"
+                    },
+                    {
+                        "name": "240219_NWG copy",
+                        "type": "text",
+                        "label": "240219_NWG copy"
+                    },
+                    {
+                        "name": "Course modules",
+                        "type": "text",
+                        "label": "Course modules"
+                    },
+                    {
+                        "name": "Approve_to_archive? 2",
+                        "type": "text",
+                        "label": "Approve_to_archive? 2",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Workdays_till_start 2",
+                        "type": "number",
+                        "label": "Workdays_till_start 2"
+                    },
+                    {
+                        "name": "Basiskurs_link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Basiskurs_link"
+                    },
+                    {
+                        "name": "WG Kurs_link",
+                        "type": "text",
+                        "label": "WG Kurs_link"
+                    },
+                    {
+                        "name": "NWG Kurs_link",
+                        "type": "text",
+                        "label": "NWG Kurs_link"
+                    },
+                    {
+                        "name": "16247 Kurs_link",
+                        "type": "text",
+                        "label": "16247 Kurs_link"
+                    },
+                    {
+                        "name": "Bookable_lecturer",
+                        "type": "boolean",
+                        "label": "Bookable_lecturer"
+                    },
+                    {
+                        "name": "Unstaffed days",
+                        "type": "array",
+                        "label": "Unstaffed days"
+                    },
+                    {
+                        "name": "Status lecturer",
+                        "type": "text",
+                        "label": "Status lecturer"
+                    },
+                    {
+                        "name": "Lecturer booking URL",
+                        "type": "text",
+                        "label": "Lecturer booking URL"
+                    },
+                    {
+                        "name": "Whatsapp live groups",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Whatsapp live groups"
+                    },
+                    {
+                        "name": "Fortbildungskalender_Code",
+                        "type": "text",
+                        "label": "Fortbildungskalender_Code"
+                    },
+                    {
+                        "name": "Finales_Gesamtfeedback",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Finales_Gesamtfeedback"
+                    },
+                    {
+                        "name": "Feedback_doc",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Feedback_doc"
+                    },
+                    {
+                        "name": "Webinare_Auto",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Webinare_Auto"
+                    },
+                    {
+                        "name": "Last Modified By",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Last Modified By"
+                    },
+                    {
+                        "name": "Students_Name_Email",
+                        "type": "array",
+                        "label": "Students_Name_Email"
+                    },
+                    {
+                        "name": "Courses_Missing_Staffing",
+                        "type": "array",
+                        "label": "Courses_Missing_Staffing"
+                    },
+                    {
+                        "name": "Masterdata_Course",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Masterdata_Course"
+                    },
+                    {
+                        "name": "MasterCourseID (from Masterdata_Course)",
+                        "type": "array",
+                        "label": "MasterCourseID (from Masterdata_Course)"
+                    },
+                    {
+                        "name": "Masterdata_Courses",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Masterdata_Courses"
+                    },
+                    {
+                        "name": "Created time",
+                        "type": "date",
+                        "label": "Created time"
+                    },
+                    {
+                        "name": "Shorted description",
+                        "type": "text",
+                        "label": "Shorted description"
+                    },
+                    {
+                        "name": "Course2BreakoutRoom",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Course2BreakoutRoom"
+                    },
+                    {
+                        "name": "Course Type",
+                        "type": "text",
+                        "label": "Course Type"
+                    },
+                    {
+                        "name": "Stripe payment link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Stripe payment link"
+                    },
+                    {
+                        "name": "Stripe price check",
+                        "type": "text",
+                        "label": "Stripe price check"
+                    },
+                    {
+                        "name": "Url (from payment link)",
+                        "type": "array",
+                        "label": "Url (from payment link)"
+                    },
+                    {
+                        "name": "Price (from payment link)",
+                        "type": "array",
+                        "label": "Price (from payment link)"
+                    },
+                    {
+                        "name": "Name (from Stripe products) (from payment link)",
+                        "type": "array",
+                        "label": "Name (from Stripe products) (from payment link)"
+                    },
+                    {
+                        "name": "Stripe products (from Stripe payment link)",
+                        "type": "array",
+                        "label": "Stripe products (from Stripe payment link)"
+                    },
+                    {
+                        "name": "Show in /offer-request",
+                        "type": "boolean",
+                        "label": "Show in /offer-request"
+                    },
+                    {
+                        "name": "Last Modified",
+                        "type": "date",
+                        "label": "Last Modified"
+                    },
+                    {
+                        "name": "Article number",
+                        "type": "number",
+                        "label": "Article number"
+                    },
+                    {
+                        "name": "Potential Earnings for Sales Dashboard",
+                        "type": "text",
+                        "label": "Potential Earnings for Sales Dashboard"
+                    },
+                    {
+                        "name": "Bewertung_Doz",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Bewertung_Doz"
+                    },
+                    {
+                        "name": "MD Test",
+                        "type": "text",
+                        "label": "MD Test"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "microsoft-teams:CreateMeeting",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 2595405
+            },
+            "mapper": {
+                "subject": "(TEST) {{7.Title}}",
+                "chatInfo": {},
+                "attendees": [
+                    {
+                        "identity": {
+                            "user": {
+                                "id": "53c65544-8faa-481a-838f-c2403bdd4732"
+                            }
+                        }
+                    }
+                ],
+                "endDateTime": "{{7.End}} 18:00",
+                "startDateTime": "{{7.Start}} 8:00",
+                "allowMeetingChat": "enabled",
+                "allowedPresenters": "everyone",
+                "lobbyBypassSettings": {},
+                "recordAutomatically": true,
+                "allowTeamworkReactions": true,
+                "allowAttendeeToEnableMic": true,
+                "allowAttendeeToEnableCamera": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "attendees": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "Empty"
+                                    },
+                                    "identity": {
+                                        "nested": {
+                                            "user": {
+                                                "nested": {
+                                                    "id": {
+                                                        "mode": "chose",
+                                                        "label": "NetZero Team"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "allowMeetingChat": {
+                            "mode": "chose",
+                            "label": "Enabled"
+                        },
+                        "allowedPresenters": {
+                            "mode": "chose",
+                            "label": "Everyone"
+                        },
+                        "lobbyBypassSettings": {
+                            "nested": {
+                                "scope": {
+                                    "mode": "chose",
+                                    "label": "Empty"
+                                },
+                                "isDialInBypassEnabled": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "recordAutomatically": {
+                            "mode": "chose"
+                        },
+                        "isEntryExitAnnounced": {
+                            "mode": "chose"
+                        },
+                        "allowTeamworkReactions": {
+                            "mode": "chose"
+                        },
+                        "allowAttendeeToEnableMic": {
+                            "mode": "chose"
+                        },
+                        "allowAttendeeToEnableCamera": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "azure"
+                            },
+                            "label": "My Microsoft connection (NetZero Team)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:azure",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject",
+                        "required": true
+                    },
+                    {
+                        "name": "startDateTime",
+                        "type": "date",
+                        "label": "Start Date and Time",
+                        "required": true
+                    },
+                    {
+                        "name": "endDateTime",
+                        "type": "date",
+                        "label": "End Date and Time",
+                        "required": true
+                    },
+                    {
+                        "name": "allowedPresenters",
+                        "type": "select",
+                        "label": "Allowed Presenters",
+                        "validate": {
+                            "enum": [
+                                "everyone",
+                                "organization",
+                                "roleIsPresenter",
+                                "organizer"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attendees",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "identity",
+                                    "spec": [
+                                        {
+                                            "name": "user",
+                                            "spec": [
+                                                {
+                                                    "name": "id",
+                                                    "type": "select",
+                                                    "label": "ID",
+                                                    "dynamic": true,
+                                                    "options": []
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "User"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Identity"
+                                },
+                                {
+                                    "name": "role",
+                                    "type": "select",
+                                    "label": "Role",
+                                    "options": [
+                                        {
+                                            "label": "Attendee",
+                                            "value": "attendee"
+                                        },
+                                        {
+                                            "label": "Presenter",
+                                            "value": "presenter"
+                                        },
+                                        {
+                                            "label": "Producer",
+                                            "value": "producer"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "collection"
+                        },
+                        "type": "array",
+                        "label": "Attendees"
+                    },
+                    {
+                        "name": "allowAttendeeToEnableCamera",
+                        "type": "boolean",
+                        "label": "Allow Attendee To Enable Camera"
+                    },
+                    {
+                        "name": "allowAttendeeToEnableMic",
+                        "type": "boolean",
+                        "label": "Allow Attendee To Enable Mic"
+                    },
+                    {
+                        "name": "allowMeetingChat",
+                        "type": "select",
+                        "label": "Allow Meeting Chat",
+                        "validate": {
+                            "enum": [
+                                "enabled",
+                                "disabled",
+                                "limited"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "allowTeamworkReactions",
+                        "type": "boolean",
+                        "label": "Allow Teamwork Reactions"
+                    },
+                    {
+                        "name": "chatInfo",
+                        "spec": [
+                            {
+                                "name": "threadId",
+                                "type": "text",
+                                "label": "Thread ID"
+                            },
+                            {
+                                "name": "messageId",
+                                "type": "text",
+                                "label": "Message ID"
+                            },
+                            {
+                                "name": "replyChainMessageId",
+                                "type": "text",
+                                "label": "Reply Chain Message ID"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Chat Info"
+                    },
+                    {
+                        "name": "isEntryExitAnnounced",
+                        "type": "boolean",
+                        "label": "Is Entry and Exit Announced"
+                    },
+                    {
+                        "name": "lobbyBypassSettings",
+                        "spec": [
+                            {
+                                "name": "scope",
+                                "type": "select",
+                                "label": "Scope",
+                                "validate": {
+                                    "enum": [
+                                        "organizer",
+                                        "organization",
+                                        "organizationAndFederated",
+                                        "invited",
+                                        "organizationExcludingGuests",
+                                        "everyone"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "isDialInBypassEnabled",
+                                "type": "boolean",
+                                "label": "Is Dial In Bypass Enabled"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Lobby Bypass Settings"
+                    },
+                    {
+                        "name": "recordAutomatically",
+                        "type": "boolean",
+                        "label": "Record Automatically"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "module": "regexp:Replace",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "pattern": "^data:text/html,",
+                "value": "{{emptystring}}",
+                "global": false,
+                "sensitive": true,
+                "multiline": false,
+                "singleline": false,
+                "text": "{{4.joinInformation.content}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "global": {
+                            "mode": "chose"
+                        },
+                        "sensitive": {
+                            "mode": "chose"
+                        },
+                        "multiline": {
+                            "mode": "chose"
+                        },
+                        "singleline": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "pattern",
+                        "type": "text",
+                        "label": "Pattern",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "New value"
+                    },
+                    {
+                        "name": "global",
+                        "type": "boolean",
+                        "label": "Global match",
+                        "required": true
+                    },
+                    {
+                        "name": "sensitive",
+                        "type": "boolean",
+                        "label": "Case sensitive",
+                        "required": true
+                    },
+                    {
+                        "name": "multiline",
+                        "type": "boolean",
+                        "label": "Multiline",
+                        "required": true
+                    },
+                    {
+                        "name": "singleline",
+                        "type": "boolean",
+                        "label": "Singleline",
+                        "required": true
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 15,
+            "module": "regexp:Replace",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "pattern": "\\+",
+                "value": " ",
+                "global": true,
+                "sensitive": true,
+                "multiline": false,
+                "singleline": false,
+                "text": "{{14.text}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1800,
+                    "y": 0,
+                    "name": "replace + with SPACE"
+                },
+                "restore": {
+                    "expect": {
+                        "global": {
+                            "mode": "chose"
+                        },
+                        "sensitive": {
+                            "mode": "chose"
+                        },
+                        "multiline": {
+                            "mode": "chose"
+                        },
+                        "singleline": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "pattern",
+                        "type": "text",
+                        "label": "Pattern",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "New value"
+                    },
+                    {
+                        "name": "global",
+                        "type": "boolean",
+                        "label": "Global match",
+                        "required": true
+                    },
+                    {
+                        "name": "sensitive",
+                        "type": "boolean",
+                        "label": "Case sensitive",
+                        "required": true
+                    },
+                    {
+                        "name": "multiline",
+                        "type": "boolean",
+                        "label": "Multiline",
+                        "required": true
+                    },
+                    {
+                        "name": "singleline",
+                        "type": "boolean",
+                        "label": "Singleline",
+                        "required": true
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "microsoft-calendar:createAnEvent",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 2595405
+            },
+            "filter": {
+                "name": "",
+                "conditions": [
+                    [
+                        {
+                            "a": "1",
+                            "o": "text:notequal",
+                            "b": "0"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "calendar": "AAMkAGM3ZjI5NzRmLTZiOGMtNDhjMS04ZGQ1LWM5MTI2MTNmYzFkZQBGAAAAAABEiHOX2HO0Specl0MMDjoHBwDBFNzmPUHWRLikr8ncTiEvAAAAAAEGAADBFNzmPUHWRLikr8ncTiEvAAAAAGM2AAA=",
+                "subject": "{{4.subject}}",
+                "start": "{{4.startDateTime}}",
+                "end": "{{4.endDateTime}}",
+                "isReminderOn": true,
+                "contentType": "html",
+                "content": "{{decodeURL(15.text)}}",
+                "location": "{{4.joinWebUrl}}",
+                "showAs": "busy",
+                "attendees": [
+                    {
+                        "address": "m.dratz@netzeroacademy.de",
+                        "name": "MD"
+                    }
+                ],
+                "reminderMinutesBeforeStart": "60"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2100,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Microsoft connection (NetZero Team)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "azure"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "calendar": {
+                            "mode": "chose",
+                            "label": "Calendar"
+                        },
+                        "isReminderOn": {
+                            "mode": "chose"
+                        },
+                        "importance": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "sensitivity": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "contentType": {
+                            "mode": "chose",
+                            "label": "HTML"
+                        },
+                        "responseRequested": {
+                            "mode": "chose"
+                        },
+                        "showAs": {
+                            "mode": "chose",
+                            "label": "Busy"
+                        },
+                        "attendees": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "categories": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:azure",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "calendar",
+                        "type": "select",
+                        "label": "Calendar ID"
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject",
+                        "required": true
+                    },
+                    {
+                        "name": "start",
+                        "type": "date",
+                        "label": "Start Date",
+                        "required": true,
+                        "time": true
+                    },
+                    {
+                        "name": "end",
+                        "type": "date",
+                        "label": "End Date",
+                        "required": true,
+                        "time": true
+                    },
+                    {
+                        "name": "isReminderOn",
+                        "type": "boolean",
+                        "label": "Reminder On"
+                    },
+                    {
+                        "name": "importance",
+                        "type": "select",
+                        "label": "Importance",
+                        "validate": {
+                            "enum": [
+                                "low",
+                                "normal",
+                                "high"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sensitivity",
+                        "type": "select",
+                        "label": "Sensitivity",
+                        "validate": {
+                            "enum": [
+                                "normal",
+                                "personal",
+                                "private",
+                                "confidential"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "contentType",
+                        "type": "select",
+                        "label": "Body Content Type",
+                        "validate": {
+                            "enum": [
+                                "text",
+                                "html"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Body Content"
+                    },
+                    {
+                        "name": "location",
+                        "type": "text",
+                        "label": "Location"
+                    },
+                    {
+                        "name": "responseRequested",
+                        "type": "boolean",
+                        "label": "Response Requested"
+                    },
+                    {
+                        "name": "showAs",
+                        "type": "select",
+                        "label": "Show as",
+                        "validate": {
+                            "enum": [
+                                "free",
+                                "tentative",
+                                "busy",
+                                "oof",
+                                "workingElsewhere",
+                                "unknown"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attendees",
+                        "type": "array",
+                        "label": "Attendees",
+                        "spec": [
+                            {
+                                "name": "address",
+                                "type": "email",
+                                "label": "Email Address",
+                                "required": true
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "categories",
+                        "type": "array",
+                        "label": "Categories",
+                        "spec": {
+                            "type": "text",
+                            "label": "Category",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "reminderMinutesBeforeStart",
+                        "type": "integer",
+                        "label": "Reminder"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}
