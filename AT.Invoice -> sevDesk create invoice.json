@@ -1249,6 +1249,7 @@
             "version": 1,
             "parameters": {},
             "mapper": {
+                "scope": "roundtrip",
                 "variables": [
                     {
                         "name": "stripeFooter",
@@ -1262,8 +1263,7 @@
                         "name": "standardFooter",
                         "value": "<p>    Bitte überweise den Rechnungsbetrag unter<b> Angabe der Rechnungsnummer [%RECHNUNGSNUMMER%]</b> bis zum [%ZAHLUNGSZIEL%] auf das unten angegebene Konto.<br><span style=\\\"font-size: 1.1em;\\\"><br></span></p>{{if(length(102.Comment_invoice) > 0; \"<p>\" + 102.Comment_invoice + \"</p><br><br>\"; )}}<p><span style=\\\"font-size: 1.1em;\\\">Mit freundlichen Grüßen</span><br></p><p>    Dein NetZero Team</p>"
                     }
-                ],
-                "scope": "roundtrip"
+                ]
             },
             "metadata": {
                 "designer": {
@@ -1272,36 +1272,36 @@
                 },
                 "restore": {
                     "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
                         "variables": {
                             "items": [
                                 null,
                                 null,
                                 null
                             ]
-                        },
-                        "scope": {
-                            "label": "One cycle"
                         }
                     }
                 },
                 "expect": [
                     {
                         "name": "variables",
-                        "type": "array",
-                        "label": "Variables",
                         "spec": [
                             {
                                 "name": "name",
-                                "label": "Variable name",
                                 "type": "text",
+                                "label": "Variable name",
                                 "required": true
                             },
                             {
                                 "name": "value",
-                                "label": "Variable value",
-                                "type": "any"
+                                "type": "any",
+                                "label": "Variable value"
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Variables"
                     },
                     {
                         "name": "scope",
@@ -1319,18 +1319,18 @@
                 "interface": [
                     {
                         "name": "stripeFooter",
-                        "label": "stripeFooter",
-                        "type": "any"
+                        "type": "any",
+                        "label": "stripeFooter"
                     },
                     {
                         "name": "paidGLSFooter",
-                        "label": "paidGLSFooter",
-                        "type": "any"
+                        "type": "any",
+                        "label": "paidGLSFooter"
                     },
                     {
                         "name": "standardFooter",
-                        "label": "standardFooter",
-                        "type": "any"
+                        "type": "any",
+                        "label": "standardFooter"
                     }
                 ]
             }
@@ -1972,9 +1972,11 @@
                 "__IMTCONN__": 2456185
             },
             "mapper": {
-                "id": "{{90.recID}}",
                 "base": "appIW2NHG67L20Pxm",
+                "typecast": false,
+                "useColumnId": true,
                 "table": "tblBD9y2t07Ry7tni",
+                "id": "{{90.recID}}",
                 "record": {
                     "fldKvdXeHldumx5Sd": {},
                     "fldWSxX7owCtkiBrT": [
@@ -1983,11 +1985,9 @@
                             "filename": "{{94.name}}"
                         }
                     ],
-                    "fldez59YFbZVsSjsw": "{{92.body.objects.invoiceNumber}}",
-                    "fldyCy6KNpSdsjP61": "{{92.body.objects.id}}"
-                },
-                "typecast": false,
-                "useColumnId": true
+                    "fldez59YFbZVsSjsw": "{{99.invoiceNumber}}",
+                    "fldyCy6KNpSdsjP61": "{{99.id}}"
+                }
             },
             "metadata": {
                 "designer": {
@@ -1996,41 +1996,74 @@
                     "name": "add to Invoices"
                 },
                 "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
                     "expect": {
                         "base": {
                             "label": "NetZero Academy"
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
                         },
                         "table": {
                             "label": "Invoices"
                         },
                         "record": {
                             "nested": {
-                                "fld1vvWjkw24nknEE": {
+                                "fldFnap7IUXhVvyJH": {
+                                    "mode": "chose"
+                                },
+                                "fldmGt6b2A2xAzjPG": {
+                                    "mode": "chose"
+                                },
+                                "fldwV6R6cGZZsCVAt": {
+                                    "mode": "chose"
+                                },
+                                "fldisdDXHlCn2vOZt": {
+                                    "mode": "chose"
+                                },
+                                "flduZb5WFZ2fVeRAX": {
                                     "mode": "edit"
                                 },
-                                "fld5RxJEP7Wb6rTqQ": {
+                                "fldmno5O7ln1dIlxm": {
+                                    "mode": "chose"
+                                },
+                                "fldDk1kEgHOoqiHER": {
+                                    "mode": "chose"
+                                },
+                                "fldWm9PyXketr3Qxe": {
+                                    "mode": "chose"
+                                },
+                                "fldDUHvU4iIEXA2N3": {
+                                    "mode": "edit"
+                                },
+                                "flddjyk5mp7CRZEMQ": {
                                     "mode": "chose"
                                 },
                                 "fldC6ozVO1ufD7sL1": {
                                     "mode": "edit"
                                 },
-                                "fldDUHvU4iIEXA2N3": {
-                                    "mode": "edit"
-                                },
-                                "fldDk1kEgHOoqiHER": {
-                                    "mode": "chose"
-                                },
-                                "fldFnap7IUXhVvyJH": {
+                                "fldQ1BlGlwHTPdzJ8": {
                                     "mode": "chose"
                                 },
                                 "fldHG4H06ZmdDaJmO": {
                                     "mode": "edit"
                                 },
-                                "fldP9TF9tbVsIKQJx": {
+                                "fld1vvWjkw24nknEE": {
                                     "mode": "edit"
                                 },
-                                "fldQ1BlGlwHTPdzJ8": {
-                                    "mode": "chose"
+                                "fldP9TF9tbVsIKQJx": {
+                                    "mode": "edit"
                                 },
                                 "fldWSxX7owCtkiBrT": {
                                     "mode": "chose",
@@ -2038,55 +2071,22 @@
                                         null
                                     ]
                                 },
-                                "fldWm9PyXketr3Qxe": {
-                                    "mode": "chose"
-                                },
-                                "flddjyk5mp7CRZEMQ": {
-                                    "mode": "chose"
-                                },
-                                "flddwHPD4A4sSiNn6": {
-                                    "mode": "chose"
-                                },
-                                "fldisdDXHlCn2vOZt": {
-                                    "mode": "chose"
-                                },
                                 "fldjPIwm6LavAtnf1": {
                                     "mode": "chose"
                                 },
-                                "fldmGt6b2A2xAzjPG": {
-                                    "mode": "chose"
-                                },
-                                "fldmno5O7ln1dIlxm": {
+                                "fld5RxJEP7Wb6rTqQ": {
                                     "mode": "chose"
                                 },
                                 "fldr9D8Ga0wfi940F": {
                                     "mode": "chose"
                                 },
-                                "fldtWSNDpx1qV0pTh": {
+                                "flddwHPD4A4sSiNn6": {
                                     "mode": "chose"
                                 },
-                                "flduZb5WFZ2fVeRAX": {
-                                    "mode": "edit"
-                                },
-                                "fldwV6R6cGZZsCVAt": {
+                                "fldtWSNDpx1qV0pTh": {
                                     "mode": "chose"
                                 }
                             }
-                        },
-                        "typecast": {
-                            "mode": "chose"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -2131,6 +2131,8 @@
                     },
                     {
                         "name": "record",
+                        "type": "collection",
+                        "label": "Record",
                         "spec": [
                             {
                                 "name": "fldZisg360botUDbP",
@@ -2149,30 +2151,30 @@
                             },
                             {
                                 "name": "fldFnap7IUXhVvyJH",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Contact"
+                                "label": "Contact",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldmGt6b2A2xAzjPG",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Participants"
+                                "label": "Participants",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldwV6R6cGZZsCVAt",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Interaction"
+                                "label": "Interaction",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldUnKxhaOzht6oUj",
@@ -2181,18 +2183,18 @@
                             },
                             {
                                 "name": "fldisdDXHlCn2vOZt",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Line_items"
+                                "label": "Line_items",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "flda2x7PSWryzD0t9",
-                                "time": true,
                                 "type": "date",
-                                "label": "Date created"
+                                "label": "Date created",
+                                "time": true
                             },
                             {
                                 "name": "fld2rnSCWPoZfauvA",
@@ -2200,10 +2202,10 @@
                                 "label": "Comment_invoice"
                             },
                             {
-                                "mode": "edit",
                                 "name": "flduZb5WFZ2fVeRAX",
                                 "type": "select",
-                                "label": "Payment place"
+                                "label": "Payment place",
+                                "mode": "edit"
                             },
                             {
                                 "name": "fldw1N3sfdgYUjEtC",
@@ -2217,40 +2219,42 @@
                             },
                             {
                                 "name": "fldmno5O7ln1dIlxm",
+                                "type": "array",
+                                "label": "Invoice",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "Invoice"
+                                ]
                             },
                             {
                                 "name": "fldDk1kEgHOoqiHER",
+                                "type": "array",
+                                "label": "Offer",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "Offer"
+                                ]
                             },
                             {
                                 "name": "fldKvdXeHldumx5Sd",
+                                "type": "collection",
+                                "label": "Reviewer",
                                 "spec": [
                                     {
                                         "name": "id",
@@ -2261,15 +2265,8 @@
                                         "name": "email",
                                         "type": "email",
                                         "label": "Email"
-                                    },
-                                    {
-                                        "name": "name",
-                                        "type": "text",
-                                        "label": "Name"
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Reviewer"
+                                ]
                             },
                             {
                                 "name": "fldWm9PyXketr3Qxe",
@@ -2277,10 +2274,10 @@
                                 "label": "Special customer"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldDUHvU4iIEXA2N3",
                                 "type": "select",
-                                "label": "offer_Invoice_status"
+                                "label": "offer_Invoice_status",
+                                "mode": "edit"
                             },
                             {
                                 "name": "flddjyk5mp7CRZEMQ",
@@ -2288,27 +2285,27 @@
                                 "label": "Invoice_sent"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldC6ozVO1ufD7sL1",
                                 "type": "select",
-                                "label": "To DATEV"
+                                "label": "To DATEV",
+                                "mode": "edit"
                             },
                             {
                                 "name": "fldQ1BlGlwHTPdzJ8",
+                                "type": "array",
+                                "label": "Storno_Invoice",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "Storno_Invoice"
+                                ]
                             },
                             {
                                 "name": "fldY0ytGuXKbPDCNS",
@@ -2316,16 +2313,16 @@
                                 "label": "Text_for_Offer_email"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldHG4H06ZmdDaJmO",
                                 "type": "select",
-                                "label": "Send Datev"
+                                "label": "Send Datev",
+                                "mode": "edit"
                             },
                             {
                                 "name": "fldrHNNZo4FI3Qs55",
-                                "time": false,
                                 "type": "date",
-                                "label": "Date_payment_received"
+                                "label": "Date_payment_received",
+                                "time": false
                             },
                             {
                                 "name": "fldBsmuN2ULn8S2MK",
@@ -2333,28 +2330,28 @@
                                 "label": "further_information"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fld1vvWjkw24nknEE",
                                 "type": "select",
-                                "label": "Reason for lost"
+                                "label": "Reason for lost",
+                                "mode": "edit"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldP9TF9tbVsIKQJx",
                                 "type": "select",
-                                "label": "Responsible"
+                                "label": "Responsible",
+                                "mode": "edit"
                             },
                             {
                                 "name": "flds4YFHU1mqVSfzn",
-                                "time": false,
                                 "type": "date",
-                                "label": "Date_offer_invoice_status_changed"
+                                "label": "Date_offer_invoice_status_changed",
+                                "time": false
                             },
                             {
                                 "name": "fldmStAu0hkKq9wNm",
-                                "time": false,
                                 "type": "date",
-                                "label": "Temp_Cash_Inflow_Date"
+                                "label": "Temp_Cash_Inflow_Date",
+                                "time": false
                             },
                             {
                                 "name": "fldOlBrI1cRE6qt6g",
@@ -2363,43 +2360,43 @@
                             },
                             {
                                 "name": "fld7bh0ZFpji0rd12",
-                                "time": false,
                                 "type": "date",
-                                "label": "Fristverlängerung"
+                                "label": "Fristverlängerung",
+                                "time": false
                             },
                             {
                                 "name": "fldWSxX7owCtkiBrT",
+                                "type": "array",
+                                "label": "SD invoice",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "SD invoice"
+                                ]
                             },
                             {
                                 "name": "fldjPIwm6LavAtnf1",
+                                "type": "array",
+                                "label": "SD offer",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "SD offer"
+                                ]
                             },
                             {
                                 "name": "fldez59YFbZVsSjsw",
@@ -2408,20 +2405,20 @@
                             },
                             {
                                 "name": "fld5RxJEP7Wb6rTqQ",
+                                "type": "array",
+                                "label": "SD storno",
                                 "spec": [
                                     {
                                         "name": "url",
-                                        "type": "text",
-                                        "label": "File URL"
+                                        "label": "File URL",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "filename",
-                                        "type": "filename",
-                                        "label": "File name"
+                                        "label": "File name",
+                                        "type": "filename"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "SD storno"
+                                ]
                             },
                             {
                                 "name": "fldquVWBGUZEQOu7f",
@@ -2430,12 +2427,12 @@
                             },
                             {
                                 "name": "fldr9D8Ga0wfi940F",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Offer request"
+                                "label": "Offer request",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldZfCtK1SNVRsQfr",
@@ -2454,25 +2451,23 @@
                             },
                             {
                                 "name": "flddwHPD4A4sSiNn6",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "SD Invoices"
+                                "label": "SD Invoices",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldtWSNDpx1qV0pTh",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "SD Offers"
+                                "label": "SD Offers",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Record"
+                        ]
                     }
                 ],
                 "interface": [
@@ -2488,212 +2483,224 @@
                     },
                     {
                         "name": "fldpSUOSL0lddAIwM",
-                        "type": "text",
-                        "label": "Invoice ID"
+                        "label": "Invoice ID",
+                        "type": "text"
                     },
                     {
                         "name": "fldZisg360botUDbP",
-                        "type": "text",
                         "label": "Invoice ID_old",
+                        "type": "text",
                         "multiline": true
                     },
                     {
                         "name": "fldgXLXayEw4agVGp",
-                        "type": "number",
-                        "label": "Number"
+                        "label": "Number",
+                        "type": "number"
                     },
                     {
                         "name": "fldcvtnl0q2cuYzo7",
-                        "type": "text",
-                        "label": "Offer ID"
+                        "label": "Offer ID",
+                        "type": "text"
                     },
                     {
                         "name": "fldAbBp8M9E3Km60H",
-                        "type": "text",
                         "label": "Offer ID_old",
+                        "type": "text",
                         "multiline": true
                     },
                     {
                         "name": "fldFnap7IUXhVvyJH",
+                        "label": "Contact",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Contact"
+                        }
                     },
                     {
                         "name": "fldbCsyrc5ChBtB2O",
-                        "type": "array",
-                        "label": "Phone (from Contact)"
+                        "label": "Phone (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fldmGt6b2A2xAzjPG",
+                        "label": "Participants",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Participants"
+                        }
                     },
                     {
                         "name": "fldwV6R6cGZZsCVAt",
+                        "label": "Interaction",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Interaction"
+                        }
                     },
                     {
                         "name": "fldgP2HnAOyTUJNaP",
-                        "type": "array",
-                        "label": "Name (from Contact)"
+                        "label": "Name (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fldUuqIfmNJ6PjIp5",
-                        "type": "array",
-                        "label": "Vorname"
+                        "label": "Vorname",
+                        "type": "array"
                     },
                     {
                         "name": "fldW9HUmkjctNHduz",
-                        "type": "array",
-                        "label": "Nachname"
+                        "label": "Nachname",
+                        "type": "array"
                     },
                     {
                         "name": "fldpfojlv8dLocSjE",
-                        "type": "array",
-                        "label": "Customer number"
+                        "label": "Customer number",
+                        "type": "array"
                     },
                     {
                         "name": "fldn14kqsQkoGanWW",
-                        "type": "array",
-                        "label": "E-Mail (from Contact)"
+                        "label": "E-Mail (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fldUnKxhaOzht6oUj",
-                        "type": "text",
-                        "label": "optional billing e-mail"
+                        "label": "optional billing e-mail",
+                        "type": "text"
                     },
                     {
                         "name": "fldhOQUDmQnrBor3L",
-                        "type": "text",
-                        "label": "Final E-mail"
+                        "label": "Final E-mail",
+                        "type": "text"
                     },
                     {
                         "name": "fldisdDXHlCn2vOZt",
+                        "label": "Line_items",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Line_items"
+                        }
                     },
                     {
                         "name": "fldzX5xtZRUUiK928",
-                        "type": "array",
-                        "label": "Date_course"
+                        "label": "Date_course",
+                        "type": "array"
                     },
                     {
                         "name": "fldMmEbTrZdxbLiES",
-                        "type": "array",
-                        "label": "Count"
+                        "label": "Count",
+                        "type": "array"
                     },
                     {
                         "name": "fldep0qvObXVdjvOc",
-                        "type": "array",
-                        "label": "Product (from Line_items)"
+                        "label": "Product (from Line_items)",
+                        "type": "array"
                     },
                     {
                         "name": "fldz5gwohnIhCt5YN",
-                        "type": "array",
-                        "label": "Course_date"
+                        "label": "Course_date",
+                        "type": "array"
                     },
                     {
                         "name": "fldM0GRvfDhNXMGgi",
-                        "type": "array",
-                        "label": "membership_number (from Contact)"
+                        "label": "membership_number (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fldurMC63zSVxi6rB",
-                        "type": "array",
-                        "label": "street_and_number (from Contact)"
+                        "label": "street_and_number (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fld9Unk5WLBUWnG5q",
-                        "type": "array",
-                        "label": "PLZ_location (from Contact)"
+                        "label": "PLZ_location (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fldYX6OnzvKqL4pIo",
-                        "type": "array",
-                        "label": "company (from Contact)"
+                        "label": "company (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fld6ZqaCojH3YZ19A",
-                        "type": "text",
-                        "label": "company (from Contact) copy"
+                        "label": "company (from Contact) copy",
+                        "type": "text"
                     },
                     {
                         "name": "flda2x7PSWryzD0t9",
-                        "time": true,
+                        "label": "Date created",
                         "type": "date",
-                        "label": "Date created"
+                        "time": true
                     },
                     {
                         "name": "fldLhdcdCsUCaZiRN",
-                        "type": "text",
-                        "label": "Due date"
+                        "label": "Due date",
+                        "type": "text"
                     },
                     {
                         "name": "fldpKt9SqHT3QURoP",
-                        "type": "number",
-                        "label": "Autonumber"
+                        "label": "Autonumber",
+                        "type": "number"
                     },
                     {
                         "name": "fld2rnSCWPoZfauvA",
-                        "type": "text",
                         "label": "Comment_invoice",
+                        "type": "text",
                         "multiline": true
                     },
                     {
                         "name": "flduZb5WFZ2fVeRAX",
-                        "type": "text",
-                        "label": "Payment place"
+                        "label": "Payment place",
+                        "type": "text"
                     },
                     {
                         "name": "fldW89JiVc4ixTGSw",
-                        "type": "array",
-                        "label": "Value_net"
+                        "label": "Value_net",
+                        "type": "array"
                     },
                     {
                         "name": "fldw1N3sfdgYUjEtC",
-                        "type": "number",
-                        "label": "Discount"
+                        "label": "Discount",
+                        "type": "number"
                     },
                     {
                         "name": "fld5sGScL7liEQ3vI",
-                        "type": "text",
-                        "label": "Discount_field"
+                        "label": "Discount_field",
+                        "type": "text"
                     },
                     {
                         "name": "fldQzRUJQs1tdVutD",
-                        "type": "text",
-                        "label": "Tax"
+                        "label": "Tax",
+                        "type": "text"
                     },
                     {
                         "name": "fldizB43KLduxuftD",
-                        "type": "text",
-                        "label": "Grand_total"
+                        "label": "Grand_total",
+                        "type": "text"
                     },
                     {
                         "name": "fldzyaeaHqStZoORB",
-                        "type": "number",
-                        "label": "Net_after_stripe_fee"
+                        "label": "Net_after_stripe_fee",
+                        "type": "number"
                     },
                     {
                         "name": "fldmno5O7ln1dIlxm",
+                        "label": "Invoice",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -2712,14 +2719,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2736,12 +2747,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2758,12 +2769,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2780,25 +2791,31 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Invoice"
+                        ]
                     },
                     {
                         "name": "fldDk1kEgHOoqiHER",
+                        "label": "Offer",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -2817,14 +2834,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2841,12 +2862,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2863,12 +2884,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -2885,20 +2906,16 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Offer"
+                        ]
                     },
                     {
                         "name": "fldKvdXeHldumx5Sd",
+                        "label": "Reviewer",
+                        "type": "collection",
                         "spec": [
                             {
                                 "name": "id",
@@ -2915,62 +2932,72 @@
                                 "type": "text",
                                 "label": "Name"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Reviewer"
+                        ]
                     },
                     {
                         "name": "fldWm9PyXketr3Qxe",
-                        "type": "boolean",
-                        "label": "Special customer"
+                        "label": "Special customer",
+                        "type": "boolean"
                     },
                     {
                         "name": "fldDUHvU4iIEXA2N3",
-                        "type": "text",
-                        "label": "offer_Invoice_status"
+                        "label": "offer_Invoice_status",
+                        "type": "text"
                     },
                     {
                         "name": "fld7bF70jlR0AbRiT",
-                        "type": "date",
-                        "label": "Invoice status change"
+                        "label": "Invoice status change",
+                        "type": "date"
                     },
                     {
                         "name": "flddjyk5mp7CRZEMQ",
-                        "type": "boolean",
-                        "label": "Invoice_sent"
+                        "label": "Invoice_sent",
+                        "type": "boolean"
                     },
                     {
                         "name": "fldLRUxdbGT8wsckD",
-                        "type": "date",
-                        "label": "Invoice_sent_when"
+                        "label": "Invoice_sent_when",
+                        "type": "date"
                     },
                     {
                         "name": "fld6hvQ2ra2tJ2mKh",
-                        "type": "array",
-                        "label": "Qty"
+                        "label": "Qty",
+                        "type": "array"
                     },
                     {
                         "name": "fldbaCrf3nvp4swfW",
-                        "type": "array",
-                        "label": "date_of_service"
+                        "label": "date_of_service",
+                        "type": "array"
                     },
                     {
                         "name": "fldC6ozVO1ufD7sL1",
-                        "type": "text",
-                        "label": "To DATEV"
+                        "label": "To DATEV",
+                        "type": "text"
                     },
                     {
                         "name": "fldCqlZxWo3vMFHAP",
-                        "type": "text",
-                        "label": "Turnover_net"
+                        "label": "Turnover_net",
+                        "type": "text"
                     },
                     {
                         "name": "fldQ1BlGlwHTPdzJ8",
+                        "label": "Storno_Invoice",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -2989,14 +3016,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3013,12 +3044,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3035,12 +3066,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3057,131 +3088,127 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Storno_Invoice"
+                        ]
                     },
                     {
                         "name": "fldzzg1zEkMRPmhSn",
-                        "type": "array",
-                        "label": "Value"
+                        "label": "Value",
+                        "type": "array"
                     },
                     {
                         "name": "fldY0ytGuXKbPDCNS",
-                        "type": "text",
                         "label": "Text_for_Offer_email",
+                        "type": "text",
                         "multiline": true
                     },
                     {
                         "name": "fldHG4H06ZmdDaJmO",
-                        "type": "text",
-                        "label": "Send Datev"
+                        "label": "Send Datev",
+                        "type": "text"
                     },
                     {
                         "name": "fldp6MZPCK1d5ZrXL",
-                        "type": "array",
-                        "label": "Voucher"
+                        "label": "Voucher",
+                        "type": "array"
                     },
                     {
                         "name": "fldUcOdqRMphPkd70",
-                        "type": "text",
-                        "label": "Storno ID"
+                        "label": "Storno ID",
+                        "type": "text"
                     },
                     {
                         "name": "fldrHNNZo4FI3Qs55",
-                        "time": false,
+                        "label": "Date_payment_received",
                         "type": "date",
-                        "label": "Date_payment_received"
+                        "time": false
                     },
                     {
                         "name": "fldBsmuN2ULn8S2MK",
-                        "type": "text",
                         "label": "further_information",
+                        "type": "text",
                         "multiline": true
                     },
                     {
                         "name": "fldh1URVlFGsNwXy0",
-                        "type": "array",
-                        "label": "Stripe_PI_ID"
+                        "label": "Stripe_PI_ID",
+                        "type": "array"
                     },
                     {
                         "name": "fldkl59RkaggAnz8i",
-                        "type": "array",
-                        "label": "Company PLZ"
+                        "label": "Company PLZ",
+                        "type": "array"
                     },
                     {
                         "name": "fldq7pucj4YjLZJPM",
-                        "type": "array",
-                        "label": "Company City"
+                        "label": "Company City",
+                        "type": "array"
                     },
                     {
                         "name": "fldcfuYIjlLN2B6k6",
-                        "type": "array",
-                        "label": "Company Street"
+                        "label": "Company Street",
+                        "type": "array"
                     },
                     {
                         "name": "fld1vvWjkw24nknEE",
-                        "type": "text",
-                        "label": "Reason for lost"
+                        "label": "Reason for lost",
+                        "type": "text"
                     },
                     {
                         "name": "fldP9TF9tbVsIKQJx",
-                        "type": "text",
-                        "label": "Responsible"
+                        "label": "Responsible",
+                        "type": "text"
                     },
                     {
                         "name": "flds4YFHU1mqVSfzn",
-                        "time": false,
+                        "label": "Date_offer_invoice_status_changed",
                         "type": "date",
-                        "label": "Date_offer_invoice_status_changed"
+                        "time": false
                     },
                     {
                         "name": "fldCgT1GuFTyy6WIm",
-                        "type": "date",
-                        "label": "Cash_Inflow_Date"
+                        "label": "Cash_Inflow_Date",
+                        "type": "date"
                     },
                     {
                         "name": "fldmStAu0hkKq9wNm",
-                        "time": false,
+                        "label": "Temp_Cash_Inflow_Date",
                         "type": "date",
-                        "label": "Temp_Cash_Inflow_Date"
+                        "time": false
                     },
                     {
                         "name": "fldOlBrI1cRE6qt6g",
-                        "type": "text",
-                        "label": "SDCustomerNumber"
+                        "label": "SDCustomerNumber",
+                        "type": "text"
                     },
                     {
                         "name": "fld9j9PqZOf6MTGLa",
-                        "type": "array",
-                        "label": "Company SDCustomerNumber"
+                        "label": "Company SDCustomerNumber",
+                        "type": "array"
                     },
                     {
                         "name": "fldYJAr3Byl7dYIBA",
-                        "type": "array",
-                        "label": "Contact SDCustomerNumber"
+                        "label": "Contact SDCustomerNumber",
+                        "type": "array"
                     },
                     {
                         "name": "fldG6Tn8wNzJ9RqNu",
-                        "type": "array",
-                        "label": "SD Contact ID (from SDContact) (from Contact)"
+                        "label": "SD Contact ID (from SDContact) (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fld7bh0ZFpji0rd12",
-                        "time": false,
+                        "label": "Fristverlängerung",
                         "type": "date",
-                        "label": "Fristverlängerung"
+                        "time": false
                     },
                     {
                         "name": "fldanZIBiAzTgjZvk",
+                        "label": "SD offer/invoice/storno",
+                        "type": "collection",
                         "spec": [
                             {
                                 "name": "label",
@@ -3193,17 +3220,27 @@
                                 "type": "url",
                                 "label": "URL"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "SD offer/invoice/storno"
+                        ]
                     },
                     {
                         "name": "fldWSxX7owCtkiBrT",
+                        "label": "SD invoice",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -3222,14 +3259,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3246,12 +3287,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3268,12 +3309,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3290,25 +3331,31 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "SD invoice"
+                        ]
                     },
                     {
                         "name": "fldjPIwm6LavAtnf1",
+                        "label": "SD offer",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -3327,14 +3374,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3351,12 +3402,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3373,12 +3424,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3395,30 +3446,36 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "SD offer"
+                        ]
                     },
                     {
                         "name": "fldez59YFbZVsSjsw",
-                        "type": "text",
-                        "label": "SD invoice number"
+                        "label": "SD invoice number",
+                        "type": "text"
                     },
                     {
                         "name": "fld5RxJEP7Wb6rTqQ",
+                        "label": "SD storno",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -3437,14 +3494,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3461,12 +3522,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3483,12 +3544,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3505,43 +3566,39 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "SD storno"
+                        ]
                     },
                     {
                         "name": "fldquVWBGUZEQOu7f",
-                        "type": "text",
-                        "label": "SD storno number"
+                        "label": "SD storno number",
+                        "type": "text"
                     },
                     {
                         "name": "fldrGLcm4TgTe7yzH",
-                        "type": "array",
-                        "label": "Earliest Course start date"
+                        "label": "Earliest Course start date",
+                        "type": "array"
                     },
                     {
                         "name": "fldW7Nh967EQmeuk1",
-                        "type": "array",
-                        "label": "Latest Course end date"
+                        "label": "Latest Course end date",
+                        "type": "array"
                     },
                     {
                         "name": "fldr9D8Ga0wfi940F",
+                        "label": "Offer request",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Offer request"
+                        }
                     },
                     {
                         "name": "fld621Zxh46jVjMQS",
+                        "label": "Create invoice",
+                        "type": "collection",
                         "spec": [
                             {
                                 "name": "label",
@@ -3553,12 +3610,12 @@
                                 "type": "url",
                                 "label": "URL"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Create invoice"
+                        ]
                     },
                     {
                         "name": "fldJJtqiBHuBZXx30",
+                        "label": "Create Offer",
+                        "type": "collection",
                         "spec": [
                             {
                                 "name": "label",
@@ -3570,12 +3627,12 @@
                                 "type": "url",
                                 "label": "URL"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Create Offer"
+                        ]
                     },
                     {
                         "name": "fld7x4doKVj35N4bo",
+                        "label": "Storno Invoice",
+                        "type": "collection",
                         "spec": [
                             {
                                 "name": "label",
@@ -3587,58 +3644,68 @@
                                 "type": "url",
                                 "label": "URL"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Storno Invoice"
+                        ]
                     },
                     {
                         "name": "fldZfCtK1SNVRsQfr",
-                        "type": "text",
-                        "label": "SD offer ID"
+                        "label": "SD offer ID",
+                        "type": "text"
                     },
                     {
                         "name": "fldyCy6KNpSdsjP61",
-                        "type": "text",
-                        "label": "SD invoice ID"
+                        "label": "SD invoice ID",
+                        "type": "text"
                     },
                     {
                         "name": "fldnmxj6ZyjJ8S2F2",
-                        "type": "text",
-                        "label": "SD storno ID"
+                        "label": "SD storno ID",
+                        "type": "text"
                     },
                     {
                         "name": "fld5meb3zeLAQFsfn",
-                        "type": "text",
-                        "label": "New offer request"
+                        "label": "New offer request",
+                        "type": "text"
                     },
                     {
                         "name": "flddwHPD4A4sSiNn6",
+                        "label": "SD Invoices",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "SD Invoices"
+                        }
                     },
                     {
                         "name": "fld8gnglK3Gz5OfCO",
-                        "type": "array",
-                        "label": "SD Invoice Number (from SD Invoices)"
+                        "label": "SD Invoice Number (from SD Invoices)",
+                        "type": "array"
                     },
                     {
                         "name": "fldtWSNDpx1qV0pTh",
+                        "label": "SD Offers",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "SD Offers"
+                        }
                     },
                     {
                         "name": "fld2S2TmP4hJU37pk",
+                        "label": "SD Offer (from SD Offers)",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
                                 "type": "text",
                                 "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
                             },
                             {
                                 "name": "url",
@@ -3657,14 +3724,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3681,12 +3752,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3703,12 +3774,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -3725,22 +3796,146 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "SD Offer (from SD Offers)"
+                        ]
                     },
                     {
                         "name": "fldWtc16rfFHJ5zSZ",
+                        "label": "Created (from SD Offers)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldDYs5zJ9aWjfM8c",
+                        "label": "SD Invoice (from SD Invoices)",
                         "type": "array",
-                        "label": "Created (from SD Offers)"
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "flda18PpFPuvioJFe",
+                        "label": "type (from SD Invoices)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldgsWsK979aPnZSi",
+                        "label": "MD tmp",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldfWsXujfVaGVbyw",
+                        "label": "md tmp2",
+                        "type": "text"
                     }
                 ],
                 "advanced": true
