@@ -37,7 +37,27 @@
                         "type": "number",
                         "label": "Maximum number of results"
                     }
-                ]
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTHEADERS__",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    }
+                ],
+                "advanced": true
             }
         },
         {
@@ -47,11 +67,20 @@
             "parameters": {
                 "__IMTCONN__": 2456185
             },
+            "filter": {
+                "name": "API key",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{first(map(1.`__IMTHEADERS__`; \"value\"; \"name\"; \"authorization\"))}}",
+                            "b": "400f1267e015aee78e6e33f8599dd5db",
+                            "o": "text:equal"
+                        }
+                    ]
+                ]
+            },
             "mapper": {
                 "base": "app4R2qm7WvWIFspd",
-                "useColumnId": true,
-                "table": "tblH4U1AWOEVTkoNE",
-                "maxRecords": "100",
                 "sort": [
                     {
                         "field": "Start",
@@ -59,6 +88,7 @@
                     }
                 ],
                 "view": "viw0e9md3qxybDpfK",
+                "table": "tblH4U1AWOEVTkoNE",
                 "fields": [
                     "Title",
                     "Live on webpage",
@@ -68,7 +98,9 @@
                     "Start",
                     "time_of_day",
                     "End"
-                ]
+                ],
+                "maxRecords": "100",
+                "useColumnId": true
             },
             "metadata": {
                 "designer": {
@@ -76,26 +108,10 @@
                     "y": 0
                 },
                 "restore": {
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "label": "MD Airtable Token connection",
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            }
-                        }
-                    },
                     "expect": {
                         "base": {
                             "mode": "chose",
                             "label": "NetZero Academy Courses"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        },
-                        "table": {
-                            "mode": "chose",
-                            "label": "Courses"
                         },
                         "sort": {
                             "mode": "chose",
@@ -116,6 +132,10 @@
                             "mode": "chose",
                             "label": "Webservice Courses"
                         },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Courses"
+                        },
                         "fields": {
                             "mode": "chose",
                             "label": [
@@ -128,6 +148,18 @@
                                 "time_of_day",
                                 "End"
                             ]
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -170,15 +202,13 @@
                     },
                     {
                         "name": "sort",
-                        "type": "array",
-                        "label": "Sort",
                         "spec": [
                             {
                                 "name": "field",
                                 "type": "select",
                                 "label": "Field",
-                                "options": [],
-                                "dynamic": true
+                                "dynamic": true,
+                                "options": []
                             },
                             {
                                 "name": "direction",
@@ -195,7 +225,9 @@
                                     }
                                 ]
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Sort"
                     },
                     {
                         "name": "view",
@@ -222,45 +254,45 @@
                     },
                     {
                         "name": "fldx7FfUMeXZBWN5F",
-                        "label": "Title",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Title"
                     },
                     {
                         "name": "fldBXDjUKLtWBkjJf",
-                        "label": "Live on webpage",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "label": "Live on webpage"
                     },
                     {
                         "name": "fldFvOIryz6E4iWpC",
-                        "label": "Description",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Description"
                     },
                     {
                         "name": "fldZzGTxROQT9lKF3",
-                        "label": "Page URL",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Page URL"
                     },
                     {
                         "name": "fldme9YFd5FGhsiQb",
-                        "label": "Course URL",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Course URL"
                     },
                     {
                         "name": "fldK41jDhXasKh1uT",
-                        "label": "Start",
+                        "time": false,
                         "type": "date",
-                        "time": false
+                        "label": "Start"
                     },
                     {
                         "name": "fldtZvOFSQQRVphLD",
-                        "label": "time_of_day",
-                        "type": "text"
+                        "type": "text",
+                        "label": "time_of_day"
                     },
                     {
                         "name": "fldfEJ2qf3eNdaG1W",
-                        "label": "End",
+                        "time": false,
                         "type": "date",
-                        "time": false
+                        "label": "End"
                     }
                 ],
                 "advanced": true
@@ -381,8 +413,8 @@
             "version": 1,
             "parameters": {},
             "mapper": {
-                "status": "200",
                 "body": "{{7.json}}",
+                "status": "200",
                 "headers": [
                     {
                         "key": "Content-Type",
@@ -410,10 +442,10 @@
                         "name": "status",
                         "type": "uinteger",
                         "label": "Status",
+                        "required": true,
                         "validate": {
                             "min": 100
-                        },
-                        "required": true
+                        }
                     },
                     {
                         "name": "body",
@@ -422,16 +454,11 @@
                     },
                     {
                         "name": "headers",
-                        "type": "array",
-                        "label": "Custom headers",
-                        "validate": {
-                            "maxItems": 16
-                        },
                         "spec": [
                             {
                                 "name": "key",
-                                "label": "Key",
                                 "type": "text",
+                                "label": "Key",
                                 "required": true,
                                 "validate": {
                                     "max": 256
@@ -439,14 +466,19 @@
                             },
                             {
                                 "name": "value",
-                                "label": "Value",
                                 "type": "text",
+                                "label": "Value",
                                 "required": true,
                                 "validate": {
                                     "max": 4096
                                 }
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Custom headers",
+                        "validate": {
+                            "maxItems": 16
+                        }
                     }
                 ],
                 "advanced": true
@@ -469,107 +501,7 @@
             "freshVariables": false
         },
         "designer": {
-            "orphans": [
-                [
-                    {
-                        "id": 4,
-                        "module": "builtin:BasicRouter",
-                        "version": 1,
-                        "parameters": {
-                            "else": 0
-                        },
-                        "mapper": null,
-                        "metadata": {
-                            "designer": {
-                                "x": 0,
-                                "y": 306,
-                                "messages": [
-                                    {
-                                        "category": "link",
-                                        "severity": "warning",
-                                        "message": "The module is not connected to the data flow."
-                                    }
-                                ]
-                            }
-                        },
-                        "routes": [
-                            {
-                                "flow": [
-                                    {
-                                        "id": 5,
-                                        "module": "gateway:WebhookRespond",
-                                        "version": 1,
-                                        "parameters": {},
-                                        "mapper": {
-                                            "body": "{ }",
-                                            "status": "200",
-                                            "headers": []
-                                        },
-                                        "metadata": {
-                                            "designer": {
-                                                "x": 600,
-                                                "y": 300
-                                            },
-                                            "restore": {
-                                                "expect": {
-                                                    "headers": {
-                                                        "mode": "chose"
-                                                    }
-                                                }
-                                            },
-                                            "expect": [
-                                                {
-                                                    "name": "status",
-                                                    "type": "uinteger",
-                                                    "label": "Status",
-                                                    "required": true,
-                                                    "validate": {
-                                                        "min": 100
-                                                    }
-                                                },
-                                                {
-                                                    "name": "body",
-                                                    "type": "any",
-                                                    "label": "Body"
-                                                },
-                                                {
-                                                    "name": "headers",
-                                                    "spec": [
-                                                        {
-                                                            "name": "key",
-                                                            "type": "text",
-                                                            "label": "Key",
-                                                            "required": true,
-                                                            "validate": {
-                                                                "max": 256
-                                                            }
-                                                        },
-                                                        {
-                                                            "name": "value",
-                                                            "type": "text",
-                                                            "label": "Value",
-                                                            "required": true,
-                                                            "validate": {
-                                                                "max": 4096
-                                                            }
-                                                        }
-                                                    ],
-                                                    "type": "array",
-                                                    "label": "Custom headers",
-                                                    "validate": {
-                                                        "maxItems": 16
-                                                    }
-                                                }
-                                            ],
-                                            "advanced": true
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            ]
+            "orphans": []
         },
         "zone": "eu1.make.com"
     }
