@@ -22023,23 +22023,387 @@
                                 "__IMTCONN__": 2456185
                             },
                             "mapper": {
-                                "base": "appIW2NHG67L20Pxm",
-                                "typecast": false,
-                                "useColumnId": true,
-                                "table": "tblwStd7tXZsxSO4Y",
                                 "id": "{{46.id}}",
+                                "base": "appIW2NHG67L20Pxm",
+                                "table": "tblwStd7tXZsxSO4Y",
                                 "record": {
-                                    "fldYE6X3k8INCexZS": "{{47.id}}",
                                     "fldQpM3uwLLn9aSTv": [
                                         ""
-                                    ]
-                                }
+                                    ],
+                                    "fldYE6X3k8INCexZS": "{{47.id}}"
+                                },
+                                "typecast": false,
+                                "useColumnId": true
                             },
                             "metadata": {
                                 "designer": {
                                     "x": 2377,
                                     "y": 948,
-                                    "name": "Add sevDesk ContactID"
+                                    "name": "Add sevDesk ContactID to SDContact"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "label": "NetZero Academy"
+                                        },
+                                        "table": {
+                                            "label": "SDContact"
+                                        },
+                                        "record": {
+                                            "nested": {
+                                                "fldAhGNWYw7K39gwg": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldQpM3uwLLn9aSTv": {
+                                                    "mode": "chose",
+                                                    "items": [
+                                                        null
+                                                    ]
+                                                },
+                                                "fldUbhi9mpaUIs0eZ": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldr4HmOay1qL7VSm": {
+                                                    "mode": "edit"
+                                                },
+                                                "flduWekjX5UUQ9Ss7": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "MD Airtable Token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "typecast",
+                                        "type": "boolean",
+                                        "label": "Smart links",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "Record ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "record",
+                                        "spec": [
+                                            {
+                                                "name": "fldk11ulydexvMN5k",
+                                                "type": "number",
+                                                "label": "SDCustomerNumber (old)"
+                                            },
+                                            {
+                                                "name": "fldYE6X3k8INCexZS",
+                                                "type": "text",
+                                                "label": "sevDesk Contact ID"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "fldr4HmOay1qL7VSm",
+                                                "type": "select",
+                                                "label": "Status"
+                                            },
+                                            {
+                                                "name": "fldQpM3uwLLn9aSTv",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Contacts"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "fldAhGNWYw7K39gwg",
+                                                "type": "select",
+                                                "label": "Salutation"
+                                            },
+                                            {
+                                                "name": "fldk8LYVqRIJaEALK",
+                                                "type": "text",
+                                                "label": "Title"
+                                            },
+                                            {
+                                                "name": "fldbmQeJGHCkCZjyI",
+                                                "type": "text",
+                                                "label": "First name"
+                                            },
+                                            {
+                                                "name": "fldk7QVSEg3cIR6H4",
+                                                "type": "text",
+                                                "label": "Last name"
+                                            },
+                                            {
+                                                "name": "fldiiMXpbl6fYeHWj",
+                                                "type": "text",
+                                                "label": "E-mail"
+                                            },
+                                            {
+                                                "name": "fldjqaniVx7mwILXw",
+                                                "type": "text",
+                                                "label": "Phone number"
+                                            },
+                                            {
+                                                "name": "fldMDUpDRbRdTXk6s",
+                                                "type": "text",
+                                                "label": "Street"
+                                            },
+                                            {
+                                                "name": "fldlpYKf7DGH96xKe",
+                                                "type": "text",
+                                                "label": "PLZ"
+                                            },
+                                            {
+                                                "name": "fldaAy7RgYZ8vRamt",
+                                                "type": "text",
+                                                "label": "City"
+                                            },
+                                            {
+                                                "name": "fldUbhi9mpaUIs0eZ",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "CompanyDB"
+                                            },
+                                            {
+                                                "name": "fldhchTvaxhzX1NnT",
+                                                "type": "text",
+                                                "label": "Invoices"
+                                            },
+                                            {
+                                                "name": "flduWekjX5UUQ9Ss7",
+                                                "type": "boolean",
+                                                "label": "md tmp (delete)"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "fldPIgk5IemKujNuV",
+                                        "type": "text",
+                                        "label": "SDContact"
+                                    },
+                                    {
+                                        "name": "fldj2qqP11phOQK2E",
+                                        "type": "number",
+                                        "label": "Autonumber"
+                                    },
+                                    {
+                                        "name": "fldf2hBuEJ8gyuX2g",
+                                        "type": "text",
+                                        "label": "SDCustomerNumber"
+                                    },
+                                    {
+                                        "name": "fldk11ulydexvMN5k",
+                                        "type": "number",
+                                        "label": "SDCustomerNumber (old)"
+                                    },
+                                    {
+                                        "name": "fldYE6X3k8INCexZS",
+                                        "type": "text",
+                                        "label": "sevDesk Contact ID"
+                                    },
+                                    {
+                                        "name": "fldr4HmOay1qL7VSm",
+                                        "type": "text",
+                                        "label": "Status"
+                                    },
+                                    {
+                                        "name": "fldQpM3uwLLn9aSTv",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Contacts"
+                                    },
+                                    {
+                                        "name": "fldAhGNWYw7K39gwg",
+                                        "type": "text",
+                                        "label": "Salutation"
+                                    },
+                                    {
+                                        "name": "fldk8LYVqRIJaEALK",
+                                        "type": "text",
+                                        "label": "Title"
+                                    },
+                                    {
+                                        "name": "fldbmQeJGHCkCZjyI",
+                                        "type": "text",
+                                        "label": "First name"
+                                    },
+                                    {
+                                        "name": "fldk7QVSEg3cIR6H4",
+                                        "type": "text",
+                                        "label": "Last name"
+                                    },
+                                    {
+                                        "name": "fldiiMXpbl6fYeHWj",
+                                        "type": "text",
+                                        "label": "E-mail"
+                                    },
+                                    {
+                                        "name": "fldjqaniVx7mwILXw",
+                                        "type": "text",
+                                        "label": "Phone number"
+                                    },
+                                    {
+                                        "name": "fldMDUpDRbRdTXk6s",
+                                        "type": "text",
+                                        "label": "Street"
+                                    },
+                                    {
+                                        "name": "fldlpYKf7DGH96xKe",
+                                        "type": "text",
+                                        "label": "PLZ"
+                                    },
+                                    {
+                                        "name": "fldaAy7RgYZ8vRamt",
+                                        "type": "text",
+                                        "label": "City"
+                                    },
+                                    {
+                                        "name": "fldUbhi9mpaUIs0eZ",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "CompanyDB"
+                                    },
+                                    {
+                                        "name": "fldDvvgXarGUC1ZKc",
+                                        "type": "date",
+                                        "label": "Last Modified"
+                                    },
+                                    {
+                                        "name": "fld7fIhNV64LfncAO",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "email",
+                                                "type": "text",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Last Modified By"
+                                    },
+                                    {
+                                        "name": "fld9dUg5zLGES0SfY",
+                                        "type": "date",
+                                        "label": "Created time"
+                                    },
+                                    {
+                                        "name": "fldhchTvaxhzX1NnT",
+                                        "type": "text",
+                                        "label": "Invoices"
+                                    },
+                                    {
+                                        "name": "fldqqiqm9rVJY1KOV",
+                                        "type": "text",
+                                        "label": "sevDeskLink"
+                                    },
+                                    {
+                                        "name": "flduWekjX5UUQ9Ss7",
+                                        "type": "boolean",
+                                        "label": "md tmp (delete)"
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        },
+                        {
+                            "id": 61,
+                            "module": "airtable:ActionUpdateRecords",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 2456185
+                            },
+                            "mapper": {
+                                "base": "appIW2NHG67L20Pxm",
+                                "typecast": false,
+                                "useColumnId": true,
+                                "table": "tblHXKFPmaAHreDzf",
+                                "id": "{{2.fldYX6OnzvKqL4pIo[1]}}",
+                                "record": {
+                                    "fld17ziB0k4KGgwWi": [
+                                        "{{46.id}}"
+                                    ],
+                                    "fldp9aGE10L3lofZz": "{{46.fldf2hBuEJ8gyuX2g}}",
+                                    "fld1xkC5OUV8XfQpC": "{{47.id}}"
+                                }
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 2603,
+                                    "y": 722,
+                                    "name": "add sevDesk ContactID to Company"
                                 },
                                 "restore": {
                                     "parameters": {
@@ -22062,26 +22426,23 @@
                                             "mode": "chose"
                                         },
                                         "table": {
-                                            "label": "SDContact"
+                                            "label": "CompanyDB"
                                         },
                                         "record": {
                                             "nested": {
-                                                "fldr4HmOay1qL7VSm": {
+                                                "fldxuj6IkVJCjjJke": {
                                                     "mode": "edit"
                                                 },
-                                                "fldQpM3uwLLn9aSTv": {
+                                                "fld8c95mgQDa4y3JF": {
+                                                    "mode": "chose"
+                                                },
+                                                "fld17ziB0k4KGgwWi": {
                                                     "mode": "chose",
                                                     "items": [
                                                         null
                                                     ]
                                                 },
-                                                "fldAhGNWYw7K39gwg": {
-                                                    "mode": "edit"
-                                                },
-                                                "fldUbhi9mpaUIs0eZ": {
-                                                    "mode": "chose"
-                                                },
-                                                "flduWekjX5UUQ9Ss7": {
+                                                "fldOPACgLWzzCoRZY": {
                                                     "mode": "chose"
                                                 }
                                             }
@@ -22133,356 +22494,6 @@
                                         "label": "Record",
                                         "spec": [
                                             {
-                                                "name": "fldk11ulydexvMN5k",
-                                                "type": "number",
-                                                "label": "SDCustomerNumber (old)"
-                                            },
-                                            {
-                                                "name": "fldYE6X3k8INCexZS",
-                                                "type": "text",
-                                                "label": "sevDesk Contact ID"
-                                            },
-                                            {
-                                                "name": "fldr4HmOay1qL7VSm",
-                                                "type": "select",
-                                                "label": "Status",
-                                                "mode": "edit"
-                                            },
-                                            {
-                                                "name": "fldQpM3uwLLn9aSTv",
-                                                "type": "array",
-                                                "label": "Contacts",
-                                                "spec": {
-                                                    "label": "Record ID",
-                                                    "name": "value"
-                                                }
-                                            },
-                                            {
-                                                "name": "fldAhGNWYw7K39gwg",
-                                                "type": "select",
-                                                "label": "Salutation",
-                                                "mode": "edit"
-                                            },
-                                            {
-                                                "name": "fldk8LYVqRIJaEALK",
-                                                "type": "text",
-                                                "label": "Title"
-                                            },
-                                            {
-                                                "name": "fldbmQeJGHCkCZjyI",
-                                                "type": "text",
-                                                "label": "First name"
-                                            },
-                                            {
-                                                "name": "fldk7QVSEg3cIR6H4",
-                                                "type": "text",
-                                                "label": "Last name"
-                                            },
-                                            {
-                                                "name": "fldiiMXpbl6fYeHWj",
-                                                "type": "text",
-                                                "label": "E-mail"
-                                            },
-                                            {
-                                                "name": "fldjqaniVx7mwILXw",
-                                                "type": "text",
-                                                "label": "Phone number"
-                                            },
-                                            {
-                                                "name": "fldMDUpDRbRdTXk6s",
-                                                "type": "text",
-                                                "label": "Street"
-                                            },
-                                            {
-                                                "name": "fldlpYKf7DGH96xKe",
-                                                "type": "text",
-                                                "label": "PLZ"
-                                            },
-                                            {
-                                                "name": "fldaAy7RgYZ8vRamt",
-                                                "type": "text",
-                                                "label": "City"
-                                            },
-                                            {
-                                                "name": "fldUbhi9mpaUIs0eZ",
-                                                "type": "array",
-                                                "label": "CompanyDB",
-                                                "spec": {
-                                                    "label": "Record ID",
-                                                    "name": "value"
-                                                }
-                                            },
-                                            {
-                                                "name": "fldhchTvaxhzX1NnT",
-                                                "type": "text",
-                                                "label": "Invoices"
-                                            },
-                                            {
-                                                "name": "flduWekjX5UUQ9Ss7",
-                                                "type": "boolean",
-                                                "label": "md tmp (delete)"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "interface": [
-                                    {
-                                        "name": "id",
-                                        "type": "text",
-                                        "label": "ID"
-                                    },
-                                    {
-                                        "name": "createdTime",
-                                        "type": "date",
-                                        "label": "Created Time"
-                                    },
-                                    {
-                                        "name": "fldPIgk5IemKujNuV",
-                                        "label": "SDContact",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldj2qqP11phOQK2E",
-                                        "label": "Autonumber",
-                                        "type": "number"
-                                    },
-                                    {
-                                        "name": "fldf2hBuEJ8gyuX2g",
-                                        "label": "SDCustomerNumber",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldk11ulydexvMN5k",
-                                        "label": "SDCustomerNumber (old)",
-                                        "type": "number"
-                                    },
-                                    {
-                                        "name": "fldYE6X3k8INCexZS",
-                                        "label": "sevDesk Contact ID",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldr4HmOay1qL7VSm",
-                                        "label": "Status",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldQpM3uwLLn9aSTv",
-                                        "label": "Contacts",
-                                        "type": "array",
-                                        "spec": {
-                                            "label": "Record ID"
-                                        }
-                                    },
-                                    {
-                                        "name": "fldAhGNWYw7K39gwg",
-                                        "label": "Salutation",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldk8LYVqRIJaEALK",
-                                        "label": "Title",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldbmQeJGHCkCZjyI",
-                                        "label": "First name",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldk7QVSEg3cIR6H4",
-                                        "label": "Last name",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldiiMXpbl6fYeHWj",
-                                        "label": "E-mail",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldjqaniVx7mwILXw",
-                                        "label": "Phone number",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldMDUpDRbRdTXk6s",
-                                        "label": "Street",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldlpYKf7DGH96xKe",
-                                        "label": "PLZ",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldaAy7RgYZ8vRamt",
-                                        "label": "City",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldUbhi9mpaUIs0eZ",
-                                        "label": "CompanyDB",
-                                        "type": "array",
-                                        "spec": {
-                                            "label": "Record ID"
-                                        }
-                                    },
-                                    {
-                                        "name": "fldDvvgXarGUC1ZKc",
-                                        "label": "Last Modified",
-                                        "type": "date"
-                                    },
-                                    {
-                                        "name": "fld7fIhNV64LfncAO",
-                                        "label": "Last Modified By",
-                                        "type": "collection",
-                                        "spec": [
-                                            {
-                                                "name": "id",
-                                                "type": "text",
-                                                "label": "ID"
-                                            },
-                                            {
-                                                "name": "email",
-                                                "type": "text",
-                                                "label": "Email"
-                                            },
-                                            {
-                                                "name": "name",
-                                                "type": "text",
-                                                "label": "Name"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "name": "fld9dUg5zLGES0SfY",
-                                        "label": "Created time",
-                                        "type": "date"
-                                    },
-                                    {
-                                        "name": "fldhchTvaxhzX1NnT",
-                                        "label": "Invoices",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "fldqqiqm9rVJY1KOV",
-                                        "label": "sevDeskLink",
-                                        "type": "text"
-                                    },
-                                    {
-                                        "name": "flduWekjX5UUQ9Ss7",
-                                        "label": "md tmp (delete)",
-                                        "type": "boolean"
-                                    }
-                                ],
-                                "advanced": true
-                            }
-                        },
-                        {
-                            "id": 61,
-                            "module": "airtable:ActionUpdateRecords",
-                            "version": 3,
-                            "parameters": {
-                                "__IMTCONN__": 2456185
-                            },
-                            "mapper": {
-                                "id": "{{2.fldYX6OnzvKqL4pIo[1]}}",
-                                "base": "appIW2NHG67L20Pxm",
-                                "table": "tblHXKFPmaAHreDzf",
-                                "record": {
-                                    "fld1xkC5OUV8XfQpC": "{{47.id}}",
-                                    "fldp9aGE10L3lofZz": "{{46.fldf2hBuEJ8gyuX2g}}"
-                                },
-                                "typecast": false,
-                                "useColumnId": true
-                            },
-                            "metadata": {
-                                "designer": {
-                                    "x": 2603,
-                                    "y": 722,
-                                    "name": "add sevDesk ContactID to Company"
-                                },
-                                "restore": {
-                                    "expect": {
-                                        "base": {
-                                            "label": "NetZero Academy"
-                                        },
-                                        "table": {
-                                            "label": "CompanyDB"
-                                        },
-                                        "record": {
-                                            "nested": {
-                                                "fld17ziB0k4KGgwWi": {
-                                                    "mode": "chose"
-                                                },
-                                                "fld8c95mgQDa4y3JF": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldxuj6IkVJCjjJke": {
-                                                    "mode": "edit"
-                                                }
-                                            }
-                                        },
-                                        "typecast": {
-                                            "mode": "chose"
-                                        },
-                                        "useColumnId": {
-                                            "mode": "chose"
-                                        }
-                                    },
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "airtable2"
-                                            },
-                                            "label": "MD Airtable Token connection"
-                                        }
-                                    }
-                                },
-                                "parameters": [
-                                    {
-                                        "name": "__IMTCONN__",
-                                        "type": "account:airtable3,airtable2",
-                                        "label": "Connection",
-                                        "required": true
-                                    }
-                                ],
-                                "expect": [
-                                    {
-                                        "name": "base",
-                                        "type": "select",
-                                        "label": "Base",
-                                        "required": true
-                                    },
-                                    {
-                                        "name": "typecast",
-                                        "type": "boolean",
-                                        "label": "Smart links",
-                                        "required": true
-                                    },
-                                    {
-                                        "name": "useColumnId",
-                                        "type": "boolean",
-                                        "label": "Use Column ID",
-                                        "required": true
-                                    },
-                                    {
-                                        "name": "table",
-                                        "type": "select",
-                                        "label": "Table",
-                                        "required": true
-                                    },
-                                    {
-                                        "name": "id",
-                                        "type": "text",
-                                        "label": "Record ID",
-                                        "required": true
-                                    },
-                                    {
-                                        "name": "record",
-                                        "spec": [
-                                            {
                                                 "name": "fldPRauXAsLD2tI7y",
                                                 "type": "text",
                                                 "label": "Company"
@@ -22513,28 +22524,28 @@
                                                 "label": "Notes"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldxuj6IkVJCjjJke",
                                                 "type": "select",
-                                                "label": "Status"
+                                                "label": "Status",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "fld8c95mgQDa4y3JF",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Contact"
+                                                "label": "Contact",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fld17ziB0k4KGgwWi",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "SDContact"
+                                                "label": "SDContact",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldp9aGE10L3lofZz",
@@ -22545,10 +22556,17 @@
                                                 "name": "fld1xkC5OUV8XfQpC",
                                                 "type": "text",
                                                 "label": "sevDesk Contact ID"
+                                            },
+                                            {
+                                                "name": "fldOPACgLWzzCoRZY",
+                                                "type": "array",
+                                                "label": "Invoices",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Record"
+                                        ]
                                     }
                                 ],
                                 "interface": [
@@ -22564,85 +22582,98 @@
                                     },
                                     {
                                         "name": "fldPRauXAsLD2tI7y",
-                                        "type": "text",
-                                        "label": "Company"
+                                        "label": "Company",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldQriHl34MnRy7HI",
-                                        "type": "text",
-                                        "label": "Primary_contact"
+                                        "label": "Primary_contact",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld0u0KJufNO35L9W",
-                                        "type": "array",
-                                        "label": "Paid_course"
+                                        "label": "Paid_course",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldtGJgs306fGlDpx",
-                                        "type": "array",
-                                        "label": "Paid_course_mail"
+                                        "label": "Paid_course_mail",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldpHCCAtBEsHMSXw",
-                                        "type": "text",
-                                        "label": "Phone"
+                                        "label": "Phone",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldlUEwGOE7Dmp0Gu",
-                                        "type": "text",
-                                        "label": "Street_number"
+                                        "label": "Street_number",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldIua7F9fKk0YP46",
-                                        "type": "text",
-                                        "label": "PLZ"
+                                        "label": "PLZ",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "flduh2i03r46UzfZC",
-                                        "type": "text",
-                                        "label": "City"
+                                        "label": "City",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldKY5HsGFnquWfv8",
-                                        "type": "text",
-                                        "label": "ZIP_Location"
+                                        "label": "ZIP_Location",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldab8TEYJHgswAiS",
-                                        "type": "text",
                                         "label": "Notes",
+                                        "type": "text",
                                         "multiline": true
                                     },
                                     {
                                         "name": "fldxuj6IkVJCjjJke",
-                                        "type": "text",
-                                        "label": "Status"
+                                        "label": "Status",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld8c95mgQDa4y3JF",
+                                        "label": "Contact",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Contact"
+                                        }
                                     },
                                     {
                                         "name": "fld17ziB0k4KGgwWi",
+                                        "label": "SDContact",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "SDContact"
+                                        }
                                     },
                                     {
                                         "name": "fldp9aGE10L3lofZz",
-                                        "type": "text",
-                                        "label": "SDCustomerNumber"
+                                        "label": "SDCustomerNumber",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld1xkC5OUV8XfQpC",
-                                        "type": "text",
-                                        "label": "sevDesk Contact ID"
+                                        "label": "sevDesk Contact ID",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "fldOPACgLWzzCoRZY",
+                                        "label": "Invoices",
+                                        "type": "array",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        }
+                                    },
+                                    {
+                                        "name": "fldf0vLGrGK9HuH9l",
+                                        "label": "Share of wallet",
+                                        "type": "array"
                                     }
                                 ],
                                 "advanced": true
@@ -22656,111 +22687,114 @@
                                 "__IMTCONN__": 2456185
                             },
                             "mapper": {
-                                "id": "{{2.id}}",
                                 "base": "appIW2NHG67L20Pxm",
+                                "typecast": false,
+                                "useColumnId": true,
                                 "table": "tblBD9y2t07Ry7tni",
+                                "id": "{{2.id}}",
                                 "record": {
                                     "fldKvdXeHldumx5Sd": {},
                                     "fldOlBrI1cRE6qt6g": "{{47.customerNumber}}"
-                                },
-                                "typecast": false,
-                                "useColumnId": true
+                                }
                             },
                             "metadata": {
                                 "designer": {
                                     "x": 2795,
                                     "y": 943,
-                                    "name": "Update Invoice with SDContact"
+                                    "name": "Update Invoice with SDContactNumber"
                                 },
                                 "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "MD Airtable Token connection",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            }
+                                        }
+                                    },
                                     "expect": {
                                         "base": {
                                             "label": "NetZero Academy"
-                                        },
-                                        "table": {
-                                            "label": "Invoices"
-                                        },
-                                        "record": {
-                                            "nested": {
-                                                "fld1vvWjkw24nknEE": {
-                                                    "mode": "edit"
-                                                },
-                                                "fld5RxJEP7Wb6rTqQ": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldC6ozVO1ufD7sL1": {
-                                                    "mode": "edit"
-                                                },
-                                                "fldDUHvU4iIEXA2N3": {
-                                                    "mode": "edit"
-                                                },
-                                                "fldDk1kEgHOoqiHER": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldFnap7IUXhVvyJH": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldHG4H06ZmdDaJmO": {
-                                                    "mode": "edit"
-                                                },
-                                                "fldP9TF9tbVsIKQJx": {
-                                                    "mode": "edit"
-                                                },
-                                                "fldQ1BlGlwHTPdzJ8": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldWSxX7owCtkiBrT": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldWm9PyXketr3Qxe": {
-                                                    "mode": "chose"
-                                                },
-                                                "flddjyk5mp7CRZEMQ": {
-                                                    "mode": "chose"
-                                                },
-                                                "flddwHPD4A4sSiNn6": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldisdDXHlCn2vOZt": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldjPIwm6LavAtnf1": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldmGt6b2A2xAzjPG": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldmno5O7ln1dIlxm": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldr9D8Ga0wfi940F": {
-                                                    "mode": "chose"
-                                                },
-                                                "fldtWSNDpx1qV0pTh": {
-                                                    "mode": "chose"
-                                                },
-                                                "flduZb5WFZ2fVeRAX": {
-                                                    "mode": "edit"
-                                                },
-                                                "fldwV6R6cGZZsCVAt": {
-                                                    "mode": "chose"
-                                                }
-                                            }
                                         },
                                         "typecast": {
                                             "mode": "chose"
                                         },
                                         "useColumnId": {
                                             "mode": "chose"
-                                        }
-                                    },
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "airtable2"
-                                            },
-                                            "label": "MD Airtable Token connection"
+                                        },
+                                        "table": {
+                                            "label": "Invoices"
+                                        },
+                                        "record": {
+                                            "nested": {
+                                                "fldFnap7IUXhVvyJH": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldmGt6b2A2xAzjPG": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldwV6R6cGZZsCVAt": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldisdDXHlCn2vOZt": {
+                                                    "mode": "chose"
+                                                },
+                                                "flduZb5WFZ2fVeRAX": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldmno5O7ln1dIlxm": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldDk1kEgHOoqiHER": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldWm9PyXketr3Qxe": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldDUHvU4iIEXA2N3": {
+                                                    "mode": "edit"
+                                                },
+                                                "flddjyk5mp7CRZEMQ": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldC6ozVO1ufD7sL1": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldQ1BlGlwHTPdzJ8": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldHG4H06ZmdDaJmO": {
+                                                    "mode": "edit"
+                                                },
+                                                "fld1vvWjkw24nknEE": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldP9TF9tbVsIKQJx": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldWSxX7owCtkiBrT": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldjPIwm6LavAtnf1": {
+                                                    "mode": "chose"
+                                                },
+                                                "fld5RxJEP7Wb6rTqQ": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldr9D8Ga0wfi940F": {
+                                                    "mode": "chose"
+                                                },
+                                                "flddwHPD4A4sSiNn6": {
+                                                    "mode": "chose"
+                                                },
+                                                "fldtWSNDpx1qV0pTh": {
+                                                    "mode": "chose"
+                                                },
+                                                "fld1iJXTulTLOn8Uy": {
+                                                    "mode": "chose"
+                                                }
+                                            }
                                         }
                                     }
                                 },
@@ -22805,6 +22839,8 @@
                                     },
                                     {
                                         "name": "record",
+                                        "type": "collection",
+                                        "label": "Record",
                                         "spec": [
                                             {
                                                 "name": "fldZisg360botUDbP",
@@ -22823,30 +22859,30 @@
                                             },
                                             {
                                                 "name": "fldFnap7IUXhVvyJH",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Contact"
+                                                "label": "Contact",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldmGt6b2A2xAzjPG",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Participants"
+                                                "label": "Participants",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldwV6R6cGZZsCVAt",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Interaction"
+                                                "label": "Interaction",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldUnKxhaOzht6oUj",
@@ -22855,18 +22891,18 @@
                                             },
                                             {
                                                 "name": "fldisdDXHlCn2vOZt",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Line_items"
+                                                "label": "Line_items",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "flda2x7PSWryzD0t9",
-                                                "time": true,
                                                 "type": "date",
-                                                "label": "Date created"
+                                                "label": "Date created",
+                                                "time": true
                                             },
                                             {
                                                 "name": "fld2rnSCWPoZfauvA",
@@ -22874,10 +22910,10 @@
                                                 "label": "Comment_invoice"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "flduZb5WFZ2fVeRAX",
                                                 "type": "select",
-                                                "label": "Payment place"
+                                                "label": "Payment place",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "fldw1N3sfdgYUjEtC",
@@ -22891,40 +22927,42 @@
                                             },
                                             {
                                                 "name": "fldmno5O7ln1dIlxm",
+                                                "type": "array",
+                                                "label": "Invoice",
                                                 "spec": [
                                                     {
                                                         "name": "url",
-                                                        "type": "text",
-                                                        "label": "File URL"
+                                                        "label": "File URL",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "filename",
-                                                        "type": "filename",
-                                                        "label": "File name"
+                                                        "label": "File name",
+                                                        "type": "filename"
                                                     }
-                                                ],
-                                                "type": "array",
-                                                "label": "Invoice"
+                                                ]
                                             },
                                             {
                                                 "name": "fldDk1kEgHOoqiHER",
+                                                "type": "array",
+                                                "label": "Offer",
                                                 "spec": [
                                                     {
                                                         "name": "url",
-                                                        "type": "text",
-                                                        "label": "File URL"
+                                                        "label": "File URL",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "filename",
-                                                        "type": "filename",
-                                                        "label": "File name"
+                                                        "label": "File name",
+                                                        "type": "filename"
                                                     }
-                                                ],
-                                                "type": "array",
-                                                "label": "Offer"
+                                                ]
                                             },
                                             {
                                                 "name": "fldKvdXeHldumx5Sd",
+                                                "type": "collection",
+                                                "label": "Reviewer",
                                                 "spec": [
                                                     {
                                                         "name": "id",
@@ -22935,15 +22973,8 @@
                                                         "name": "email",
                                                         "type": "email",
                                                         "label": "Email"
-                                                    },
-                                                    {
-                                                        "name": "name",
-                                                        "type": "text",
-                                                        "label": "Name"
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Reviewer"
+                                                ]
                                             },
                                             {
                                                 "name": "fldWm9PyXketr3Qxe",
@@ -22951,10 +22982,10 @@
                                                 "label": "Special customer"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldDUHvU4iIEXA2N3",
                                                 "type": "select",
-                                                "label": "offer_Invoice_status"
+                                                "label": "offer_Invoice_status",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "flddjyk5mp7CRZEMQ",
@@ -22962,27 +22993,27 @@
                                                 "label": "Invoice_sent"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldC6ozVO1ufD7sL1",
                                                 "type": "select",
-                                                "label": "To DATEV"
+                                                "label": "To DATEV",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "fldQ1BlGlwHTPdzJ8",
+                                                "type": "array",
+                                                "label": "Storno_Invoice",
                                                 "spec": [
                                                     {
                                                         "name": "url",
-                                                        "type": "text",
-                                                        "label": "File URL"
+                                                        "label": "File URL",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "filename",
-                                                        "type": "filename",
-                                                        "label": "File name"
+                                                        "label": "File name",
+                                                        "type": "filename"
                                                     }
-                                                ],
-                                                "type": "array",
-                                                "label": "Storno_Invoice"
+                                                ]
                                             },
                                             {
                                                 "name": "fldY0ytGuXKbPDCNS",
@@ -22990,16 +23021,16 @@
                                                 "label": "Text_for_Offer_email"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldHG4H06ZmdDaJmO",
                                                 "type": "select",
-                                                "label": "Send Datev"
+                                                "label": "Send Datev",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "fldrHNNZo4FI3Qs55",
-                                                "time": false,
                                                 "type": "date",
-                                                "label": "Date_payment_received"
+                                                "label": "Date_payment_received",
+                                                "time": false
                                             },
                                             {
                                                 "name": "fldBsmuN2ULn8S2MK",
@@ -23007,28 +23038,28 @@
                                                 "label": "further_information"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fld1vvWjkw24nknEE",
                                                 "type": "select",
-                                                "label": "Reason for lost"
+                                                "label": "Reason for lost",
+                                                "mode": "edit"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldP9TF9tbVsIKQJx",
                                                 "type": "select",
-                                                "label": "Responsible"
+                                                "label": "Responsible",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "flds4YFHU1mqVSfzn",
-                                                "time": false,
                                                 "type": "date",
-                                                "label": "Date_offer_invoice_status_changed"
+                                                "label": "Date_offer_invoice_status_changed",
+                                                "time": false
                                             },
                                             {
                                                 "name": "fldmStAu0hkKq9wNm",
-                                                "time": false,
                                                 "type": "date",
-                                                "label": "Temp_Cash_Inflow_Date"
+                                                "label": "Temp_Cash_Inflow_Date",
+                                                "time": false
                                             },
                                             {
                                                 "name": "fldOlBrI1cRE6qt6g",
@@ -23037,43 +23068,43 @@
                                             },
                                             {
                                                 "name": "fld7bh0ZFpji0rd12",
-                                                "time": false,
                                                 "type": "date",
-                                                "label": "Fristverlängerung"
+                                                "label": "Fristverlängerung",
+                                                "time": false
                                             },
                                             {
                                                 "name": "fldWSxX7owCtkiBrT",
+                                                "type": "array",
+                                                "label": "SD invoice",
                                                 "spec": [
                                                     {
                                                         "name": "url",
-                                                        "type": "text",
-                                                        "label": "File URL"
+                                                        "label": "File URL",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "filename",
-                                                        "type": "filename",
-                                                        "label": "File name"
+                                                        "label": "File name",
+                                                        "type": "filename"
                                                     }
-                                                ],
-                                                "type": "array",
-                                                "label": "SD invoice"
+                                                ]
                                             },
                                             {
                                                 "name": "fldjPIwm6LavAtnf1",
+                                                "type": "array",
+                                                "label": "SD offer",
                                                 "spec": [
                                                     {
                                                         "name": "url",
-                                                        "type": "text",
-                                                        "label": "File URL"
+                                                        "label": "File URL",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "filename",
-                                                        "type": "filename",
-                                                        "label": "File name"
+                                                        "label": "File name",
+                                                        "type": "filename"
                                                     }
-                                                ],
-                                                "type": "array",
-                                                "label": "SD offer"
+                                                ]
                                             },
                                             {
                                                 "name": "fldez59YFbZVsSjsw",
@@ -23082,20 +23113,20 @@
                                             },
                                             {
                                                 "name": "fld5RxJEP7Wb6rTqQ",
+                                                "type": "array",
+                                                "label": "SD storno",
                                                 "spec": [
                                                     {
                                                         "name": "url",
-                                                        "type": "text",
-                                                        "label": "File URL"
+                                                        "label": "File URL",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "filename",
-                                                        "type": "filename",
-                                                        "label": "File name"
+                                                        "label": "File name",
+                                                        "type": "filename"
                                                     }
-                                                ],
-                                                "type": "array",
-                                                "label": "SD storno"
+                                                ]
                                             },
                                             {
                                                 "name": "fldquVWBGUZEQOu7f",
@@ -23104,12 +23135,12 @@
                                             },
                                             {
                                                 "name": "fldr9D8Ga0wfi940F",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Offer request"
+                                                "label": "Offer request",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldZfCtK1SNVRsQfr",
@@ -23128,25 +23159,32 @@
                                             },
                                             {
                                                 "name": "flddwHPD4A4sSiNn6",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "SD Invoices"
+                                                "label": "SD Invoices",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldtWSNDpx1qV0pTh",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "SD Offers"
+                                                "label": "SD Offers",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
+                                            },
+                                            {
+                                                "name": "fld1iJXTulTLOn8Uy",
+                                                "type": "array",
+                                                "label": "CompanyDB",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Record"
+                                        ]
                                     }
                                 ],
                                 "interface": [
@@ -23162,212 +23200,224 @@
                                     },
                                     {
                                         "name": "fldpSUOSL0lddAIwM",
-                                        "type": "text",
-                                        "label": "Invoice ID"
+                                        "label": "Invoice ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldZisg360botUDbP",
-                                        "type": "text",
                                         "label": "Invoice ID_old",
+                                        "type": "text",
                                         "multiline": true
                                     },
                                     {
                                         "name": "fldgXLXayEw4agVGp",
-                                        "type": "number",
-                                        "label": "Number"
+                                        "label": "Number",
+                                        "type": "number"
                                     },
                                     {
                                         "name": "fldcvtnl0q2cuYzo7",
-                                        "type": "text",
-                                        "label": "Offer ID"
+                                        "label": "Offer ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldAbBp8M9E3Km60H",
-                                        "type": "text",
                                         "label": "Offer ID_old",
+                                        "type": "text",
                                         "multiline": true
                                     },
                                     {
                                         "name": "fldFnap7IUXhVvyJH",
+                                        "label": "Contact",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Contact"
+                                        }
                                     },
                                     {
                                         "name": "fldbCsyrc5ChBtB2O",
-                                        "type": "array",
-                                        "label": "Phone (from Contact)"
+                                        "label": "Phone (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldmGt6b2A2xAzjPG",
+                                        "label": "Participants",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Participants"
+                                        }
                                     },
                                     {
                                         "name": "fldwV6R6cGZZsCVAt",
+                                        "label": "Interaction",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Interaction"
+                                        }
                                     },
                                     {
                                         "name": "fldgP2HnAOyTUJNaP",
-                                        "type": "array",
-                                        "label": "Name (from Contact)"
+                                        "label": "Name (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldUuqIfmNJ6PjIp5",
-                                        "type": "array",
-                                        "label": "Vorname"
+                                        "label": "Vorname",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldW9HUmkjctNHduz",
-                                        "type": "array",
-                                        "label": "Nachname"
+                                        "label": "Nachname",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldpfojlv8dLocSjE",
-                                        "type": "array",
-                                        "label": "Customer number"
+                                        "label": "Customer number",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldn14kqsQkoGanWW",
-                                        "type": "array",
-                                        "label": "E-Mail (from Contact)"
+                                        "label": "E-Mail (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldUnKxhaOzht6oUj",
-                                        "type": "text",
-                                        "label": "optional billing e-mail"
+                                        "label": "optional billing e-mail",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldhOQUDmQnrBor3L",
-                                        "type": "text",
-                                        "label": "Final E-mail"
+                                        "label": "Final E-mail",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldisdDXHlCn2vOZt",
+                                        "label": "Line_items",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Line_items"
+                                        }
                                     },
                                     {
                                         "name": "fldzX5xtZRUUiK928",
-                                        "type": "array",
-                                        "label": "Date_course"
+                                        "label": "Date_course",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldMmEbTrZdxbLiES",
-                                        "type": "array",
-                                        "label": "Count"
+                                        "label": "Count",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldep0qvObXVdjvOc",
-                                        "type": "array",
-                                        "label": "Product (from Line_items)"
+                                        "label": "Product (from Line_items)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldz5gwohnIhCt5YN",
-                                        "type": "array",
-                                        "label": "Course_date"
+                                        "label": "Course_date",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldM0GRvfDhNXMGgi",
-                                        "type": "array",
-                                        "label": "membership_number (from Contact)"
+                                        "label": "membership_number (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldurMC63zSVxi6rB",
-                                        "type": "array",
-                                        "label": "street_and_number (from Contact)"
+                                        "label": "street_and_number (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fld9Unk5WLBUWnG5q",
-                                        "type": "array",
-                                        "label": "PLZ_location (from Contact)"
+                                        "label": "PLZ_location (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldYX6OnzvKqL4pIo",
-                                        "type": "array",
-                                        "label": "company (from Contact)"
+                                        "label": "company (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fld6ZqaCojH3YZ19A",
-                                        "type": "text",
-                                        "label": "company (from Contact) copy"
+                                        "label": "company (from Contact) copy",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "flda2x7PSWryzD0t9",
-                                        "time": true,
+                                        "label": "Date created",
                                         "type": "date",
-                                        "label": "Date created"
+                                        "time": true
                                     },
                                     {
                                         "name": "fldLhdcdCsUCaZiRN",
-                                        "type": "text",
-                                        "label": "Due date"
+                                        "label": "Due date",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldpKt9SqHT3QURoP",
-                                        "type": "number",
-                                        "label": "Autonumber"
+                                        "label": "Autonumber",
+                                        "type": "number"
                                     },
                                     {
                                         "name": "fld2rnSCWPoZfauvA",
-                                        "type": "text",
                                         "label": "Comment_invoice",
+                                        "type": "text",
                                         "multiline": true
                                     },
                                     {
                                         "name": "flduZb5WFZ2fVeRAX",
-                                        "type": "text",
-                                        "label": "Payment place"
+                                        "label": "Payment place",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldW89JiVc4ixTGSw",
-                                        "type": "array",
-                                        "label": "Value_net"
+                                        "label": "Value_net",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldw1N3sfdgYUjEtC",
-                                        "type": "number",
-                                        "label": "Discount"
+                                        "label": "Discount",
+                                        "type": "number"
                                     },
                                     {
                                         "name": "fld5sGScL7liEQ3vI",
-                                        "type": "text",
-                                        "label": "Discount_field"
+                                        "label": "Discount_field",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldQzRUJQs1tdVutD",
-                                        "type": "text",
-                                        "label": "Tax"
+                                        "label": "Tax",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldizB43KLduxuftD",
-                                        "type": "text",
-                                        "label": "Grand_total"
+                                        "label": "Grand_total",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldzyaeaHqStZoORB",
-                                        "type": "number",
-                                        "label": "Net_after_stripe_fee"
+                                        "label": "Net_after_stripe_fee",
+                                        "type": "number"
                                     },
                                     {
                                         "name": "fldmno5O7ln1dIlxm",
+                                        "label": "Invoice",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -23386,14 +23436,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23410,12 +23464,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23432,12 +23486,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23454,25 +23508,31 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "Invoice"
+                                        ]
                                     },
                                     {
                                         "name": "fldDk1kEgHOoqiHER",
+                                        "label": "Offer",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -23491,14 +23551,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23515,12 +23579,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23537,12 +23601,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23559,20 +23623,16 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "Offer"
+                                        ]
                                     },
                                     {
                                         "name": "fldKvdXeHldumx5Sd",
+                                        "label": "Reviewer",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "id",
@@ -23589,62 +23649,72 @@
                                                 "type": "text",
                                                 "label": "Name"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Reviewer"
+                                        ]
                                     },
                                     {
                                         "name": "fldWm9PyXketr3Qxe",
-                                        "type": "boolean",
-                                        "label": "Special customer"
+                                        "label": "Special customer",
+                                        "type": "boolean"
                                     },
                                     {
                                         "name": "fldDUHvU4iIEXA2N3",
-                                        "type": "text",
-                                        "label": "offer_Invoice_status"
+                                        "label": "offer_Invoice_status",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld7bF70jlR0AbRiT",
-                                        "type": "date",
-                                        "label": "Invoice status change"
+                                        "label": "Invoice status change",
+                                        "type": "date"
                                     },
                                     {
                                         "name": "flddjyk5mp7CRZEMQ",
-                                        "type": "boolean",
-                                        "label": "Invoice_sent"
+                                        "label": "Invoice_sent",
+                                        "type": "boolean"
                                     },
                                     {
                                         "name": "fldLRUxdbGT8wsckD",
-                                        "type": "date",
-                                        "label": "Invoice_sent_when"
+                                        "label": "Invoice_sent_when",
+                                        "type": "date"
                                     },
                                     {
                                         "name": "fld6hvQ2ra2tJ2mKh",
-                                        "type": "array",
-                                        "label": "Qty"
+                                        "label": "Qty",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldbaCrf3nvp4swfW",
-                                        "type": "array",
-                                        "label": "date_of_service"
+                                        "label": "date_of_service",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldC6ozVO1ufD7sL1",
-                                        "type": "text",
-                                        "label": "To DATEV"
+                                        "label": "To DATEV",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldCqlZxWo3vMFHAP",
-                                        "type": "text",
-                                        "label": "Turnover_net"
+                                        "label": "Turnover_net",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldQ1BlGlwHTPdzJ8",
+                                        "label": "Storno_Invoice",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -23663,14 +23733,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23687,12 +23761,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23709,12 +23783,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23731,131 +23805,127 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "Storno_Invoice"
+                                        ]
                                     },
                                     {
                                         "name": "fldzzg1zEkMRPmhSn",
-                                        "type": "array",
-                                        "label": "Value"
+                                        "label": "Value",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldY0ytGuXKbPDCNS",
-                                        "type": "text",
                                         "label": "Text_for_Offer_email",
+                                        "type": "text",
                                         "multiline": true
                                     },
                                     {
                                         "name": "fldHG4H06ZmdDaJmO",
-                                        "type": "text",
-                                        "label": "Send Datev"
+                                        "label": "Send Datev",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldp6MZPCK1d5ZrXL",
-                                        "type": "array",
-                                        "label": "Voucher"
+                                        "label": "Voucher",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldUcOdqRMphPkd70",
-                                        "type": "text",
-                                        "label": "Storno ID"
+                                        "label": "Storno ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldrHNNZo4FI3Qs55",
-                                        "time": false,
+                                        "label": "Date_payment_received",
                                         "type": "date",
-                                        "label": "Date_payment_received"
+                                        "time": false
                                     },
                                     {
                                         "name": "fldBsmuN2ULn8S2MK",
-                                        "type": "text",
                                         "label": "further_information",
+                                        "type": "text",
                                         "multiline": true
                                     },
                                     {
                                         "name": "fldh1URVlFGsNwXy0",
-                                        "type": "array",
-                                        "label": "Stripe_PI_ID"
+                                        "label": "Stripe_PI_ID",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldkl59RkaggAnz8i",
-                                        "type": "array",
-                                        "label": "Company PLZ"
+                                        "label": "Company PLZ",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldq7pucj4YjLZJPM",
-                                        "type": "array",
-                                        "label": "Company City"
+                                        "label": "Company City",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldcfuYIjlLN2B6k6",
-                                        "type": "array",
-                                        "label": "Company Street"
+                                        "label": "Company Street",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fld1vvWjkw24nknEE",
-                                        "type": "text",
-                                        "label": "Reason for lost"
+                                        "label": "Reason for lost",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldP9TF9tbVsIKQJx",
-                                        "type": "text",
-                                        "label": "Responsible"
+                                        "label": "Responsible",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "flds4YFHU1mqVSfzn",
-                                        "time": false,
+                                        "label": "Date_offer_invoice_status_changed",
                                         "type": "date",
-                                        "label": "Date_offer_invoice_status_changed"
+                                        "time": false
                                     },
                                     {
                                         "name": "fldCgT1GuFTyy6WIm",
-                                        "type": "date",
-                                        "label": "Cash_Inflow_Date"
+                                        "label": "Cash_Inflow_Date",
+                                        "type": "date"
                                     },
                                     {
                                         "name": "fldmStAu0hkKq9wNm",
-                                        "time": false,
+                                        "label": "Temp_Cash_Inflow_Date",
                                         "type": "date",
-                                        "label": "Temp_Cash_Inflow_Date"
+                                        "time": false
                                     },
                                     {
                                         "name": "fldOlBrI1cRE6qt6g",
-                                        "type": "text",
-                                        "label": "SDCustomerNumber"
+                                        "label": "SDCustomerNumber",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld9j9PqZOf6MTGLa",
-                                        "type": "array",
-                                        "label": "Company SDCustomerNumber"
+                                        "label": "Company SDCustomerNumber",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldYJAr3Byl7dYIBA",
-                                        "type": "array",
-                                        "label": "Contact SDCustomerNumber"
+                                        "label": "Contact SDCustomerNumber",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldG6Tn8wNzJ9RqNu",
-                                        "type": "array",
-                                        "label": "SD Contact ID (from SDContact) (from Contact)"
+                                        "label": "SD Contact ID (from SDContact) (from Contact)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fld7bh0ZFpji0rd12",
-                                        "time": false,
+                                        "label": "Fristverlängerung",
                                         "type": "date",
-                                        "label": "Fristverlängerung"
+                                        "time": false
                                     },
                                     {
                                         "name": "fldanZIBiAzTgjZvk",
+                                        "label": "SD offer/invoice/storno",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "label",
@@ -23867,17 +23937,27 @@
                                                 "type": "url",
                                                 "label": "URL"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "SD offer/invoice/storno"
+                                        ]
                                     },
                                     {
                                         "name": "fldWSxX7owCtkiBrT",
+                                        "label": "SD invoice",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -23896,14 +23976,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23920,12 +24004,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23942,12 +24026,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -23964,25 +24048,31 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "SD invoice"
+                                        ]
                                     },
                                     {
                                         "name": "fldjPIwm6LavAtnf1",
+                                        "label": "SD offer",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -24001,14 +24091,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24025,12 +24119,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24047,12 +24141,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24069,30 +24163,36 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "SD offer"
+                                        ]
                                     },
                                     {
                                         "name": "fldez59YFbZVsSjsw",
-                                        "type": "text",
-                                        "label": "SD invoice number"
+                                        "label": "SD invoice number",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld5RxJEP7Wb6rTqQ",
+                                        "label": "SD storno",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -24111,14 +24211,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24135,12 +24239,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24157,12 +24261,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24179,43 +24283,39 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "SD storno"
+                                        ]
                                     },
                                     {
                                         "name": "fldquVWBGUZEQOu7f",
-                                        "type": "text",
-                                        "label": "SD storno number"
+                                        "label": "SD storno number",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldrGLcm4TgTe7yzH",
-                                        "type": "array",
-                                        "label": "Earliest Course start date"
+                                        "label": "Earliest Course start date",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldW7Nh967EQmeuk1",
-                                        "type": "array",
-                                        "label": "Latest Course end date"
+                                        "label": "Latest Course end date",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldr9D8Ga0wfi940F",
+                                        "label": "Offer request",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Offer request"
+                                        }
                                     },
                                     {
                                         "name": "fld621Zxh46jVjMQS",
+                                        "label": "Create invoice",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "label",
@@ -24227,12 +24327,12 @@
                                                 "type": "url",
                                                 "label": "URL"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Create invoice"
+                                        ]
                                     },
                                     {
                                         "name": "fldJJtqiBHuBZXx30",
+                                        "label": "Create Offer",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "label",
@@ -24244,12 +24344,12 @@
                                                 "type": "url",
                                                 "label": "URL"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Create Offer"
+                                        ]
                                     },
                                     {
                                         "name": "fld7x4doKVj35N4bo",
+                                        "label": "Storno Invoice",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "label",
@@ -24261,58 +24361,68 @@
                                                 "type": "url",
                                                 "label": "URL"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Storno Invoice"
+                                        ]
                                     },
                                     {
                                         "name": "fldZfCtK1SNVRsQfr",
-                                        "type": "text",
-                                        "label": "SD offer ID"
+                                        "label": "SD offer ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldyCy6KNpSdsjP61",
-                                        "type": "text",
-                                        "label": "SD invoice ID"
+                                        "label": "SD invoice ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldnmxj6ZyjJ8S2F2",
-                                        "type": "text",
-                                        "label": "SD storno ID"
+                                        "label": "SD storno ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fld5meb3zeLAQFsfn",
-                                        "type": "text",
-                                        "label": "New offer request"
+                                        "label": "New offer request",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "flddwHPD4A4sSiNn6",
+                                        "label": "SD Invoices",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "SD Invoices"
+                                        }
                                     },
                                     {
                                         "name": "fld8gnglK3Gz5OfCO",
-                                        "type": "array",
-                                        "label": "SD Invoice Number (from SD Invoices)"
+                                        "label": "SD Invoice Number (from SD Invoices)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldtWSNDpx1qV0pTh",
+                                        "label": "SD Offers",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "SD Offers"
+                                        }
                                     },
                                     {
                                         "name": "fld2S2TmP4hJU37pk",
+                                        "label": "SD Offer (from SD Offers)",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -24331,14 +24441,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24355,12 +24469,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24377,12 +24491,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24399,30 +24513,36 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "SD Offer (from SD Offers)"
+                                        ]
                                     },
                                     {
                                         "name": "fldWtc16rfFHJ5zSZ",
-                                        "type": "array",
-                                        "label": "Created (from SD Offers)"
+                                        "label": "Created (from SD Offers)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldDYs5zJ9aWjfM8c",
+                                        "label": "SD Invoice (from SD Invoices)",
+                                        "type": "array",
                                         "spec": [
                                             {
                                                 "name": "id",
                                                 "type": "text",
                                                 "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
                                             },
                                             {
                                                 "name": "url",
@@ -24441,14 +24561,18 @@
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "text",
-                                                "label": "MIME type"
+                                                "label": "MIME type",
+                                                "type": "text"
                                             },
                                             {
                                                 "name": "thumbnails",
+                                                "label": "Thumbnails",
+                                                "type": "collection",
                                                 "spec": [
                                                     {
                                                         "name": "small",
+                                                        "label": "Small",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24465,12 +24589,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Small"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "large",
+                                                        "label": "Large",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24487,12 +24611,12 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Large"
+                                                        ]
                                                     },
                                                     {
                                                         "name": "full",
+                                                        "label": "Full",
+                                                        "type": "collection",
                                                         "spec": [
                                                             {
                                                                 "name": "url",
@@ -24509,27 +24633,44 @@
                                                                 "type": "uinteger",
                                                                 "label": "Height"
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Full"
+                                                        ]
                                                     }
-                                                ],
-                                                "type": "collection",
-                                                "label": "Thumbnails"
+                                                ]
                                             }
-                                        ],
-                                        "type": "array",
-                                        "label": "SD Invoice (from SD Invoices)"
+                                        ]
                                     },
                                     {
                                         "name": "flda18PpFPuvioJFe",
-                                        "type": "array",
-                                        "label": "type (from SD Invoices)"
+                                        "label": "type (from SD Invoices)",
+                                        "type": "array"
                                     },
                                     {
                                         "name": "fldgsWsK979aPnZSi",
-                                        "type": "text",
-                                        "label": "MD tmp"
+                                        "label": "Automation trigger",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "fldfWsXujfVaGVbyw",
+                                        "label": "md tmp2",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "fldvyikpyHJ7ynWqe",
+                                        "label": "recordID",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "fldf4cY6XYpof3o6T",
+                                        "label": "Channel (from Contact)",
+                                        "type": "array"
+                                    },
+                                    {
+                                        "name": "fld1iJXTulTLOn8Uy",
+                                        "label": "CompanyDB",
+                                        "type": "array",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        }
                                     }
                                 ],
                                 "advanced": true
