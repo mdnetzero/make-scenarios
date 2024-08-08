@@ -11652,8 +11652,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 3067,
-                                    "y": 13,
+                                    "x": 3068,
+                                    "y": 42,
                                     "name": "Update Invoice with SDContact"
                                 },
                                 "restore": {
@@ -22023,35 +22023,50 @@
                                 "__IMTCONN__": 2456185
                             },
                             "mapper": {
-                                "id": "{{46.id}}",
                                 "base": "appIW2NHG67L20Pxm",
-                                "table": "tblwStd7tXZsxSO4Y",
-                                "record": {
-                                    "fldQpM3uwLLn9aSTv": [
-                                        "{{45.id}}"
-                                    ],
-                                    "fldYE6X3k8INCexZS": "{{47.id}}"
-                                },
                                 "typecast": false,
-                                "useColumnId": true
+                                "useColumnId": true,
+                                "table": "tblwStd7tXZsxSO4Y",
+                                "id": "{{46.id}}",
+                                "record": {
+                                    "fldYE6X3k8INCexZS": "{{47.id}}",
+                                    "fldQpM3uwLLn9aSTv": [
+                                        ""
+                                    ]
+                                }
                             },
                             "metadata": {
                                 "designer": {
                                     "x": 2377,
                                     "y": 948,
-                                    "name": "Link Contact to SDContact, add sevDesk ContactID"
+                                    "name": "Add sevDesk ContactID"
                                 },
                                 "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "MD Airtable Token connection",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            }
+                                        }
+                                    },
                                     "expect": {
                                         "base": {
                                             "label": "NetZero Academy"
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
                                         },
                                         "table": {
                                             "label": "SDContact"
                                         },
                                         "record": {
                                             "nested": {
-                                                "fldAhGNWYw7K39gwg": {
+                                                "fldr4HmOay1qL7VSm": {
                                                     "mode": "edit"
                                                 },
                                                 "fldQpM3uwLLn9aSTv": {
@@ -22060,28 +22075,16 @@
                                                         null
                                                     ]
                                                 },
+                                                "fldAhGNWYw7K39gwg": {
+                                                    "mode": "edit"
+                                                },
                                                 "fldUbhi9mpaUIs0eZ": {
                                                     "mode": "chose"
                                                 },
-                                                "fldr4HmOay1qL7VSm": {
-                                                    "mode": "edit"
+                                                "flduWekjX5UUQ9Ss7": {
+                                                    "mode": "chose"
                                                 }
                                             }
-                                        },
-                                        "typecast": {
-                                            "mode": "chose"
-                                        },
-                                        "useColumnId": {
-                                            "mode": "chose"
-                                        }
-                                    },
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "airtable2"
-                                            },
-                                            "label": "MD Airtable Token connection"
                                         }
                                     }
                                 },
@@ -22126,32 +22129,39 @@
                                     },
                                     {
                                         "name": "record",
+                                        "type": "collection",
+                                        "label": "Record",
                                         "spec": [
+                                            {
+                                                "name": "fldk11ulydexvMN5k",
+                                                "type": "number",
+                                                "label": "SDCustomerNumber (old)"
+                                            },
                                             {
                                                 "name": "fldYE6X3k8INCexZS",
                                                 "type": "text",
                                                 "label": "sevDesk Contact ID"
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldr4HmOay1qL7VSm",
                                                 "type": "select",
-                                                "label": "Status"
+                                                "label": "Status",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "fldQpM3uwLLn9aSTv",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "Contacts"
+                                                "label": "Contacts",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
-                                                "mode": "edit",
                                                 "name": "fldAhGNWYw7K39gwg",
                                                 "type": "select",
-                                                "label": "Salutation"
+                                                "label": "Salutation",
+                                                "mode": "edit"
                                             },
                                             {
                                                 "name": "fldk8LYVqRIJaEALK",
@@ -22195,21 +22205,24 @@
                                             },
                                             {
                                                 "name": "fldUbhi9mpaUIs0eZ",
-                                                "spec": {
-                                                    "name": "value",
-                                                    "label": "Record ID"
-                                                },
                                                 "type": "array",
-                                                "label": "CompanyDB"
+                                                "label": "CompanyDB",
+                                                "spec": {
+                                                    "label": "Record ID",
+                                                    "name": "value"
+                                                }
                                             },
                                             {
                                                 "name": "fldhchTvaxhzX1NnT",
                                                 "type": "text",
                                                 "label": "Invoices"
+                                            },
+                                            {
+                                                "name": "flduWekjX5UUQ9Ss7",
+                                                "type": "boolean",
+                                                "label": "md tmp (delete)"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Record"
+                                        ]
                                     }
                                 ],
                                 "interface": [
@@ -22225,104 +22238,141 @@
                                     },
                                     {
                                         "name": "fldPIgk5IemKujNuV",
-                                        "type": "text",
-                                        "label": "SDContact"
+                                        "label": "SDContact",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldj2qqP11phOQK2E",
-                                        "type": "number",
-                                        "label": "Autonumber"
+                                        "label": "Autonumber",
+                                        "type": "number"
                                     },
                                     {
                                         "name": "fldf2hBuEJ8gyuX2g",
-                                        "type": "text",
-                                        "label": "SDCustomerNumber"
+                                        "label": "SDCustomerNumber",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "fldk11ulydexvMN5k",
+                                        "label": "SDCustomerNumber (old)",
+                                        "type": "number"
                                     },
                                     {
                                         "name": "fldYE6X3k8INCexZS",
-                                        "type": "text",
-                                        "label": "sevDesk Contact ID"
+                                        "label": "sevDesk Contact ID",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldr4HmOay1qL7VSm",
-                                        "type": "text",
-                                        "label": "Status"
+                                        "label": "Status",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldQpM3uwLLn9aSTv",
+                                        "label": "Contacts",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "Contacts"
+                                        }
                                     },
                                     {
                                         "name": "fldAhGNWYw7K39gwg",
-                                        "type": "text",
-                                        "label": "Salutation"
+                                        "label": "Salutation",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldk8LYVqRIJaEALK",
-                                        "type": "text",
-                                        "label": "Title"
+                                        "label": "Title",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldbmQeJGHCkCZjyI",
-                                        "type": "text",
-                                        "label": "First name"
+                                        "label": "First name",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldk7QVSEg3cIR6H4",
-                                        "type": "text",
-                                        "label": "Last name"
+                                        "label": "Last name",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldiiMXpbl6fYeHWj",
-                                        "type": "text",
-                                        "label": "E-mail"
+                                        "label": "E-mail",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldjqaniVx7mwILXw",
-                                        "type": "text",
-                                        "label": "Phone number"
+                                        "label": "Phone number",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldMDUpDRbRdTXk6s",
-                                        "type": "text",
-                                        "label": "Street"
+                                        "label": "Street",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldlpYKf7DGH96xKe",
-                                        "type": "text",
-                                        "label": "PLZ"
+                                        "label": "PLZ",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldaAy7RgYZ8vRamt",
-                                        "type": "text",
-                                        "label": "City"
+                                        "label": "City",
+                                        "type": "text"
                                     },
                                     {
                                         "name": "fldUbhi9mpaUIs0eZ",
+                                        "label": "CompanyDB",
+                                        "type": "array",
                                         "spec": {
                                             "label": "Record ID"
-                                        },
-                                        "type": "array",
-                                        "label": "CompanyDB"
+                                        }
                                     },
                                     {
                                         "name": "fldDvvgXarGUC1ZKc",
-                                        "type": "date",
-                                        "label": "Last Modified"
+                                        "label": "Last Modified",
+                                        "type": "date"
+                                    },
+                                    {
+                                        "name": "fld7fIhNV64LfncAO",
+                                        "label": "Last Modified By",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "email",
+                                                "type": "text",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            }
+                                        ]
                                     },
                                     {
                                         "name": "fld9dUg5zLGES0SfY",
-                                        "type": "date",
-                                        "label": "Created time"
+                                        "label": "Created time",
+                                        "type": "date"
                                     },
                                     {
                                         "name": "fldhchTvaxhzX1NnT",
-                                        "type": "text",
-                                        "label": "Invoices"
+                                        "label": "Invoices",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "fldqqiqm9rVJY1KOV",
+                                        "label": "sevDeskLink",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "flduWekjX5UUQ9Ss7",
+                                        "label": "md tmp (delete)",
+                                        "type": "boolean"
                                     }
                                 ],
                                 "advanced": true
