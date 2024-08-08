@@ -40031,6 +40031,11 @@
             "orphans": [],
             "notes": [
                 {
+                    "id": 52,
+                    "text": "We used to link Contact to SDContact here. This ended up in Contacts having two links to SDContact, when we created offers without company and with company.\nI think it is better to only link Contact to SDContact, when there is no Company involved.\n",
+                    "filter": false
+                },
+                {
                     "id": 82,
                     "text": "Attention, we will create offer documents in the Invoice table by UPDATING the invoice record not by adding to the MD-TMP column",
                     "filter": true
