@@ -13,7 +13,7 @@
             "metadata": {
                 "designer": {
                     "x": 0,
-                    "y": 0
+                    "y": 300
                 },
                 "restore": {
                     "parameters": {
@@ -40,6 +40,18 @@
                 ],
                 "interface": [
                     {
+                        "name": "startDate",
+                        "type": "text"
+                    },
+                    {
+                        "name": "endDate",
+                        "type": "text"
+                    },
+                    {
+                        "name": "limit",
+                        "type": "text"
+                    },
+                    {
                         "name": "__IMTHEADERS__",
                         "spec": [
                             {
@@ -61,428 +73,914 @@
             }
         },
         {
-            "id": 3,
-            "module": "airtable:ActionSearchRecords",
-            "version": 3,
+            "id": 9,
+            "module": "builtin:BasicRouter",
+            "version": 1,
             "parameters": {
-                "__IMTCONN__": 2456185
+                "else": 1
             },
-            "filter": {
-                "name": "API key",
-                "conditions": [
-                    [
-                        {
-                            "a": "{{first(map(1.`__IMTHEADERS__`; \"value\"; \"name\"; \"authorization\"))}}",
-                            "b": "400f1267e015aee78e6e33f8599dd5db",
-                            "o": "text:equal"
-                        }
-                    ]
-                ]
-            },
-            "mapper": {
-                "base": "app4R2qm7WvWIFspd",
-                "sort": [
-                    {
-                        "field": "Start",
-                        "direction": "asc"
-                    }
-                ],
-                "view": "viw0e9md3qxybDpfK",
-                "table": "tblH4U1AWOEVTkoNE",
-                "fields": [
-                    "Title",
-                    "Live on webpage",
-                    "Description",
-                    "Page URL",
-                    "Course URL",
-                    "Start",
-                    "time_of_day",
-                    "End"
-                ],
-                "maxRecords": "100",
-                "useColumnId": true
-            },
+            "mapper": null,
             "metadata": {
                 "designer": {
                     "x": 300,
-                    "y": 0
-                },
-                "restore": {
-                    "expect": {
-                        "base": {
-                            "mode": "chose",
-                            "label": "NetZero Academy Courses"
-                        },
-                        "sort": {
-                            "mode": "chose",
-                            "items": [
-                                {
-                                    "field": {
-                                        "mode": "chose",
+                    "y": 300
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 3,
+                            "module": "airtable:ActionSearchRecords",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 2456185
+                            },
+                            "filter": {
+                                "name": "API Key: authorized",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{first(map(1.`__IMTHEADERS__`; \"value\"; \"name\"; \"authorization\"))}}",
+                                            "b": "400f1267e015aee78e6e33f8599dd5db",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "base": "app4R2qm7WvWIFspd",
+                                "sort": [
+                                    {
+                                        "field": "Start",
+                                        "direction": "asc"
+                                    }
+                                ],
+                                "view": "viw0e9md3qxybDpfK",
+                                "table": "tblH4U1AWOEVTkoNE",
+                                "fields": [
+                                    "Title",
+                                    "Live on webpage",
+                                    "Description",
+                                    "Page URL",
+                                    "Course URL",
+                                    "Start",
+                                    "time_of_day",
+                                    "End",
+                                    "Shorted description"
+                                ],
+                                "formula": "AND(  IF(\"{{1.startDate}}\",DATETIME_DIFF(\"{{1.startDate}}\", Start, 'days')<=0, 1),  IF(\"{{1.endDate}}\",  DATETIME_DIFF(\"{{1.endDate}}\",   End,   'days')>=0, 1))",
+                                "maxRecords": "{{1.limit}}",
+                                "useColumnId": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 0
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "mode": "chose",
+                                            "label": "NetZero Academy Courses"
+                                        },
+                                        "sort": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "field": {
+                                                        "mode": "chose",
+                                                        "label": "Start"
+                                                    },
+                                                    "direction": {
+                                                        "mode": "chose",
+                                                        "label": "Ascending"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "view": {
+                                            "mode": "chose",
+                                            "label": "Webservice Courses"
+                                        },
+                                        "table": {
+                                            "mode": "chose",
+                                            "label": "Courses"
+                                        },
+                                        "fields": {
+                                            "mode": "chose",
+                                            "label": [
+                                                "Title",
+                                                "Live on webpage",
+                                                "Description",
+                                                "Page URL",
+                                                "Course URL",
+                                                "Start",
+                                                "time_of_day",
+                                                "End",
+                                                "Shorted description"
+                                            ]
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "MD Airtable Token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "formula",
+                                        "type": "text",
+                                        "label": "Formula"
+                                    },
+                                    {
+                                        "name": "maxRecords",
+                                        "type": "integer",
+                                        "label": "Limit"
+                                    },
+                                    {
+                                        "name": "sort",
+                                        "spec": [
+                                            {
+                                                "name": "field",
+                                                "type": "select",
+                                                "label": "Field",
+                                                "dynamic": true,
+                                                "options": []
+                                            },
+                                            {
+                                                "name": "direction",
+                                                "type": "select",
+                                                "label": "Direction",
+                                                "options": [
+                                                    {
+                                                        "label": "Descending",
+                                                        "value": "desc"
+                                                    },
+                                                    {
+                                                        "label": "Ascending",
+                                                        "value": "asc"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Sort"
+                                    },
+                                    {
+                                        "name": "view",
+                                        "type": "select",
+                                        "label": "View"
+                                    },
+                                    {
+                                        "name": "fields",
+                                        "type": "select",
+                                        "label": "Output Fields",
+                                        "multiple": true
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "fldx7FfUMeXZBWN5F",
+                                        "type": "text",
+                                        "label": "Title"
+                                    },
+                                    {
+                                        "name": "fldBXDjUKLtWBkjJf",
+                                        "type": "boolean",
+                                        "label": "Live on webpage"
+                                    },
+                                    {
+                                        "name": "fldFvOIryz6E4iWpC",
+                                        "type": "text",
+                                        "label": "Description"
+                                    },
+                                    {
+                                        "name": "fldZzGTxROQT9lKF3",
+                                        "type": "text",
+                                        "label": "Page URL"
+                                    },
+                                    {
+                                        "name": "fldme9YFd5FGhsiQb",
+                                        "type": "text",
+                                        "label": "Course URL"
+                                    },
+                                    {
+                                        "name": "fldK41jDhXasKh1uT",
+                                        "time": false,
+                                        "type": "date",
                                         "label": "Start"
                                     },
-                                    "direction": {
-                                        "mode": "chose",
-                                        "label": "Ascending"
-                                    }
-                                }
-                            ]
-                        },
-                        "view": {
-                            "mode": "chose",
-                            "label": "Webservice Courses"
-                        },
-                        "table": {
-                            "mode": "chose",
-                            "label": "Courses"
-                        },
-                        "fields": {
-                            "mode": "chose",
-                            "label": [
-                                "Title",
-                                "Live on webpage",
-                                "Description",
-                                "Page URL",
-                                "Course URL",
-                                "Start",
-                                "time_of_day",
-                                "End"
-                            ]
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "__IMTCONN__",
-                        "type": "account:airtable3,airtable2",
-                        "label": "Connection",
-                        "required": true
-                    }
-                ],
-                "expect": [
-                    {
-                        "name": "base",
-                        "type": "select",
-                        "label": "Base",
-                        "required": true
-                    },
-                    {
-                        "name": "useColumnId",
-                        "type": "boolean",
-                        "label": "Use Column ID",
-                        "required": true
-                    },
-                    {
-                        "name": "table",
-                        "type": "select",
-                        "label": "Table",
-                        "required": true
-                    },
-                    {
-                        "name": "formula",
-                        "type": "text",
-                        "label": "Formula"
-                    },
-                    {
-                        "name": "maxRecords",
-                        "type": "integer",
-                        "label": "Limit"
-                    },
-                    {
-                        "name": "sort",
-                        "spec": [
-                            {
-                                "name": "field",
-                                "type": "select",
-                                "label": "Field",
-                                "dynamic": true,
-                                "options": []
-                            },
-                            {
-                                "name": "direction",
-                                "type": "select",
-                                "label": "Direction",
-                                "options": [
                                     {
-                                        "label": "Descending",
-                                        "value": "desc"
+                                        "name": "fldtZvOFSQQRVphLD",
+                                        "type": "text",
+                                        "label": "time_of_day"
                                     },
                                     {
-                                        "label": "Ascending",
-                                        "value": "asc"
+                                        "name": "fldfEJ2qf3eNdaG1W",
+                                        "time": false,
+                                        "type": "date",
+                                        "label": "End"
+                                    },
+                                    {
+                                        "name": "fldM1ixplXw6Flcue",
+                                        "type": "text",
+                                        "label": "Shorted description"
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        },
+                        {
+                            "id": 7,
+                            "module": "json:AggregateToJSON",
+                            "version": 1,
+                            "parameters": {
+                                "type": 177581,
+                                "space": "",
+                                "feeder": 3
+                            },
+                            "mapper": {
+                                "End": "{{3.fldfEJ2qf3eNdaG1W}}",
+                                "URL": "{{3.fldZzGTxROQT9lKF3}}",
+                                "Start": "{{3.fldK41jDhXasKh1uT}}",
+                                "Title": "{{3.fldx7FfUMeXZBWN5F}}",
+                                "Description": ""
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 0
+                                },
+                                "restore": {
+                                    "extra": {
+                                        "feeder": {
+                                            "label": "Airtable - Search Records [3]"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "type": {
+                                            "label": "My data structure"
+                                        },
+                                        "space": {
+                                            "label": "Empty"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "type",
+                                        "type": "udt",
+                                        "label": "Data structure",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "space",
+                                        "type": "select",
+                                        "label": "Indentation",
+                                        "validate": {
+                                            "enum": [
+                                                "tab",
+                                                "2",
+                                                "4"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "Title",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Description",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Start",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "End",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "URL",
+                                        "type": "text",
+                                        "label": "Page URL"
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "module": "gateway:WebhookRespond",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "body": "{{7.json}}",
+                                "status": "200",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 0,
+                                    "name": "Return list of courses"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "headers": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "status",
+                                        "type": "uinteger",
+                                        "label": "Status",
+                                        "required": true,
+                                        "validate": {
+                                            "min": 100
+                                        }
+                                    },
+                                    {
+                                        "name": "body",
+                                        "type": "any",
+                                        "label": "Body"
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 256
+                                                }
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 4096
+                                                }
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Custom headers",
+                                        "validate": {
+                                            "maxItems": 16
+                                        }
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 10,
+                            "module": "gateway:WebhookRespond",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "body": "{ \"Access denied\" }",
+                                "status": "401",
+                                "headers": []
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 300,
+                                    "name": "401"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "headers": {
+                                            "mode": "chose"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "status",
+                                        "type": "uinteger",
+                                        "label": "Status",
+                                        "required": true,
+                                        "validate": {
+                                            "min": 100
+                                        }
+                                    },
+                                    {
+                                        "name": "body",
+                                        "type": "any",
+                                        "label": "Body"
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 256
+                                                }
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 4096
+                                                }
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Custom headers",
+                                        "validate": {
+                                            "maxItems": 16
+                                        }
                                     }
                                 ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Sort"
-                    },
-                    {
-                        "name": "view",
-                        "type": "select",
-                        "label": "View"
-                    },
-                    {
-                        "name": "fields",
-                        "type": "select",
-                        "label": "Output Fields",
-                        "multiple": true
-                    }
-                ],
-                "interface": [
-                    {
-                        "name": "id",
-                        "type": "text",
-                        "label": "ID"
-                    },
-                    {
-                        "name": "createdTime",
-                        "type": "date",
-                        "label": "Created Time"
-                    },
-                    {
-                        "name": "fldx7FfUMeXZBWN5F",
-                        "type": "text",
-                        "label": "Title"
-                    },
-                    {
-                        "name": "fldBXDjUKLtWBkjJf",
-                        "type": "boolean",
-                        "label": "Live on webpage"
-                    },
-                    {
-                        "name": "fldFvOIryz6E4iWpC",
-                        "type": "text",
-                        "label": "Description"
-                    },
-                    {
-                        "name": "fldZzGTxROQT9lKF3",
-                        "type": "text",
-                        "label": "Page URL"
-                    },
-                    {
-                        "name": "fldme9YFd5FGhsiQb",
-                        "type": "text",
-                        "label": "Course URL"
-                    },
-                    {
-                        "name": "fldK41jDhXasKh1uT",
-                        "time": false,
-                        "type": "date",
-                        "label": "Start"
-                    },
-                    {
-                        "name": "fldtZvOFSQQRVphLD",
-                        "type": "text",
-                        "label": "time_of_day"
-                    },
-                    {
-                        "name": "fldfEJ2qf3eNdaG1W",
-                        "time": false,
-                        "type": "date",
-                        "label": "End"
-                    }
-                ],
-                "advanced": true
-            }
-        },
-        {
-            "id": 7,
-            "module": "json:AggregateToJSON",
-            "version": 1,
-            "parameters": {
-                "type": 177581,
-                "space": "",
-                "feeder": 3
-            },
-            "mapper": {
-                "id": "{{3.id}}",
-                "End": "{{3.fldfEJ2qf3eNdaG1W}}",
-                "Start": "{{3.fldK41jDhXasKh1uT}}",
-                "Title": "{{3.fldx7FfUMeXZBWN5F}}",
-                "Page URL": "{{3.fldZzGTxROQT9lKF3}}",
-                "Description": "{{3.fldFvOIryz6E4iWpC}}",
-                "createdTime": ""
-            },
-            "metadata": {
-                "designer": {
-                    "x": 600,
-                    "y": 0
+                        }
+                    ]
                 },
-                "restore": {
-                    "extra": {
-                        "feeder": {
-                            "label": "Airtable - Search Records [3]"
-                        }
-                    },
-                    "expect": {
-                        "Bookable": {
-                            "mode": "chose"
-                        },
-                        "Live on webpage": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "type": {
-                            "label": "My data structure"
-                        },
-                        "space": {
-                            "label": "Empty"
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "type",
-                        "type": "udt",
-                        "label": "Data structure",
-                        "required": true
-                    },
-                    {
-                        "name": "space",
-                        "type": "select",
-                        "label": "Indentation",
-                        "validate": {
-                            "enum": [
-                                "tab",
-                                "2",
-                                "4"
-                            ]
-                        }
-                    }
-                ],
-                "expect": [
-                    {
-                        "name": "Title",
-                        "type": "text"
-                    },
-                    {
-                        "name": "Description",
-                        "type": "text"
-                    },
-                    {
-                        "name": "Start",
-                        "type": "text"
-                    },
-                    {
-                        "name": "End",
-                        "type": "text"
-                    },
-                    {
-                        "name": "Page URL",
-                        "type": "text"
-                    },
-                    {
-                        "name": "Bookable",
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "Live on webpage",
-                        "type": "boolean",
-                        "label": "Live On Webpage"
-                    },
-                    {
-                        "name": "id",
-                        "type": "text",
-                        "label": "ID"
-                    },
-                    {
-                        "name": "createdTime",
-                        "type": "date",
-                        "label": "Created Time"
-                    }
-                ]
-            }
-        },
-        {
-            "id": 2,
-            "module": "gateway:WebhookRespond",
-            "version": 1,
-            "parameters": {},
-            "mapper": {
-                "body": "{{7.json}}",
-                "status": "200",
-                "headers": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    }
-                ]
-            },
-            "metadata": {
-                "designer": {
-                    "x": 900,
-                    "y": 0
-                },
-                "restore": {
-                    "expect": {
-                        "headers": {
-                            "mode": "chose",
-                            "items": [
-                                null
-                            ]
-                        }
-                    }
-                },
-                "expect": [
-                    {
-                        "name": "status",
-                        "type": "uinteger",
-                        "label": "Status",
-                        "required": true,
-                        "validate": {
-                            "min": 100
-                        }
-                    },
-                    {
-                        "name": "body",
-                        "type": "any",
-                        "label": "Body"
-                    },
-                    {
-                        "name": "headers",
-                        "spec": [
-                            {
-                                "name": "key",
-                                "type": "text",
-                                "label": "Key",
-                                "required": true,
-                                "validate": {
-                                    "max": 256
-                                }
+                {
+                    "flow": [
+                        {
+                            "id": 13,
+                            "module": "airtable:ActionSearchRecords",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 2456185
                             },
-                            {
-                                "name": "value",
-                                "type": "text",
-                                "label": "Value",
-                                "required": true,
-                                "validate": {
-                                    "max": 4096
-                                }
+                            "filter": {
+                                "name": "API Key: authorized",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{first(map(1.`__IMTHEADERS__`; \"value\"; \"name\"; \"x-api-key\"))}}",
+                                            "b": "400f1267e015aee78e6e33f8599dd5db",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "base": "app4R2qm7WvWIFspd",
+                                "sort": [
+                                    {
+                                        "field": "Start",
+                                        "direction": "asc"
+                                    }
+                                ],
+                                "view": "viw0e9md3qxybDpfK",
+                                "table": "tblH4U1AWOEVTkoNE",
+                                "fields": [
+                                    "Title",
+                                    "Live on webpage",
+                                    "Description",
+                                    "Page URL",
+                                    "Course URL",
+                                    "Start",
+                                    "time_of_day",
+                                    "End",
+                                    "Shorted description"
+                                ],
+                                "formula": "AND(  IF(\"{{1.startDate}}\",DATETIME_DIFF(\"{{1.startDate}}\", Start, 'days')<=0, 1),  IF(\"{{1.endDate}}\",  DATETIME_DIFF(\"{{1.endDate}}\",   End,   'days')>=0, 1))",
+                                "maxRecords": "{{1.limit}}",
+                                "useColumnId": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 600
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "mode": "chose",
+                                            "label": "NetZero Academy Courses"
+                                        },
+                                        "sort": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "field": {
+                                                        "mode": "chose",
+                                                        "label": "Start"
+                                                    },
+                                                    "direction": {
+                                                        "mode": "chose",
+                                                        "label": "Ascending"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "view": {
+                                            "mode": "chose",
+                                            "label": "Webservice Courses"
+                                        },
+                                        "table": {
+                                            "mode": "chose",
+                                            "label": "Courses"
+                                        },
+                                        "fields": {
+                                            "mode": "chose",
+                                            "label": [
+                                                "Title",
+                                                "Live on webpage",
+                                                "Description",
+                                                "Page URL",
+                                                "Course URL",
+                                                "Start",
+                                                "time_of_day",
+                                                "End",
+                                                "Shorted description"
+                                            ]
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "MD Airtable Token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "formula",
+                                        "type": "text",
+                                        "label": "Formula"
+                                    },
+                                    {
+                                        "name": "maxRecords",
+                                        "type": "integer",
+                                        "label": "Limit"
+                                    },
+                                    {
+                                        "name": "sort",
+                                        "spec": [
+                                            {
+                                                "name": "field",
+                                                "type": "select",
+                                                "label": "Field",
+                                                "dynamic": true,
+                                                "options": []
+                                            },
+                                            {
+                                                "name": "direction",
+                                                "type": "select",
+                                                "label": "Direction",
+                                                "options": [
+                                                    {
+                                                        "label": "Descending",
+                                                        "value": "desc"
+                                                    },
+                                                    {
+                                                        "label": "Ascending",
+                                                        "value": "asc"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Sort"
+                                    },
+                                    {
+                                        "name": "view",
+                                        "type": "select",
+                                        "label": "View"
+                                    },
+                                    {
+                                        "name": "fields",
+                                        "type": "select",
+                                        "label": "Output Fields",
+                                        "multiple": true
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "fldx7FfUMeXZBWN5F",
+                                        "type": "text",
+                                        "label": "Title"
+                                    },
+                                    {
+                                        "name": "fldBXDjUKLtWBkjJf",
+                                        "type": "boolean",
+                                        "label": "Live on webpage"
+                                    },
+                                    {
+                                        "name": "fldFvOIryz6E4iWpC",
+                                        "type": "text",
+                                        "label": "Description"
+                                    },
+                                    {
+                                        "name": "fldZzGTxROQT9lKF3",
+                                        "type": "text",
+                                        "label": "Page URL"
+                                    },
+                                    {
+                                        "name": "fldme9YFd5FGhsiQb",
+                                        "type": "text",
+                                        "label": "Course URL"
+                                    },
+                                    {
+                                        "name": "fldK41jDhXasKh1uT",
+                                        "time": false,
+                                        "type": "date",
+                                        "label": "Start"
+                                    },
+                                    {
+                                        "name": "fldtZvOFSQQRVphLD",
+                                        "type": "text",
+                                        "label": "time_of_day"
+                                    },
+                                    {
+                                        "name": "fldfEJ2qf3eNdaG1W",
+                                        "time": false,
+                                        "type": "date",
+                                        "label": "End"
+                                    },
+                                    {
+                                        "name": "fldM1ixplXw6Flcue",
+                                        "type": "text",
+                                        "label": "Shorted description"
+                                    }
+                                ],
+                                "advanced": true
                             }
-                        ],
-                        "type": "array",
-                        "label": "Custom headers",
-                        "validate": {
-                            "maxItems": 16
+                        },
+                        {
+                            "id": 14,
+                            "module": "json:AggregateToJSON",
+                            "version": 1,
+                            "parameters": {
+                                "type": 177581,
+                                "space": "",
+                                "feeder": 13
+                            },
+                            "mapper": {
+                                "End": "{{13.fldfEJ2qf3eNdaG1W}}",
+                                "URL": "{{13.fldZzGTxROQT9lKF3}}",
+                                "Start": "{{13.fldK41jDhXasKh1uT}}",
+                                "Title": "{{13.fldx7FfUMeXZBWN5F}}",
+                                "Description": ""
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 600
+                                },
+                                "restore": {
+                                    "extra": {
+                                        "feeder": {
+                                            "label": "Airtable - Search Records [13]"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "type": {
+                                            "label": "My data structure"
+                                        },
+                                        "space": {
+                                            "label": "Empty"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "type",
+                                        "type": "udt",
+                                        "label": "Data structure",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "space",
+                                        "type": "select",
+                                        "label": "Indentation",
+                                        "validate": {
+                                            "enum": [
+                                                "tab",
+                                                "2",
+                                                "4"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "Title",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Description",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Start",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "End",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "URL",
+                                        "type": "text",
+                                        "label": "Page URL"
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        },
+                        {
+                            "id": 15,
+                            "module": "gateway:WebhookRespond",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "body": "{{14.json}}",
+                                "status": "200",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 600,
+                                    "name": "Return list of courses"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "headers": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "status",
+                                        "type": "uinteger",
+                                        "label": "Status",
+                                        "required": true,
+                                        "validate": {
+                                            "min": 100
+                                        }
+                                    },
+                                    {
+                                        "name": "body",
+                                        "type": "any",
+                                        "label": "Body"
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 256
+                                                }
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true,
+                                                "validate": {
+                                                    "max": 4096
+                                                }
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Custom headers",
+                                        "validate": {
+                                            "maxItems": 16
+                                        }
+                                    }
+                                ],
+                                "advanced": true
+                            }
                         }
-                    }
-                ],
-                "advanced": true
-            }
+                    ]
+                }
+            ]
         }
     ],
     "metadata": {
