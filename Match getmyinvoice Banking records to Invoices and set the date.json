@@ -333,7 +333,7 @@
                     "Invoice ID",
                     "Grand_total"
                 ],
-                "formula": "OR({Invoice ID}=\"{{2.value}}\",\n   {SD invoice number}=\"{{2.value}}\", \n   AND(OR({Contact SDCustomerNumber}=\"{{2.value}}\",\n                  {Company SDCustomerNumber}=\"{{2.value}}\"),\n       OR(\n          offer_Invoice_status = \"Offer sent\",\n          offer_Invoice_status = \"Payment reminder sent\",\n          offer_Invoice_status = \"Payment received\",\n          offer_Invoice_status = \"Stripe payment - no invoice\",\n          offer_Invoice_status = \"First Payment done\",\n          offer_Invoice_status = \"Storno\",\n          offer_Invoice_status = \"Fristverlängerung\",\n          offer_Invoice_status = \"Manual check required\",\n          offer_Invoice_status = \"Payment received - create invoice/check\",\n          offer_Invoice_status = \"work in progress\"\n         ),\n         DATETIME_DIFF(\"{{1.bookingDate}}\", {Date created}, \"days\") > 0,\n         Grand_total={{1.amount}}\n     )\n)",
+                "formula": "OR({Invoice ID}=\"{{2.value}}\",\n   {SD invoice number}=\"{{2.value}}\", \n   AND(OR({Contact SDCustomerNumber}=\"{{2.value}}\",\n                  {Company SDCustomerNumber}=\"{{2.value}}\"),\n       OR(\n          offer_Invoice_status = \"Offer sent\",\n          offer_Invoice_status = \"Invoice sent\",\n          offer_Invoice_status = \"Payment reminder sent\",\n          offer_Invoice_status = \"Payment received\",\n          offer_Invoice_status = \"Stripe payment - no invoice\",\n          offer_Invoice_status = \"First Payment done\",\n          offer_Invoice_status = \"Storno\",\n          offer_Invoice_status = \"Fristverlängerung\",\n          offer_Invoice_status = \"Manual check required\",\n          offer_Invoice_status = \"Payment received - create invoice/check\",\n          offer_Invoice_status = \"work in progress\"\n         ),\n         DATETIME_DIFF(\"{{1.bookingDate}}\", {Date created}, \"days\") > 0,\n         Grand_total={{1.amount}}\n     )\n)",
                 "maxRecords": "1",
                 "useColumnId": false
             },
@@ -460,16 +460,6 @@
                 ],
                 "interface": [
                     {
-                        "name": "__IMTLENGTH__",
-                        "type": "uinteger",
-                        "label": "Total number of bundles"
-                    },
-                    {
-                        "name": "__IMTINDEX__",
-                        "type": "uinteger",
-                        "label": "Bundle order position"
-                    },
-                    {
                         "name": "id",
                         "type": "text",
                         "label": "ID"
@@ -532,7 +522,7 @@
                                     "Invoice ID",
                                     "Grand_total"
                                 ],
-                                "formula": "OR({Invoice ID}=\"{{2.value}}\",\n   {SD invoice number}=\"{{2.value}}\", \n   AND(OR({Contact SDCustomerNumber}=\"{{2.value}}\",\n                  {Company SDCustomerNumber}=\"{{2.value}}\"),\n       OR(\n          offer_Invoice_status = \"Offer sent\",\n          offer_Invoice_status = \"Payment reminder sent\",\n          offer_Invoice_status = \"Payment received\",\n          offer_Invoice_status = \"Stripe payment - no invoice\",\n          offer_Invoice_status = \"First Payment done\",\n          offer_Invoice_status = \"Storno\",\n          offer_Invoice_status = \"Fristverlängerung\",\n          offer_Invoice_status = \"Manual check required\",\n          offer_Invoice_status = \"Payment received - create invoice/check\",\n          offer_Invoice_status = \"work in progress\"\n         ),\n         DATETIME_DIFF(\"{{1.bookingDate}}\", {Date created}, \"days\") > 0\n     )\n)",
+                                "formula": "OR({Invoice ID}=\"{{2.value}}\",\n   {SD invoice number}=\"{{2.value}}\", \n   AND(OR({Contact SDCustomerNumber}=\"{{2.value}}\",\n                  {Company SDCustomerNumber}=\"{{2.value}}\"),\n       OR(\n          offer_Invoice_status = \"Offer sent\",\n          offer_Invoice_status = \"Invoice sent\",\n          offer_Invoice_status = \"Payment reminder sent\",\n          offer_Invoice_status = \"Payment received\",\n          offer_Invoice_status = \"Stripe payment - no invoice\",\n          offer_Invoice_status = \"First Payment done\",\n          offer_Invoice_status = \"Storno\",\n          offer_Invoice_status = \"Fristverlängerung\",\n          offer_Invoice_status = \"Manual check required\",\n          offer_Invoice_status = \"Payment received - create invoice/check\",\n          offer_Invoice_status = \"work in progress\"\n         ),\n         DATETIME_DIFF(\"{{1.bookingDate}}\", {Date created}, \"days\") > 0\n     )\n)",
                                 "maxRecords": "1",
                                 "useColumnId": false
                             },
@@ -727,7 +717,7 @@
                                                 ]
                                             },
                                             "mapper": {
-                                                "id": "{{3.id}}",
+                                                "id": "{{18.id}}",
                                                 "base": "appIW2NHG67L20Pxm",
                                                 "table": "tblBD9y2t07Ry7tni",
                                                 "record": {
@@ -756,8 +746,14 @@
                                                         },
                                                         "record": {
                                                             "nested": {
+                                                                "fld1iJXTulTLOn8Uy": {
+                                                                    "mode": "chose"
+                                                                },
                                                                 "fld1vvWjkw24nknEE": {
                                                                     "mode": "edit"
+                                                                },
+                                                                "fld5RxJEP7Wb6rTqQ": {
+                                                                    "mode": "chose"
                                                                 },
                                                                 "fldC6ozVO1ufD7sL1": {
                                                                     "mode": "edit"
@@ -790,13 +786,25 @@
                                                                 "flddjyk5mp7CRZEMQ": {
                                                                     "mode": "chose"
                                                                 },
+                                                                "flddwHPD4A4sSiNn6": {
+                                                                    "mode": "chose"
+                                                                },
                                                                 "fldisdDXHlCn2vOZt": {
+                                                                    "mode": "chose"
+                                                                },
+                                                                "fldjPIwm6LavAtnf1": {
                                                                     "mode": "chose"
                                                                 },
                                                                 "fldmGt6b2A2xAzjPG": {
                                                                     "mode": "chose"
                                                                 },
                                                                 "fldmno5O7ln1dIlxm": {
+                                                                    "mode": "chose"
+                                                                },
+                                                                "fldr9D8Ga0wfi940F": {
+                                                                    "mode": "chose"
+                                                                },
+                                                                "fldtWSNDpx1qV0pTh": {
                                                                     "mode": "chose"
                                                                 },
                                                                 "flduZb5WFZ2fVeRAX": {
@@ -925,7 +933,7 @@
                                                             },
                                                             {
                                                                 "name": "flda2x7PSWryzD0t9",
-                                                                "time": false,
+                                                                "time": true,
                                                                 "type": "date",
                                                                 "label": "Date created"
                                                             },
@@ -996,11 +1004,6 @@
                                                                         "name": "email",
                                                                         "type": "email",
                                                                         "label": "Email"
-                                                                    },
-                                                                    {
-                                                                        "name": "name",
-                                                                        "type": "text",
-                                                                        "label": "Name"
                                                                     }
                                                                 ],
                                                                 "type": "collection",
@@ -1104,12 +1107,73 @@
                                                             },
                                                             {
                                                                 "name": "fldWSxX7owCtkiBrT",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "url",
+                                                                        "type": "text",
+                                                                        "label": "File URL"
+                                                                    },
+                                                                    {
+                                                                        "name": "filename",
+                                                                        "type": "filename",
+                                                                        "label": "File name"
+                                                                    }
+                                                                ],
+                                                                "type": "array",
+                                                                "label": "SD invoice"
+                                                            },
+                                                            {
+                                                                "name": "fldjPIwm6LavAtnf1",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "url",
+                                                                        "type": "text",
+                                                                        "label": "File URL"
+                                                                    },
+                                                                    {
+                                                                        "name": "filename",
+                                                                        "type": "filename",
+                                                                        "label": "File name"
+                                                                    }
+                                                                ],
+                                                                "type": "array",
+                                                                "label": "SD offer"
+                                                            },
+                                                            {
+                                                                "name": "fldez59YFbZVsSjsw",
+                                                                "type": "text",
+                                                                "label": "SD invoice number"
+                                                            },
+                                                            {
+                                                                "name": "fld5RxJEP7Wb6rTqQ",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "url",
+                                                                        "type": "text",
+                                                                        "label": "File URL"
+                                                                    },
+                                                                    {
+                                                                        "name": "filename",
+                                                                        "type": "filename",
+                                                                        "label": "File name"
+                                                                    }
+                                                                ],
+                                                                "type": "array",
+                                                                "label": "SD storno"
+                                                            },
+                                                            {
+                                                                "name": "fldquVWBGUZEQOu7f",
+                                                                "type": "text",
+                                                                "label": "SD storno number"
+                                                            },
+                                                            {
+                                                                "name": "fldr9D8Ga0wfi940F",
                                                                 "spec": {
                                                                     "name": "value",
                                                                     "label": "Record ID"
                                                                 },
                                                                 "type": "array",
-                                                                "label": "SD documents"
+                                                                "label": "Offer request"
                                                             },
                                                             {
                                                                 "name": "fldZfCtK1SNVRsQfr",
@@ -1120,6 +1184,38 @@
                                                                 "name": "fldyCy6KNpSdsjP61",
                                                                 "type": "text",
                                                                 "label": "SD invoice ID"
+                                                            },
+                                                            {
+                                                                "name": "fldnmxj6ZyjJ8S2F2",
+                                                                "type": "text",
+                                                                "label": "SD storno ID"
+                                                            },
+                                                            {
+                                                                "name": "flddwHPD4A4sSiNn6",
+                                                                "spec": {
+                                                                    "name": "value",
+                                                                    "label": "Record ID"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "SD Invoices"
+                                                            },
+                                                            {
+                                                                "name": "fldtWSNDpx1qV0pTh",
+                                                                "spec": {
+                                                                    "name": "value",
+                                                                    "label": "Record ID"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "SD Offers"
+                                                            },
+                                                            {
+                                                                "name": "fld1iJXTulTLOn8Uy",
+                                                                "spec": {
+                                                                    "name": "value",
+                                                                    "label": "Record ID"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "CompanyDB"
                                                             }
                                                         ],
                                                         "type": "collection",
@@ -1283,7 +1379,7 @@
                                                     },
                                                     {
                                                         "name": "flda2x7PSWryzD0t9",
-                                                        "time": false,
+                                                        "time": true,
                                                         "type": "date",
                                                         "label": "Date created"
                                                     },
@@ -1339,46 +1435,22 @@
                                                         "label": "Net_after_stripe_fee"
                                                     },
                                                     {
-                                                        "name": "fld621Zxh46jVjMQS",
-                                                        "spec": [
-                                                            {
-                                                                "name": "label",
-                                                                "type": "text",
-                                                                "label": "Label"
-                                                            },
-                                                            {
-                                                                "name": "url",
-                                                                "type": "url",
-                                                                "label": "URL"
-                                                            }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Create invoice"
-                                                    },
-                                                    {
-                                                        "name": "fldJJtqiBHuBZXx30",
-                                                        "spec": [
-                                                            {
-                                                                "name": "label",
-                                                                "type": "text",
-                                                                "label": "Label"
-                                                            },
-                                                            {
-                                                                "name": "url",
-                                                                "type": "url",
-                                                                "label": "URL"
-                                                            }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Create Offer"
-                                                    },
-                                                    {
                                                         "name": "fldmno5O7ln1dIlxm",
                                                         "spec": [
                                                             {
                                                                 "name": "id",
                                                                 "type": "text",
                                                                 "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
                                                             },
                                                             {
                                                                 "name": "url",
@@ -1484,6 +1556,16 @@
                                                                 "name": "id",
                                                                 "type": "text",
                                                                 "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
                                                             },
                                                             {
                                                                 "name": "url",
@@ -1658,6 +1740,16 @@
                                                                 "label": "ID"
                                                             },
                                                             {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            },
+                                                            {
                                                                 "name": "url",
                                                                 "type": "url",
                                                                 "label": "URL"
@@ -1753,23 +1845,6 @@
                                                         ],
                                                         "type": "array",
                                                         "label": "Storno_Invoice"
-                                                    },
-                                                    {
-                                                        "name": "fld7x4doKVj35N4bo",
-                                                        "spec": [
-                                                            {
-                                                                "name": "label",
-                                                                "type": "text",
-                                                                "label": "Label"
-                                                            },
-                                                            {
-                                                                "name": "url",
-                                                                "type": "url",
-                                                                "label": "URL"
-                                                            }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Storno Invoice"
                                                     },
                                                     {
                                                         "name": "fldzzg1zEkMRPmhSn",
@@ -1901,11 +1976,427 @@
                                                     },
                                                     {
                                                         "name": "fldWSxX7owCtkiBrT",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "filename",
+                                                                "type": "filename",
+                                                                "label": "File name"
+                                                            },
+                                                            {
+                                                                "name": "size",
+                                                                "type": "uinteger",
+                                                                "label": "Size"
+                                                            },
+                                                            {
+                                                                "name": "type",
+                                                                "type": "text",
+                                                                "label": "MIME type"
+                                                            },
+                                                            {
+                                                                "name": "thumbnails",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "small",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Small"
+                                                                    },
+                                                                    {
+                                                                        "name": "large",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Large"
+                                                                    },
+                                                                    {
+                                                                        "name": "full",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Full"
+                                                                    }
+                                                                ],
+                                                                "type": "collection",
+                                                                "label": "Thumbnails"
+                                                            }
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "SD invoice"
+                                                    },
+                                                    {
+                                                        "name": "fldjPIwm6LavAtnf1",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "filename",
+                                                                "type": "filename",
+                                                                "label": "File name"
+                                                            },
+                                                            {
+                                                                "name": "size",
+                                                                "type": "uinteger",
+                                                                "label": "Size"
+                                                            },
+                                                            {
+                                                                "name": "type",
+                                                                "type": "text",
+                                                                "label": "MIME type"
+                                                            },
+                                                            {
+                                                                "name": "thumbnails",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "small",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Small"
+                                                                    },
+                                                                    {
+                                                                        "name": "large",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Large"
+                                                                    },
+                                                                    {
+                                                                        "name": "full",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Full"
+                                                                    }
+                                                                ],
+                                                                "type": "collection",
+                                                                "label": "Thumbnails"
+                                                            }
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "SD offer"
+                                                    },
+                                                    {
+                                                        "name": "fldez59YFbZVsSjsw",
+                                                        "type": "text",
+                                                        "label": "SD invoice number"
+                                                    },
+                                                    {
+                                                        "name": "fld5RxJEP7Wb6rTqQ",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "filename",
+                                                                "type": "filename",
+                                                                "label": "File name"
+                                                            },
+                                                            {
+                                                                "name": "size",
+                                                                "type": "uinteger",
+                                                                "label": "Size"
+                                                            },
+                                                            {
+                                                                "name": "type",
+                                                                "type": "text",
+                                                                "label": "MIME type"
+                                                            },
+                                                            {
+                                                                "name": "thumbnails",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "small",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Small"
+                                                                    },
+                                                                    {
+                                                                        "name": "large",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Large"
+                                                                    },
+                                                                    {
+                                                                        "name": "full",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Full"
+                                                                    }
+                                                                ],
+                                                                "type": "collection",
+                                                                "label": "Thumbnails"
+                                                            }
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "SD storno"
+                                                    },
+                                                    {
+                                                        "name": "fldquVWBGUZEQOu7f",
+                                                        "type": "text",
+                                                        "label": "SD storno number"
+                                                    },
+                                                    {
+                                                        "name": "fldrGLcm4TgTe7yzH",
+                                                        "type": "array",
+                                                        "label": "Earliest Course start date"
+                                                    },
+                                                    {
+                                                        "name": "fldW7Nh967EQmeuk1",
+                                                        "type": "array",
+                                                        "label": "Latest Course end date"
+                                                    },
+                                                    {
+                                                        "name": "fldr9D8Ga0wfi940F",
                                                         "spec": {
                                                             "label": "Record ID"
                                                         },
                                                         "type": "array",
-                                                        "label": "SD documents"
+                                                        "label": "Offer request"
+                                                    },
+                                                    {
+                                                        "name": "fld621Zxh46jVjMQS",
+                                                        "spec": [
+                                                            {
+                                                                "name": "label",
+                                                                "type": "text",
+                                                                "label": "Label"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Create invoice"
+                                                    },
+                                                    {
+                                                        "name": "fldJJtqiBHuBZXx30",
+                                                        "spec": [
+                                                            {
+                                                                "name": "label",
+                                                                "type": "text",
+                                                                "label": "Label"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Create Offer"
+                                                    },
+                                                    {
+                                                        "name": "fld7x4doKVj35N4bo",
+                                                        "spec": [
+                                                            {
+                                                                "name": "label",
+                                                                "type": "text",
+                                                                "label": "Label"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Storno Invoice"
                                                     },
                                                     {
                                                         "name": "fldZfCtK1SNVRsQfr",
@@ -1916,6 +2407,310 @@
                                                         "name": "fldyCy6KNpSdsjP61",
                                                         "type": "text",
                                                         "label": "SD invoice ID"
+                                                    },
+                                                    {
+                                                        "name": "fldnmxj6ZyjJ8S2F2",
+                                                        "type": "text",
+                                                        "label": "SD storno ID"
+                                                    },
+                                                    {
+                                                        "name": "fld5meb3zeLAQFsfn",
+                                                        "type": "text",
+                                                        "label": "New offer request"
+                                                    },
+                                                    {
+                                                        "name": "flddwHPD4A4sSiNn6",
+                                                        "spec": {
+                                                            "label": "Record ID"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "SD Invoices"
+                                                    },
+                                                    {
+                                                        "name": "fld8gnglK3Gz5OfCO",
+                                                        "type": "array",
+                                                        "label": "SD Invoice Number (from SD Invoices)"
+                                                    },
+                                                    {
+                                                        "name": "fldtWSNDpx1qV0pTh",
+                                                        "spec": {
+                                                            "label": "Record ID"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "SD Offers"
+                                                    },
+                                                    {
+                                                        "name": "fld2S2TmP4hJU37pk",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "filename",
+                                                                "type": "filename",
+                                                                "label": "File name"
+                                                            },
+                                                            {
+                                                                "name": "size",
+                                                                "type": "uinteger",
+                                                                "label": "Size"
+                                                            },
+                                                            {
+                                                                "name": "type",
+                                                                "type": "text",
+                                                                "label": "MIME type"
+                                                            },
+                                                            {
+                                                                "name": "thumbnails",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "small",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Small"
+                                                                    },
+                                                                    {
+                                                                        "name": "large",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Large"
+                                                                    },
+                                                                    {
+                                                                        "name": "full",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Full"
+                                                                    }
+                                                                ],
+                                                                "type": "collection",
+                                                                "label": "Thumbnails"
+                                                            }
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "SD Offer (from SD Offers)"
+                                                    },
+                                                    {
+                                                        "name": "fldWtc16rfFHJ5zSZ",
+                                                        "type": "array",
+                                                        "label": "Created (from SD Offers)"
+                                                    },
+                                                    {
+                                                        "name": "fldDYs5zJ9aWjfM8c",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            },
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "filename",
+                                                                "type": "filename",
+                                                                "label": "File name"
+                                                            },
+                                                            {
+                                                                "name": "size",
+                                                                "type": "uinteger",
+                                                                "label": "Size"
+                                                            },
+                                                            {
+                                                                "name": "type",
+                                                                "type": "text",
+                                                                "label": "MIME type"
+                                                            },
+                                                            {
+                                                                "name": "thumbnails",
+                                                                "spec": [
+                                                                    {
+                                                                        "name": "small",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Small"
+                                                                    },
+                                                                    {
+                                                                        "name": "large",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Large"
+                                                                    },
+                                                                    {
+                                                                        "name": "full",
+                                                                        "spec": [
+                                                                            {
+                                                                                "name": "url",
+                                                                                "type": "url",
+                                                                                "label": "URL"
+                                                                            },
+                                                                            {
+                                                                                "name": "width",
+                                                                                "type": "uinteger",
+                                                                                "label": "Width"
+                                                                            },
+                                                                            {
+                                                                                "name": "height",
+                                                                                "type": "uinteger",
+                                                                                "label": "Height"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Full"
+                                                                    }
+                                                                ],
+                                                                "type": "collection",
+                                                                "label": "Thumbnails"
+                                                            }
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "SD Invoice (from SD Invoices)"
+                                                    },
+                                                    {
+                                                        "name": "flda18PpFPuvioJFe",
+                                                        "type": "array",
+                                                        "label": "type (from SD Invoices)"
+                                                    },
+                                                    {
+                                                        "name": "fldgsWsK979aPnZSi",
+                                                        "type": "text",
+                                                        "label": "Automation trigger"
+                                                    },
+                                                    {
+                                                        "name": "fldfWsXujfVaGVbyw",
+                                                        "type": "text",
+                                                        "label": "md tmp2"
+                                                    },
+                                                    {
+                                                        "name": "fldvyikpyHJ7ynWqe",
+                                                        "type": "text",
+                                                        "label": "recordID"
+                                                    },
+                                                    {
+                                                        "name": "fldf4cY6XYpof3o6T",
+                                                        "type": "array",
+                                                        "label": "Channel (from Contact)"
+                                                    },
+                                                    {
+                                                        "name": "fld1iJXTulTLOn8Uy",
+                                                        "spec": {
+                                                            "label": "Record ID"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "CompanyDB"
+                                                    },
+                                                    {
+                                                        "name": "fldMjHoBZ9Q8HhTJw",
+                                                        "type": "text",
+                                                        "label": "md tmp2 copy"
                                                     }
                                                 ],
                                                 "advanced": true
@@ -3528,7 +4323,7 @@
                                             },
                                             "mapper": {
                                                 "select": "channel",
-                                                "content": "GLS payment received (amount does not match): \n{{9.fldcvtnl0q2cuYzo7}},{{11.fldDDz29rDZqkWNOO}}\n{{11.fldauTi0zUzUUMQID}}€ != {{9.fldizB43KLduxuftD}}€'\n\nWe found {{18.`__IMTLENGTH__`}} possible matches.",
+                                                "content": "GLS payment received (amount does not match): \n{{9.fldcvtnl0q2cuYzo7}},{{11.fldDDz29rDZqkWNOO}}\n{{11.fldauTi0zUzUUMQID}}€ != {{9.fldizB43KLduxuftD}}€\n\nWe found {{18.`__IMTLENGTH__`}} possible matches.",
                                                 "channelId": "1212429146635116574",
                                                 "message_reference": {}
                                             },
@@ -4069,9 +4864,9 @@
                                             },
                                             "mapper": {
                                                 "select": "user",
-                                                "content": "GLS payment received (amount does not match): \n{{9.fldcvtnl0q2cuYzo7}},{{11.fldDDz29rDZqkWNOO}}\n{{11.fldauTi0zUzUUMQID}}€ != {{9.fldizB43KLduxuftD}}€'\n\nWe found {{18.`__IMTLENGTH__`}} possible matches.",
-                                                "message_reference": {},
-                                                "recipientId": "1234789817896669214"
+                                                "content": "GLS payment received (amount does not match): \n{{9.fldcvtnl0q2cuYzo7}},{{11.fldDDz29rDZqkWNOO}}\n{{11.fldauTi0zUzUUMQID}}€ != {{9.fldizB43KLduxuftD}}€\n\nWe found {{18.`__IMTLENGTH__`}} possible matches.",
+                                                "recipientId": "1234789817896669214",
+                                                "message_reference": {}
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -4080,33 +4875,33 @@
                                                     "name": "To Leo ERROR GLS payment received (wrong amount)"
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "My Discord connection (Integromat (integromat))",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "discord"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
-                                                        "select": {
-                                                            "label": "Send a DM (Direct Message) to a Guild Member"
-                                                        },
                                                         "tts": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "files": {
                                                             "mode": "chose"
                                                         },
                                                         "embeds": {
                                                             "mode": "chose"
                                                         },
-                                                        "sticker_ids": {
-                                                            "mode": "chose"
+                                                        "select": {
+                                                            "label": "Send a DM (Direct Message) to a Guild Member"
                                                         },
                                                         "components": {
                                                             "mode": "chose"
                                                         },
-                                                        "files": {
+                                                        "sticker_ids": {
                                                             "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "discord"
+                                                            },
+                                                            "label": "My Discord connection (Integromat (integromat))"
                                                         }
                                                     }
                                                 },
@@ -4144,8 +4939,6 @@
                                                     },
                                                     {
                                                         "name": "embeds",
-                                                        "type": "array",
-                                                        "label": "Embeds",
                                                         "spec": [
                                                             {
                                                                 "name": "title",
@@ -4341,12 +5134,12 @@
                                                                 "type": "array",
                                                                 "label": "Fields"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Embeds"
                                                     },
                                                     {
                                                         "name": "sticker_ids",
-                                                        "type": "array",
-                                                        "label": "Stickers",
                                                         "spec": [
                                                             {
                                                                 "name": "id",
@@ -4354,12 +5147,12 @@
                                                                 "label": "Sticker ID",
                                                                 "required": true
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Stickers"
                                                     },
                                                     {
                                                         "name": "components",
-                                                        "type": "array",
-                                                        "label": "Components",
                                                         "spec": [
                                                             {
                                                                 "name": "type",
@@ -4553,12 +5346,12 @@
                                                                 ],
                                                                 "required": true
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Components"
                                                     },
                                                     {
                                                         "name": "files",
-                                                        "type": "array",
-                                                        "label": "Files",
                                                         "spec": [
                                                             {
                                                                 "name": "filename",
@@ -4574,19 +5367,21 @@
                                                                 "required": true,
                                                                 "semantic": "file:data"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Files"
                                                     },
                                                     {
                                                         "name": "message_reference",
-                                                        "type": "collection",
-                                                        "label": "Message Reference",
                                                         "spec": [
                                                             {
                                                                 "name": "message_id",
                                                                 "type": "text",
                                                                 "label": "Message ID"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Message Reference"
                                                     },
                                                     {
                                                         "name": "recipientId",
