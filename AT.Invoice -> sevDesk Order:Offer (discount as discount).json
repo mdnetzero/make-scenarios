@@ -20737,7 +20737,6 @@
                                 "table": "tblwStd7tXZsxSO4Y",
                                 "record": {
                                     "fldMDUpDRbRdTXk6s": "{{45.street_and_number}}",
-                                    "fldQpM3uwLLn9aSTv": "{{45.id}}",
                                     "fldaAy7RgYZ8vRamt": "{{45.location}}",
                                     "fldbmQeJGHCkCZjyI": "{{45.Vorname}}",
                                     "fldiiMXpbl6fYeHWj": "{{45.`E-Mail`}}",
@@ -21061,14 +21060,14 @@
                                         "label": "Autonumber"
                                     },
                                     {
-                                        "name": "fldb8SCXvMoeYHlyR",
+                                        "name": "fldf2hBuEJ8gyuX2g",
                                         "type": "text",
                                         "label": "SDCustomerNumber"
                                     },
                                     {
-                                        "name": "fldf2hBuEJ8gyuX2g",
-                                        "type": "text",
-                                        "label": "SDCustomerNumber2"
+                                        "name": "fldk11ulydexvMN5k",
+                                        "type": "number",
+                                        "label": "SDCustomerNumber (old)"
                                     },
                                     {
                                         "name": "fldYE6X3k8INCexZS",
@@ -21147,6 +21146,28 @@
                                         "label": "Last Modified"
                                     },
                                     {
+                                        "name": "fld7fIhNV64LfncAO",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "email",
+                                                "type": "text",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Last Modified By"
+                                    },
+                                    {
                                         "name": "fld9dUg5zLGES0SfY",
                                         "type": "date",
                                         "label": "Created time"
@@ -21155,6 +21176,16 @@
                                         "name": "fldhchTvaxhzX1NnT",
                                         "type": "text",
                                         "label": "Invoices"
+                                    },
+                                    {
+                                        "name": "fldqqiqm9rVJY1KOV",
+                                        "type": "text",
+                                        "label": "sevDeskLink"
+                                    },
+                                    {
+                                        "name": "flduWekjX5UUQ9Ss7",
+                                        "type": "text",
+                                        "label": "md tmp (delete)"
                                     }
                                 ],
                                 "advanced": true
@@ -24657,6 +24688,11 @@
                                         },
                                         "type": "array",
                                         "label": "CompanyDB"
+                                    },
+                                    {
+                                        "name": "fldMjHoBZ9Q8HhTJw",
+                                        "type": "text",
+                                        "label": "md tmp2 copy"
                                     }
                                 ],
                                 "advanced": true
@@ -28423,7 +28459,7 @@
                                                 "designer": {
                                                     "x": 5863,
                                                     "y": 1292,
-                                                    "name": "savd SD invoice to Invoices"
+                                                    "name": "save SD invoice to Invoices"
                                                 },
                                                 "restore": {
                                                     "expect": {
