@@ -5139,19 +5139,21 @@
                                             },
                                             "mapper": {
                                                 "base": "app4R2qm7WvWIFspd",
+                                                "typecast": false,
+                                                "useColumnId": true,
                                                 "table": "tblddc4iAfHvr02GX",
                                                 "record": {
-                                                    "fldLnsoeJoi4e4xQu": "{{21.start}}",
-                                                    "fldUgvdwMk9fOq3pf": "{{21.id}}",
-                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
-                                                    "fldgD4h3u4E19aMxR": "{{38.id}}",
-                                                    "fldpJvy4fPPC18QHH": "{{21.end}}",
-                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}",
                                                     "fldxG8DFcbcZjBLCu": "{{21.summary}}",
-                                                    "fldxK2ZL0naFxit7B": "{{38.joinWebUrl}}"
-                                                },
-                                                "typecast": false,
-                                                "useColumnId": true
+                                                    "fldgD4h3u4E19aMxR": "{{38.id}}",
+                                                    "fldUgvdwMk9fOq3pf": "{{21.id}}",
+                                                    "fldxK2ZL0naFxit7B": "{{38.joinWebUrl}}",
+                                                    "fldLnsoeJoi4e4xQu": "{{21.start}}",
+                                                    "fldxhKWemCp3C9kQ3": "{{26.start}}",
+                                                    "fldpJvy4fPPC18QHH": "{{21.end}}",
+                                                    "fldkHE9anUsBWbAp7": "{{26.end}}",
+                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
+                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}"
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -5160,69 +5162,99 @@
                                                     "name": "Write to 'Course calender entries'"
                                                 },
                                                 "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "MD Airtable Token connection",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "airtable2"
+                                                            }
+                                                        }
+                                                    },
                                                     "expect": {
                                                         "base": {
                                                             "label": "NetZero Academy Courses"
                                                         },
+                                                        "typecast": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "useColumnId": {
+                                                            "mode": "chose"
+                                                        },
                                                         "table": {
-                                                            "label": "Course calendar entries",
                                                             "nested": [
                                                                 {
                                                                     "name": "record",
                                                                     "spec": [
                                                                         {
                                                                             "name": "fldxG8DFcbcZjBLCu",
-                                                                            "type": "text",
-                                                                            "label": "Name"
+                                                                            "label": "Name",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldgD4h3u4E19aMxR",
-                                                                            "type": "text",
-                                                                            "label": "teamsMeetingID"
+                                                                            "label": "teamsMeetingID",
+                                                                            "type": "text"
+                                                                        },
+                                                                        {
+                                                                            "name": "fldy61YeAUXTHWW55",
+                                                                            "label": "msCalendarEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldUgvdwMk9fOq3pf",
-                                                                            "type": "text",
-                                                                            "label": "googleCalenderEventID"
+                                                                            "label": "googleCalenderEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldxK2ZL0naFxit7B",
-                                                                            "type": "text",
-                                                                            "label": "msTeamsLink"
+                                                                            "label": "msTeamsLink",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldLnsoeJoi4e4xQu",
-                                                                            "time": true,
+                                                                            "label": "Start",
                                                                             "type": "date",
-                                                                            "label": "Start"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldxhKWemCp3C9kQ3",
+                                                                            "label": "Start time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldpJvy4fPPC18QHH",
-                                                                            "time": true,
+                                                                            "label": "End",
                                                                             "type": "date",
-                                                                            "label": "End"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldkHE9anUsBWbAp7",
+                                                                            "label": "End time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldfx6etYUaknR6M4",
+                                                                            "label": "Course",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course"
+                                                                            }
                                                                         },
                                                                         {
                                                                             "name": "fldtbQ6FsShrbqUlm",
+                                                                            "label": "Course Day",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course Day"
+                                                                            }
                                                                         }
                                                                     ],
                                                                     "type": "collection",
                                                                     "label": "Record"
                                                                 }
-                                                            ]
+                                                            ],
+                                                            "label": "Course calendar entries"
                                                         },
                                                         "record": {
                                                             "nested": {
@@ -5233,21 +5265,6 @@
                                                                     "mode": "edit"
                                                                 }
                                                             }
-                                                        },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            },
-                                                            "label": "MD Airtable Token connection"
                                                         }
                                                     }
                                                 },
@@ -5286,6 +5303,8 @@
                                                     },
                                                     {
                                                         "name": "record",
+                                                        "type": "collection",
+                                                        "label": "Record",
                                                         "spec": [
                                                             {
                                                                 "name": "fldxG8DFcbcZjBLCu",
@@ -5296,6 +5315,11 @@
                                                                 "name": "fldgD4h3u4E19aMxR",
                                                                 "type": "text",
                                                                 "label": "teamsMeetingID"
+                                                            },
+                                                            {
+                                                                "name": "fldy61YeAUXTHWW55",
+                                                                "type": "text",
+                                                                "label": "msCalendarEventID"
                                                             },
                                                             {
                                                                 "name": "fldUgvdwMk9fOq3pf",
@@ -5309,37 +5333,45 @@
                                                             },
                                                             {
                                                                 "name": "fldLnsoeJoi4e4xQu",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "Start"
+                                                                "label": "Start",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldxhKWemCp3C9kQ3",
+                                                                "type": "text",
+                                                                "label": "Start time"
                                                             },
                                                             {
                                                                 "name": "fldpJvy4fPPC18QHH",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "End"
+                                                                "label": "End",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldkHE9anUsBWbAp7",
+                                                                "type": "text",
+                                                                "label": "End time"
                                                             },
                                                             {
                                                                 "name": "fldfx6etYUaknR6M4",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course"
+                                                                "label": "Course",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             },
                                                             {
                                                                 "name": "fldtbQ6FsShrbqUlm",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course Day"
+                                                                "label": "Course Day",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Record"
+                                                        ]
                                                     }
                                                 ],
                                                 "interface": [
@@ -5355,61 +5387,103 @@
                                                     },
                                                     {
                                                         "name": "fldxG8DFcbcZjBLCu",
-                                                        "type": "text",
-                                                        "label": "Name"
+                                                        "label": "Name",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldgD4h3u4E19aMxR",
-                                                        "type": "text",
-                                                        "label": "teamsMeetingID"
+                                                        "label": "teamsMeetingID",
+                                                        "type": "text"
+                                                    },
+                                                    {
+                                                        "name": "fldy61YeAUXTHWW55",
+                                                        "label": "msCalendarEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldUgvdwMk9fOq3pf",
-                                                        "type": "text",
-                                                        "label": "googleCalenderEventID"
+                                                        "label": "googleCalenderEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldxK2ZL0naFxit7B",
-                                                        "type": "text",
-                                                        "label": "msTeamsLink"
+                                                        "label": "msTeamsLink",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldLnsoeJoi4e4xQu",
-                                                        "time": true,
+                                                        "label": "Start",
                                                         "type": "date",
-                                                        "label": "Start"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldxhKWemCp3C9kQ3",
+                                                        "label": "Start time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldpJvy4fPPC18QHH",
-                                                        "time": true,
+                                                        "label": "End",
                                                         "type": "date",
-                                                        "label": "End"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldkHE9anUsBWbAp7",
+                                                        "label": "End time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldfx6etYUaknR6M4",
+                                                        "label": "Course",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "fldA92HvRMHXuPXGi",
+                                                        "label": "RecordID (from Course)",
+                                                        "type": "array"
                                                     },
                                                     {
                                                         "name": "fldtbQ6FsShrbqUlm",
+                                                        "label": "Course Day",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course Day"
+                                                        }
                                                     },
                                                     {
                                                         "name": "flddk57ArYg8W73kC",
-                                                        "type": "date",
-                                                        "label": "Created"
+                                                        "label": "Created",
+                                                        "type": "date"
                                                     },
                                                     {
                                                         "name": "fldLpntVvErJYnOv6",
-                                                        "type": "date",
-                                                        "label": "Last Modified"
+                                                        "label": "Last Modified",
+                                                        "type": "date"
+                                                    },
+                                                    {
+                                                        "name": "flddV5NilehSL8TQp",
+                                                        "label": "Created By",
+                                                        "type": "collection",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "email",
+                                                                "type": "text",
+                                                                "label": "Email"
+                                                            },
+                                                            {
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Name"
+                                                            }
+                                                        ]
                                                     }
                                                 ],
                                                 "advanced": true
@@ -6174,30 +6248,30 @@
                                                 "__IMTCONN__": 2727795
                                             },
                                             "mapper": {
-                                                "select": "detail",
-                                                "calendar": "c_7fe3a8f4b17f814076c10cfb721bfb51c59e2191c346a13f9044ee8e5190b5c4@group.calendar.google.com",
-                                                "summary": "{{16.`Titel (from Module)`[1]}}- {{7.fldx7FfUMeXZBWN5F}}",
-                                                "allDayEvent": false,
-                                                "start": "{{16.Date}} {{43.start}}",
                                                 "end": "{{16.Date}} {{43.end}}",
-                                                "description": "Link zum Teams Meeting:\n{{44.joinWebUrl}}",
+                                                "start": "{{16.Date}} {{43.start}}",
+                                                "select": "detail",
+                                                "summary": "{{16.`Titel (from Module)`[1]}}- {{7.fldx7FfUMeXZBWN5F}}",
+                                                "calendar": "c_7fe3a8f4b17f814076c10cfb721bfb51c59e2191c346a13f9044ee8e5190b5c4@group.calendar.google.com",
+                                                "attendees": [
+                                                    {
+                                                        "email": "info@netzeroacademy.de",
+                                                        "displayName": "Operations"
+                                                    }
+                                                ],
                                                 "overrides": [
                                                     {
                                                         "method": "email",
                                                         "minutes": "60"
                                                     }
                                                 ],
-                                                "attendees": [
-                                                    {
-                                                        "displayName": "Operations",
-                                                        "email": "info@netzeroacademy.de"
-                                                    }
-                                                ],
-                                                "transparency": "opaque",
                                                 "visibility": "default",
+                                                "allDayEvent": false,
+                                                "description": "Link zum Teams Meeting:\n{{44.joinWebUrl}}",
                                                 "sendUpdates": "all",
-                                                "guestsCanModify": false,
-                                                "conferenceDate": false
+                                                "transparency": "opaque",
+                                                "conferenceDate": false,
+                                                "guestsCanModify": false
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -6205,28 +6279,22 @@
                                                     "y": 63
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "NZ Google connection (service@netzeroacademy.de)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "google"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "select": {
                                                             "label": "In Detail"
+                                                        },
+                                                        "colorId": {
+                                                            "mode": "chose"
                                                         },
                                                         "calendar": {
                                                             "mode": "chose",
                                                             "label": "NetZero Courses"
                                                         },
-                                                        "colorId": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "allDayEvent": {
-                                                            "mode": "chose"
+                                                        "attendees": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null
+                                                            ]
                                                         },
                                                         "overrides": {
                                                             "mode": "chose",
@@ -6239,32 +6307,38 @@
                                                                 }
                                                             ]
                                                         },
-                                                        "attendees": {
-                                                            "mode": "chose",
-                                                            "items": [
-                                                                null
-                                                            ]
-                                                        },
-                                                        "transparency": {
-                                                            "mode": "chose",
-                                                            "label": "Busy"
+                                                        "recurrence": {
+                                                            "mode": "chose"
                                                         },
                                                         "visibility": {
                                                             "mode": "chose",
                                                             "label": "Default"
                                                         },
-                                                        "sendUpdates": {
-                                                            "mode": "chose",
-                                                            "label": "To All Guests"
-                                                        },
-                                                        "recurrence": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "conferenceDate": {
+                                                        "allDayEvent": {
                                                             "mode": "chose"
                                                         },
                                                         "attachments": {
                                                             "mode": "chose"
+                                                        },
+                                                        "sendUpdates": {
+                                                            "mode": "chose",
+                                                            "label": "To All Guests"
+                                                        },
+                                                        "transparency": {
+                                                            "mode": "chose",
+                                                            "label": "Busy"
+                                                        },
+                                                        "conferenceDate": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google"
+                                                            },
+                                                            "label": "NZ Google connection (service@netzeroacademy.de)"
                                                         }
                                                     }
                                                 },
@@ -6314,16 +6388,16 @@
                                                     },
                                                     {
                                                         "name": "start",
+                                                        "time": true,
                                                         "type": "date",
                                                         "label": "Start Date",
-                                                        "required": true,
-                                                        "time": true
+                                                        "required": true
                                                     },
                                                     {
                                                         "name": "end",
+                                                        "time": true,
                                                         "type": "date",
-                                                        "label": "End Date",
-                                                        "time": true
+                                                        "label": "End Date"
                                                     },
                                                     {
                                                         "name": "duration",
@@ -6347,11 +6421,6 @@
                                                     },
                                                     {
                                                         "name": "overrides",
-                                                        "type": "array",
-                                                        "label": "Reminders",
-                                                        "validate": {
-                                                            "maxItems": 5
-                                                        },
                                                         "spec": [
                                                             {
                                                                 "name": "method",
@@ -6378,12 +6447,15 @@
                                                                     "max": 40320
                                                                 }
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Reminders",
+                                                        "validate": {
+                                                            "maxItems": 5
+                                                        }
                                                     },
                                                     {
                                                         "name": "attendees",
-                                                        "type": "array",
-                                                        "label": "Attendees",
                                                         "spec": [
                                                             {
                                                                 "name": "displayName",
@@ -6396,7 +6468,9 @@
                                                                 "label": "Email",
                                                                 "required": true
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Attendees"
                                                     },
                                                     {
                                                         "name": "transparency",
@@ -6443,13 +6517,13 @@
                                                     },
                                                     {
                                                         "name": "recurrence",
-                                                        "type": "array",
-                                                        "label": "Recurrence",
                                                         "spec": {
+                                                            "name": "value",
                                                             "type": "text",
-                                                            "label": "Value",
-                                                            "name": "value"
-                                                        }
+                                                            "label": "Value"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Recurrence"
                                                     },
                                                     {
                                                         "name": "conferenceDate",
@@ -6459,8 +6533,6 @@
                                                     },
                                                     {
                                                         "name": "attachments",
-                                                        "type": "array",
-                                                        "label": "Attachments",
                                                         "spec": [
                                                             {
                                                                 "name": "fileUrl",
@@ -6468,7 +6540,9 @@
                                                                 "label": "File URL",
                                                                 "required": true
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Attachments"
                                                     }
                                                 ],
                                                 "advanced": true
@@ -7889,19 +7963,21 @@
                                             },
                                             "mapper": {
                                                 "base": "app4R2qm7WvWIFspd",
+                                                "typecast": false,
+                                                "useColumnId": true,
                                                 "table": "tblddc4iAfHvr02GX",
                                                 "record": {
-                                                    "fldLnsoeJoi4e4xQu": "{{49.start}}",
-                                                    "fldUgvdwMk9fOq3pf": "{{49.id}}",
-                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
-                                                    "fldgD4h3u4E19aMxR": "{{44.id}}",
-                                                    "fldpJvy4fPPC18QHH": "{{49.end}}",
-                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}",
                                                     "fldxG8DFcbcZjBLCu": "{{49.summary}}",
-                                                    "fldxK2ZL0naFxit7B": "{{44.joinWebUrl}}"
-                                                },
-                                                "typecast": false,
-                                                "useColumnId": true
+                                                    "fldgD4h3u4E19aMxR": "{{44.id}}",
+                                                    "fldUgvdwMk9fOq3pf": "{{49.id}}",
+                                                    "fldxK2ZL0naFxit7B": "{{44.joinWebUrl}}",
+                                                    "fldLnsoeJoi4e4xQu": "{{49.start}}",
+                                                    "fldxhKWemCp3C9kQ3": "{{43.start}}",
+                                                    "fldpJvy4fPPC18QHH": "{{49.end}}",
+                                                    "fldkHE9anUsBWbAp7": "{{43.end}}",
+                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
+                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}"
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -7910,69 +7986,99 @@
                                                     "name": "Write to 'Course calender entries'"
                                                 },
                                                 "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "MD Airtable Token connection",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "airtable2"
+                                                            }
+                                                        }
+                                                    },
                                                     "expect": {
                                                         "base": {
                                                             "label": "NetZero Academy Courses"
                                                         },
+                                                        "typecast": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "useColumnId": {
+                                                            "mode": "chose"
+                                                        },
                                                         "table": {
-                                                            "label": "Course calendar entries",
                                                             "nested": [
                                                                 {
                                                                     "name": "record",
                                                                     "spec": [
                                                                         {
                                                                             "name": "fldxG8DFcbcZjBLCu",
-                                                                            "type": "text",
-                                                                            "label": "Name"
+                                                                            "label": "Name",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldgD4h3u4E19aMxR",
-                                                                            "type": "text",
-                                                                            "label": "teamsMeetingID"
+                                                                            "label": "teamsMeetingID",
+                                                                            "type": "text"
+                                                                        },
+                                                                        {
+                                                                            "name": "fldy61YeAUXTHWW55",
+                                                                            "label": "msCalendarEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldUgvdwMk9fOq3pf",
-                                                                            "type": "text",
-                                                                            "label": "googleCalenderEventID"
+                                                                            "label": "googleCalenderEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldxK2ZL0naFxit7B",
-                                                                            "type": "text",
-                                                                            "label": "msTeamsLink"
+                                                                            "label": "msTeamsLink",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldLnsoeJoi4e4xQu",
-                                                                            "time": true,
+                                                                            "label": "Start",
                                                                             "type": "date",
-                                                                            "label": "Start"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldxhKWemCp3C9kQ3",
+                                                                            "label": "Start time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldpJvy4fPPC18QHH",
-                                                                            "time": true,
+                                                                            "label": "End",
                                                                             "type": "date",
-                                                                            "label": "End"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldkHE9anUsBWbAp7",
+                                                                            "label": "End time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldfx6etYUaknR6M4",
+                                                                            "label": "Course",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course"
+                                                                            }
                                                                         },
                                                                         {
                                                                             "name": "fldtbQ6FsShrbqUlm",
+                                                                            "label": "Course Day",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course Day"
+                                                                            }
                                                                         }
                                                                     ],
                                                                     "type": "collection",
                                                                     "label": "Record"
                                                                 }
-                                                            ]
+                                                            ],
+                                                            "label": "Course calendar entries"
                                                         },
                                                         "record": {
                                                             "nested": {
@@ -7983,21 +8089,6 @@
                                                                     "mode": "edit"
                                                                 }
                                                             }
-                                                        },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            },
-                                                            "label": "MD Airtable Token connection"
                                                         }
                                                     }
                                                 },
@@ -8036,6 +8127,8 @@
                                                     },
                                                     {
                                                         "name": "record",
+                                                        "type": "collection",
+                                                        "label": "Record",
                                                         "spec": [
                                                             {
                                                                 "name": "fldxG8DFcbcZjBLCu",
@@ -8046,6 +8139,11 @@
                                                                 "name": "fldgD4h3u4E19aMxR",
                                                                 "type": "text",
                                                                 "label": "teamsMeetingID"
+                                                            },
+                                                            {
+                                                                "name": "fldy61YeAUXTHWW55",
+                                                                "type": "text",
+                                                                "label": "msCalendarEventID"
                                                             },
                                                             {
                                                                 "name": "fldUgvdwMk9fOq3pf",
@@ -8059,37 +8157,45 @@
                                                             },
                                                             {
                                                                 "name": "fldLnsoeJoi4e4xQu",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "Start"
+                                                                "label": "Start",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldxhKWemCp3C9kQ3",
+                                                                "type": "text",
+                                                                "label": "Start time"
                                                             },
                                                             {
                                                                 "name": "fldpJvy4fPPC18QHH",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "End"
+                                                                "label": "End",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldkHE9anUsBWbAp7",
+                                                                "type": "text",
+                                                                "label": "End time"
                                                             },
                                                             {
                                                                 "name": "fldfx6etYUaknR6M4",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course"
+                                                                "label": "Course",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             },
                                                             {
                                                                 "name": "fldtbQ6FsShrbqUlm",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course Day"
+                                                                "label": "Course Day",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Record"
+                                                        ]
                                                     }
                                                 ],
                                                 "interface": [
@@ -8105,61 +8211,103 @@
                                                     },
                                                     {
                                                         "name": "fldxG8DFcbcZjBLCu",
-                                                        "type": "text",
-                                                        "label": "Name"
+                                                        "label": "Name",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldgD4h3u4E19aMxR",
-                                                        "type": "text",
-                                                        "label": "teamsMeetingID"
+                                                        "label": "teamsMeetingID",
+                                                        "type": "text"
+                                                    },
+                                                    {
+                                                        "name": "fldy61YeAUXTHWW55",
+                                                        "label": "msCalendarEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldUgvdwMk9fOq3pf",
-                                                        "type": "text",
-                                                        "label": "googleCalenderEventID"
+                                                        "label": "googleCalenderEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldxK2ZL0naFxit7B",
-                                                        "type": "text",
-                                                        "label": "msTeamsLink"
+                                                        "label": "msTeamsLink",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldLnsoeJoi4e4xQu",
-                                                        "time": true,
+                                                        "label": "Start",
                                                         "type": "date",
-                                                        "label": "Start"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldxhKWemCp3C9kQ3",
+                                                        "label": "Start time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldpJvy4fPPC18QHH",
-                                                        "time": true,
+                                                        "label": "End",
                                                         "type": "date",
-                                                        "label": "End"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldkHE9anUsBWbAp7",
+                                                        "label": "End time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldfx6etYUaknR6M4",
+                                                        "label": "Course",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "fldA92HvRMHXuPXGi",
+                                                        "label": "RecordID (from Course)",
+                                                        "type": "array"
                                                     },
                                                     {
                                                         "name": "fldtbQ6FsShrbqUlm",
+                                                        "label": "Course Day",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course Day"
+                                                        }
                                                     },
                                                     {
                                                         "name": "flddk57ArYg8W73kC",
-                                                        "type": "date",
-                                                        "label": "Created"
+                                                        "label": "Created",
+                                                        "type": "date"
                                                     },
                                                     {
                                                         "name": "fldLpntVvErJYnOv6",
-                                                        "type": "date",
-                                                        "label": "Last Modified"
+                                                        "label": "Last Modified",
+                                                        "type": "date"
+                                                    },
+                                                    {
+                                                        "name": "flddV5NilehSL8TQp",
+                                                        "label": "Created By",
+                                                        "type": "collection",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "email",
+                                                                "type": "text",
+                                                                "label": "Email"
+                                                            },
+                                                            {
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Name"
+                                                            }
+                                                        ]
                                                     }
                                                 ],
                                                 "advanced": true
@@ -9992,18 +10140,20 @@
                                             },
                                             "mapper": {
                                                 "base": "app4R2qm7WvWIFspd",
+                                                "typecast": false,
+                                                "useColumnId": true,
                                                 "table": "tblddc4iAfHvr02GX",
                                                 "record": {
-                                                    "fldLnsoeJoi4e4xQu": "{{52.start}}",
-                                                    "fldUgvdwMk9fOq3pf": "{{52.id}}",
-                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
-                                                    "fldpJvy4fPPC18QHH": "{{52.end}}",
-                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}",
                                                     "fldxG8DFcbcZjBLCu": "{{52.summary}}",
-                                                    "fldxK2ZL0naFxit7B": "{{4.joinWebUrl}}"
-                                                },
-                                                "typecast": false,
-                                                "useColumnId": true
+                                                    "fldUgvdwMk9fOq3pf": "{{52.id}}",
+                                                    "fldxK2ZL0naFxit7B": "{{4.joinWebUrl}}",
+                                                    "fldLnsoeJoi4e4xQu": "{{52.start}}",
+                                                    "fldxhKWemCp3C9kQ3": "{{51.start}}",
+                                                    "fldpJvy4fPPC18QHH": "{{52.end}}",
+                                                    "fldkHE9anUsBWbAp7": "{{51.end}}",
+                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
+                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}"
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -10012,69 +10162,99 @@
                                                     "name": "Write to 'Course calender entries'"
                                                 },
                                                 "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "MD Airtable Token connection",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "airtable2"
+                                                            }
+                                                        }
+                                                    },
                                                     "expect": {
                                                         "base": {
                                                             "label": "NetZero Academy Courses"
                                                         },
+                                                        "typecast": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "useColumnId": {
+                                                            "mode": "chose"
+                                                        },
                                                         "table": {
-                                                            "label": "Course calendar entries",
                                                             "nested": [
                                                                 {
                                                                     "name": "record",
                                                                     "spec": [
                                                                         {
                                                                             "name": "fldxG8DFcbcZjBLCu",
-                                                                            "type": "text",
-                                                                            "label": "Name"
+                                                                            "label": "Name",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldgD4h3u4E19aMxR",
-                                                                            "type": "text",
-                                                                            "label": "teamsMeetingID"
+                                                                            "label": "teamsMeetingID",
+                                                                            "type": "text"
+                                                                        },
+                                                                        {
+                                                                            "name": "fldy61YeAUXTHWW55",
+                                                                            "label": "msCalendarEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldUgvdwMk9fOq3pf",
-                                                                            "type": "text",
-                                                                            "label": "googleCalenderEventID"
+                                                                            "label": "googleCalenderEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldxK2ZL0naFxit7B",
-                                                                            "type": "text",
-                                                                            "label": "msTeamsLink"
+                                                                            "label": "msTeamsLink",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldLnsoeJoi4e4xQu",
-                                                                            "time": true,
+                                                                            "label": "Start",
                                                                             "type": "date",
-                                                                            "label": "Start"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldxhKWemCp3C9kQ3",
+                                                                            "label": "Start time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldpJvy4fPPC18QHH",
-                                                                            "time": true,
+                                                                            "label": "End",
                                                                             "type": "date",
-                                                                            "label": "End"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldkHE9anUsBWbAp7",
+                                                                            "label": "End time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldfx6etYUaknR6M4",
+                                                                            "label": "Course",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course"
+                                                                            }
                                                                         },
                                                                         {
                                                                             "name": "fldtbQ6FsShrbqUlm",
+                                                                            "label": "Course Day",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course Day"
+                                                                            }
                                                                         }
                                                                     ],
                                                                     "type": "collection",
                                                                     "label": "Record"
                                                                 }
-                                                            ]
+                                                            ],
+                                                            "label": "Course calendar entries"
                                                         },
                                                         "record": {
                                                             "nested": {
@@ -10085,21 +10265,6 @@
                                                                     "mode": "edit"
                                                                 }
                                                             }
-                                                        },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            },
-                                                            "label": "MD Airtable Token connection"
                                                         }
                                                     }
                                                 },
@@ -10138,6 +10303,8 @@
                                                     },
                                                     {
                                                         "name": "record",
+                                                        "type": "collection",
+                                                        "label": "Record",
                                                         "spec": [
                                                             {
                                                                 "name": "fldxG8DFcbcZjBLCu",
@@ -10148,6 +10315,11 @@
                                                                 "name": "fldgD4h3u4E19aMxR",
                                                                 "type": "text",
                                                                 "label": "teamsMeetingID"
+                                                            },
+                                                            {
+                                                                "name": "fldy61YeAUXTHWW55",
+                                                                "type": "text",
+                                                                "label": "msCalendarEventID"
                                                             },
                                                             {
                                                                 "name": "fldUgvdwMk9fOq3pf",
@@ -10161,37 +10333,45 @@
                                                             },
                                                             {
                                                                 "name": "fldLnsoeJoi4e4xQu",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "Start"
+                                                                "label": "Start",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldxhKWemCp3C9kQ3",
+                                                                "type": "text",
+                                                                "label": "Start time"
                                                             },
                                                             {
                                                                 "name": "fldpJvy4fPPC18QHH",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "End"
+                                                                "label": "End",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldkHE9anUsBWbAp7",
+                                                                "type": "text",
+                                                                "label": "End time"
                                                             },
                                                             {
                                                                 "name": "fldfx6etYUaknR6M4",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course"
+                                                                "label": "Course",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             },
                                                             {
                                                                 "name": "fldtbQ6FsShrbqUlm",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course Day"
+                                                                "label": "Course Day",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Record"
+                                                        ]
                                                     }
                                                 ],
                                                 "interface": [
@@ -10207,61 +10387,103 @@
                                                     },
                                                     {
                                                         "name": "fldxG8DFcbcZjBLCu",
-                                                        "type": "text",
-                                                        "label": "Name"
+                                                        "label": "Name",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldgD4h3u4E19aMxR",
-                                                        "type": "text",
-                                                        "label": "teamsMeetingID"
+                                                        "label": "teamsMeetingID",
+                                                        "type": "text"
+                                                    },
+                                                    {
+                                                        "name": "fldy61YeAUXTHWW55",
+                                                        "label": "msCalendarEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldUgvdwMk9fOq3pf",
-                                                        "type": "text",
-                                                        "label": "googleCalenderEventID"
+                                                        "label": "googleCalenderEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldxK2ZL0naFxit7B",
-                                                        "type": "text",
-                                                        "label": "msTeamsLink"
+                                                        "label": "msTeamsLink",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldLnsoeJoi4e4xQu",
-                                                        "time": true,
+                                                        "label": "Start",
                                                         "type": "date",
-                                                        "label": "Start"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldxhKWemCp3C9kQ3",
+                                                        "label": "Start time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldpJvy4fPPC18QHH",
-                                                        "time": true,
+                                                        "label": "End",
                                                         "type": "date",
-                                                        "label": "End"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldkHE9anUsBWbAp7",
+                                                        "label": "End time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldfx6etYUaknR6M4",
+                                                        "label": "Course",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "fldA92HvRMHXuPXGi",
+                                                        "label": "RecordID (from Course)",
+                                                        "type": "array"
                                                     },
                                                     {
                                                         "name": "fldtbQ6FsShrbqUlm",
+                                                        "label": "Course Day",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course Day"
+                                                        }
                                                     },
                                                     {
                                                         "name": "flddk57ArYg8W73kC",
-                                                        "type": "date",
-                                                        "label": "Created"
+                                                        "label": "Created",
+                                                        "type": "date"
                                                     },
                                                     {
                                                         "name": "fldLpntVvErJYnOv6",
-                                                        "type": "date",
-                                                        "label": "Last Modified"
+                                                        "label": "Last Modified",
+                                                        "type": "date"
+                                                    },
+                                                    {
+                                                        "name": "flddV5NilehSL8TQp",
+                                                        "label": "Created By",
+                                                        "type": "collection",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "email",
+                                                                "type": "text",
+                                                                "label": "Email"
+                                                            },
+                                                            {
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Name"
+                                                            }
+                                                        ]
                                                     }
                                                 ],
                                                 "advanced": true
@@ -12139,18 +12361,20 @@
                                             },
                                             "mapper": {
                                                 "base": "app4R2qm7WvWIFspd",
+                                                "typecast": false,
+                                                "useColumnId": true,
                                                 "table": "tblddc4iAfHvr02GX",
                                                 "record": {
-                                                    "fldLnsoeJoi4e4xQu": "{{36.start}}",
-                                                    "fldUgvdwMk9fOq3pf": "{{36.id}}",
-                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
-                                                    "fldpJvy4fPPC18QHH": "{{36.end}}",
-                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}",
                                                     "fldxG8DFcbcZjBLCu": "{{36.summary}}",
-                                                    "fldxK2ZL0naFxit7B": "{{17.fldxK2ZL0naFxit7B}}"
-                                                },
-                                                "typecast": false,
-                                                "useColumnId": true
+                                                    "fldUgvdwMk9fOq3pf": "{{36.id}}",
+                                                    "fldxK2ZL0naFxit7B": "{{17.fldxK2ZL0naFxit7B}}",
+                                                    "fldLnsoeJoi4e4xQu": "{{36.start}}",
+                                                    "fldxhKWemCp3C9kQ3": "{{35.start}}",
+                                                    "fldpJvy4fPPC18QHH": "{{36.end}}",
+                                                    "fldkHE9anUsBWbAp7": "{{35.end}}",
+                                                    "fldfx6etYUaknR6M4": "{{7.id}}",
+                                                    "fldtbQ6FsShrbqUlm": "{{16.id}}"
+                                                }
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -12159,69 +12383,99 @@
                                                     "name": "Write to 'Course calender entries'"
                                                 },
                                                 "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "MD Airtable Token connection",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "airtable2"
+                                                            }
+                                                        }
+                                                    },
                                                     "expect": {
                                                         "base": {
                                                             "label": "NetZero Academy Courses"
                                                         },
+                                                        "typecast": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "useColumnId": {
+                                                            "mode": "chose"
+                                                        },
                                                         "table": {
-                                                            "label": "Course calendar entries",
                                                             "nested": [
                                                                 {
                                                                     "name": "record",
                                                                     "spec": [
                                                                         {
                                                                             "name": "fldxG8DFcbcZjBLCu",
-                                                                            "type": "text",
-                                                                            "label": "Name"
+                                                                            "label": "Name",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldgD4h3u4E19aMxR",
-                                                                            "type": "text",
-                                                                            "label": "teamsMeetingID"
+                                                                            "label": "teamsMeetingID",
+                                                                            "type": "text"
+                                                                        },
+                                                                        {
+                                                                            "name": "fldy61YeAUXTHWW55",
+                                                                            "label": "msCalendarEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldUgvdwMk9fOq3pf",
-                                                                            "type": "text",
-                                                                            "label": "googleCalenderEventID"
+                                                                            "label": "googleCalenderEventID",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldxK2ZL0naFxit7B",
-                                                                            "type": "text",
-                                                                            "label": "msTeamsLink"
+                                                                            "label": "msTeamsLink",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldLnsoeJoi4e4xQu",
-                                                                            "time": true,
+                                                                            "label": "Start",
                                                                             "type": "date",
-                                                                            "label": "Start"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldxhKWemCp3C9kQ3",
+                                                                            "label": "Start time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldpJvy4fPPC18QHH",
-                                                                            "time": true,
+                                                                            "label": "End",
                                                                             "type": "date",
-                                                                            "label": "End"
+                                                                            "time": true
+                                                                        },
+                                                                        {
+                                                                            "name": "fldkHE9anUsBWbAp7",
+                                                                            "label": "End time",
+                                                                            "type": "text"
                                                                         },
                                                                         {
                                                                             "name": "fldfx6etYUaknR6M4",
+                                                                            "label": "Course",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course"
+                                                                            }
                                                                         },
                                                                         {
                                                                             "name": "fldtbQ6FsShrbqUlm",
+                                                                            "label": "Course Day",
+                                                                            "type": "array",
                                                                             "spec": {
                                                                                 "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course Day"
+                                                                            }
                                                                         }
                                                                     ],
                                                                     "type": "collection",
                                                                     "label": "Record"
                                                                 }
-                                                            ]
+                                                            ],
+                                                            "label": "Course calendar entries"
                                                         },
                                                         "record": {
                                                             "nested": {
@@ -12232,21 +12486,6 @@
                                                                     "mode": "edit"
                                                                 }
                                                             }
-                                                        },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            },
-                                                            "label": "MD Airtable Token connection"
                                                         }
                                                     }
                                                 },
@@ -12285,6 +12524,8 @@
                                                     },
                                                     {
                                                         "name": "record",
+                                                        "type": "collection",
+                                                        "label": "Record",
                                                         "spec": [
                                                             {
                                                                 "name": "fldxG8DFcbcZjBLCu",
@@ -12295,6 +12536,11 @@
                                                                 "name": "fldgD4h3u4E19aMxR",
                                                                 "type": "text",
                                                                 "label": "teamsMeetingID"
+                                                            },
+                                                            {
+                                                                "name": "fldy61YeAUXTHWW55",
+                                                                "type": "text",
+                                                                "label": "msCalendarEventID"
                                                             },
                                                             {
                                                                 "name": "fldUgvdwMk9fOq3pf",
@@ -12308,37 +12554,45 @@
                                                             },
                                                             {
                                                                 "name": "fldLnsoeJoi4e4xQu",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "Start"
+                                                                "label": "Start",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldxhKWemCp3C9kQ3",
+                                                                "type": "text",
+                                                                "label": "Start time"
                                                             },
                                                             {
                                                                 "name": "fldpJvy4fPPC18QHH",
-                                                                "time": true,
                                                                 "type": "date",
-                                                                "label": "End"
+                                                                "label": "End",
+                                                                "time": true
+                                                            },
+                                                            {
+                                                                "name": "fldkHE9anUsBWbAp7",
+                                                                "type": "text",
+                                                                "label": "End time"
                                                             },
                                                             {
                                                                 "name": "fldfx6etYUaknR6M4",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course"
+                                                                "label": "Course",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             },
                                                             {
                                                                 "name": "fldtbQ6FsShrbqUlm",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
                                                                 "type": "array",
-                                                                "label": "Course Day"
+                                                                "label": "Course Day",
+                                                                "spec": {
+                                                                    "label": "Record ID",
+                                                                    "name": "value"
+                                                                }
                                                             }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Record"
+                                                        ]
                                                     }
                                                 ],
                                                 "interface": [
@@ -12354,61 +12608,103 @@
                                                     },
                                                     {
                                                         "name": "fldxG8DFcbcZjBLCu",
-                                                        "type": "text",
-                                                        "label": "Name"
+                                                        "label": "Name",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldgD4h3u4E19aMxR",
-                                                        "type": "text",
-                                                        "label": "teamsMeetingID"
+                                                        "label": "teamsMeetingID",
+                                                        "type": "text"
+                                                    },
+                                                    {
+                                                        "name": "fldy61YeAUXTHWW55",
+                                                        "label": "msCalendarEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldUgvdwMk9fOq3pf",
-                                                        "type": "text",
-                                                        "label": "googleCalenderEventID"
+                                                        "label": "googleCalenderEventID",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldxK2ZL0naFxit7B",
-                                                        "type": "text",
-                                                        "label": "msTeamsLink"
+                                                        "label": "msTeamsLink",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldLnsoeJoi4e4xQu",
-                                                        "time": true,
+                                                        "label": "Start",
                                                         "type": "date",
-                                                        "label": "Start"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldxhKWemCp3C9kQ3",
+                                                        "label": "Start time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldpJvy4fPPC18QHH",
-                                                        "time": true,
+                                                        "label": "End",
                                                         "type": "date",
-                                                        "label": "End"
+                                                        "time": true
+                                                    },
+                                                    {
+                                                        "name": "fldkHE9anUsBWbAp7",
+                                                        "label": "End time",
+                                                        "type": "text"
                                                     },
                                                     {
                                                         "name": "fldfx6etYUaknR6M4",
+                                                        "label": "Course",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "fldA92HvRMHXuPXGi",
+                                                        "label": "RecordID (from Course)",
+                                                        "type": "array"
                                                     },
                                                     {
                                                         "name": "fldtbQ6FsShrbqUlm",
+                                                        "label": "Course Day",
+                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course Day"
+                                                        }
                                                     },
                                                     {
                                                         "name": "flddk57ArYg8W73kC",
-                                                        "type": "date",
-                                                        "label": "Created"
+                                                        "label": "Created",
+                                                        "type": "date"
                                                     },
                                                     {
                                                         "name": "fldLpntVvErJYnOv6",
-                                                        "type": "date",
-                                                        "label": "Last Modified"
+                                                        "label": "Last Modified",
+                                                        "type": "date"
+                                                    },
+                                                    {
+                                                        "name": "flddV5NilehSL8TQp",
+                                                        "label": "Created By",
+                                                        "type": "collection",
+                                                        "spec": [
+                                                            {
+                                                                "name": "id",
+                                                                "type": "text",
+                                                                "label": "ID"
+                                                            },
+                                                            {
+                                                                "name": "email",
+                                                                "type": "text",
+                                                                "label": "Email"
+                                                            },
+                                                            {
+                                                                "name": "name",
+                                                                "type": "text",
+                                                                "label": "Name"
+                                                            }
+                                                        ]
                                                     }
                                                 ],
                                                 "advanced": true
