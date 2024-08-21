@@ -18,6 +18,7 @@
                 "fields": [
                     "Title",
                     "E-Mails_participants",
+                    "Students_Name_Email",
                     "MS Teams meetings"
                 ]
             },
@@ -61,6 +62,7 @@
                             "label": [
                                 "Title",
                                 "E-Mails_participants",
+                                "Students_Name_Email",
                                 "MS Teams meetings"
                             ]
                         }
@@ -173,6 +175,11 @@
                     {
                         "name": "fldluJo9qxw0G2ZXq",
                         "label": "E-Mails_participants",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldfc5x5HyTf4NUjh",
+                        "label": "Students_Name_Email",
                         "type": "array"
                     },
                     {
@@ -474,20 +481,21 @@
                             "mapper": {
                                 "from": "",
                                 "to": [
-                                    "service@netzeroacademy.de"
+                                    "{{5.value}}"
                                 ],
-                                "subject": "TEST - This mail would go to {{5.value}}. Subject: Reminder: Heute startet Dein Kurs {{1.fldx7FfUMeXZBWN5F}}",
-                                "html": "Hallo ,\n<br><br>\nDein Kurs {{1.fldx7FfUMeXZBWN5F}} startet heute am {{formatDate(timestamp; \"DD.MM.YYYY\")}} um {{3.fldxhKWemCp3C9kQ3}} Uhr. Du kannst entweder über Dein Lernportal am Termin teilnehmen oder mit diesem Link:\n<br><br>\n{{3.fldxK2ZL0naFxit7B}}\n<br><br>\nMit besten Grüßen<br>\nElisa\n",
+                                "subject": "Reminder: Heute startet Dein Kurs {{1.fldx7FfUMeXZBWN5F}}",
+                                "html": "Hallo,\n<br><br>\nDein Kurs {{1.fldx7FfUMeXZBWN5F}} startet heute um {{3.fldxhKWemCp3C9kQ3}} Uhr. Du kannst entweder über Dein Lernportal am Termin teilnehmen oder mit diesem Link:\n<br><br>\n{{3.fldxK2ZL0naFxit7B}}\n<br><br>\nMit besten Grüßen<br>\nElisa\n",
                                 "attachments": [],
-                                "cc": [
-                                    "m.dratz@netzeroacademy.de"
-                                ],
-                                "bcc": []
+                                "cc": [],
+                                "bcc": [
+                                    "m.dratz@netzeroacademy.de",
+                                    "service@netzeroacademy.de"
+                                ]
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 1318,
-                                    "y": 4
+                                    "x": 1200,
+                                    "y": 0
                                 },
                                 "restore": {
                                     "parameters": {
@@ -510,13 +518,14 @@
                                             "mode": "chose"
                                         },
                                         "cc": {
-                                            "mode": "chose",
-                                            "items": [
-                                                null
-                                            ]
+                                            "mode": "chose"
                                         },
                                         "bcc": {
-                                            "mode": "chose"
+                                            "mode": "chose",
+                                            "items": [
+                                                null,
+                                                null
+                                            ]
                                         }
                                     }
                                 },
@@ -623,7 +632,7 @@
                                     "service@netzeroacademy.de"
                                 ],
                                 "subject": "No teams link found for {{1.fldx7FfUMeXZBWN5F}}",
-                                "html": "Use the \"Courses.Create Calendar Entries\" link to create calendar entries and teams links.\nNo mail was send to the customer.",
+                                "html": "Use the \"Courses.Create Calendar Entries\" link to create calendar entries and teams links.\nNo mail was send to the customer.\n\nThe customers did NOT receive a \"Reminder\" mail",
                                 "attachments": [],
                                 "cc": [
                                     "m.dratz@netzeroacademy.de"
