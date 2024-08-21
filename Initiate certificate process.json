@@ -224,15 +224,15 @@
                     [
                         {
                             "a": "{{1.`__IMTLENGTH__`}}",
-                            "o": "number:greater",
-                            "b": "0"
+                            "b": "0",
+                            "o": "number:greater"
                         }
                     ]
                 ]
             },
             "mapper": {
                 "select": "channel",
-                "content": "Course {{1.Title}} ends tomorrow. \nNow creating certificate records for all participants.",
+                "content": "Course {{1.fldKArcWX0859EeJZ}} ends tomorrow. \nNow creating certificate records for all participants.",
                 "channelId": "1212429146635116574",
                 "message_reference": {}
             },
@@ -769,7 +769,7 @@
             "version": 1,
             "parameters": {},
             "mapper": {
-                "array": "{{1.`Contacts 2`}}"
+                "array": "{{1.fldX0NAUYDiT0WdqQ}}"
             },
             "metadata": {
                 "designer": {
@@ -785,11 +785,11 @@
                 },
                 "expect": [
                     {
-                        "mode": "edit",
                         "name": "array",
-                        "spec": [],
                         "type": "array",
-                        "label": "Array"
+                        "label": "Array",
+                        "mode": "edit",
+                        "spec": []
                     }
                 ]
             }
@@ -803,17 +803,17 @@
             },
             "mapper": {
                 "base": "appIW2NHG67L20Pxm",
+                "typecast": false,
+                "useColumnId": true,
                 "table": "tblK7Px6u8ByXwV2f",
                 "record": {
-                    "fldbvMwuPDnOorHOw": [
-                        "{{1.id}}"
-                    ],
                     "fldjPZrW3pcH2uDU6": [
                         "{{5.value}}"
+                    ],
+                    "fldbvMwuPDnOorHOw": [
+                        "{{1.id}}"
                     ]
-                },
-                "typecast": false,
-                "useColumnId": true
+                }
             },
             "metadata": {
                 "designer": {
@@ -822,12 +822,26 @@
                     "name": "Create Certificate records"
                 },
                 "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
                     "expect": {
                         "base": {
                             "label": "NetZero Academy"
                         },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
                         "table": {
-                            "label": "Certificates",
                             "nested": [
                                 {
                                     "name": "record",
@@ -944,18 +958,19 @@
                                     "type": "collection",
                                     "label": "Record"
                                 }
-                            ]
+                            ],
+                            "label": "Certificates"
                         },
                         "record": {
                             "nested": {
-                                "fld6PUfZY0Sj4V69f": {
-                                    "mode": "chose"
+                                "fldjPZrW3pcH2uDU6": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
                                 },
-                                "fldABPh9WRBGbJx5C": {
-                                    "mode": "chose"
-                                },
-                                "fldZvtepTnkruqvp3": {
-                                    "mode": "chose"
+                                "fldugIiKeCWgGVj6A": {
+                                    "mode": "edit"
                                 },
                                 "fldbvMwuPDnOorHOw": {
                                     "mode": "chose",
@@ -963,37 +978,22 @@
                                         null
                                     ]
                                 },
-                                "fldjPZrW3pcH2uDU6": {
-                                    "mode": "chose",
-                                    "items": [
-                                        null
-                                    ]
+                                "fld6PUfZY0Sj4V69f": {
+                                    "mode": "chose"
                                 },
-                                "fldrkN2ftxcGHu4sl": {
+                                "fldZvtepTnkruqvp3": {
                                     "mode": "chose"
                                 },
                                 "fldtezqyb4ENb04a7": {
                                     "mode": "edit"
                                 },
-                                "fldugIiKeCWgGVj6A": {
-                                    "mode": "edit"
+                                "fldrkN2ftxcGHu4sl": {
+                                    "mode": "chose"
+                                },
+                                "fldABPh9WRBGbJx5C": {
+                                    "mode": "chose"
                                 }
                             }
-                        },
-                        "typecast": {
-                            "mode": "chose"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -1032,15 +1032,17 @@
                     },
                     {
                         "name": "record",
+                        "type": "collection",
+                        "label": "Record",
                         "spec": [
                             {
                                 "name": "fldjPZrW3pcH2uDU6",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Contact"
+                                "label": "Contact",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldLClpU49c9KJAFq",
@@ -1048,28 +1050,28 @@
                                 "label": "Title (Dr.)"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldugIiKeCWgGVj6A",
                                 "type": "select",
-                                "label": "Education"
+                                "label": "Education",
+                                "mode": "edit"
                             },
                             {
                                 "name": "fldbvMwuPDnOorHOw",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Course"
+                                "label": "Course",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fld6PUfZY0Sj4V69f",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "CertificateType"
+                                "label": "CertificateType",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldpoLQuVeXDFwwPS",
@@ -1078,6 +1080,8 @@
                             },
                             {
                                 "name": "fldZvtepTnkruqvp3",
+                                "type": "array",
+                                "label": "Certificate",
                                 "spec": [
                                     {
                                         "name": "url",
@@ -1089,15 +1093,13 @@
                                         "type": "filename",
                                         "label": "File name"
                                     }
-                                ],
-                                "type": "array",
-                                "label": "Certificate"
+                                ]
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldtezqyb4ENb04a7",
                                 "type": "select",
-                                "label": "Status"
+                                "label": "Status",
+                                "mode": "edit"
                             },
                             {
                                 "name": "fldrkN2ftxcGHu4sl",
@@ -1109,9 +1111,7 @@
                                 "type": "boolean",
                                 "label": "Homework checked?"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Record"
+                        ]
                     }
                 ],
                 "interface": [
@@ -1127,225 +1127,257 @@
                     },
                     {
                         "name": "fldAuD5UbstfwLsUd",
-                        "type": "text",
-                        "label": "CertificateID"
+                        "label": "CertificateID",
+                        "type": "text"
                     },
                     {
                         "name": "fldjPZrW3pcH2uDU6",
+                        "label": "Contact",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Contact"
+                        }
                     },
                     {
                         "name": "fldLClpU49c9KJAFq",
-                        "type": "text",
-                        "label": "Title (Dr.)"
+                        "label": "Title (Dr.)",
+                        "type": "text"
                     },
                     {
                         "name": "fldfrNr4b8g0aEwn5",
-                        "type": "array",
-                        "label": "Name (from Contact)"
+                        "label": "Name (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fld2RXbDOKlNLU2JA",
-                        "type": "array",
-                        "label": "date_of_birth (from Contact)"
+                        "label": "date_of_birth (from Contact)",
+                        "type": "array"
                     },
                     {
                         "name": "fldugIiKeCWgGVj6A",
-                        "type": "text",
-                        "label": "Education"
+                        "label": "Education",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldrkN2ftxcGHu4sl",
+                        "label": "Payment complete?",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fldABPh9WRBGbJx5C",
+                        "label": "Homework checked?",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fldI46HFkUbSeFaNs",
+                        "label": "ID checked?",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fldEA052IHOSqjumI",
+                        "label": "Exam checked?",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fldSKZfRUSmgPQlla",
+                        "label": "Data complete?",
+                        "type": "text"
                     },
                     {
                         "name": "fldCP0GSKslTz5Ail",
-                        "type": "text",
-                        "label": "Zielgruppe1"
+                        "label": "Zielgruppe1",
+                        "type": "text"
                     },
                     {
                         "name": "fldwPk8WYrcxFN2Wd",
-                        "type": "text",
-                        "label": "Zielgruppe2"
+                        "label": "Zielgruppe2",
+                        "type": "text"
                     },
                     {
                         "name": "fld4BtV4ygmfOrZFj",
-                        "type": "text",
-                        "label": "Zielgruppe3"
+                        "label": "Zielgruppe3",
+                        "type": "text"
                     },
                     {
                         "name": "fldbvMwuPDnOorHOw",
+                        "label": "Course",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Course"
+                        }
                     },
                     {
                         "name": "fld6PUfZY0Sj4V69f",
+                        "label": "CertificateType",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "CertificateType"
+                        }
+                    },
+                    {
+                        "name": "fldf2Exqo2lHpm1gg",
+                        "label": "certificateTitle (from CertificateType)",
+                        "type": "array"
                     },
                     {
                         "name": "flduXhO4As7Wq0hee",
-                        "type": "array",
-                        "label": "docID"
+                        "label": "docID",
+                        "type": "array"
                     },
                     {
                         "name": "fldUyvhsufO6JwQwY",
-                        "type": "array",
-                        "label": "basis080check"
+                        "label": "basis080check",
+                        "type": "array"
                     },
                     {
                         "name": "fldQEiiRMCTNPyKmB",
-                        "type": "array",
-                        "label": "basis080UEp"
+                        "label": "basis080UEp",
+                        "type": "array"
                     },
                     {
                         "name": "fldNParmHnNbzZUQo",
-                        "type": "array",
-                        "label": "basis080UEs"
+                        "label": "basis080UEs",
+                        "type": "array"
                     },
                     {
                         "name": "fldBIHGZnhzqme5He",
-                        "type": "array",
-                        "label": "basis160check"
+                        "label": "basis160check",
+                        "type": "array"
                     },
                     {
                         "name": "fldQB7coPtM4ONY9t",
-                        "type": "array",
-                        "label": "basis160UEp"
+                        "label": "basis160UEp",
+                        "type": "array"
                     },
                     {
                         "name": "fldq1w9evaLEBLj85",
-                        "type": "array",
-                        "label": "basis160UEs"
+                        "label": "basis160UEs",
+                        "type": "array"
                     },
                     {
                         "name": "fld9gLJ6V0P54t6Wr",
-                        "type": "array",
-                        "label": "wgCheck"
+                        "label": "wgCheck",
+                        "type": "array"
                     },
                     {
                         "name": "fldk2OWlcQy4yOdAp",
-                        "type": "array",
-                        "label": "wgUEp"
+                        "label": "wgUEp",
+                        "type": "array"
                     },
                     {
                         "name": "fldaw3wDw2m36pItF",
-                        "type": "array",
-                        "label": "wgUEs"
+                        "label": "wgUEs",
+                        "type": "array"
                     },
                     {
                         "name": "fldZkuGgmphwh2Wp5",
-                        "type": "array",
-                        "label": "nwgCheck"
+                        "label": "nwgCheck",
+                        "type": "array"
                     },
                     {
                         "name": "fldXz7sQh90l2MXtG",
-                        "type": "array",
-                        "label": "nwgUEp"
+                        "label": "nwgUEp",
+                        "type": "array"
                     },
                     {
                         "name": "fldc7mXrVUtRp53gH",
-                        "type": "array",
-                        "label": "nwgUEs"
+                        "label": "nwgUEs",
+                        "type": "array"
                     },
                     {
                         "name": "fldlTuDuMQB0ECiIQ",
-                        "type": "array",
-                        "label": "lcaWgCheck"
+                        "label": "lcaWgCheck",
+                        "type": "array"
                     },
                     {
                         "name": "fldjzoQ2HJh0sj58z",
-                        "type": "array",
-                        "label": "lcaWgUEp"
+                        "label": "lcaWgUEp",
+                        "type": "array"
                     },
                     {
                         "name": "fld9o5qQDWNq0blS1",
-                        "type": "array",
-                        "label": "lcaWgUEs"
+                        "label": "lcaWgUEs",
+                        "type": "array"
                     },
                     {
                         "name": "fldRu5MGxXqPydPTI",
-                        "type": "array",
-                        "label": "lcaNwgUEs"
+                        "label": "lcaNwgUEs",
+                        "type": "array"
                     },
                     {
                         "name": "fldjyPmAE90D3t2Ji",
-                        "type": "array",
-                        "label": "lcaNwgCheck"
+                        "label": "lcaNwgCheck",
+                        "type": "array"
                     },
                     {
                         "name": "fldodvzTWgF94nksp",
-                        "type": "array",
-                        "label": "lcaNwgUEp"
+                        "label": "lcaNwgUEp",
+                        "type": "array"
                     },
                     {
                         "name": "fldo9xfHWtpchiwha",
-                        "type": "array",
-                        "label": "Start (from Course)"
+                        "label": "Start (from Course)",
+                        "type": "array"
                     },
                     {
                         "name": "fldwTVb2jlQHalwUu",
-                        "type": "array",
-                        "label": "End (from Course)"
+                        "label": "End (from Course)",
+                        "type": "array"
                     },
                     {
                         "name": "fldq1ioLCVZqaxMoy",
-                        "type": "text",
-                        "label": "dateRange"
+                        "label": "dateRange",
+                        "type": "text"
                     },
                     {
                         "name": "fldWVbMKJcUAsAwmH",
-                        "type": "array",
-                        "label": "Course Length (from Course)"
+                        "label": "Course Length (from Course)",
+                        "type": "array"
                     },
                     {
                         "name": "fldHN8kKsXN4Kdvtz",
-                        "type": "text",
-                        "label": "UE"
+                        "label": "UE",
+                        "type": "text"
                     },
                     {
                         "name": "fldSuYWzow9Az1Xm1",
-                        "type": "array",
-                        "label": "Fortbildungskalender_Code (from Course)"
+                        "label": "Fortbildungskalender_Code (from Course)",
+                        "type": "array"
                     },
                     {
                         "name": "fldxx3qoyq5CrBBNC",
-                        "type": "array",
-                        "label": "Course Type (from Course)"
+                        "label": "Course Type (from Course)",
+                        "type": "array"
                     },
                     {
                         "name": "fldoorvW38ufqu7Rb",
-                        "type": "array",
-                        "label": "Title (from Course)"
+                        "label": "Title (from Course)",
+                        "type": "array"
                     },
                     {
                         "name": "fld79cRclgohhOain",
-                        "type": "array",
-                        "label": "certificateDescription"
+                        "label": "certificateDescription",
+                        "type": "array"
                     },
                     {
                         "name": "fldpoLQuVeXDFwwPS",
-                        "type": "text",
-                        "label": "Dynamic Certificate description"
+                        "label": "Dynamic Certificate description",
+                        "type": "text"
                     },
                     {
                         "name": "fld18Oa5Jxyy7Levv",
-                        "type": "text",
-                        "label": "Today"
+                        "label": "Today",
+                        "type": "text"
                     },
                     {
                         "name": "fldgK9tmkjhfR1KCU",
-                        "type": "text",
-                        "label": "Certificate name"
+                        "label": "Certificate name",
+                        "type": "text"
                     },
                     {
                         "name": "fldZvtepTnkruqvp3",
+                        "label": "Certificate",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -1379,14 +1411,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1403,12 +1439,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1425,12 +1461,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1447,47 +1483,16 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Certificate"
+                        ]
                     },
                     {
                         "name": "fldtezqyb4ENb04a7",
-                        "type": "text",
-                        "label": "Status"
-                    },
-                    {
-                        "name": "fldrkN2ftxcGHu4sl",
-                        "type": "boolean",
-                        "label": "Payment complete?"
-                    },
-                    {
-                        "name": "fldABPh9WRBGbJx5C",
-                        "type": "boolean",
-                        "label": "Homework checked?"
-                    },
-                    {
-                        "name": "fldSKZfRUSmgPQlla",
-                        "type": "text",
-                        "label": "Data complete?"
-                    },
-                    {
-                        "name": "fldEA052IHOSqjumI",
-                        "type": "boolean",
-                        "label": "Exam checked?"
-                    },
-                    {
-                        "name": "fldI46HFkUbSeFaNs",
-                        "type": "boolean",
-                        "label": "ID checked?"
+                        "label": "Status",
+                        "type": "text"
                     }
                 ],
                 "advanced": true
