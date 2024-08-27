@@ -26,7 +26,7 @@
             "metadata": {
                 "designer": {
                     "x": 0,
-                    "y": 0,
+                    "y": 150,
                     "name": "1 day before course end (no Fernstudium)"
                 },
                 "restore": {
@@ -239,7 +239,7 @@
             "metadata": {
                 "designer": {
                     "x": 300,
-                    "y": 0
+                    "y": 150
                 },
                 "restore": {
                     "expect": {
@@ -761,7 +761,513 @@
                         "required": true
                     }
                 ]
-            }
+            },
+            "onerror": [
+                {
+                    "id": 7,
+                    "module": "builtin:Resume",
+                    "version": 1,
+                    "parameters": {},
+                    "mapper": {
+                        "reactions": [],
+                        "attachments": [],
+                        "embeds": [],
+                        "components": [],
+                        "timestamp": "",
+                        "id": "",
+                        "edited_timestamp": "",
+                        "author": {
+                            "username": "",
+                            "discriminator": "",
+                            "id": "",
+                            "avatar": ""
+                        },
+                        "mention_roles": [],
+                        "content": "",
+                        "channel_id": "",
+                        "guild_id": "",
+                        "webhook_id": "",
+                        "mentions": [],
+                        "type": ""
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 600,
+                            "y": 300
+                        },
+                        "restore": {},
+                        "expect": [
+                            {
+                                "name": "reactions",
+                                "type": "array",
+                                "label": "Reactions",
+                                "spec": [
+                                    {
+                                        "name": "count",
+                                        "type": "number",
+                                        "label": "Count"
+                                    },
+                                    {
+                                        "name": "me",
+                                        "type": "boolean",
+                                        "label": "Me"
+                                    },
+                                    {
+                                        "name": "emoji",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Emoji"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "attachments",
+                                "type": "array",
+                                "label": "Attachments",
+                                "spec": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "filename",
+                                        "type": "text",
+                                        "label": "Filename"
+                                    },
+                                    {
+                                        "name": "size",
+                                        "type": "uinteger",
+                                        "label": "Size"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "proxy_url",
+                                        "type": "url",
+                                        "label": "Proxy URL"
+                                    },
+                                    {
+                                        "name": "height",
+                                        "type": "uinteger",
+                                        "label": "Height"
+                                    },
+                                    {
+                                        "name": "width",
+                                        "type": "uinteger",
+                                        "label": "Width"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "tts",
+                                "type": "boolean",
+                                "label": "TTS"
+                            },
+                            {
+                                "name": "embeds",
+                                "type": "array",
+                                "label": "Embeds",
+                                "spec": [
+                                    {
+                                        "name": "title",
+                                        "type": "text",
+                                        "label": "Title"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "text",
+                                        "label": "Type"
+                                    },
+                                    {
+                                        "name": "description",
+                                        "type": "text",
+                                        "label": "Description"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    },
+                                    {
+                                        "name": "timestamp",
+                                        "type": "date",
+                                        "label": "Timestamp"
+                                    },
+                                    {
+                                        "name": "color",
+                                        "type": "uinteger",
+                                        "label": "Color"
+                                    },
+                                    {
+                                        "name": "fields",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "any",
+                                                "label": "Value"
+                                            },
+                                            {
+                                                "name": "inline",
+                                                "type": "boolean",
+                                                "label": "Inline"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Fields"
+                                    },
+                                    {
+                                        "name": "footer",
+                                        "spec": [
+                                            {
+                                                "name": "text",
+                                                "type": "text",
+                                                "label": "Text"
+                                            },
+                                            {
+                                                "name": "icon_url",
+                                                "type": "url",
+                                                "label": "Icon URL"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Footer"
+                                    },
+                                    {
+                                        "name": "image",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Image"
+                                    },
+                                    {
+                                        "name": "video",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Video"
+                                    },
+                                    {
+                                        "name": "provider",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Provider"
+                                    },
+                                    {
+                                        "name": "author",
+                                        "spec": [
+                                            {
+                                                "name": "username",
+                                                "type": "text",
+                                                "label": "Username"
+                                            },
+                                            {
+                                                "name": "discriminator",
+                                                "type": "text",
+                                                "label": "Discriminator"
+                                            },
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "avatar",
+                                                "type": "text",
+                                                "label": "Avatar"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Author"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "components",
+                                "type": "array",
+                                "label": "Components",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "uinteger",
+                                        "label": "Type"
+                                    },
+                                    {
+                                        "name": "components",
+                                        "spec": [
+                                            {
+                                                "name": "type",
+                                                "type": "uinteger",
+                                                "label": "Type"
+                                            },
+                                            {
+                                                "name": "style",
+                                                "type": "uinteger",
+                                                "label": "Style"
+                                            },
+                                            {
+                                                "name": "label",
+                                                "type": "text",
+                                                "label": "Label"
+                                            },
+                                            {
+                                                "name": "custom_id",
+                                                "type": "text",
+                                                "label": "Custom ID"
+                                            },
+                                            {
+                                                "name": "url",
+                                                "type": "text",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "disabled",
+                                                "type": "boolean",
+                                                "label": "Disabled"
+                                            },
+                                            {
+                                                "name": "options",
+                                                "spec": [
+                                                    {
+                                                        "name": "label",
+                                                        "type": "text",
+                                                        "label": "Label"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": "text",
+                                                        "label": "Value"
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "type": "text",
+                                                        "label": "Description"
+                                                    },
+                                                    {
+                                                        "name": "default",
+                                                        "type": "boolean",
+                                                        "label": "Default"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Options"
+                                            },
+                                            {
+                                                "name": "placeholder",
+                                                "type": "text",
+                                                "label": "Placeholder"
+                                            },
+                                            {
+                                                "name": "min_values",
+                                                "type": "uinteger",
+                                                "label": "Minimum values"
+                                            },
+                                            {
+                                                "name": "max_values",
+                                                "type": "uinteger",
+                                                "label": "Maximum values"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Components"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "timestamp",
+                                "type": "date",
+                                "label": "Timestamp"
+                            },
+                            {
+                                "name": "mention_everyone",
+                                "type": "boolean",
+                                "label": "Mention Everyone"
+                            },
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "Message ID"
+                            },
+                            {
+                                "name": "pinned",
+                                "type": "boolean",
+                                "label": "Pinned"
+                            },
+                            {
+                                "name": "edited_timestamp",
+                                "type": "date",
+                                "label": "Edited Timestamp"
+                            },
+                            {
+                                "name": "author",
+                                "type": "collection",
+                                "label": "Author",
+                                "spec": [
+                                    {
+                                        "name": "username",
+                                        "type": "text",
+                                        "label": "Username"
+                                    },
+                                    {
+                                        "name": "discriminator",
+                                        "type": "text",
+                                        "label": "Discriminator"
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "avatar",
+                                        "type": "text",
+                                        "label": "Avatar"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "mention_roles",
+                                "type": "array",
+                                "label": "Mention Roles",
+                                "spec": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name"
+                                    },
+                                    {
+                                        "name": "color",
+                                        "type": "uinteger",
+                                        "label": "Color"
+                                    },
+                                    {
+                                        "name": "position",
+                                        "type": "number",
+                                        "label": "Position"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "content",
+                                "type": "text",
+                                "label": "Content"
+                            },
+                            {
+                                "name": "channel_id",
+                                "type": "text",
+                                "label": "Channel ID"
+                            },
+                            {
+                                "name": "guild_id",
+                                "type": "text",
+                                "label": "Guild ID"
+                            },
+                            {
+                                "name": "webhook_id",
+                                "type": "text",
+                                "label": "Webhook ID"
+                            },
+                            {
+                                "name": "mentions",
+                                "type": "array",
+                                "label": "Mentions",
+                                "spec": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "username",
+                                        "type": "text",
+                                        "label": "Usermame"
+                                    },
+                                    {
+                                        "name": "discriminator",
+                                        "type": "number",
+                                        "label": "Discriminator"
+                                    },
+                                    {
+                                        "name": "bot",
+                                        "type": "boolean",
+                                        "label": "Bot"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "type",
+                                "type": "number",
+                                "label": "Type"
+                            }
+                        ]
+                    }
+                }
+            ]
         },
         {
             "id": 5,
@@ -785,11 +1291,11 @@
                 },
                 "expect": [
                     {
-                        "name": "array",
-                        "type": "array",
-                        "label": "Array",
                         "mode": "edit",
-                        "spec": []
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
                     }
                 ]
             }
@@ -803,17 +1309,17 @@
             },
             "mapper": {
                 "base": "appIW2NHG67L20Pxm",
-                "typecast": false,
-                "useColumnId": true,
                 "table": "tblK7Px6u8ByXwV2f",
                 "record": {
-                    "fldjPZrW3pcH2uDU6": [
-                        "{{5.value}}"
-                    ],
                     "fldbvMwuPDnOorHOw": [
                         "{{1.id}}"
+                    ],
+                    "fldjPZrW3pcH2uDU6": [
+                        "{{5.value}}"
                     ]
-                }
+                },
+                "typecast": false,
+                "useColumnId": true
             },
             "metadata": {
                 "designer": {
@@ -822,26 +1328,12 @@
                     "name": "Create Certificate records"
                 },
                 "restore": {
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "label": "MD Airtable Token connection",
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            }
-                        }
-                    },
                     "expect": {
                         "base": {
                             "label": "NetZero Academy"
                         },
-                        "typecast": {
-                            "mode": "chose"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        },
                         "table": {
+                            "label": "Certificates",
                             "nested": [
                                 {
                                     "name": "record",
@@ -958,19 +1450,18 @@
                                     "type": "collection",
                                     "label": "Record"
                                 }
-                            ],
-                            "label": "Certificates"
+                            ]
                         },
                         "record": {
                             "nested": {
-                                "fldjPZrW3pcH2uDU6": {
-                                    "mode": "chose",
-                                    "items": [
-                                        null
-                                    ]
+                                "fld6PUfZY0Sj4V69f": {
+                                    "mode": "chose"
                                 },
-                                "fldugIiKeCWgGVj6A": {
-                                    "mode": "edit"
+                                "fldABPh9WRBGbJx5C": {
+                                    "mode": "chose"
+                                },
+                                "fldZvtepTnkruqvp3": {
+                                    "mode": "chose"
                                 },
                                 "fldbvMwuPDnOorHOw": {
                                     "mode": "chose",
@@ -978,22 +1469,37 @@
                                         null
                                     ]
                                 },
-                                "fld6PUfZY0Sj4V69f": {
-                                    "mode": "chose"
+                                "fldjPZrW3pcH2uDU6": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
                                 },
-                                "fldZvtepTnkruqvp3": {
+                                "fldrkN2ftxcGHu4sl": {
                                     "mode": "chose"
                                 },
                                 "fldtezqyb4ENb04a7": {
                                     "mode": "edit"
                                 },
-                                "fldrkN2ftxcGHu4sl": {
-                                    "mode": "chose"
-                                },
-                                "fldABPh9WRBGbJx5C": {
-                                    "mode": "chose"
+                                "fldugIiKeCWgGVj6A": {
+                                    "mode": "edit"
                                 }
                             }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -1032,17 +1538,15 @@
                     },
                     {
                         "name": "record",
-                        "type": "collection",
-                        "label": "Record",
                         "spec": [
                             {
                                 "name": "fldjPZrW3pcH2uDU6",
-                                "type": "array",
-                                "label": "Contact",
                                 "spec": {
-                                    "label": "Record ID",
-                                    "name": "value"
-                                }
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Contact"
                             },
                             {
                                 "name": "fldLClpU49c9KJAFq",
@@ -1050,28 +1554,28 @@
                                 "label": "Title (Dr.)"
                             },
                             {
+                                "mode": "edit",
                                 "name": "fldugIiKeCWgGVj6A",
                                 "type": "select",
-                                "label": "Education",
-                                "mode": "edit"
+                                "label": "Education"
                             },
                             {
                                 "name": "fldbvMwuPDnOorHOw",
-                                "type": "array",
-                                "label": "Course",
                                 "spec": {
-                                    "label": "Record ID",
-                                    "name": "value"
-                                }
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Course"
                             },
                             {
                                 "name": "fld6PUfZY0Sj4V69f",
-                                "type": "array",
-                                "label": "CertificateType",
                                 "spec": {
-                                    "label": "Record ID",
-                                    "name": "value"
-                                }
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "CertificateType"
                             },
                             {
                                 "name": "fldpoLQuVeXDFwwPS",
@@ -1080,8 +1584,6 @@
                             },
                             {
                                 "name": "fldZvtepTnkruqvp3",
-                                "type": "array",
-                                "label": "Certificate",
                                 "spec": [
                                     {
                                         "name": "url",
@@ -1093,13 +1595,15 @@
                                         "type": "filename",
                                         "label": "File name"
                                     }
-                                ]
+                                ],
+                                "type": "array",
+                                "label": "Certificate"
                             },
                             {
+                                "mode": "edit",
                                 "name": "fldtezqyb4ENb04a7",
                                 "type": "select",
-                                "label": "Status",
-                                "mode": "edit"
+                                "label": "Status"
                             },
                             {
                                 "name": "fldrkN2ftxcGHu4sl",
@@ -1111,7 +1615,9 @@
                                 "type": "boolean",
                                 "label": "Homework checked?"
                             }
-                        ]
+                        ],
+                        "type": "collection",
+                        "label": "Record"
                     }
                 ],
                 "interface": [
@@ -1127,257 +1633,255 @@
                     },
                     {
                         "name": "fldAuD5UbstfwLsUd",
-                        "label": "CertificateID",
-                        "type": "text"
+                        "type": "text",
+                        "label": "CertificateID"
                     },
                     {
                         "name": "fldjPZrW3pcH2uDU6",
-                        "label": "Contact",
-                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        }
+                        },
+                        "type": "array",
+                        "label": "Contact"
                     },
                     {
                         "name": "fldLClpU49c9KJAFq",
-                        "label": "Title (Dr.)",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Title (Dr.)"
                     },
                     {
                         "name": "fldfrNr4b8g0aEwn5",
-                        "label": "Name (from Contact)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Name (from Contact)"
                     },
                     {
                         "name": "fld2RXbDOKlNLU2JA",
-                        "label": "date_of_birth (from Contact)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "date_of_birth (from Contact)"
                     },
                     {
                         "name": "fldugIiKeCWgGVj6A",
-                        "label": "Education",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Education"
                     },
                     {
                         "name": "fldrkN2ftxcGHu4sl",
-                        "label": "Payment complete?",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "label": "Payment complete?"
                     },
                     {
                         "name": "fldABPh9WRBGbJx5C",
-                        "label": "Homework checked?",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "label": "Homework checked?"
                     },
                     {
                         "name": "fldI46HFkUbSeFaNs",
-                        "label": "ID checked?",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "label": "ID checked?"
                     },
                     {
                         "name": "fldEA052IHOSqjumI",
-                        "label": "Exam checked?",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "label": "Exam checked?"
                     },
                     {
                         "name": "fldSKZfRUSmgPQlla",
-                        "label": "Data complete?",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Data complete?"
                     },
                     {
                         "name": "fldCP0GSKslTz5Ail",
-                        "label": "Zielgruppe1",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Zielgruppe1"
                     },
                     {
                         "name": "fldwPk8WYrcxFN2Wd",
-                        "label": "Zielgruppe2",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Zielgruppe2"
                     },
                     {
                         "name": "fld4BtV4ygmfOrZFj",
-                        "label": "Zielgruppe3",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Zielgruppe3"
                     },
                     {
                         "name": "fldbvMwuPDnOorHOw",
-                        "label": "Course",
-                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        }
+                        },
+                        "type": "array",
+                        "label": "Course"
                     },
                     {
                         "name": "fld6PUfZY0Sj4V69f",
-                        "label": "CertificateType",
-                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        }
+                        },
+                        "type": "array",
+                        "label": "CertificateType"
                     },
                     {
                         "name": "fldf2Exqo2lHpm1gg",
-                        "label": "certificateTitle (from CertificateType)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "certificateTitle (from CertificateType)"
                     },
                     {
                         "name": "flduXhO4As7Wq0hee",
-                        "label": "docID",
-                        "type": "array"
+                        "type": "array",
+                        "label": "docID"
                     },
                     {
                         "name": "fldUyvhsufO6JwQwY",
-                        "label": "basis080check",
-                        "type": "array"
+                        "type": "array",
+                        "label": "basis080check"
                     },
                     {
                         "name": "fldQEiiRMCTNPyKmB",
-                        "label": "basis080UEp",
-                        "type": "array"
+                        "type": "array",
+                        "label": "basis080UEp"
                     },
                     {
                         "name": "fldNParmHnNbzZUQo",
-                        "label": "basis080UEs",
-                        "type": "array"
+                        "type": "array",
+                        "label": "basis080UEs"
                     },
                     {
                         "name": "fldBIHGZnhzqme5He",
-                        "label": "basis160check",
-                        "type": "array"
+                        "type": "array",
+                        "label": "basis160check"
                     },
                     {
                         "name": "fldQB7coPtM4ONY9t",
-                        "label": "basis160UEp",
-                        "type": "array"
+                        "type": "array",
+                        "label": "basis160UEp"
                     },
                     {
                         "name": "fldq1w9evaLEBLj85",
-                        "label": "basis160UEs",
-                        "type": "array"
+                        "type": "array",
+                        "label": "basis160UEs"
                     },
                     {
                         "name": "fld9gLJ6V0P54t6Wr",
-                        "label": "wgCheck",
-                        "type": "array"
+                        "type": "array",
+                        "label": "wgCheck"
                     },
                     {
                         "name": "fldk2OWlcQy4yOdAp",
-                        "label": "wgUEp",
-                        "type": "array"
+                        "type": "array",
+                        "label": "wgUEp"
                     },
                     {
                         "name": "fldaw3wDw2m36pItF",
-                        "label": "wgUEs",
-                        "type": "array"
+                        "type": "array",
+                        "label": "wgUEs"
                     },
                     {
                         "name": "fldZkuGgmphwh2Wp5",
-                        "label": "nwgCheck",
-                        "type": "array"
+                        "type": "array",
+                        "label": "nwgCheck"
                     },
                     {
                         "name": "fldXz7sQh90l2MXtG",
-                        "label": "nwgUEp",
-                        "type": "array"
+                        "type": "array",
+                        "label": "nwgUEp"
                     },
                     {
                         "name": "fldc7mXrVUtRp53gH",
-                        "label": "nwgUEs",
-                        "type": "array"
+                        "type": "array",
+                        "label": "nwgUEs"
                     },
                     {
                         "name": "fldlTuDuMQB0ECiIQ",
-                        "label": "lcaWgCheck",
-                        "type": "array"
+                        "type": "array",
+                        "label": "lcaWgCheck"
                     },
                     {
                         "name": "fldjzoQ2HJh0sj58z",
-                        "label": "lcaWgUEp",
-                        "type": "array"
+                        "type": "array",
+                        "label": "lcaWgUEp"
                     },
                     {
                         "name": "fld9o5qQDWNq0blS1",
-                        "label": "lcaWgUEs",
-                        "type": "array"
+                        "type": "array",
+                        "label": "lcaWgUEs"
                     },
                     {
                         "name": "fldRu5MGxXqPydPTI",
-                        "label": "lcaNwgUEs",
-                        "type": "array"
+                        "type": "array",
+                        "label": "lcaNwgUEs"
                     },
                     {
                         "name": "fldjyPmAE90D3t2Ji",
-                        "label": "lcaNwgCheck",
-                        "type": "array"
+                        "type": "array",
+                        "label": "lcaNwgCheck"
                     },
                     {
                         "name": "fldodvzTWgF94nksp",
-                        "label": "lcaNwgUEp",
-                        "type": "array"
+                        "type": "array",
+                        "label": "lcaNwgUEp"
                     },
                     {
                         "name": "fldo9xfHWtpchiwha",
-                        "label": "Start (from Course)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Start (from Course)"
                     },
                     {
                         "name": "fldwTVb2jlQHalwUu",
-                        "label": "End (from Course)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "End (from Course)"
                     },
                     {
                         "name": "fldq1ioLCVZqaxMoy",
-                        "label": "dateRange",
-                        "type": "text"
+                        "type": "text",
+                        "label": "dateRange"
                     },
                     {
                         "name": "fldWVbMKJcUAsAwmH",
-                        "label": "Course Length (from Course)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Course Length (from Course)"
                     },
                     {
                         "name": "fldHN8kKsXN4Kdvtz",
-                        "label": "UE",
-                        "type": "text"
+                        "type": "text",
+                        "label": "UE"
                     },
                     {
                         "name": "fldSuYWzow9Az1Xm1",
-                        "label": "Fortbildungskalender_Code (from Course)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Fortbildungskalender_Code (from Course)"
                     },
                     {
                         "name": "fldxx3qoyq5CrBBNC",
-                        "label": "Course Type (from Course)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Course Type (from Course)"
                     },
                     {
                         "name": "fldoorvW38ufqu7Rb",
-                        "label": "Title (from Course)",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Title (from Course)"
                     },
                     {
                         "name": "fld79cRclgohhOain",
-                        "label": "certificateDescription",
-                        "type": "array"
+                        "type": "array",
+                        "label": "certificateDescription"
                     },
                     {
                         "name": "fldpoLQuVeXDFwwPS",
-                        "label": "Dynamic Certificate description",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Dynamic Certificate description"
                     },
                     {
                         "name": "fld18Oa5Jxyy7Levv",
-                        "label": "Today",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Today"
                     },
                     {
                         "name": "fldgK9tmkjhfR1KCU",
-                        "label": "Certificate name",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Certificate name"
                     },
                     {
                         "name": "fldZvtepTnkruqvp3",
-                        "label": "Certificate",
-                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -1411,18 +1915,14 @@
                             },
                             {
                                 "name": "type",
-                                "label": "MIME type",
-                                "type": "text"
+                                "type": "text",
+                                "label": "MIME type"
                             },
                             {
                                 "name": "thumbnails",
-                                "label": "Thumbnails",
-                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
-                                        "label": "Small",
-                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1439,12 +1939,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
                                     },
                                     {
                                         "name": "large",
-                                        "label": "Large",
-                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1461,12 +1961,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
                                     },
                                     {
                                         "name": "full",
-                                        "label": "Full",
-                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1483,16 +1983,22 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
                                     }
-                                ]
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Certificate"
                     },
                     {
                         "name": "fldtezqyb4ENb04a7",
-                        "label": "Status",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Status"
                     }
                 ],
                 "advanced": true
