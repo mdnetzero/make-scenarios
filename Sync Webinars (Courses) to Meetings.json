@@ -6,17 +6,16 @@
             "module": "airtable:TriggerWatchRecords",
             "version": 3,
             "parameters": {
+                "__IMTCONN__": 2456185,
                 "base": "app4R2qm7WvWIFspd",
-                "view": "",
+                "useColumnId": true,
                 "table": "tblH4U1AWOEVTkoNE",
                 "config": {
-                    "labelField": "Meetings",
-                    "triggerField": "Last Modified"
+                    "triggerField": "Last Modified",
+                    "labelField": "Meetings"
                 },
-                "formula": "AND({Category} =\"Webinar\", RECORD_ID()=\"rec9xdBkXn8nyswtk\")",
-                "maxRecords": 10,
-                "__IMTCONN__": 2456185,
-                "useColumnId": false
+                "maxRecords": 100,
+                "formula": "AND({Category} =\"Webinar\")"
             },
             "mapper": {},
             "metadata": {
@@ -27,31 +26,28 @@
                 },
                 "restore": {
                     "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        },
                         "base": {
                             "label": "NetZero Academy Courses"
-                        },
-                        "view": {
-                            "label": "Empty"
                         },
                         "table": {
                             "label": "Courses"
                         },
                         "config": {
                             "nested": {
-                                "labelField": {
-                                    "label": "Meetings"
-                                },
                                 "triggerField": {
                                     "label": "Last Modified"
+                                },
+                                "labelField": {
+                                    "label": "Meetings"
                                 }
                             }
-                        },
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -82,6 +78,8 @@
                     },
                     {
                         "name": "config",
+                        "type": "collection",
+                        "label": "Trigger configuration",
                         "spec": [
                             {
                                 "name": "triggerField",
@@ -99,9 +97,7 @@
                                 "label": "Label field",
                                 "required": true
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Trigger configuration"
+                        ]
                     },
                     {
                         "name": "maxRecords",
@@ -132,42 +128,44 @@
                         "label": "Created Time"
                     },
                     {
-                        "name": "Title",
-                        "type": "text",
-                        "label": "Title"
+                        "name": "fldx7FfUMeXZBWN5F",
+                        "label": "Title",
+                        "type": "text"
                     },
                     {
-                        "name": "Sorting_Website",
-                        "type": "number",
-                        "label": "Sorting_Website"
+                        "name": "fldWPxKkCygD0U1yC",
+                        "label": "Sorting_Website",
+                        "type": "number"
                     },
                     {
-                        "name": "Courses_Page_live",
-                        "type": "boolean",
-                        "label": "Courses_Page_live"
+                        "name": "fldYqYauQ3aFrpjYF",
+                        "label": "Courses_Page_live",
+                        "type": "boolean"
                     },
                     {
-                        "name": "Seminars_Homepage",
-                        "type": "boolean",
-                        "label": "Seminars_Homepage"
+                        "name": "fldPolcUQOpTeL4Aj",
+                        "label": "Seminars_Homepage",
+                        "type": "boolean"
                     },
                     {
-                        "name": "Seminars_Homepage copy",
-                        "type": "boolean",
-                        "label": "Seminars_Homepage copy"
+                        "name": "fld3CLqoeRe89akm6",
+                        "label": "Seminars_Homepage copy",
+                        "type": "boolean"
                     },
                     {
-                        "name": "On List BK",
-                        "type": "boolean",
-                        "label": "On List BK"
+                        "name": "fldwUZdLf7O3q3NHx",
+                        "label": "On List BK",
+                        "type": "boolean"
                     },
                     {
-                        "name": "On List WG",
-                        "type": "boolean",
-                        "label": "On List WG"
+                        "name": "fldHWvM3DNxrJLnuT",
+                        "label": "On List WG",
+                        "type": "boolean"
                     },
                     {
-                        "name": "Image",
+                        "name": "fldIFYTb91VYIugJu",
+                        "label": "Image",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -201,14 +199,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -225,12 +227,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -247,12 +249,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -269,199 +271,195 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Image"
+                        ]
                     },
                     {
-                        "name": "Lecturer",
+                        "name": "fldp8kEnJtmNBHZHI",
+                        "label": "Lecturer",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Lecturer"
+                        }
                     },
                     {
-                        "name": "Lecturer_description",
-                        "type": "array",
-                        "label": "Lecturer_description"
+                        "name": "fldKcFUwvA57wTCqP",
+                        "label": "Lecturer_description",
+                        "type": "array"
                     },
                     {
-                        "name": "Webpage_lecturer",
-                        "type": "array",
-                        "label": "Webpage_lecturer"
+                        "name": "fldyRPkMuOQ4s7uJp",
+                        "label": "Webpage_lecturer",
+                        "type": "array"
                     },
                     {
-                        "name": "lecturer_email",
-                        "type": "array",
-                        "label": "lecturer_email"
+                        "name": "fldtMAl0LSDojdWNN",
+                        "label": "lecturer_email",
+                        "type": "array"
                     },
                     {
-                        "name": "lecturer_name",
-                        "type": "array",
-                        "label": "lecturer_name"
+                        "name": "fldsQjKeonD7odLFf",
+                        "label": "lecturer_name",
+                        "type": "array"
                     },
                     {
-                        "name": "Career Paths",
-                        "type": "text",
-                        "label": "Career Paths"
+                        "name": "fldUpWfph0DBDr8iU",
+                        "label": "Career Paths",
+                        "type": "text"
                     },
                     {
-                        "name": "Automated_webinar_invite_trigger",
-                        "type": "text",
-                        "label": "Automated_webinar_invite_trigger"
+                        "name": "fldsMT8U010VNfW0E",
+                        "label": "Automated_webinar_invite_trigger",
+                        "type": "text"
                     },
                     {
-                        "name": "Bookable",
-                        "type": "boolean",
-                        "label": "Bookable"
+                        "name": "fldEmbmhmVWKy4syX",
+                        "label": "Bookable",
+                        "type": "boolean"
                     },
                     {
-                        "name": "Type (from Career Paths)",
-                        "type": "array",
-                        "label": "Type (from Career Paths)"
+                        "name": "fldYV0yHlRONFfiW5",
+                        "label": "Type (from Career Paths)",
+                        "type": "array"
                     },
                     {
-                        "name": "Live on webpage",
-                        "type": "boolean",
-                        "label": "Live on webpage"
+                        "name": "fldBXDjUKLtWBkjJf",
+                        "label": "Live on webpage",
+                        "type": "boolean"
                     },
                     {
-                        "name": "Whatsapp URL",
-                        "type": "text",
-                        "label": "Whatsapp URL"
+                        "name": "fldtN5SeYMDz5YKZg",
+                        "label": "Whatsapp URL",
+                        "type": "text"
                     },
                     {
-                        "name": "Description",
-                        "type": "text",
-                        "label": "Description"
+                        "name": "fldFvOIryz6E4iWpC",
+                        "label": "Description",
+                        "type": "text"
                     },
                     {
-                        "name": "Page URL",
-                        "type": "text",
-                        "label": "Page URL"
+                        "name": "fldZzGTxROQT9lKF3",
+                        "label": "Page URL",
+                        "type": "text"
                     },
                     {
-                        "name": "Post-course",
-                        "type": "text",
+                        "name": "fldxfAcODTnAzLesu",
                         "label": "Post-course",
+                        "type": "text",
                         "multiline": true
                     },
                     {
-                        "name": "Preconditions",
-                        "type": "text",
-                        "label": "Preconditions"
+                        "name": "fldhck11IyhY8Jqw4",
+                        "label": "Preconditions",
+                        "type": "text"
                     },
                     {
-                        "name": "Category",
-                        "type": "array",
+                        "name": "fldnKtNE0oPZ8xdCx",
                         "label": "Category",
-                        "dynamic": true,
-                        "editable": true
+                        "type": "array",
+                        "editable": true,
+                        "dynamic": true
                     },
                     {
-                        "name": "availablility",
-                        "type": "text",
-                        "label": "availablility"
+                        "name": "flds3tEPVXcmulvq8",
+                        "label": "availablility",
+                        "type": "text"
                     },
                     {
-                        "name": "Course URL",
-                        "type": "text",
-                        "label": "Course URL"
+                        "name": "fldme9YFd5FGhsiQb",
+                        "label": "Course URL",
+                        "type": "text"
                     },
                     {
-                        "name": "Start",
-                        "time": false,
+                        "name": "fldK41jDhXasKh1uT",
+                        "label": "Start",
                         "type": "date",
-                        "label": "Start"
+                        "time": false
                     },
                     {
-                        "name": "formula_date",
-                        "type": "text",
-                        "label": "formula_date"
+                        "name": "fldZQvPG5l7vUeW7P",
+                        "label": "formula_date",
+                        "type": "text"
                     },
                     {
-                        "name": "time_of_day",
-                        "type": "text",
-                        "label": "time_of_day"
+                        "name": "fldtZvOFSQQRVphLD",
+                        "label": "time_of_day",
+                        "type": "text"
                     },
                     {
-                        "name": "End",
-                        "time": false,
+                        "name": "fldfEJ2qf3eNdaG1W",
+                        "label": "End",
                         "type": "date",
-                        "label": "End"
+                        "time": false
                     },
                     {
-                        "name": "Capacity",
-                        "type": "number",
-                        "label": "Capacity"
+                        "name": "fldSzRiGylHLwg4Sg",
+                        "label": "Capacity",
+                        "type": "number"
                     },
                     {
-                        "name": "number_participants",
-                        "type": "text",
-                        "label": "number_participants"
+                        "name": "fldW5yCNjfzkj941y",
+                        "label": "number_participants",
+                        "type": "text"
                     },
                     {
-                        "name": "Course Length",
-                        "type": "text",
-                        "label": "Course Length"
+                        "name": "fldtdxaOFwN5ZTQBq",
+                        "label": "Course Length",
+                        "type": "text"
                     },
                     {
-                        "name": "Price",
-                        "type": "number",
-                        "label": "Price"
+                        "name": "fld19ACwQM2fuLQCX",
+                        "label": "Price",
+                        "type": "number"
                     },
                     {
-                        "name": "RSVP",
-                        "type": "number",
-                        "label": "RSVP"
+                        "name": "fldtUm8NxuLupV9Hj",
+                        "label": "RSVP",
+                        "type": "number"
                     },
                     {
-                        "name": "Checkout_URL",
-                        "type": "text",
-                        "label": "Checkout_URL"
+                        "name": "fld1gYAUz1Qs5RODf",
+                        "label": "Checkout_URL",
+                        "type": "text"
                     },
                     {
-                        "name": "Course-Checkout-Page-URL",
-                        "type": "text",
-                        "label": "Course-Checkout-Page-URL"
+                        "name": "fldttinvM08rCUyYZ",
+                        "label": "Course-Checkout-Page-URL",
+                        "type": "text"
                     },
                     {
-                        "name": "RecordID",
-                        "type": "text",
-                        "label": "RecordID"
+                        "name": "fldOx2BJq7OGwokiS",
+                        "label": "RecordID",
+                        "type": "text"
                     },
                     {
-                        "name": "Contact",
-                        "type": "text",
+                        "name": "fldViCgVeFMKsB1L3",
                         "label": "Contact",
+                        "type": "text",
                         "multiline": true
                     },
                     {
-                        "name": "Link_word",
-                        "type": "number",
-                        "label": "Link_word"
+                        "name": "fld3gezw1A34pT8GY",
+                        "label": "Link_word",
+                        "type": "number"
                     },
                     {
-                        "name": "Seminar_URL",
-                        "type": "text",
-                        "label": "Seminar_URL"
+                        "name": "fldNGxg1RHTQapRtx",
+                        "label": "Seminar_URL",
+                        "type": "text"
                     },
                     {
-                        "name": "event_google",
-                        "type": "text",
-                        "label": "event_google"
+                        "name": "fldZo4Sckcjbt4V86",
+                        "label": "event_google",
+                        "type": "text"
                     },
                     {
-                        "name": "event_outlook",
+                        "name": "fldMdwhGWytVq5hgA",
+                        "label": "event_outlook",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -495,14 +493,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -519,12 +521,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -541,12 +543,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -563,62 +565,58 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "event_outlook"
+                        ]
                     },
                     {
-                        "name": "Contacts",
+                        "name": "fldq4WinKHfazZL8j",
+                        "label": "Contacts",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldJXcZSEfHNB8xRY",
+                        "label": "Date_time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldluJo9qxw0G2ZXq",
+                        "label": "E-Mails_participants",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldAsUHzWyAN6LCQf",
+                        "label": "Waiting list",
                         "type": "array",
-                        "label": "Contacts"
-                    },
-                    {
-                        "name": "Date_time",
-                        "type": "text",
-                        "label": "Date_time"
-                    },
-                    {
-                        "name": "E-Mails_participants",
-                        "type": "array",
-                        "label": "E-Mails_participants"
-                    },
-                    {
-                        "name": "Waiting list",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Waiting list"
+                        }
                     },
                     {
-                        "name": "Users",
-                        "type": "text",
-                        "label": "Users"
+                        "name": "fldYMFIAcaeiI6ibe",
+                        "label": "Users",
+                        "type": "text"
                     },
                     {
-                        "name": "Registry_button_link",
-                        "type": "text",
+                        "name": "flddhji9LoOXVTDkH",
                         "label": "Registry_button_link",
+                        "type": "text",
                         "multiline": true
                     },
                     {
-                        "name": "Contact copy",
-                        "type": "text",
-                        "label": "Contact copy"
+                        "name": "fldR8REPwsA1kjZPZ",
+                        "label": "Contact copy",
+                        "type": "text"
                     },
                     {
-                        "name": "Presenter_slides",
+                        "name": "fld0Bz0m6cTUBcyx7",
+                        "label": "Presenter_slides",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -652,14 +650,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -676,12 +678,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -698,12 +700,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -720,20 +722,16 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Presenter_slides"
+                        ]
                     },
                     {
-                        "name": "Sendout_slides",
+                        "name": "fldLxrYeuJeoToMh7",
+                        "label": "Sendout_slides",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -767,14 +765,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -791,12 +793,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -813,12 +815,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -835,70 +837,66 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
+                        ]
+                    },
+                    {
+                        "name": "fldVsJmW0Krm5TZlW",
+                        "label": "Recording_link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldFCbDmRXxraXeeC",
+                        "label": "Sendout_slides_link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld0Hruj56NBddynL",
+                        "label": "Approve_to_archive?",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldPPc9VRchrX3xgn",
+                        "label": "Invoice line items",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldIRhh1XchBKGHsG",
+                        "label": "webinar_when_softr",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldGMoy6fmkTues0o",
+                        "label": "Line Items",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldMulMwHVDjhiOoL",
+                        "label": "Duration",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldg2qcmdznYLhPMU",
+                        "label": "Workdays_till_start",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldUihYrORMdDPfby",
+                        "label": "Line Items 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld0hCLhfqmRWfb8N",
+                        "label": "Webinar_Energiesparkommissar",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld72VbW3EEYbbPmu",
+                        "label": "Basiskurs",
                         "type": "array",
-                        "label": "Sendout_slides"
-                    },
-                    {
-                        "name": "Recording_link",
-                        "type": "text",
-                        "label": "Recording_link"
-                    },
-                    {
-                        "name": "Sendout_slides_link",
-                        "type": "text",
-                        "label": "Sendout_slides_link"
-                    },
-                    {
-                        "name": "Approve_to_archive?",
-                        "type": "text",
-                        "label": "Approve_to_archive?"
-                    },
-                    {
-                        "name": "Invoice line items",
-                        "type": "text",
-                        "label": "Invoice line items"
-                    },
-                    {
-                        "name": "webinar_when_softr",
-                        "type": "text",
-                        "label": "webinar_when_softr"
-                    },
-                    {
-                        "name": "Line Items",
-                        "type": "text",
-                        "label": "Line Items"
-                    },
-                    {
-                        "name": "Duration",
-                        "type": "text",
-                        "label": "Duration"
-                    },
-                    {
-                        "name": "Workdays_till_start",
-                        "type": "text",
-                        "label": "Workdays_till_start"
-                    },
-                    {
-                        "name": "Line Items 2",
-                        "type": "text",
-                        "label": "Line Items 2"
-                    },
-                    {
-                        "name": "Webinar_Energiesparkommissar",
-                        "type": "text",
-                        "label": "Webinar_Energiesparkommissar"
-                    },
-                    {
-                        "name": "Basiskurs",
                         "spec": [
                             {
                                 "name": "id",
@@ -932,14 +930,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -956,12 +958,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -978,12 +980,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1000,175 +1002,211 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Basiskurs"
+                        ]
                     },
                     {
-                        "name": "Basiskurs copy",
-                        "type": "text",
-                        "label": "Basiskurs copy"
+                        "name": "fldZj6OQXd7sNKxun",
+                        "label": "Basiskurs copy",
+                        "type": "text"
                     },
                     {
-                        "name": "Documents_for_students",
-                        "type": "text",
-                        "label": "Documents_for_students"
+                        "name": "fldTYSN8t91YQG0iF",
+                        "label": "Documents_for_students",
+                        "type": "text"
                     },
                     {
-                        "name": "Document (from Documents_for_students)",
-                        "type": "array",
-                        "label": "Document (from Documents_for_students)"
+                        "name": "fld30TBiQaJ6JspDc",
+                        "label": "Document (from Documents_for_students)",
+                        "type": "array"
                     },
                     {
-                        "name": "1.0_Basiskurs_participants copy",
-                        "type": "text",
-                        "label": "1.0_Basiskurs_participants copy"
+                        "name": "fldVlHBEc8IIt90UC",
+                        "label": "1.0_Basiskurs_participants copy",
+                        "type": "text"
                     },
                     {
-                        "name": "1.0_Basiskurs_participants copy 2",
-                        "type": "text",
-                        "label": "1.0_Basiskurs_participants copy 2"
+                        "name": "fldqrU071O1quZvh1",
+                        "label": "1.0_Basiskurs_participants copy",
+                        "type": "text"
                     },
                     {
-                        "name": "Basiskurs 2",
-                        "type": "text",
-                        "label": "Basiskurs 2"
+                        "name": "fldbameKrD9Yzi7N3",
+                        "label": "1.0_Basiskurs_participants copy 2",
+                        "type": "text"
                     },
                     {
-                        "name": "Basiskurs 3",
-                        "type": "text",
-                        "label": "Basiskurs 3"
+                        "name": "fldqbXK7TumV65Lam",
+                        "label": "Basiskurs 2",
+                        "type": "text"
                     },
                     {
-                        "name": "230717_Basiskurs copy 2",
-                        "type": "text",
-                        "label": "230717_Basiskurs copy 2"
+                        "name": "fldZHPo109LkkWeCr",
+                        "label": "Basiskurs 3",
+                        "type": "text"
                     },
                     {
-                        "name": "230911_WG copy",
-                        "type": "text",
-                        "label": "230911_WG copy"
+                        "name": "fldgyo5UVK9VYscfS",
+                        "label": "230717_Basiskurs copy",
+                        "type": "text"
                     },
                     {
-                        "name": "231030_WG copy",
-                        "type": "text",
-                        "label": "231030_WG copy"
+                        "name": "fld8diiZSfgh7dBvP",
+                        "label": "230717_Basiskurs copy",
+                        "type": "text"
                     },
                     {
-                        "name": "231204_WG copy",
-                        "type": "text",
-                        "label": "231204_WG copy"
+                        "name": "fldW5MODpgarrFiVF",
+                        "label": "230717_Basiskurs copy 2",
+                        "type": "text"
                     },
                     {
-                        "name": "231016_Basiskurs copy",
-                        "type": "text",
-                        "label": "231016_Basiskurs copy"
+                        "name": "fldOKG1ImLhNAqHbC",
+                        "label": "230717_Basiskurs copy 2",
+                        "type": "text"
                     },
                     {
-                        "name": "230717_Basiskurs copy",
-                        "type": "text",
-                        "label": "230717_Basiskurs copy"
+                        "name": "fldHEMc2EcDTjUER2",
+                        "label": "231016_Basiskurs copy",
+                        "type": "text"
                     },
                     {
-                        "name": "231111_Basiskurs copy",
-                        "type": "text",
-                        "label": "231111_Basiskurs copy"
+                        "name": "fld02lHb13WrfB35D",
+                        "label": "231111_Basiskurs copy",
+                        "type": "text"
                     },
                     {
-                        "name": "240219_NWG copy",
-                        "type": "text",
-                        "label": "240219_NWG copy"
+                        "name": "fldcU7GFgEslFcBYy",
+                        "label": "230911_WG copy",
+                        "type": "text"
                     },
                     {
-                        "name": "Course modules",
-                        "type": "text",
-                        "label": "Course modules"
+                        "name": "fldmpIL5XwvViCafE",
+                        "label": "231030_WG copy",
+                        "type": "text"
                     },
                     {
-                        "name": "Approve_to_archive? 2",
-                        "type": "text",
+                        "name": "fldnUht724q8XFMNv",
+                        "label": "231204_WG copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldsJNFlULJuWotwk",
+                        "label": "231111_Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldzykITJCrOrqFKj",
+                        "label": "231016_Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldubP6suHdjtkCZV",
+                        "label": "230717_Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldmQJjxrckFC51fS",
+                        "label": "230717_Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld4lQNrlnKDKK8Rq",
+                        "label": "231111_Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldIyCrExvyphSe2f",
+                        "label": "240219_NWG copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldUUGeBHyl9UHYU9",
+                        "label": "Course modules",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldXATUxX8gnX5kg0",
                         "label": "Approve_to_archive? 2",
+                        "type": "text",
                         "multiline": true
                     },
                     {
-                        "name": "Workdays_till_start 2",
-                        "type": "number",
-                        "label": "Workdays_till_start 2"
+                        "name": "fldPrQrUIfAjGlOe5",
+                        "label": "Workdays_till_start 2",
+                        "type": "number"
                     },
                     {
-                        "name": "Basiskurs_link",
+                        "name": "flda1FXWkWMYdJPqT",
+                        "label": "Basiskurs_link",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldvbXw1nLyKBBX3t",
+                        "label": "WG Kurs_link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldVkq2WbjqRt00SF",
+                        "label": "NWG Kurs_link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldnaWADgCVcuxd8O",
+                        "label": "16247 Kurs_link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld9JnVpCneQfJimW",
+                        "label": "Bookable_lecturer",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fld57UJVL5h02hkms",
+                        "label": "Unstaffed days",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld73aKnPdcEPqiUB",
+                        "label": "Status lecturer",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldk6szBSOx30bkA5",
+                        "label": "Lecturer booking URL",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldLcObYfrnNp7RME",
+                        "label": "Whatsapp live groups",
                         "type": "array",
-                        "label": "Basiskurs_link"
-                    },
-                    {
-                        "name": "WG Kurs_link",
-                        "type": "text",
-                        "label": "WG Kurs_link"
-                    },
-                    {
-                        "name": "NWG Kurs_link",
-                        "type": "text",
-                        "label": "NWG Kurs_link"
-                    },
-                    {
-                        "name": "16247 Kurs_link",
-                        "type": "text",
-                        "label": "16247 Kurs_link"
-                    },
-                    {
-                        "name": "Bookable_lecturer",
-                        "type": "boolean",
-                        "label": "Bookable_lecturer"
-                    },
-                    {
-                        "name": "Unstaffed days",
-                        "type": "array",
-                        "label": "Unstaffed days"
-                    },
-                    {
-                        "name": "Status lecturer",
-                        "type": "text",
-                        "label": "Status lecturer"
-                    },
-                    {
-                        "name": "Lecturer booking URL",
-                        "type": "text",
-                        "label": "Lecturer booking URL"
-                    },
-                    {
-                        "name": "Whatsapp live groups",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldsml8Tg6PSyqabd",
+                        "label": "Fortbildungskalender_Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldVQELYBXWwqdYIo",
+                        "label": "Finales_Gesamtfeedback",
                         "type": "array",
-                        "label": "Whatsapp live groups"
-                    },
-                    {
-                        "name": "Fortbildungskalender_Code",
-                        "type": "text",
-                        "label": "Fortbildungskalender_Code"
-                    },
-                    {
-                        "name": "Finales_Gesamtfeedback",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Finales_Gesamtfeedback"
+                        }
                     },
                     {
-                        "name": "Feedback_doc",
+                        "name": "fldR4rmcjWYHzAplj",
+                        "label": "Feedback_doc",
+                        "type": "array",
                         "spec": [
                             {
                                 "name": "id",
@@ -1202,14 +1240,18 @@
                             },
                             {
                                 "name": "type",
-                                "type": "text",
-                                "label": "MIME type"
+                                "label": "MIME type",
+                                "type": "text"
                             },
                             {
                                 "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
                                 "spec": [
                                     {
                                         "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1226,12 +1268,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Small"
+                                        ]
                                     },
                                     {
                                         "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1248,12 +1290,12 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Large"
+                                        ]
                                     },
                                     {
                                         "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "url",
@@ -1270,28 +1312,24 @@
                                                 "type": "uinteger",
                                                 "label": "Height"
                                             }
-                                        ],
-                                        "type": "collection",
-                                        "label": "Full"
+                                        ]
                                     }
-                                ],
-                                "type": "collection",
-                                "label": "Thumbnails"
+                                ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Feedback_doc"
+                        ]
                     },
                     {
-                        "name": "Webinare_Auto",
+                        "name": "fldMoaMYCzlOSfznN",
+                        "label": "Webinare_Auto",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Webinare_Auto"
+                        }
                     },
                     {
-                        "name": "Last Modified By",
+                        "name": "fldFoe6fG83NXq2u5",
+                        "label": "Last Modified By",
+                        "type": "collection",
                         "spec": [
                             {
                                 "name": "id",
@@ -1308,145 +1346,156 @@
                                 "type": "text",
                                 "label": "Name"
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Last Modified By"
+                        ]
                     },
                     {
-                        "name": "Students_Name_Email",
+                        "name": "fldfc5x5HyTf4NUjh",
+                        "label": "Students_Name_Email",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldcczc9aVIThd7PI",
+                        "label": "Courses_Missing_Staffing",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldupaBjfQIqA4GSr",
+                        "label": "Masterdata_Course",
                         "type": "array",
-                        "label": "Students_Name_Email"
-                    },
-                    {
-                        "name": "Courses_Missing_Staffing",
-                        "type": "array",
-                        "label": "Courses_Missing_Staffing"
-                    },
-                    {
-                        "name": "Masterdata_Course",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Masterdata_Course"
+                        }
                     },
                     {
-                        "name": "MasterCourseID (from Masterdata_Course)",
-                        "type": "array",
-                        "label": "MasterCourseID (from Masterdata_Course)"
+                        "name": "fldkvii7Gt49CfCAt",
+                        "label": "MasterCourseID (from Masterdata_Course)",
+                        "type": "array"
                     },
                     {
-                        "name": "Masterdata_Courses",
+                        "name": "fldN37dko0zZoBM5i",
+                        "label": "Masterdata_Courses",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldHq8IJG8LV4esLM",
+                        "label": "Created time",
+                        "type": "date"
+                    },
+                    {
+                        "name": "fldM1ixplXw6Flcue",
+                        "label": "Shorted description",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldKeOxEeFhcKI4uL",
+                        "label": "Course2BreakoutRoom",
                         "type": "array",
-                        "label": "Masterdata_Courses"
-                    },
-                    {
-                        "name": "Created time",
-                        "type": "date",
-                        "label": "Created time"
-                    },
-                    {
-                        "name": "Shorted description",
-                        "type": "text",
-                        "label": "Shorted description"
-                    },
-                    {
-                        "name": "Course2BreakoutRoom",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldIjwSsmzjUP9atc",
+                        "label": "Course Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldt4lB5ylTuaTeyr",
+                        "label": "Stripe payment link",
                         "type": "array",
-                        "label": "Course2BreakoutRoom"
-                    },
-                    {
-                        "name": "Course Type",
-                        "type": "text",
-                        "label": "Course Type"
-                    },
-                    {
-                        "name": "Stripe payment link",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldTH6Ivvw3UvK6NT",
+                        "label": "Stripe price check",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldXCPhO84gcd5c4h",
+                        "label": "Url (from payment link)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldtlj9YtS4RadeH4",
+                        "label": "Price (from payment link)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldNDMYrAaqbMW5M3",
+                        "label": "Name (from Stripe products) (from payment link)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldLSbTpBAcbwQtnV",
+                        "label": "Stripe products (from Stripe payment link)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldy7zUi6faUoY83L",
+                        "label": "Show in /offer-request",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fldI7swIa5a3KtBy2",
+                        "label": "Last Modified",
+                        "type": "date"
+                    },
+                    {
+                        "name": "fldWpiOvC5dtdXYTO",
+                        "label": "Article number",
+                        "type": "number"
+                    },
+                    {
+                        "name": "fldBXDOilXrjnKFc0",
+                        "label": "Potential Earnings for Sales Dashboard",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldv14Ok1ZieYGt7k",
+                        "label": "Bewertung_Doz",
                         "type": "array",
-                        "label": "Stripe payment link"
-                    },
-                    {
-                        "name": "Stripe price check",
-                        "type": "text",
-                        "label": "Stripe price check"
-                    },
-                    {
-                        "name": "Url (from payment link)",
-                        "type": "array",
-                        "label": "Url (from payment link)"
-                    },
-                    {
-                        "name": "Price (from payment link)",
-                        "type": "array",
-                        "label": "Price (from payment link)"
-                    },
-                    {
-                        "name": "Name (from Stripe products) (from payment link)",
-                        "type": "array",
-                        "label": "Name (from Stripe products) (from payment link)"
-                    },
-                    {
-                        "name": "Stripe products (from Stripe payment link)",
-                        "type": "array",
-                        "label": "Stripe products (from Stripe payment link)"
-                    },
-                    {
-                        "name": "Show in /offer-request",
-                        "type": "boolean",
-                        "label": "Show in /offer-request"
-                    },
-                    {
-                        "name": "Last Modified",
-                        "type": "date",
-                        "label": "Last Modified"
-                    },
-                    {
-                        "name": "Article number",
-                        "type": "number",
-                        "label": "Article number"
-                    },
-                    {
-                        "name": "Potential Earnings for Sales Dashboard",
-                        "type": "text",
-                        "label": "Potential Earnings for Sales Dashboard"
-                    },
-                    {
-                        "name": "Bewertung_Doz",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "fldaixcoe7Helupjt",
+                        "label": "MD Test",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldTHJR3NqsvixzMG",
+                        "label": "MS Teams meetings",
                         "type": "array",
-                        "label": "Bewertung_Doz"
-                    },
-                    {
-                        "name": "MD Test",
-                        "type": "text",
-                        "label": "MD Test"
-                    },
-                    {
-                        "name": "MS Teams meetings",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "MS Teams meetings"
+                        }
                     },
                     {
-                        "name": "Meetings",
+                        "name": "fldk6ShyUlGzNx8No",
+                        "label": "Meetings",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
+                        }
+                    },
+                    {
+                        "name": "flds6kx1bwhjNUc7p",
+                        "label": "Create Calendar Entries",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldNcNN5zzppHQiL2",
+                        "label": "Lecturer Invoicing",
                         "type": "array",
-                        "label": "Meetings"
+                        "spec": {
+                            "label": "Record ID"
+                        }
                     }
                 ],
                 "advanced": true
@@ -1461,13 +1510,13 @@
             },
             "mapper": {
                 "base": "app4R2qm7WvWIFspd",
+                "useColumnId": true,
                 "table": "tblX7U8laySmJC1ZS",
+                "formula": "AND(\"{{1.fldsQjKeonD7odLFf[]}}\"={E-Mail}, {Status Manual}=\"Won\")",
+                "maxRecords": "1",
                 "fields": [
                     "E-Mail"
-                ],
-                "formula": "AND(\"{{1.lecturer_email[]}}\"={E-Mail}, {Status Manual}=\"Won\")",
-                "maxRecords": "1",
-                "useColumnId": false
+                ]
             },
             "metadata": {
                 "designer": {
@@ -1476,10 +1525,26 @@
                     "name": "Search Contact \"Won\" and Lecturer Email"
                 },
                 "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
                     "expect": {
                         "base": {
                             "mode": "chose",
                             "label": "NetZero Academy Courses"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Contacts"
                         },
                         "sort": {
                             "mode": "chose"
@@ -1487,27 +1552,11 @@
                         "view": {
                             "mode": "chose"
                         },
-                        "table": {
-                            "mode": "chose",
-                            "label": "Contacts"
-                        },
                         "fields": {
                             "mode": "chose",
                             "label": [
                                 "E-Mail"
                             ]
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -1550,13 +1599,15 @@
                     },
                     {
                         "name": "sort",
+                        "type": "array",
+                        "label": "Sort",
                         "spec": [
                             {
                                 "name": "field",
                                 "type": "select",
                                 "label": "Field",
-                                "dynamic": true,
-                                "options": []
+                                "options": [],
+                                "dynamic": true
                             },
                             {
                                 "name": "direction",
@@ -1573,9 +1624,7 @@
                                     }
                                 ]
                             }
-                        ],
-                        "type": "array",
-                        "label": "Sort"
+                        ]
                     },
                     {
                         "name": "view",
@@ -1591,16 +1640,6 @@
                 ],
                 "interface": [
                     {
-                        "name": "__IMTLENGTH__",
-                        "type": "uinteger",
-                        "label": "Total number of bundles"
-                    },
-                    {
-                        "name": "__IMTINDEX__",
-                        "type": "uinteger",
-                        "label": "Bundle order position"
-                    },
-                    {
                         "name": "id",
                         "type": "text",
                         "label": "ID"
@@ -1611,11 +1650,12 @@
                         "label": "Created Time"
                     },
                     {
-                        "name": "E-Mail",
-                        "type": "text",
-                        "label": "E-Mail"
+                        "name": "fldV0Dsisafmy9tcw",
+                        "label": "E-Mail",
+                        "type": "text"
                     }
-                ]
+                ],
+                "advanced": true
             }
         },
         {
@@ -1627,30 +1667,30 @@
             },
             "mapper": {
                 "base": "app4R2qm7WvWIFspd",
+                "typecast": true,
+                "useColumnId": true,
                 "table": "tblS0sQ6yHenN3HDG",
+                "recordId": "{{1.fldk6ShyUlGzNx8No[]}}",
                 "record": {
-                    "fldAxxKNXUmOVOOIR": "{{1.`Shorted description`}}",
+                    "flde3Vsc7CnvwtJ6d": "{{1.Start}}",
                     "fldBNJM1q2h1mSwXn": "{{1.time_of_day}}",
+                    "fldpkVBZg9kXH7Xr5": "45",
+                    "fldgvCPYsKdy4GGSL": "On-demand-presence-event",
+                    "fldlbdOiHNFRDWr6L": "{{1.Title}}",
+                    "flddVwHuGOh4zN08G": "{{1.Title}}",
+                    "fldAxxKNXUmOVOOIR": "{{1.`Shorted description`}}",
+                    "fldnugRnXj702mJi8": "{{1.`Shorted description`}}",
                     "fldJ1BLoyO2dtIsX5": "1",
-                    "fldJ1zPciEWuEgMKj": [
-                        "{{1.id}}"
-                    ],
-                    "fldQorqg2Ie0gCR3g": [
-                        "{{1.Lecturer[]}}"
-                    ],
                     "fldUffbMvLz9CoTIt": [
                         "{{10.id}}"
                     ],
-                    "flddVwHuGOh4zN08G": "{{1.Title}}",
-                    "flde3Vsc7CnvwtJ6d": "{{1.Start}}",
-                    "fldgvCPYsKdy4GGSL": "On-demand-presence-event",
-                    "fldlbdOiHNFRDWr6L": "{{1.Title}}",
-                    "fldnugRnXj702mJi8": "{{1.`Shorted description`}}",
-                    "fldpkVBZg9kXH7Xr5": "45"
-                },
-                "recordId": "{{1.Meetings[]}}",
-                "typecast": true,
-                "useColumnId": true
+                    "fldQorqg2Ie0gCR3g": [
+                        "{{1.fldp8kEnJtmNBHZHI[]}}"
+                    ],
+                    "fldJ1zPciEWuEgMKj": [
+                        "{{1.id}}"
+                    ]
+                }
             },
             "metadata": {
                 "designer": {
@@ -1659,31 +1699,44 @@
                     "name": "Upsert Meeting"
                 },
                 "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
                     "expect": {
                         "base": {
                             "label": "NetZero Academy Courses"
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
                         },
                         "table": {
                             "label": "Meetings"
                         },
                         "record": {
                             "nested": {
-                                "fldJ1zPciEWuEgMKj": {
+                                "fldgvCPYsKdy4GGSL": {
                                     "mode": "chose",
-                                    "items": [
-                                        null
-                                    ]
+                                    "label": "On-demand-presence-event"
                                 },
-                                "fldLn0pQx0R3BXVv5": {
+                                "fldkCS9oZVZyHPn50": {
                                     "mode": "chose"
                                 },
-                                "fldQorqg2Ie0gCR3g": {
+                                "fldUffbMvLz9CoTIt": {
                                     "mode": "chose",
                                     "items": [
                                         null
                                     ]
                                 },
-                                "fldUffbMvLz9CoTIt": {
+                                "fldQorqg2Ie0gCR3g": {
                                     "mode": "chose",
                                     "items": [
                                         null
@@ -1692,29 +1745,16 @@
                                 "fldXwJKookzGmYpTQ": {
                                     "mode": "chose"
                                 },
-                                "fldgvCPYsKdy4GGSL": {
-                                    "mode": "chose",
-                                    "label": "On-demand-presence-event"
-                                },
-                                "fldkCS9oZVZyHPn50": {
+                                "fldLn0pQx0R3BXVv5": {
                                     "mode": "chose"
+                                },
+                                "fldJ1zPciEWuEgMKj": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
                                 }
                             }
-                        },
-                        "typecast": {
-                            "mode": "chose"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        }
-                    },
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            },
-                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -1758,12 +1798,24 @@
                     },
                     {
                         "name": "record",
+                        "type": "collection",
+                        "label": "Record",
                         "spec": [
                             {
                                 "name": "flde3Vsc7CnvwtJ6d",
-                                "time": false,
                                 "type": "date",
-                                "label": "Date"
+                                "label": "Date",
+                                "time": false
+                            },
+                            {
+                                "name": "fldBNJM1q2h1mSwXn",
+                                "type": "text",
+                                "label": "Meeting start time"
+                            },
+                            {
+                                "name": "fldpkVBZg9kXH7Xr5",
+                                "type": "text",
+                                "label": "Meeting duration(min)"
                             },
                             {
                                 "name": "fldKu1N97VghkjB0y",
@@ -1771,10 +1823,10 @@
                                 "label": "MS_Teams_Link"
                             },
                             {
-                                "mode": "edit",
                                 "name": "fldgvCPYsKdy4GGSL",
                                 "type": "select",
-                                "label": "Meeting type"
+                                "label": "Meeting type",
+                                "mode": "edit"
                             },
                             {
                                 "name": "fldlbdOiHNFRDWr6L",
@@ -1797,16 +1849,6 @@
                                 "label": "Description short"
                             },
                             {
-                                "name": "fldBNJM1q2h1mSwXn",
-                                "type": "text",
-                                "label": "Meeting start time"
-                            },
-                            {
-                                "name": "fldpkVBZg9kXH7Xr5",
-                                "type": "text",
-                                "label": "Meeting duration(min)"
-                            },
-                            {
                                 "name": "fldJ1BLoyO2dtIsX5",
                                 "type": "number",
                                 "label": "UE"
@@ -1818,52 +1860,50 @@
                             },
                             {
                                 "name": "fldUffbMvLz9CoTIt",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Lecturer(Contacts)"
+                                "label": "Lecturer(Contacts)",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldQorqg2Ie0gCR3g",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Lecturer(User)"
+                                "label": "Lecturer(User)",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldXwJKookzGmYpTQ",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Meeting bookings"
+                                "label": "Meeting bookings",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldLn0pQx0R3BXVv5",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "All_Courses_overview"
+                                "label": "All_Courses_overview",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             },
                             {
                                 "name": "fldJ1zPciEWuEgMKj",
-                                "spec": {
-                                    "name": "value",
-                                    "label": "Record ID"
-                                },
                                 "type": "array",
-                                "label": "Course"
+                                "label": "Course",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
                             }
-                        ],
-                        "type": "collection",
-                        "label": "Record"
+                        ]
                     }
                 ],
                 "interface": [
@@ -1879,160 +1919,160 @@
                     },
                     {
                         "name": "fld7fhRIIzbomYtFR",
-                        "type": "text",
-                        "label": "MeetingID"
+                        "label": "MeetingID",
+                        "type": "text"
                     },
                     {
                         "name": "fldOIRjcNVCZHa9PN",
-                        "type": "number",
-                        "label": "Autonumber"
+                        "label": "Autonumber",
+                        "type": "number"
                     },
                     {
                         "name": "flde3Vsc7CnvwtJ6d",
-                        "time": false,
+                        "label": "Date",
                         "type": "date",
-                        "label": "Date"
+                        "time": false
+                    },
+                    {
+                        "name": "fldBNJM1q2h1mSwXn",
+                        "label": "Meeting start time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldpkVBZg9kXH7Xr5",
+                        "label": "Meeting duration(min)",
+                        "type": "text"
                     },
                     {
                         "name": "fldKu1N97VghkjB0y",
-                        "type": "text",
-                        "label": "MS_Teams_Link"
+                        "label": "MS_Teams_Link",
+                        "type": "text"
                     },
                     {
                         "name": "fldgvCPYsKdy4GGSL",
-                        "type": "text",
-                        "label": "Meeting type"
+                        "label": "Meeting type",
+                        "type": "text"
                     },
                     {
                         "name": "fldlbdOiHNFRDWr6L",
-                        "type": "text",
                         "label": "Meeting topic",
+                        "type": "text",
                         "multiline": true
                     },
                     {
                         "name": "flddVwHuGOh4zN08G",
-                        "type": "text",
-                        "label": "Meeting title"
+                        "label": "Meeting title",
+                        "type": "text"
                     },
                     {
                         "name": "fldAxxKNXUmOVOOIR",
-                        "type": "text",
-                        "label": "Description"
+                        "label": "Description",
+                        "type": "text"
                     },
                     {
                         "name": "fldnugRnXj702mJi8",
-                        "type": "text",
-                        "label": "Description short"
+                        "label": "Description short",
+                        "type": "text"
                     },
                     {
                         "name": "flddRQ4ABDlqSApSS",
-                        "type": "text",
-                        "label": "Bookable"
+                        "label": "Bookable",
+                        "type": "text"
                     },
                     {
                         "name": "fldyiIj62LmwIcXvX",
-                        "type": "text",
-                        "label": "Cancellable"
+                        "label": "Cancellable",
+                        "type": "text"
                     },
                     {
                         "name": "fldAdy8qq2dM7urqZ",
-                        "type": "text",
-                        "label": "Bookable by lecturer"
+                        "label": "Bookable by lecturer",
+                        "type": "text"
                     },
                     {
                         "name": "fldStIQpqrfEZcV86",
-                        "type": "text",
-                        "label": "Archived"
-                    },
-                    {
-                        "name": "fldBNJM1q2h1mSwXn",
-                        "type": "text",
-                        "label": "Meeting start time"
-                    },
-                    {
-                        "name": "fldpkVBZg9kXH7Xr5",
-                        "type": "text",
-                        "label": "Meeting duration(min)"
+                        "label": "Archived",
+                        "type": "text"
                     },
                     {
                         "name": "fldJ1BLoyO2dtIsX5",
-                        "type": "number",
-                        "label": "UE"
+                        "label": "UE",
+                        "type": "number"
                     },
                     {
                         "name": "fldaYBk1ur1Kr8K6u",
-                        "type": "text",
-                        "label": "Day_of_week"
+                        "label": "Day_of_week",
+                        "type": "text"
                     },
                     {
                         "name": "fldaiTzaFBifl1ifw",
-                        "type": "text",
-                        "label": "Meeting time (Softr)"
+                        "label": "Meeting time (Softr)",
+                        "type": "text"
                     },
                     {
                         "name": "fldkCS9oZVZyHPn50",
-                        "type": "boolean",
-                        "label": "Paid"
+                        "label": "Paid",
+                        "type": "boolean"
                     },
                     {
                         "name": "fldUffbMvLz9CoTIt",
+                        "label": "Lecturer(Contacts)",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Lecturer(Contacts)"
+                        }
                     },
                     {
                         "name": "fldIfaWxCJNFfkmIk",
-                        "type": "array",
-                        "label": "Name (from Lecturer)"
+                        "label": "Name (from Lecturer)",
+                        "type": "array"
                     },
                     {
                         "name": "fldQorqg2Ie0gCR3g",
+                        "label": "Lecturer(User)",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Lecturer(User)"
+                        }
                     },
                     {
                         "name": "fldXwJKookzGmYpTQ",
+                        "label": "Meeting bookings",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Meeting bookings"
+                        }
                     },
                     {
                         "name": "fldNRTueBmLOmODDr",
-                        "type": "array",
-                        "label": "Booker Contact (from Meeting bookings)"
+                        "label": "Booker Contact (from Meeting bookings)",
+                        "type": "array"
                     },
                     {
                         "name": "fld7zVHiKJhNEOjD0",
-                        "type": "array",
-                        "label": "E-Mail (from Lecturer(Contacts))"
+                        "label": "E-Mail (from Lecturer(Contacts))",
+                        "type": "array"
                     },
                     {
                         "name": "fldLn0pQx0R3BXVv5",
+                        "label": "All_Courses_overview",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "All_Courses_overview"
+                        }
                     },
                     {
                         "name": "fld30e12jqD19fRDn",
-                        "type": "array",
-                        "label": "Course_day (from All_Courses_overview)"
+                        "label": "Course_day (from All_Courses_overview)",
+                        "type": "array"
                     },
                     {
                         "name": "fldJ1zPciEWuEgMKj",
+                        "label": "Course",
+                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        },
-                        "type": "array",
-                        "label": "Course"
+                        }
                     }
                 ],
                 "advanced": true
@@ -2048,8 +2088,8 @@
             "mapper": {
                 "select": "channel",
                 "content": "Debug: Webinar created or updated:\n{{6.fld7fhRIIzbomYtFR}} - {{6.flde3Vsc7CnvwtJ6d}} {{6.fldBNJM1q2h1mSwXn}}",
-                "message_reference": {},
-                "channelId": "1212429146635116574"
+                "channelId": "1212429146635116574",
+                "message_reference": {}
             },
             "metadata": {
                 "designer": {
@@ -2057,37 +2097,37 @@
                     "y": 74
                 },
                 "restore": {
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "label": "My Discord connection (Integromat (integromat))",
-                            "data": {
-                                "scoped": "true",
-                                "connection": "discord"
-                            }
-                        }
-                    },
                     "expect": {
-                        "select": {
-                            "label": "Send a Message to a Channel"
-                        },
                         "tts": {
-                            "mode": "chose"
-                        },
-                        "embeds": {
-                            "mode": "chose"
-                        },
-                        "sticker_ids": {
-                            "mode": "chose"
-                        },
-                        "components": {
                             "mode": "chose"
                         },
                         "files": {
                             "mode": "chose"
                         },
+                        "embeds": {
+                            "mode": "chose"
+                        },
+                        "select": {
+                            "label": "Send a Message to a Channel"
+                        },
                         "channelId": {
                             "mode": "chose",
                             "label": "automations"
+                        },
+                        "components": {
+                            "mode": "chose"
+                        },
+                        "sticker_ids": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "discord"
+                            },
+                            "label": "My Discord connection (Integromat (integromat))"
                         }
                     }
                 },
@@ -2125,8 +2165,6 @@
                     },
                     {
                         "name": "embeds",
-                        "type": "array",
-                        "label": "Embeds",
                         "spec": [
                             {
                                 "name": "title",
@@ -2322,12 +2360,12 @@
                                 "type": "array",
                                 "label": "Fields"
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Embeds"
                     },
                     {
                         "name": "sticker_ids",
-                        "type": "array",
-                        "label": "Stickers",
                         "spec": [
                             {
                                 "name": "id",
@@ -2335,12 +2373,12 @@
                                 "label": "Sticker ID",
                                 "required": true
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Stickers"
                     },
                     {
                         "name": "components",
-                        "type": "array",
-                        "label": "Components",
                         "spec": [
                             {
                                 "name": "type",
@@ -2534,12 +2572,12 @@
                                 ],
                                 "required": true
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Components"
                     },
                     {
                         "name": "files",
-                        "type": "array",
-                        "label": "Files",
                         "spec": [
                             {
                                 "name": "filename",
@@ -2555,19 +2593,21 @@
                                 "required": true,
                                 "semantic": "file:data"
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Files"
                     },
                     {
                         "name": "message_reference",
-                        "type": "collection",
-                        "label": "Message Reference",
                         "spec": [
                             {
                                 "name": "message_id",
                                 "type": "text",
                                 "label": "Message ID"
                             }
-                        ]
+                        ],
+                        "type": "collection",
+                        "label": "Message Reference"
                     },
                     {
                         "name": "channelId",
@@ -2576,7 +2616,20 @@
                         "required": true
                     }
                 ]
-            }
+            },
+            "onerror": [
+                {
+                    "id": 12,
+                    "module": "builtin:Ignore",
+                    "version": 1,
+                    "metadata": {
+                        "designer": {
+                            "x": 747,
+                            "y": 74
+                        }
+                    }
+                }
+            ]
         }
     ],
     "metadata": {
