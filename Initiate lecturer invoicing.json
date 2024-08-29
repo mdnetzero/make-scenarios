@@ -1,0 +1,3471 @@
+{
+    "name": "Initiate lecturer invoicing",
+    "flow": [
+        {
+            "id": 1,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "course ended days ago",
+                        "value": "3"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 150
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
+                        "variables": {
+                            "items": [
+                                null
+                            ]
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "course ended days ago",
+                        "type": "any",
+                        "label": "course ended days ago"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "app4R2qm7WvWIFspd",
+                "table": "tblH4U1AWOEVTkoNE",
+                "formula": "DATETIME_DIFF(TODAY(), End,'days') ={{1.`course ended days ago`}}",
+                "maxRecords": "10",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 150,
+                    "name": "Find courses ending N days ago"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy Courses"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Courses"
+                        },
+                        "fields": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "dynamic": true,
+                                "options": []
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sort"
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "Sorting_Website",
+                        "type": "number",
+                        "label": "Sorting_Website"
+                    },
+                    {
+                        "name": "Courses_Page_live",
+                        "type": "boolean",
+                        "label": "Courses_Page_live"
+                    },
+                    {
+                        "name": "Seminars_Homepage",
+                        "type": "boolean",
+                        "label": "Seminars_Homepage"
+                    },
+                    {
+                        "name": "Seminars_Homepage copy",
+                        "type": "boolean",
+                        "label": "Seminars_Homepage copy"
+                    },
+                    {
+                        "name": "On List BK",
+                        "type": "boolean",
+                        "label": "On List BK"
+                    },
+                    {
+                        "name": "On List WG",
+                        "type": "boolean",
+                        "label": "On List WG"
+                    },
+                    {
+                        "name": "Image",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "Lecturer",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Lecturer"
+                    },
+                    {
+                        "name": "Lecturer_description",
+                        "type": "array",
+                        "label": "Lecturer_description"
+                    },
+                    {
+                        "name": "Webpage_lecturer",
+                        "type": "array",
+                        "label": "Webpage_lecturer"
+                    },
+                    {
+                        "name": "lecturer_email",
+                        "type": "array",
+                        "label": "lecturer_email"
+                    },
+                    {
+                        "name": "lecturer_name",
+                        "type": "array",
+                        "label": "lecturer_name"
+                    },
+                    {
+                        "name": "Career Paths",
+                        "type": "text",
+                        "label": "Career Paths"
+                    },
+                    {
+                        "name": "Automated_webinar_invite_trigger",
+                        "type": "text",
+                        "label": "Automated_webinar_invite_trigger"
+                    },
+                    {
+                        "name": "Bookable",
+                        "type": "boolean",
+                        "label": "Bookable"
+                    },
+                    {
+                        "name": "Type (from Career Paths)",
+                        "type": "array",
+                        "label": "Type (from Career Paths)"
+                    },
+                    {
+                        "name": "Live on webpage",
+                        "type": "boolean",
+                        "label": "Live on webpage"
+                    },
+                    {
+                        "name": "Whatsapp URL",
+                        "type": "text",
+                        "label": "Whatsapp URL"
+                    },
+                    {
+                        "name": "Description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "Page URL",
+                        "type": "text",
+                        "label": "Page URL"
+                    },
+                    {
+                        "name": "Post-course",
+                        "type": "text",
+                        "label": "Post-course",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Preconditions",
+                        "type": "text",
+                        "label": "Preconditions"
+                    },
+                    {
+                        "name": "Category",
+                        "type": "array",
+                        "label": "Category",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "availablility",
+                        "type": "text",
+                        "label": "availablility"
+                    },
+                    {
+                        "name": "Course URL",
+                        "type": "text",
+                        "label": "Course URL"
+                    },
+                    {
+                        "name": "Start",
+                        "time": false,
+                        "type": "date",
+                        "label": "Start"
+                    },
+                    {
+                        "name": "formula_date",
+                        "type": "text",
+                        "label": "formula_date"
+                    },
+                    {
+                        "name": "time_of_day",
+                        "type": "text",
+                        "label": "time_of_day"
+                    },
+                    {
+                        "name": "End",
+                        "time": false,
+                        "type": "date",
+                        "label": "End"
+                    },
+                    {
+                        "name": "Capacity",
+                        "type": "number",
+                        "label": "Capacity"
+                    },
+                    {
+                        "name": "number_participants",
+                        "type": "text",
+                        "label": "number_participants"
+                    },
+                    {
+                        "name": "Course Length",
+                        "type": "text",
+                        "label": "Course Length"
+                    },
+                    {
+                        "name": "Price",
+                        "type": "number",
+                        "label": "Price"
+                    },
+                    {
+                        "name": "RSVP",
+                        "type": "number",
+                        "label": "RSVP"
+                    },
+                    {
+                        "name": "Checkout_URL",
+                        "type": "text",
+                        "label": "Checkout_URL"
+                    },
+                    {
+                        "name": "Course-Checkout-Page-URL",
+                        "type": "text",
+                        "label": "Course-Checkout-Page-URL"
+                    },
+                    {
+                        "name": "RecordID",
+                        "type": "text",
+                        "label": "RecordID"
+                    },
+                    {
+                        "name": "Contact",
+                        "type": "text",
+                        "label": "Contact",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Link_word",
+                        "type": "number",
+                        "label": "Link_word"
+                    },
+                    {
+                        "name": "Seminar_URL",
+                        "type": "text",
+                        "label": "Seminar_URL"
+                    },
+                    {
+                        "name": "event_google",
+                        "type": "text",
+                        "label": "event_google"
+                    },
+                    {
+                        "name": "event_outlook",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "event_outlook"
+                    },
+                    {
+                        "name": "Contacts",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Contacts"
+                    },
+                    {
+                        "name": "Date_time",
+                        "type": "text",
+                        "label": "Date_time"
+                    },
+                    {
+                        "name": "E-Mails_participants",
+                        "type": "array",
+                        "label": "E-Mails_participants"
+                    },
+                    {
+                        "name": "Waiting list",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Waiting list"
+                    },
+                    {
+                        "name": "Users",
+                        "type": "text",
+                        "label": "Users"
+                    },
+                    {
+                        "name": "Registry_button_link",
+                        "type": "text",
+                        "label": "Registry_button_link",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Contact copy",
+                        "type": "text",
+                        "label": "Contact copy"
+                    },
+                    {
+                        "name": "Presenter_slides",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Presenter_slides"
+                    },
+                    {
+                        "name": "Sendout_slides",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sendout_slides"
+                    },
+                    {
+                        "name": "Recording_link",
+                        "type": "text",
+                        "label": "Recording_link"
+                    },
+                    {
+                        "name": "Sendout_slides_link",
+                        "type": "text",
+                        "label": "Sendout_slides_link"
+                    },
+                    {
+                        "name": "Approve_to_archive?",
+                        "type": "text",
+                        "label": "Approve_to_archive?"
+                    },
+                    {
+                        "name": "Invoice line items",
+                        "type": "text",
+                        "label": "Invoice line items"
+                    },
+                    {
+                        "name": "webinar_when_softr",
+                        "type": "text",
+                        "label": "webinar_when_softr"
+                    },
+                    {
+                        "name": "Line Items",
+                        "type": "text",
+                        "label": "Line Items"
+                    },
+                    {
+                        "name": "Duration",
+                        "type": "text",
+                        "label": "Duration"
+                    },
+                    {
+                        "name": "Workdays_till_start",
+                        "type": "text",
+                        "label": "Workdays_till_start"
+                    },
+                    {
+                        "name": "Line Items 2",
+                        "type": "text",
+                        "label": "Line Items 2"
+                    },
+                    {
+                        "name": "Webinar_Energiesparkommissar",
+                        "type": "text",
+                        "label": "Webinar_Energiesparkommissar"
+                    },
+                    {
+                        "name": "Basiskurs",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Basiskurs"
+                    },
+                    {
+                        "name": "Basiskurs copy",
+                        "type": "text",
+                        "label": "Basiskurs copy"
+                    },
+                    {
+                        "name": "Documents_for_students",
+                        "type": "text",
+                        "label": "Documents_for_students"
+                    },
+                    {
+                        "name": "Document (from Documents_for_students)",
+                        "type": "array",
+                        "label": "Document (from Documents_for_students)"
+                    },
+                    {
+                        "name": "1.0_Basiskurs_participants copy",
+                        "type": "text",
+                        "label": "1.0_Basiskurs_participants copy"
+                    },
+                    {
+                        "name": "1.0_Basiskurs_participants copy 2",
+                        "type": "text",
+                        "label": "1.0_Basiskurs_participants copy 2"
+                    },
+                    {
+                        "name": "Basiskurs 2",
+                        "type": "text",
+                        "label": "Basiskurs 2"
+                    },
+                    {
+                        "name": "Basiskurs 3",
+                        "type": "text",
+                        "label": "Basiskurs 3"
+                    },
+                    {
+                        "name": "230717_Basiskurs copy 2",
+                        "type": "text",
+                        "label": "230717_Basiskurs copy 2"
+                    },
+                    {
+                        "name": "230911_WG copy",
+                        "type": "text",
+                        "label": "230911_WG copy"
+                    },
+                    {
+                        "name": "231030_WG copy",
+                        "type": "text",
+                        "label": "231030_WG copy"
+                    },
+                    {
+                        "name": "231204_WG copy",
+                        "type": "text",
+                        "label": "231204_WG copy"
+                    },
+                    {
+                        "name": "231016_Basiskurs copy",
+                        "type": "text",
+                        "label": "231016_Basiskurs copy"
+                    },
+                    {
+                        "name": "230717_Basiskurs copy",
+                        "type": "text",
+                        "label": "230717_Basiskurs copy"
+                    },
+                    {
+                        "name": "231111_Basiskurs copy",
+                        "type": "text",
+                        "label": "231111_Basiskurs copy"
+                    },
+                    {
+                        "name": "240219_NWG copy",
+                        "type": "text",
+                        "label": "240219_NWG copy"
+                    },
+                    {
+                        "name": "Course modules",
+                        "type": "text",
+                        "label": "Course modules"
+                    },
+                    {
+                        "name": "Approve_to_archive? 2",
+                        "type": "text",
+                        "label": "Approve_to_archive? 2",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Workdays_till_start 2",
+                        "type": "number",
+                        "label": "Workdays_till_start 2"
+                    },
+                    {
+                        "name": "Basiskurs_link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Basiskurs_link"
+                    },
+                    {
+                        "name": "WG Kurs_link",
+                        "type": "text",
+                        "label": "WG Kurs_link"
+                    },
+                    {
+                        "name": "NWG Kurs_link",
+                        "type": "text",
+                        "label": "NWG Kurs_link"
+                    },
+                    {
+                        "name": "16247 Kurs_link",
+                        "type": "text",
+                        "label": "16247 Kurs_link"
+                    },
+                    {
+                        "name": "Bookable_lecturer",
+                        "type": "boolean",
+                        "label": "Bookable_lecturer"
+                    },
+                    {
+                        "name": "Unstaffed days",
+                        "type": "array",
+                        "label": "Unstaffed days"
+                    },
+                    {
+                        "name": "Status lecturer",
+                        "type": "text",
+                        "label": "Status lecturer"
+                    },
+                    {
+                        "name": "Lecturer booking URL",
+                        "type": "text",
+                        "label": "Lecturer booking URL"
+                    },
+                    {
+                        "name": "Whatsapp live groups",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Whatsapp live groups"
+                    },
+                    {
+                        "name": "Fortbildungskalender_Code",
+                        "type": "text",
+                        "label": "Fortbildungskalender_Code"
+                    },
+                    {
+                        "name": "Finales_Gesamtfeedback",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Finales_Gesamtfeedback"
+                    },
+                    {
+                        "name": "Feedback_doc",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Feedback_doc"
+                    },
+                    {
+                        "name": "Webinare_Auto",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Webinare_Auto"
+                    },
+                    {
+                        "name": "Last Modified By",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Last Modified By"
+                    },
+                    {
+                        "name": "Students_Name_Email",
+                        "type": "array",
+                        "label": "Students_Name_Email"
+                    },
+                    {
+                        "name": "Courses_Missing_Staffing",
+                        "type": "array",
+                        "label": "Courses_Missing_Staffing"
+                    },
+                    {
+                        "name": "Masterdata_Course",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Masterdata_Course"
+                    },
+                    {
+                        "name": "MasterCourseID (from Masterdata_Course)",
+                        "type": "array",
+                        "label": "MasterCourseID (from Masterdata_Course)"
+                    },
+                    {
+                        "name": "Masterdata_Courses",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Masterdata_Courses"
+                    },
+                    {
+                        "name": "Created time",
+                        "type": "date",
+                        "label": "Created time"
+                    },
+                    {
+                        "name": "Shorted description",
+                        "type": "text",
+                        "label": "Shorted description"
+                    },
+                    {
+                        "name": "Course2BreakoutRoom",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Course2BreakoutRoom"
+                    },
+                    {
+                        "name": "Course Type",
+                        "type": "text",
+                        "label": "Course Type"
+                    },
+                    {
+                        "name": "Stripe payment link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Stripe payment link"
+                    },
+                    {
+                        "name": "Stripe price check",
+                        "type": "text",
+                        "label": "Stripe price check"
+                    },
+                    {
+                        "name": "Url (from payment link)",
+                        "type": "array",
+                        "label": "Url (from payment link)"
+                    },
+                    {
+                        "name": "Price (from payment link)",
+                        "type": "array",
+                        "label": "Price (from payment link)"
+                    },
+                    {
+                        "name": "Name (from Stripe products) (from payment link)",
+                        "type": "array",
+                        "label": "Name (from Stripe products) (from payment link)"
+                    },
+                    {
+                        "name": "Stripe products (from Stripe payment link)",
+                        "type": "array",
+                        "label": "Stripe products (from Stripe payment link)"
+                    },
+                    {
+                        "name": "Show in /offer-request",
+                        "type": "boolean",
+                        "label": "Show in /offer-request"
+                    },
+                    {
+                        "name": "Last Modified",
+                        "type": "date",
+                        "label": "Last Modified"
+                    },
+                    {
+                        "name": "Article number",
+                        "type": "number",
+                        "label": "Article number"
+                    },
+                    {
+                        "name": "Potential Earnings for Sales Dashboard",
+                        "type": "text",
+                        "label": "Potential Earnings for Sales Dashboard"
+                    },
+                    {
+                        "name": "Bewertung_Doz",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Bewertung_Doz"
+                    },
+                    {
+                        "name": "MD Test",
+                        "type": "text",
+                        "label": "MD Test"
+                    },
+                    {
+                        "name": "MS Teams meetings",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "MS Teams meetings"
+                    },
+                    {
+                        "name": "Meetings",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Meetings"
+                    },
+                    {
+                        "name": "Create Calendar Entries",
+                        "type": "text",
+                        "label": "Create Calendar Entries"
+                    },
+                    {
+                        "name": "Lecturer Invoicing",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Lecturer Invoicing"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "filter": {
+                "name": "Courses ending N days ago found",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{2.`__IMTLENGTH__`}}",
+                            "b": "0",
+                            "o": "number:greater"
+                        }
+                    ]
+                ]
+            },
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 150
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 3,
+                            "module": "airtable:ActionSearchRecords",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 2456185
+                            },
+                            "mapper": {
+                                "base": "app4R2qm7WvWIFspd",
+                                "table": "tblCzJGFEEjADCwRO",
+                                "fields": [
+                                    "Course_day",
+                                    "Course",
+                                    "Course Type",
+                                    "Teaching_hours_UE_paid",
+                                    "UE_dena",
+                                    "Lecturer",
+                                    "Name (from Lecturer)",
+                                    "RecordID (from Course)"
+                                ],
+                                "formula": "{RecordID (from Course)}=\"{{2.id}}\"",
+                                "maxRecords": "100",
+                                "useColumnId": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 0,
+                                    "name": "Find course days to courses"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "mode": "chose",
+                                            "label": "NetZero Academy Courses"
+                                        },
+                                        "sort": {
+                                            "mode": "chose"
+                                        },
+                                        "view": {
+                                            "mode": "chose"
+                                        },
+                                        "table": {
+                                            "mode": "chose",
+                                            "label": "All_Courses_overview"
+                                        },
+                                        "fields": {
+                                            "mode": "chose",
+                                            "label": [
+                                                "Course_day",
+                                                "Course",
+                                                "Course Type",
+                                                "Teaching_hours_UE_paid",
+                                                "UE_dena",
+                                                "Lecturer",
+                                                "Name (from Lecturer)",
+                                                "RecordID (from Course)"
+                                            ]
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "MD Airtable Token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "formula",
+                                        "type": "text",
+                                        "label": "Formula"
+                                    },
+                                    {
+                                        "name": "maxRecords",
+                                        "type": "integer",
+                                        "label": "Limit"
+                                    },
+                                    {
+                                        "name": "sort",
+                                        "spec": [
+                                            {
+                                                "name": "field",
+                                                "type": "select",
+                                                "label": "Field",
+                                                "dynamic": true,
+                                                "options": []
+                                            },
+                                            {
+                                                "name": "direction",
+                                                "type": "select",
+                                                "label": "Direction",
+                                                "options": [
+                                                    {
+                                                        "label": "Descending",
+                                                        "value": "desc"
+                                                    },
+                                                    {
+                                                        "label": "Ascending",
+                                                        "value": "asc"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Sort"
+                                    },
+                                    {
+                                        "name": "view",
+                                        "type": "select",
+                                        "label": "View"
+                                    },
+                                    {
+                                        "name": "fields",
+                                        "type": "select",
+                                        "label": "Output Fields",
+                                        "multiple": true
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "__IMTLENGTH__",
+                                        "type": "uinteger",
+                                        "label": "Total number of bundles"
+                                    },
+                                    {
+                                        "name": "__IMTINDEX__",
+                                        "type": "uinteger",
+                                        "label": "Bundle order position"
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "fldo6Vhrzvw8Oi9Qr",
+                                        "type": "text",
+                                        "label": "Course_day"
+                                    },
+                                    {
+                                        "name": "fldgNBKmFueWrvUqw",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Course"
+                                    },
+                                    {
+                                        "name": "flduVYDv6N4zpstHT",
+                                        "type": "text",
+                                        "label": "Course Type"
+                                    },
+                                    {
+                                        "name": "fld2BLTY3EzMRk7Bn",
+                                        "type": "number",
+                                        "label": "Teaching_hours_UE_paid"
+                                    },
+                                    {
+                                        "name": "fld2Imm0mYifV74w4",
+                                        "type": "number",
+                                        "label": "UE_dena"
+                                    },
+                                    {
+                                        "name": "fld9Kzulkd4VSlILw",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Lecturer"
+                                    },
+                                    {
+                                        "name": "fldRwKSZzGzn1Vk8n",
+                                        "type": "array",
+                                        "label": "Name (from Lecturer)"
+                                    },
+                                    {
+                                        "name": "fld8g93rFcUebkKaO",
+                                        "type": "array",
+                                        "label": "RecordID (from Course)"
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        },
+                        {
+                            "id": 5,
+                            "module": "airtable:ActionCreateRecord",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 2456185
+                            },
+                            "mapper": {
+                                "base": "app4R2qm7WvWIFspd",
+                                "table": "tbl52tUuOYZQXWX6M",
+                                "record": {
+                                    "fldoTpbfNJD74Kjvz": [
+                                        "{{3.fld9Kzulkd4VSlILw[]}}"
+                                    ],
+                                    "fldoWhFnntDP0E4VT": [
+                                        "{{2.id}}"
+                                    ]
+                                },
+                                "typecast": false,
+                                "useColumnId": false
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 0,
+                                    "name": "Write to Lecturer invoicing table"
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "label": "NetZero Academy Courses"
+                                        },
+                                        "table": {
+                                            "label": "Lecturer Invoicing",
+                                            "nested": [
+                                                {
+                                                    "name": "record",
+                                                    "spec": [
+                                                        {
+                                                            "name": "fldoWhFnntDP0E4VT",
+                                                            "spec": {
+                                                                "label": "Record ID"
+                                                            },
+                                                            "type": "array",
+                                                            "label": "Course"
+                                                        },
+                                                        {
+                                                            "name": "fldoTpbfNJD74Kjvz",
+                                                            "spec": {
+                                                                "label": "Record ID"
+                                                            },
+                                                            "type": "array",
+                                                            "label": "Lecturer"
+                                                        },
+                                                        {
+                                                            "name": "fldrJvwyatH3G7n2V",
+                                                            "spec": {
+                                                                "label": "Record ID"
+                                                            },
+                                                            "type": "array",
+                                                            "label": "Lecturer hourly per UE"
+                                                        },
+                                                        {
+                                                            "name": "fldpr9GzBOGxiz54U",
+                                                            "type": "number",
+                                                            "label": "NetZero revenue (shared with lecturer)"
+                                                        },
+                                                        {
+                                                            "name": "fldpj3CSttiF8OyG6",
+                                                            "type": "number",
+                                                            "label": "UE"
+                                                        },
+                                                        {
+                                                            "name": "fld7GoQONrqdAlEnz",
+                                                            "type": "number",
+                                                            "label": "Rating"
+                                                        },
+                                                        {
+                                                            "mode": "edit",
+                                                            "name": "fldZm7qyDoFNFm8hg",
+                                                            "type": "select",
+                                                            "label": "Mail Status",
+                                                            "dynamic": true,
+                                                            "options": [
+                                                                {
+                                                                    "label": "Prepare",
+                                                                    "value": "Prepare"
+                                                                },
+                                                                {
+                                                                    "label": "Send mail",
+                                                                    "value": "Send mail"
+                                                                },
+                                                                {
+                                                                    "label": "Mail sent",
+                                                                    "value": "Mail sent"
+                                                                }
+                                                            ],
+                                                            "validate": false
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Record"
+                                                }
+                                            ]
+                                        },
+                                        "record": {
+                                            "nested": {
+                                                "fldZm7qyDoFNFm8hg": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldoTpbfNJD74Kjvz": {
+                                                    "mode": "chose",
+                                                    "items": [
+                                                        null
+                                                    ]
+                                                },
+                                                "fldoWhFnntDP0E4VT": {
+                                                    "mode": "chose",
+                                                    "items": [
+                                                        null
+                                                    ]
+                                                },
+                                                "fldrJvwyatH3G7n2V": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "MD Airtable Token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "typecast",
+                                        "type": "boolean",
+                                        "label": "Smart links",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "record",
+                                        "spec": [
+                                            {
+                                                "name": "fldoWhFnntDP0E4VT",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Course"
+                                            },
+                                            {
+                                                "name": "fldoTpbfNJD74Kjvz",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Lecturer"
+                                            },
+                                            {
+                                                "name": "fldrJvwyatH3G7n2V",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Lecturer hourly per UE"
+                                            },
+                                            {
+                                                "name": "fldpr9GzBOGxiz54U",
+                                                "type": "number",
+                                                "label": "NetZero revenue (shared with lecturer)"
+                                            },
+                                            {
+                                                "name": "fldpj3CSttiF8OyG6",
+                                                "type": "number",
+                                                "label": "UE"
+                                            },
+                                            {
+                                                "name": "fld7GoQONrqdAlEnz",
+                                                "type": "number",
+                                                "label": "Rating"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "fldZm7qyDoFNFm8hg",
+                                                "type": "select",
+                                                "label": "Mail Status"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "Lecturer Invoice",
+                                        "type": "text",
+                                        "label": "Lecturer Invoice"
+                                    },
+                                    {
+                                        "name": "Course",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Course"
+                                    },
+                                    {
+                                        "name": "Course Type (from Course)",
+                                        "type": "array",
+                                        "label": "Course Type (from Course)"
+                                    },
+                                    {
+                                        "name": "Lecturer",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Lecturer"
+                                    },
+                                    {
+                                        "name": "Name (from Lecturer)",
+                                        "type": "array",
+                                        "label": "Name (from Lecturer)"
+                                    },
+                                    {
+                                        "name": "E-Mail (from Lecturer)",
+                                        "type": "array",
+                                        "label": "E-Mail (from Lecturer)"
+                                    },
+                                    {
+                                        "name": "Lecturer hourly per UE",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Lecturer hourly per UE"
+                                    },
+                                    {
+                                        "name": "Course type (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Course type (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "NetZero revenue (shared with lecturer)",
+                                        "type": "number",
+                                        "label": "NetZero revenue (shared with lecturer)"
+                                    },
+                                    {
+                                        "name": "Lecturer share (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Lecturer share (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "Base rate (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Base rate (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "Zusatzvergütung (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Zusatzvergütung (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "UE",
+                                        "type": "number",
+                                        "label": "UE"
+                                    },
+                                    {
+                                        "name": "Rating",
+                                        "type": "number",
+                                        "label": "Rating"
+                                    },
+                                    {
+                                        "name": "Rating factor",
+                                        "type": "text",
+                                        "label": "Rating factor"
+                                    },
+                                    {
+                                        "name": "Base total",
+                                        "type": "text",
+                                        "label": "Base total"
+                                    },
+                                    {
+                                        "name": "Zusatzvergütung total",
+                                        "type": "text",
+                                        "label": "Zusatzvergütung total"
+                                    },
+                                    {
+                                        "name": "Bonus total",
+                                        "type": "text",
+                                        "label": "Bonus total"
+                                    },
+                                    {
+                                        "name": "Total",
+                                        "type": "text",
+                                        "label": "Total"
+                                    },
+                                    {
+                                        "name": "Mail text",
+                                        "type": "text",
+                                        "label": "Mail text"
+                                    },
+                                    {
+                                        "name": "Mail Status",
+                                        "type": "text",
+                                        "label": "Mail Status"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 7,
+                            "module": "google-email:ActionSendEmail",
+                            "version": 2,
+                            "parameters": {
+                                "account": 2698556
+                            },
+                            "mapper": {
+                                "cc": [],
+                                "to": [
+                                    "service@netzeroacademy.de"
+                                ],
+                                "bcc": [],
+                                "from": "",
+                                "html": "Hier geht es weiter:\n\nhttps://airtable.com/app4R2qm7WvWIFspd/tbl52tUuOYZQXWX6M/viwTcjES60l5InoJ5?blocks=hide",
+                                "subject": "Please start invoicing for course {{2.Title}}",
+                                "attachments": []
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 300
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "cc": {
+                                            "mode": "chose"
+                                        },
+                                        "to": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bcc": {
+                                            "mode": "chose"
+                                        },
+                                        "attachments": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "account": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-restricted"
+                                            },
+                                            "label": "GMail NZ Service Account (service@netzeroacademy.de)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "account",
+                                        "type": "account:google-restricted",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "from",
+                                        "type": "text",
+                                        "label": "From"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Email address",
+                                            "required": true
+                                        },
+                                        "type": "array",
+                                        "label": "To",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "subject",
+                                        "type": "text",
+                                        "label": "Subject"
+                                    },
+                                    {
+                                        "name": "html",
+                                        "type": "text",
+                                        "label": "Content"
+                                    },
+                                    {
+                                        "name": "attachments",
+                                        "spec": [
+                                            {
+                                                "name": "fileName",
+                                                "type": "filename",
+                                                "label": "File name",
+                                                "required": true,
+                                                "semantic": "file:name"
+                                            },
+                                            {
+                                                "name": "data",
+                                                "type": "buffer",
+                                                "label": "Data",
+                                                "required": true,
+                                                "semantic": "file:data"
+                                            },
+                                            {
+                                                "name": "cid",
+                                                "type": "text",
+                                                "label": "Content-ID"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Attachments"
+                                    },
+                                    {
+                                        "name": "cc",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Email address"
+                                        },
+                                        "type": "array",
+                                        "label": "Copy recipient"
+                                    },
+                                    {
+                                        "name": "bcc",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Email address"
+                                        },
+                                        "type": "array",
+                                        "label": "Blind copy recipient"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": [
+                [
+                    {
+                        "id": 4,
+                        "module": "airtable:ActionGetRecord",
+                        "version": 3,
+                        "parameters": {
+                            "__IMTCONN__": 2456185
+                        },
+                        "mapper": {
+                            "id": "{{3.fld9Kzulkd4VSlILw[]}}",
+                            "base": "app4R2qm7WvWIFspd",
+                            "table": "tblurT4j6G1iHgQ6e",
+                            "useColumnId": false
+                        },
+                        "metadata": {
+                            "designer": {
+                                "x": 0,
+                                "y": 606,
+                                "name": "Find lecturers of course days",
+                                "messages": [
+                                    {
+                                        "category": "reference",
+                                        "severity": "warning",
+                                        "message": "Referenced module 'Airtable - Search Records' [3] is not accessible."
+                                    },
+                                    {
+                                        "category": "link",
+                                        "severity": "warning",
+                                        "message": "The module is not connected to the data flow."
+                                    }
+                                ]
+                            },
+                            "restore": {
+                                "expect": {
+                                    "base": {
+                                        "mode": "chose",
+                                        "label": "NetZero Academy Courses"
+                                    },
+                                    "table": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "useColumnId": {
+                                        "mode": "chose"
+                                    }
+                                },
+                                "parameters": {
+                                    "__IMTCONN__": {
+                                        "data": {
+                                            "scoped": "true",
+                                            "connection": "airtable2"
+                                        },
+                                        "label": "MD Airtable Token connection"
+                                    }
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "__IMTCONN__",
+                                    "type": "account:airtable3,airtable2",
+                                    "label": "Connection",
+                                    "required": true
+                                }
+                            ],
+                            "expect": [
+                                {
+                                    "name": "base",
+                                    "type": "select",
+                                    "label": "Base",
+                                    "required": true
+                                },
+                                {
+                                    "name": "useColumnId",
+                                    "type": "boolean",
+                                    "label": "Use Column ID",
+                                    "required": true
+                                },
+                                {
+                                    "name": "table",
+                                    "type": "select",
+                                    "label": "Table",
+                                    "required": true
+                                },
+                                {
+                                    "name": "id",
+                                    "type": "text",
+                                    "label": "Record ID",
+                                    "required": true
+                                }
+                            ],
+                            "interface": [
+                                {
+                                    "name": "id",
+                                    "type": "text",
+                                    "label": "ID"
+                                },
+                                {
+                                    "name": "createdTime",
+                                    "type": "date",
+                                    "label": "Created Time"
+                                },
+                                {
+                                    "name": "User",
+                                    "type": "text",
+                                    "label": "User",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "Name",
+                                    "type": "text",
+                                    "label": "Name"
+                                },
+                                {
+                                    "name": "Phone",
+                                    "type": "text",
+                                    "label": "Phone"
+                                },
+                                {
+                                    "name": "E-Mail",
+                                    "type": "text",
+                                    "label": "E-Mail"
+                                },
+                                {
+                                    "name": "E-Mail_softr",
+                                    "type": "text",
+                                    "label": "E-Mail_softr"
+                                },
+                                {
+                                    "name": "Softr_check",
+                                    "type": "text",
+                                    "label": "Softr_check",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "Picture",
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        },
+                                        {
+                                            "name": "url",
+                                            "type": "url",
+                                            "label": "URL"
+                                        },
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "type": "uinteger",
+                                            "label": "Size"
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "MIME type"
+                                        },
+                                        {
+                                            "name": "thumbnails",
+                                            "spec": [
+                                                {
+                                                    "name": "small",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Small"
+                                                },
+                                                {
+                                                    "name": "large",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Large"
+                                                },
+                                                {
+                                                    "name": "full",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Full"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Thumbnails"
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "Picture"
+                                },
+                                {
+                                    "name": "Magic Link",
+                                    "type": "text",
+                                    "label": "Magic Link"
+                                },
+                                {
+                                    "name": "Role",
+                                    "type": "array",
+                                    "label": "Role",
+                                    "dynamic": true,
+                                    "editable": true
+                                },
+                                {
+                                    "name": "Company",
+                                    "type": "text",
+                                    "label": "Company"
+                                },
+                                {
+                                    "name": "Self_description",
+                                    "type": "text",
+                                    "label": "Self_description"
+                                },
+                                {
+                                    "name": "Member number",
+                                    "type": "text",
+                                    "label": "Member number",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "street_number",
+                                    "type": "text",
+                                    "label": "street_number"
+                                },
+                                {
+                                    "name": "PLZ",
+                                    "type": "text",
+                                    "label": "PLZ"
+                                },
+                                {
+                                    "name": "City",
+                                    "type": "text",
+                                    "label": "City"
+                                },
+                                {
+                                    "name": "Tel",
+                                    "type": "text",
+                                    "label": "Tel"
+                                },
+                                {
+                                    "name": "Webpage",
+                                    "type": "text",
+                                    "label": "Webpage"
+                                },
+                                {
+                                    "name": "Paid_course",
+                                    "type": "text",
+                                    "label": "Paid_course"
+                                },
+                                {
+                                    "name": "Area",
+                                    "type": "array",
+                                    "label": "Area",
+                                    "dynamic": true,
+                                    "editable": true
+                                },
+                                {
+                                    "name": "Education",
+                                    "type": "text",
+                                    "label": "Education"
+                                },
+                                {
+                                    "name": "Consulting_offering",
+                                    "type": "array",
+                                    "label": "Consulting_offering",
+                                    "dynamic": true,
+                                    "editable": true
+                                },
+                                {
+                                    "name": "Association",
+                                    "type": "array",
+                                    "label": "Association",
+                                    "dynamic": true,
+                                    "editable": true
+                                },
+                                {
+                                    "name": "Comment",
+                                    "type": "text",
+                                    "label": "Comment",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "Certificate",
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        },
+                                        {
+                                            "name": "url",
+                                            "type": "url",
+                                            "label": "URL"
+                                        },
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "type": "uinteger",
+                                            "label": "Size"
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "MIME type"
+                                        },
+                                        {
+                                            "name": "thumbnails",
+                                            "spec": [
+                                                {
+                                                    "name": "small",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Small"
+                                                },
+                                                {
+                                                    "name": "large",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Large"
+                                                },
+                                                {
+                                                    "name": "full",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Full"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Thumbnails"
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "Certificate"
+                                },
+                                {
+                                    "name": "Courses",
+                                    "type": "text",
+                                    "label": "Courses"
+                                },
+                                {
+                                    "name": "signed_contract",
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        },
+                                        {
+                                            "name": "url",
+                                            "type": "url",
+                                            "label": "URL"
+                                        },
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "type": "uinteger",
+                                            "label": "Size"
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "MIME type"
+                                        },
+                                        {
+                                            "name": "thumbnails",
+                                            "spec": [
+                                                {
+                                                    "name": "small",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Small"
+                                                },
+                                                {
+                                                    "name": "large",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Large"
+                                                },
+                                                {
+                                                    "name": "full",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Full"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Thumbnails"
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "signed_contract"
+                                },
+                                {
+                                    "name": "Interactions",
+                                    "type": "text",
+                                    "label": "Interactions"
+                                },
+                                {
+                                    "name": "Zertifikate",
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        },
+                                        {
+                                            "name": "url",
+                                            "type": "url",
+                                            "label": "URL"
+                                        },
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "type": "uinteger",
+                                            "label": "Size"
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "MIME type"
+                                        },
+                                        {
+                                            "name": "thumbnails",
+                                            "spec": [
+                                                {
+                                                    "name": "small",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Small"
+                                                },
+                                                {
+                                                    "name": "large",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Large"
+                                                },
+                                                {
+                                                    "name": "full",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Full"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Thumbnails"
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "Zertifikate"
+                                },
+                                {
+                                    "name": "230911_WG",
+                                    "type": "text",
+                                    "label": "230911_WG"
+                                },
+                                {
+                                    "name": "Status_lecturer",
+                                    "type": "text",
+                                    "label": "Status_lecturer"
+                                },
+                                {
+                                    "name": "Created",
+                                    "time": false,
+                                    "type": "date",
+                                    "label": "Created"
+                                },
+                                {
+                                    "name": "Given name",
+                                    "type": "text",
+                                    "label": "Given name",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "Last name",
+                                    "type": "text",
+                                    "label": "Last name",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "NZA_documents",
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        },
+                                        {
+                                            "name": "url",
+                                            "type": "url",
+                                            "label": "URL"
+                                        },
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "type": "uinteger",
+                                            "label": "Size"
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "MIME type"
+                                        },
+                                        {
+                                            "name": "thumbnails",
+                                            "spec": [
+                                                {
+                                                    "name": "small",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Small"
+                                                },
+                                                {
+                                                    "name": "large",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Large"
+                                                },
+                                                {
+                                                    "name": "full",
+                                                    "spec": [
+                                                        {
+                                                            "name": "url",
+                                                            "type": "url",
+                                                            "label": "URL"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Full"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Thumbnails"
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "NZA_documents"
+                                },
+                                {
+                                    "name": "Lernerfolgskontrolle",
+                                    "type": "text",
+                                    "label": "Lernerfolgskontrolle"
+                                },
+                                {
+                                    "name": "Interaction Count",
+                                    "type": "number",
+                                    "label": "Interaction Count"
+                                },
+                                {
+                                    "name": "Interaction Check",
+                                    "type": "boolean",
+                                    "label": "Interaction Check"
+                                },
+                                {
+                                    "name": "Rechnungsanfrage_schicken",
+                                    "type": "text",
+                                    "label": "Rechnungsanfrage_schicken"
+                                },
+                                {
+                                    "name": "Courses title",
+                                    "spec": {
+                                        "label": "Record ID"
+                                    },
+                                    "type": "array",
+                                    "label": "Courses title"
+                                },
+                                {
+                                    "name": "Kursblock",
+                                    "spec": {
+                                        "label": "Record ID"
+                                    },
+                                    "type": "array",
+                                    "label": "Kursblock"
+                                },
+                                {
+                                    "name": "All_Courses_overview_WG copy",
+                                    "type": "text",
+                                    "label": "All_Courses_overview_WG copy"
+                                },
+                                {
+                                    "name": "All_Courses_overview_NWG copy",
+                                    "type": "text",
+                                    "label": "All_Courses_overview_NWG copy"
+                                },
+                                {
+                                    "name": "Block",
+                                    "type": "array",
+                                    "label": "Block"
+                                },
+                                {
+                                    "name": "Tage",
+                                    "type": "array",
+                                    "label": "Tage"
+                                },
+                                {
+                                    "name": "Courses copy",
+                                    "type": "text",
+                                    "label": "Courses copy"
+                                },
+                                {
+                                    "name": "lectured_course",
+                                    "type": "text",
+                                    "label": "lectured_course"
+                                },
+                                {
+                                    "name": "view_profiles_as_doz",
+                                    "type": "text",
+                                    "label": "view_profiles_as_doz"
+                                },
+                                {
+                                    "name": "All_Courses_overview",
+                                    "type": "text",
+                                    "label": "All_Courses_overview"
+                                },
+                                {
+                                    "name": "customer_test",
+                                    "type": "text",
+                                    "label": "customer_test",
+                                    "multiline": true
+                                },
+                                {
+                                    "name": "Exam bookings",
+                                    "spec": {
+                                        "label": "Record ID"
+                                    },
+                                    "type": "array",
+                                    "label": "Exam bookings"
+                                },
+                                {
+                                    "name": "Meetings",
+                                    "spec": {
+                                        "label": "Record ID"
+                                    },
+                                    "type": "array",
+                                    "label": "Meetings"
+                                },
+                                {
+                                    "name": "Community_member",
+                                    "type": "text",
+                                    "label": "Community_member"
+                                },
+                                {
+                                    "name": "Send_mail",
+                                    "type": "text",
+                                    "label": "Send_mail"
+                                },
+                                {
+                                    "name": "Community_Login_Email",
+                                    "type": "text",
+                                    "label": "Community_Login_Email"
+                                },
+                                {
+                                    "name": "Lecturer Invoicing",
+                                    "spec": {
+                                        "label": "Record ID"
+                                    },
+                                    "type": "array",
+                                    "label": "Lecturer Invoicing"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 6,
+                        "module": "airtable:ActionSearchRecords",
+                        "version": 3,
+                        "parameters": {
+                            "__IMTCONN__": 2456185
+                        },
+                        "mapper": {
+                            "base": "app4R2qm7WvWIFspd",
+                            "table": "tblQB4zSwSXSmfiX1",
+                            "fields": [
+                                "Rating Dozent_num"
+                            ],
+                            "formula": "{Dozent}={{3.fld9Kzulkd4VSlILw}}",
+                            "maxRecords": "100",
+                            "useColumnId": false
+                        },
+                        "metadata": {
+                            "designer": {
+                                "x": 386,
+                                "y": 698,
+                                "messages": [
+                                    {
+                                        "category": "reference",
+                                        "severity": "warning",
+                                        "message": "Referenced module 'Airtable - Search Records' [3] is not accessible."
+                                    }
+                                ]
+                            },
+                            "restore": {
+                                "expect": {
+                                    "base": {
+                                        "mode": "chose",
+                                        "label": "NetZero Academy Courses"
+                                    },
+                                    "sort": {
+                                        "mode": "chose"
+                                    },
+                                    "view": {
+                                        "mode": "chose",
+                                        "label": "Empty"
+                                    },
+                                    "table": {
+                                        "mode": "chose",
+                                        "label": "Bewertung_Doz"
+                                    },
+                                    "fields": {
+                                        "mode": "chose",
+                                        "label": [
+                                            "Rating Dozent_num"
+                                        ]
+                                    },
+                                    "useColumnId": {
+                                        "mode": "chose"
+                                    }
+                                },
+                                "parameters": {
+                                    "__IMTCONN__": {
+                                        "data": {
+                                            "scoped": "true",
+                                            "connection": "airtable2"
+                                        },
+                                        "label": "MD Airtable Token connection"
+                                    }
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "__IMTCONN__",
+                                    "type": "account:airtable3,airtable2",
+                                    "label": "Connection",
+                                    "required": true
+                                }
+                            ],
+                            "expect": [
+                                {
+                                    "name": "base",
+                                    "type": "select",
+                                    "label": "Base",
+                                    "required": true
+                                },
+                                {
+                                    "name": "useColumnId",
+                                    "type": "boolean",
+                                    "label": "Use Column ID",
+                                    "required": true
+                                },
+                                {
+                                    "name": "table",
+                                    "type": "select",
+                                    "label": "Table",
+                                    "required": true
+                                },
+                                {
+                                    "name": "formula",
+                                    "type": "text",
+                                    "label": "Formula"
+                                },
+                                {
+                                    "name": "maxRecords",
+                                    "type": "integer",
+                                    "label": "Limit"
+                                },
+                                {
+                                    "name": "sort",
+                                    "spec": [
+                                        {
+                                            "name": "field",
+                                            "type": "select",
+                                            "label": "Field",
+                                            "dynamic": true,
+                                            "options": []
+                                        },
+                                        {
+                                            "name": "direction",
+                                            "type": "select",
+                                            "label": "Direction",
+                                            "options": [
+                                                {
+                                                    "label": "Descending",
+                                                    "value": "desc"
+                                                },
+                                                {
+                                                    "label": "Ascending",
+                                                    "value": "asc"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "Sort"
+                                },
+                                {
+                                    "name": "view",
+                                    "type": "select",
+                                    "label": "View"
+                                },
+                                {
+                                    "name": "fields",
+                                    "type": "select",
+                                    "label": "Output Fields",
+                                    "multiple": true
+                                }
+                            ],
+                            "interface": [
+                                {
+                                    "name": "__IMTLENGTH__",
+                                    "type": "uinteger",
+                                    "label": "Total number of bundles"
+                                },
+                                {
+                                    "name": "__IMTINDEX__",
+                                    "type": "uinteger",
+                                    "label": "Bundle order position"
+                                },
+                                {
+                                    "name": "id",
+                                    "type": "text",
+                                    "label": "ID"
+                                },
+                                {
+                                    "name": "createdTime",
+                                    "type": "date",
+                                    "label": "Created Time"
+                                },
+                                {
+                                    "name": "Rating Dozent_num",
+                                    "type": "text",
+                                    "label": "Rating Dozent_num"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            ]
+        },
+        "zone": "eu1.make.com"
+    }
+}
