@@ -567,7 +567,7 @@
                                                 "conditions": [
                                                     [
                                                         {
-                                                            "a": "{{3.Grand_total}}",
+                                                            "a": "{{3.fldizB43KLduxuftD}}",
                                                             "o": "text:notequal",
                                                             "b": "{{1.fldauTi0zUzUUMQID}}"
                                                         }
