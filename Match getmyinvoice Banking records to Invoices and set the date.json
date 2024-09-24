@@ -12571,14 +12571,14 @@
                                 "conditions": []
                             },
                             "mapper": {
-                                "base": "appIW2NHG67L20Pxm",
-                                "typecast": false,
-                                "useColumnId": true,
-                                "table": "tblrxVQzWpoKXDhnV",
                                 "id": "{{1.id}}",
+                                "base": "appIW2NHG67L20Pxm",
+                                "table": "tblrxVQzWpoKXDhnV",
                                 "record": {
                                     "fldchmwWd4JXOmG3D": "ERROR"
-                                }
+                                },
+                                "typecast": false,
+                                "useColumnId": true
                             },
                             "metadata": {
                                 "designer": {
@@ -12587,24 +12587,9 @@
                                     "name": "banking record: status 'ERROR'"
                                 },
                                 "restore": {
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "label": "MD Airtable Token connection",
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "airtable2"
-                                            }
-                                        }
-                                    },
                                     "expect": {
                                         "base": {
                                             "label": "NetZero Academy"
-                                        },
-                                        "typecast": {
-                                            "mode": "chose"
-                                        },
-                                        "useColumnId": {
-                                            "mode": "chose"
                                         },
                                         "table": {
                                             "label": "getmyinvoice Banking"
@@ -12616,6 +12601,21 @@
                                                     "label": "ERROR"
                                                 }
                                             }
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "MD Airtable Token connection"
                                         }
                                     }
                                 },
@@ -12660,8 +12660,6 @@
                                     },
                                     {
                                         "name": "record",
-                                        "type": "collection",
-                                        "label": "Record",
                                         "spec": [
                                             {
                                                 "name": "fldUrKY6v6XajS9Hy",
@@ -12669,10 +12667,10 @@
                                                 "label": "transactionUid"
                                             },
                                             {
+                                                "mode": "edit",
                                                 "name": "fldchmwWd4JXOmG3D",
                                                 "type": "select",
-                                                "label": "AT status",
-                                                "mode": "edit"
+                                                "label": "AT status"
                                             },
                                             {
                                                 "name": "fld5RlyxelpPgS20D",
@@ -12739,7 +12737,9 @@
                                                 "type": "text",
                                                 "label": "SDCustomerNumber"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
                                     }
                                 ],
                                 "interface": [
@@ -12755,84 +12755,82 @@
                                     },
                                     {
                                         "name": "fldUrKY6v6XajS9Hy",
-                                        "label": "transactionUid",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "transactionUid"
                                     },
                                     {
                                         "name": "fldchmwWd4JXOmG3D",
-                                        "label": "AT status",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "AT status"
                                     },
                                     {
                                         "name": "fld5RlyxelpPgS20D",
-                                        "label": "Comment",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "Comment"
                                     },
                                     {
                                         "name": "fldDpe9TJwfUgjAbr",
-                                        "label": "bankAccountUid",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "bankAccountUid"
                                     },
                                     {
                                         "name": "flddYxwwZmlYMHt2Z",
-                                        "label": "bookingDate",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "bookingDate"
                                     },
                                     {
                                         "name": "fld4rPCNdtYTZDuFq",
-                                        "label": "description",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "description"
                                     },
                                     {
                                         "name": "fldPcT5S5KnldpEVA",
-                                        "label": "Invoice number",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "Invoice number"
                                     },
                                     {
                                         "name": "fldauTi0zUzUUMQID",
-                                        "label": "amount",
-                                        "type": "number"
+                                        "type": "number",
+                                        "label": "amount"
                                     },
                                     {
                                         "name": "fldHEyfErJZud5iTD",
-                                        "label": "currencyCode",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "currencyCode"
                                     },
                                     {
                                         "name": "fld7iwVsYyQWtNjsk",
-                                        "label": "accountName",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "accountName"
                                     },
                                     {
                                         "name": "fld6eyLRaaTYA4YDR",
-                                        "label": "status",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "status"
                                     },
                                     {
                                         "name": "fldI4G9Yt6SKiTHXu",
-                                        "label": "creditorId",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "creditorId"
                                     },
                                     {
                                         "name": "fldDDz29rDZqkWNOO",
-                                        "label": "paymentPartnerName",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "paymentPartnerName"
                                     },
                                     {
                                         "name": "fld6Znil4Fyp78Ioh",
-                                        "label": "tags",
                                         "type": "text",
+                                        "label": "tags",
                                         "multiline": true
                                     },
                                     {
                                         "name": "fldSdqUZKrMTUkIyo",
-                                        "label": "Created",
-                                        "type": "date"
+                                        "type": "date",
+                                        "label": "Created"
                                     },
                                     {
                                         "name": "fldeU3sxiaKXunjGr",
-                                        "label": "Created By",
-                                        "type": "collection",
                                         "spec": [
                                             {
                                                 "name": "id",
@@ -12849,22 +12847,24 @@
                                                 "type": "text",
                                                 "label": "Name"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Created By"
                                     },
                                     {
                                         "name": "fldrV1WQSV73uQn7b",
-                                        "label": "SDCustomerNumber",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "SDCustomerNumber"
                                     },
                                     {
                                         "name": "fldfGmoh6eGq9gFBV",
-                                        "label": "recordID",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "recordID"
                                     },
                                     {
                                         "name": "fldyMiE08odqxAUU4",
-                                        "label": "Last Modified",
-                                        "type": "date"
+                                        "type": "date",
+                                        "label": "Last Modified"
                                     }
                                 ],
                                 "advanced": true
@@ -12880,8 +12880,8 @@
                             "mapper": {
                                 "select": "channel",
                                 "content": "DEBUG: getmyinvoice banking found no invoice and amount is negative -> \"ERROR\":\n{{38.fldDDz29rDZqkWNOO}}: {{38.fld4rPCNdtYTZDuFq}} {{38.fldauTi0zUzUUMQID}} {{38.fldHEyfErJZud5iTD}}\n\nURL: airtable.com/appIW2NHG67L20Pxm/tblrxVQzWpoKXDhnV/viwkL9PPux24MFq0i/{{1.id}}",
-                                "message_reference": {},
-                                "channelId": "1212429146635116574"
+                                "channelId": "1212429146635116574",
+                                "message_reference": {}
                             },
                             "metadata": {
                                 "designer": {
@@ -12890,37 +12890,37 @@
                                     "name": "Error message"
                                 },
                                 "restore": {
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "label": "New Discord Connection 2024118 (Make (team1278341651986911253))",
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "discord"
-                                            }
-                                        }
-                                    },
                                     "expect": {
-                                        "select": {
-                                            "label": "Send a Message to a Channel"
-                                        },
                                         "tts": {
-                                            "mode": "chose"
-                                        },
-                                        "embeds": {
-                                            "mode": "chose"
-                                        },
-                                        "sticker_ids": {
-                                            "mode": "chose"
-                                        },
-                                        "components": {
                                             "mode": "chose"
                                         },
                                         "files": {
                                             "mode": "chose"
                                         },
+                                        "embeds": {
+                                            "mode": "chose"
+                                        },
+                                        "select": {
+                                            "label": "Send a Message to a Channel"
+                                        },
                                         "channelId": {
                                             "mode": "chose",
                                             "label": "automations"
+                                        },
+                                        "components": {
+                                            "mode": "chose"
+                                        },
+                                        "sticker_ids": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "discord"
+                                            },
+                                            "label": "New Discord Connection 2024118 (Make (team1278341651986911253))"
                                         }
                                     }
                                 },
@@ -12958,8 +12958,6 @@
                                     },
                                     {
                                         "name": "embeds",
-                                        "type": "array",
-                                        "label": "Embeds",
                                         "spec": [
                                             {
                                                 "name": "title",
@@ -13155,12 +13153,12 @@
                                                 "type": "array",
                                                 "label": "Fields"
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Embeds"
                                     },
                                     {
                                         "name": "sticker_ids",
-                                        "type": "array",
-                                        "label": "Stickers",
                                         "spec": [
                                             {
                                                 "name": "id",
@@ -13168,12 +13166,12 @@
                                                 "label": "Sticker ID",
                                                 "required": true
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Stickers"
                                     },
                                     {
                                         "name": "components",
-                                        "type": "array",
-                                        "label": "Components",
                                         "spec": [
                                             {
                                                 "name": "type",
@@ -13367,12 +13365,12 @@
                                                 ],
                                                 "required": true
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Components"
                                     },
                                     {
                                         "name": "files",
-                                        "type": "array",
-                                        "label": "Files",
                                         "spec": [
                                             {
                                                 "name": "filename",
@@ -13388,19 +13386,21 @@
                                                 "required": true,
                                                 "semantic": "file:data"
                                             }
-                                        ]
+                                        ],
+                                        "type": "array",
+                                        "label": "Files"
                                     },
                                     {
                                         "name": "message_reference",
-                                        "type": "collection",
-                                        "label": "Message Reference",
                                         "spec": [
                                             {
                                                 "name": "message_id",
                                                 "type": "text",
                                                 "label": "Message ID"
                                             }
-                                        ]
+                                        ],
+                                        "type": "collection",
+                                        "label": "Message Reference"
                                     },
                                     {
                                         "name": "channelId",
@@ -13428,13 +13428,13 @@
                                     [
                                         {
                                             "a": "{{1.fldauTi0zUzUUMQID}}",
-                                            "o": "number:less",
-                                            "b": "0"
+                                            "b": "0",
+                                            "o": "number:less"
                                         },
                                         {
                                             "a": "{{14.sdCustomerNumberOrInvoiceNumber}}",
-                                            "o": "text:equal",
-                                            "b": ""
+                                            "b": "",
+                                            "o": "text:equal"
                                         }
                                     ]
                                 ]
