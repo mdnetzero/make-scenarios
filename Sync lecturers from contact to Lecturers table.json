@@ -1,0 +1,3567 @@
+{
+    "name": "Sync lecturers from contact to Lecturers table",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "base": "appIW2NHG67L20Pxm",
+                "view": "viwTSNyU9XYVVOIaa",
+                "table": "tbl2s7VdViMuULHP5",
+                "config": {
+                    "labelField": "Name",
+                    "triggerField": "Last change"
+                },
+                "formula": "",
+                "maxRecords": 100,
+                "__IMTCONN__": 2456185,
+                "useColumnId": true
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0,
+                    "name": "Watch Contacts in View Lecturers"
+                },
+                "restore": {
+                    "parameters": {
+                        "base": {
+                            "label": "NetZero Academy"
+                        },
+                        "view": {
+                            "label": "Lecturers View"
+                        },
+                        "table": {
+                            "label": "Contacts"
+                        },
+                        "config": {
+                            "nested": {
+                                "labelField": {
+                                    "label": "Name"
+                                },
+                                "triggerField": {
+                                    "label": "Last change"
+                                }
+                            }
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Trigger configuration"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "fld6jo9M5hKVGaIq5",
+                        "type": "text",
+                        "label": "Name"
+                    },
+                    {
+                        "name": "fldlsjLXlQ6itcUmf",
+                        "type": "text",
+                        "label": "Vorname"
+                    },
+                    {
+                        "name": "flda4rVNt7GcdEYmt",
+                        "type": "text",
+                        "label": "Nachname"
+                    },
+                    {
+                        "name": "fldHBuJr5eDm5ILre",
+                        "type": "text",
+                        "label": "E-Mail"
+                    },
+                    {
+                        "name": "fldZj5RhbNPbHIujE",
+                        "type": "text",
+                        "label": "Phone"
+                    },
+                    {
+                        "name": "fldFZMVQwP4IoPPBh",
+                        "type": "array",
+                        "label": "Role",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldybdEPh269Hnk0c",
+                        "type": "text",
+                        "label": "Status Manual"
+                    },
+                    {
+                        "name": "fldooi9K0XaOckoUl",
+                        "type": "text",
+                        "label": "Start FS"
+                    },
+                    {
+                        "name": "fldbiVAjotejSifC3",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Courses"
+                    },
+                    {
+                        "name": "fldoqEmEwo0z4dkup",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Courses_offered"
+                    },
+                    {
+                        "name": "fldFFco9aQfVpyNJz",
+                        "type": "text",
+                        "label": "Stripe_priceID"
+                    },
+                    {
+                        "name": "fldWDWbyzkDZSW5zv",
+                        "type": "text",
+                        "label": "Courses_link"
+                    },
+                    {
+                        "name": "fldTe9zoPrlV9iwPI",
+                        "type": "array",
+                        "label": "ask_membership_community",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldey1nfTv4v9loIJ",
+                        "type": "text",
+                        "label": "Calculation"
+                    },
+                    {
+                        "name": "fldReAFzePmnqyas3",
+                        "type": "date",
+                        "label": "Created"
+                    },
+                    {
+                        "name": "fldjJQZhBih4Kuap3",
+                        "type": "text",
+                        "label": "Questionnaire"
+                    },
+                    {
+                        "name": "fldAlMvPdbq3Og061",
+                        "type": "number",
+                        "label": "Interactions count"
+                    },
+                    {
+                        "name": "fldjZTsE2iqLox9Ct",
+                        "type": "boolean",
+                        "label": "contact_via_careerpaths_download"
+                    },
+                    {
+                        "name": "fldPp5kufpnzfQ91D",
+                        "type": "boolean",
+                        "label": "call_back_booking"
+                    },
+                    {
+                        "name": "fldO9NwJa1VWqurSh",
+                        "type": "boolean",
+                        "label": "Send automated reply to request for call back booking"
+                    },
+                    {
+                        "name": "fldN7f3ESHFxsryST",
+                        "type": "date",
+                        "label": "Career Path e-mail sent out"
+                    },
+                    {
+                        "name": "fldrwAa0svRHzm4Pf",
+                        "type": "text",
+                        "label": "street_and_number"
+                    },
+                    {
+                        "name": "fld40VBYTzWkmodKO",
+                        "type": "text",
+                        "label": "PLZ"
+                    },
+                    {
+                        "name": "fldIEKl4JcJoFJVGz",
+                        "type": "text",
+                        "label": "location"
+                    },
+                    {
+                        "name": "fldG0ItIYVquMpeL4",
+                        "type": "text",
+                        "label": "comment_transfer",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldkCI6dvjPwpxFrD",
+                        "type": "text",
+                        "label": "PLZ_location"
+                    },
+                    {
+                        "name": "fldACnM1cqPHuWki9",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Users"
+                    },
+                    {
+                        "name": "fldW9ArwQ3Yzt29tg",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Profile_picture"
+                    },
+                    {
+                        "name": "fldILeJYlRQ4IQBoB",
+                        "type": "text",
+                        "label": "Website"
+                    },
+                    {
+                        "name": "fldWU7Y3HhH1R14zw",
+                        "type": "text",
+                        "label": "Education specification",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldJq9jKHSHlvCuwS",
+                        "type": "text",
+                        "label": "Comment",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldO5k7XnDd8kzUxH",
+                        "type": "array",
+                        "label": "Association",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldmumf1bmMtFMs1C",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "company"
+                    },
+                    {
+                        "name": "fldgnPHbImkURgXaf",
+                        "type": "array",
+                        "label": "membership_number"
+                    },
+                    {
+                        "name": "fldbAh6GJfBoze6tN",
+                        "time": false,
+                        "type": "date",
+                        "label": "Next follow up"
+                    },
+                    {
+                        "name": "fld8ARere3Nc0Ko7r",
+                        "type": "number",
+                        "label": "Stripe_amount"
+                    },
+                    {
+                        "name": "fldBUKjAEBuGolqLS",
+                        "type": "boolean",
+                        "label": "contact_via_webinar_download"
+                    },
+                    {
+                        "name": "fldcomN6OPHTbbgko",
+                        "type": "date",
+                        "label": "date_call_back_booking"
+                    },
+                    {
+                        "name": "fld4KqcrvAQTcKhnU",
+                        "type": "date",
+                        "label": "date_careerpath_download"
+                    },
+                    {
+                        "name": "fldzsV2dTKmU8k8FE",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Attachment"
+                    },
+                    {
+                        "name": "fldlq4xHWE83ukFre",
+                        "type": "array",
+                        "label": "Paid Course"
+                    },
+                    {
+                        "name": "fldijr746QjTt4fM7",
+                        "type": "uinteger",
+                        "label": "Feedback_rating_webinar",
+                        "validate": {
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "fldfbkpNU4LubamDh",
+                        "type": "text",
+                        "label": "Feedback_webinar_comment",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldr4vZIQP9GMGxVU",
+                        "type": "text",
+                        "label": "Feedback_kwk_mail"
+                    },
+                    {
+                        "name": "fld4ItYjPo0pbbuvz",
+                        "type": "boolean",
+                        "label": "Feedback_voucher_sent"
+                    },
+                    {
+                        "name": "fld4566XFsdzLdLUK",
+                        "type": "boolean",
+                        "label": "request_newsletter"
+                    },
+                    {
+                        "name": "fldPSfUa91KjGy2cN",
+                        "type": "text",
+                        "label": "responsible"
+                    },
+                    {
+                        "name": "fldSqeqzoAobh1Gwd",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Created By"
+                    },
+                    {
+                        "name": "fldBohTkFqa9qnWPr",
+                        "type": "text",
+                        "label": "Anrede"
+                    },
+                    {
+                        "name": "fldVJ5t6wUqbGLFib",
+                        "type": "text",
+                        "label": "Channel"
+                    },
+                    {
+                        "name": "fldqa2feXcsmJHFD5",
+                        "type": "boolean",
+                        "label": "AGB_accepted"
+                    },
+                    {
+                        "name": "fldhxqFDJiJ00oCD8",
+                        "type": "boolean",
+                        "label": "Share_Profile_in_Course"
+                    },
+                    {
+                        "name": "fldvEAyPWFX2KDpty",
+                        "type": "text",
+                        "label": "Requests_Students"
+                    },
+                    {
+                        "name": "fldneYXUzGzuXvCJc",
+                        "type": "text",
+                        "label": "Send_mail"
+                    },
+                    {
+                        "name": "fldf4WHqzPJ0LDuZz",
+                        "type": "boolean",
+                        "label": "Share_Profile_Dozent"
+                    },
+                    {
+                        "name": "fldt1NElf4UeluMiT",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Certificate"
+                    },
+                    {
+                        "name": "fldCmjCULatTU8F9B",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Generate Certificate"
+                    },
+                    {
+                        "name": "fldnz1RXOKBmDvLeu",
+                        "type": "text",
+                        "label": "date_euroean"
+                    },
+                    {
+                        "name": "fldzgT2rPVtB0UIrK",
+                        "type": "text",
+                        "label": "Magic_Link_Softr"
+                    },
+                    {
+                        "name": "fldVlnvD2CB6Gk3qX",
+                        "type": "text",
+                        "label": "WG_Welcome_Email_senden copy"
+                    },
+                    {
+                        "name": "fldQiTkGs807LTgHk",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "leitfaden_studi"
+                    },
+                    {
+                        "name": "fldCaUmuRlsmwFwaP",
+                        "type": "text",
+                        "label": "Gesamtfeedback_senden"
+                    },
+                    {
+                        "name": "fldAltVWHKMCqgTNt",
+                        "time": false,
+                        "type": "date",
+                        "label": "date_of_birth"
+                    },
+                    {
+                        "name": "fldbyRkuUJLjAwEWR",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Contact Interaction"
+                    },
+                    {
+                        "name": "fldAmiY8rduy0yFy6",
+                        "type": "text",
+                        "label": "Notes",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldkmD6HIWVPjum18",
+                        "type": "text",
+                        "label": "Contact_via_page"
+                    },
+                    {
+                        "name": "fldpy9LgXbPInqJxR",
+                        "type": "boolean",
+                        "label": "Data Privacy accepted"
+                    },
+                    {
+                        "name": "fldwaf5oI7IHJq6JU",
+                        "type": "array",
+                        "label": "Consulting offering",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fld2aQgLjjZX0JRNe",
+                        "type": "text",
+                        "label": "Self_description",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldsVsFrdMNbmVIom",
+                        "type": "text",
+                        "label": "Probeprüfung"
+                    },
+                    {
+                        "name": "fldQXZ9ZCKV6pYhOh",
+                        "type": "text",
+                        "label": "Probeprüfung copy"
+                    },
+                    {
+                        "name": "fldvHpgqT44Ba0bu1",
+                        "type": "boolean",
+                        "label": "Comment Check"
+                    },
+                    {
+                        "name": "fld96KbRPYrO7XNju",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Erstellen_cert_WG"
+                    },
+                    {
+                        "name": "fldFoFAhO6V8wmzlR",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Courses_lecturer"
+                    },
+                    {
+                        "name": "fld2XyTB6NY3Er5jX",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Courses_softr_rsvp"
+                    },
+                    {
+                        "name": "fldh2iLyNMvwzaVHA",
+                        "type": "array",
+                        "label": "Course_Start"
+                    },
+                    {
+                        "name": "fldMd4cqjkIuM8tw9",
+                        "type": "text",
+                        "label": "Days_to_start"
+                    },
+                    {
+                        "name": "fldL24Lt4G9uXO2tI",
+                        "type": "boolean",
+                        "label": "ID check"
+                    },
+                    {
+                        "name": "fldIwfVCxIJoR5pfy",
+                        "type": "array",
+                        "label": "Fortbildungscalender_code"
+                    },
+                    {
+                        "name": "fldTGKh7Kpdh43RCs",
+                        "type": "text",
+                        "label": "today"
+                    },
+                    {
+                        "name": "fldjX8is2VHOJeX3O",
+                        "type": "text",
+                        "label": "doc_name"
+                    },
+                    {
+                        "name": "fldsjHApuqK03ZHCM",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Delete"
+                    },
+                    {
+                        "name": "fldHNG3XSGSMKIQdf",
+                        "type": "text",
+                        "label": "Automated_Send_marketing_email"
+                    },
+                    {
+                        "name": "fldqqDGjDNhDHbv5T",
+                        "type": "array",
+                        "label": "Bereits Kunde?"
+                    },
+                    {
+                        "name": "fldwzjB7JpABsGPeQ",
+                        "type": "text",
+                        "label": "Basis_Welcome_Email_senden"
+                    },
+                    {
+                        "name": "fldigRZHIcNdsSDsA",
+                        "type": "text",
+                        "label": "NWG_Welcome_Email_senden"
+                    },
+                    {
+                        "name": "fldKUsHs5e2sUtULQ",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Certificate_THG_Seminars"
+                    },
+                    {
+                        "name": "fld1vHQSQLJdEy4an",
+                        "type": "text",
+                        "label": "Stripe_voucher"
+                    },
+                    {
+                        "name": "fldK7OvYJJua04N8i",
+                        "type": "boolean",
+                        "label": "Nimmt teil"
+                    },
+                    {
+                        "name": "fldo7Kd3lLxvljOdS",
+                        "type": "boolean",
+                        "label": "Ist da"
+                    },
+                    {
+                        "name": "fldmFVkm3aPBTzdOB",
+                        "type": "boolean",
+                        "label": "ISFP da"
+                    },
+                    {
+                        "name": "fldUPbYCPIJcPTH4J",
+                        "type": "date",
+                        "label": "Last change"
+                    },
+                    {
+                        "name": "fldw2VFeYyIaL7TgS",
+                        "type": "boolean",
+                        "label": "VIP"
+                    },
+                    {
+                        "name": "fldKBw4S0z6LMi74b",
+                        "type": "text",
+                        "label": "Name_Email"
+                    },
+                    {
+                        "name": "fld7ncxkIeXoIvKJ4",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Invoices 2"
+                    },
+                    {
+                        "name": "fld9FresWIuClbeBQ",
+                        "type": "array",
+                        "label": "Company_street_and_number"
+                    },
+                    {
+                        "name": "fldTfGJUnuYZ19tFG",
+                        "type": "array",
+                        "label": "Company_PLZ"
+                    },
+                    {
+                        "name": "fld70SGKKoVHZ4edJ",
+                        "type": "array",
+                        "label": "Company_City"
+                    },
+                    {
+                        "name": "fldlkvaL2x2Qty423",
+                        "type": "boolean",
+                        "label": "check"
+                    },
+                    {
+                        "name": "fldkLkjTpqWPSWrgd",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Certificate_WP_Seminars"
+                    },
+                    {
+                        "name": "fldGsdYSQx9fjqkMy",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Erstellen_participation_cert"
+                    },
+                    {
+                        "name": "fldyU6ToUyK57BAgm",
+                        "type": "array",
+                        "label": "Expertise_GEG B1",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldUT9RlCvv6cFZGE",
+                        "type": "array",
+                        "label": "Expertise_Bestandsaufnahme B2",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldJ5QetaRZrf8bNj",
+                        "type": "array",
+                        "label": "Expertise_Gebaeudehuelle B3",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fld7q0VC1hPtpVIa0",
+                        "type": "array",
+                        "label": "Expertise_Anlagen B4",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldd1nnJwCTlzt19k",
+                        "type": "array",
+                        "label": "Expertise_RLT B5",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldAoqHrDf0QbafYs",
+                        "type": "array",
+                        "label": "Expertise_Beleuchtung B6",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldiiCeB2mvPr9uwK",
+                        "type": "array",
+                        "label": "Expertise_Erneuerbare B7",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldN3jhOaUAyGKPew",
+                        "type": "array",
+                        "label": "Expertise_Bilanzierung B8",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fld2dOPIM6Scm9uhp",
+                        "type": "array",
+                        "label": "Expertise_Beratung B9",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldoHqzZyGcDonEdq",
+                        "type": "array",
+                        "label": "Expertise_Hottgenroth",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldQfmZO3b6QSFpGm",
+                        "type": "array",
+                        "label": "Expertise_Evebi",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldhltuNMe6LZizeu",
+                        "type": "text",
+                        "label": "Education level"
+                    },
+                    {
+                        "name": "fldRbXp0JJ1PXukEV",
+                        "type": "boolean",
+                        "label": "Confirmed course prerequisits"
+                    },
+                    {
+                        "name": "fldgCpt7u5Q77wciD",
+                        "type": "array",
+                        "label": "Community_member (from Users)"
+                    },
+                    {
+                        "name": "fld3t4vBkZcA02k5k",
+                        "time": false,
+                        "type": "date",
+                        "label": "Frist"
+                    },
+                    {
+                        "name": "fldWREj9UZSSjq0K9",
+                        "type": "text",
+                        "label": "Reason for Loss"
+                    },
+                    {
+                        "name": "fldjcgu5Ce1owOjEs",
+                        "time": false,
+                        "type": "date",
+                        "label": "When_follow_up"
+                    },
+                    {
+                        "name": "fldmiRhbnOg0u8Bzv",
+                        "type": "text",
+                        "label": "contact_via"
+                    },
+                    {
+                        "name": "fldg4LriFYhTCzj7t",
+                        "type": "text",
+                        "label": "recordID"
+                    },
+                    {
+                        "name": "fld46Sr805Zc8NAVn",
+                        "type": "text",
+                        "label": "Age"
+                    },
+                    {
+                        "name": "fld8eKE3eVxr91DOo",
+                        "type": "text",
+                        "label": "Age Group"
+                    },
+                    {
+                        "name": "fldksW6ym3fRDHg56",
+                        "type": "array",
+                        "label": "Education group",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "fldMmIfchnLkYraYX",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "SDContact"
+                    },
+                    {
+                        "name": "fldufsmSw51F7h78U",
+                        "type": "text",
+                        "label": "Terminates Community Membership to the"
+                    },
+                    {
+                        "name": "fldDa2UC8GeFmDS3f",
+                        "type": "boolean",
+                        "label": "request_§88GEG_Classification"
+                    },
+                    {
+                        "name": "fldFSOgkgUlw9b4dG",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "documents_for_§88Check"
+                    },
+                    {
+                        "name": "fldYMg0m0pbPxPE2T",
+                        "type": "text",
+                        "label": "Automation trigger"
+                    },
+                    {
+                        "name": "fld542zkxsECGWU97",
+                        "type": "array",
+                        "label": "SDCustomerNumber (from SDContact)"
+                    },
+                    {
+                        "name": "flddG13PrZyfa3s5q",
+                        "type": "array",
+                        "label": "offer_Invoice_status (from Invoices 2)"
+                    },
+                    {
+                        "name": "fldsHfBh6NCo2LafX",
+                        "type": "array",
+                        "label": "SDCustomerNumber (from CompanyDB)"
+                    },
+                    {
+                        "name": "fld1rtKrfps6bn5Dl",
+                        "type": "array",
+                        "label": "sevDesk Contact ID (from SDContact)"
+                    },
+                    {
+                        "name": "fldvHGbXiWR40wcNh",
+                        "type": "boolean",
+                        "label": "Send Info to person with tel"
+                    },
+                    {
+                        "name": "fld09Ox3LtOblIU5Y",
+                        "type": "text",
+                        "label": "Softr_offer_request_link"
+                    },
+                    {
+                        "name": "flduGBOiUzdmoMTOR",
+                        "type": "text",
+                        "label": "tmp"
+                    },
+                    {
+                        "name": "fld7AqBSIR8eRXIHw",
+                        "type": "text",
+                        "label": "Team für EA"
+                    },
+                    {
+                        "name": "fldrEwNYvkjBUu0UW",
+                        "type": "text",
+                        "label": "Tag für EA"
+                    },
+                    {
+                        "name": "fld09Oc7Z4gKhQF7l",
+                        "type": "boolean",
+                        "label": "WP Unterlage erhalten?"
+                    },
+                    {
+                        "name": "fldMResNYZDzniFmx",
+                        "type": "text",
+                        "label": "MetaLeadID"
+                    },
+                    {
+                        "name": "fldH3HIm4UjEYg4YN",
+                        "type": "array",
+                        "label": "sevDesk Contact ID (from company)"
+                    },
+                    {
+                        "name": "fld9MtjVZwojNWcub",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Certificates"
+                    },
+                    {
+                        "name": "fldZCwKMMYjEgUiNk",
+                        "type": "text",
+                        "label": "Lecturer Invoicing"
+                    },
+                    {
+                        "name": "fldFASh4vZvLkGtwn",
+                        "type": "text",
+                        "label": "Job_Title"
+                    },
+                    {
+                        "name": "flddB5ckISpnlWztz",
+                        "type": "text",
+                        "label": "LinkedIn Link"
+                    },
+                    {
+                        "name": "fldYJyT7u1gNIYCAM",
+                        "type": "boolean",
+                        "label": "Send Mail to First_Follow_Up_Conducted_People"
+                    },
+                    {
+                        "name": "fld2QlQ3HNHpNbmbl",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Invoices"
+                    },
+                    {
+                        "name": "fldgeDQe27LNevquq",
+                        "type": "array",
+                        "label": "Net value (from Invoices)"
+                    },
+                    {
+                        "name": "fld5eSS6gND5NbddA",
+                        "type": "boolean",
+                        "label": "Erreicht"
+                    },
+                    {
+                        "name": "fldjiaW0R7ZiB2BU1",
+                        "type": "text",
+                        "label": "Channel aus Profil"
+                    },
+                    {
+                        "name": "fld7BpQu1cA6P6fHI",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Lecturers"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 4,
+            "module": "airtable:ActionGetRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "appIW2NHG67L20Pxm",
+                "useColumnId": true,
+                "table": "tblm52uyzUsV7kzXo",
+                "id": "{{1.fldACnM1cqPHuWki9[]}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "Load user to check Status_lecturer"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Users"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "fld3zhhwmYnVqKgjX",
+                        "label": "User",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldesirmZcu49Nhln",
+                        "label": "Name",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "fld1AHJVdx5raLcr7",
+                        "label": "Phone",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld6sSyj8nNGpyUDR",
+                        "label": "E-Mail",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldmViURZuATNZQVj",
+                        "label": "E-Mail_softr",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldrgsuN1Z5zc3nP4",
+                        "label": "Softr_check",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldf2LQp0QWTE7z3A",
+                        "label": "Picture",
+                        "type": "array",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fld9JP7nHBwBx3PQv",
+                        "label": "Magic Link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldNDT1WBlqbECBo8",
+                        "label": "Role",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldERslOBhMWf6St2",
+                        "label": "Company",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldv9QKZvlAtnhhCx",
+                        "label": "Self_description",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldB2eyj6ZTQEnwgw",
+                        "label": "Member number",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldhlUNWMzVRj1qTq",
+                        "label": "customer_test",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldvDmsW6NTJZuErA",
+                        "label": "street_number",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld5J5byQUP0ynsXf",
+                        "label": "PLZ",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldhygHNzXDLHHznJ",
+                        "label": "City",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldYKMfcSASGHKyby",
+                        "label": "Tel",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldx34Nm5PuhQAwK8",
+                        "label": "Webpage",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld4GZvS6Ipeyb2u9",
+                        "label": "Paid_course",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld3LgVaHTK1RtUXh",
+                        "label": "Area",
+                        "type": "array",
+                        "editable": true,
+                        "dynamic": true
+                    },
+                    {
+                        "name": "fldcznqwR6gGt1Bm4",
+                        "label": "Education",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldCYi99W5pPrprga",
+                        "label": "Consulting_offering",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldZs20IuIubZyzIP",
+                        "label": "Association",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldRfmEOQ49haiTnF",
+                        "label": "Comment",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "fldgV0w7KRumnvwXA",
+                        "label": "lectured_course",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld5UdE0aHgVOUBhB",
+                        "label": "Status_lecturer",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldO0CaauQ9pTJ4es",
+                        "label": "Created",
+                        "type": "date"
+                    },
+                    {
+                        "name": "fldIsUFtI2uPElkWM",
+                        "label": "Certificate",
+                        "type": "array",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fldqzGvSu6wZdsz28",
+                        "label": "Dozentenbescheinigung",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fldlzWkrcf2XHBRRC",
+                        "label": "Send_mail",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldILvI7eIO4G5F1x",
+                        "label": "Courses",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld04Oc5NDxLe6lBu",
+                        "label": "Given name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldpyXpjqKrV5VJU0",
+                        "label": "Last name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldyfyOt3PomAQwBv",
+                        "label": "signed_contract",
+                        "type": "array",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fldBIVNVYOoXNMN0T",
+                        "label": "view_profiles_as_doz",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld05vmolTVXMsY9a",
+                        "label": "NZA_documents",
+                        "type": "array",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fldGfyf0Ka4JnfwtE",
+                        "label": "Interactions",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "fldcXfqCPQILbdg3d",
+                        "label": "Lernerfolgskontrolle",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldubGPbqf063159g",
+                        "label": "Interaction Count",
+                        "type": "number"
+                    },
+                    {
+                        "name": "fldPjyTXJlDyHHPYG",
+                        "label": "Interaction Check",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fldgo8A0Xvmw8P0jt",
+                        "label": "Zertifikate",
+                        "type": "array",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "flden1Is1Kd1O6SIa",
+                        "label": "Rechnungsanfrage_schicken",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldfg6L3xfsclDsEs",
+                        "label": "Courses copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld9HI5nltWkC4pF7",
+                        "label": "Community_member",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldSZ94u7KkIdJsyR",
+                        "label": "Community_Login_Email",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld3P4o2KrC1RllqQ",
+                        "label": "Assignee",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "email",
+                                "type": "email",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fldXLHe5EBDi3EjIt",
+                        "label": "Next Follow Up",
+                        "type": "date",
+                        "time": false
+                    },
+                    {
+                        "name": "fldnv2j8BliPtaAeG",
+                        "label": "Paid",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fld3fM2FCRmdVTWvA",
+                        "label": "Autonumber",
+                        "type": "number"
+                    },
+                    {
+                        "name": "fldk7K4SaH2M5iLqH",
+                        "label": "Hidden URL",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldqP3HvWKsdbzXC6",
+                        "label": "Last time contacted",
+                        "type": "date"
+                    },
+                    {
+                        "name": "fld4pqlq121bQHmL9",
+                        "label": "ToDo",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldgUKmYDGthNdrMd",
+                        "label": "Courses_link",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld8npR1FuMbZ70Qg",
+                        "label": "Courses 2 copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldUtHQ5l11dS8iXo",
+                        "label": "days_since_contact",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldFY3i3oPIkqYZdX",
+                        "label": "Courses 2 copy 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldbVdjcVqU3tVZ4r",
+                        "label": "Basiskurs",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld3SSX6HLIxeIKGe",
+                        "label": "date_today",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld3coW6PZnx5uHck",
+                        "label": "Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldbSdFrRCIe8Yqgf",
+                        "label": "Basiskurs_participants",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld7UOsf6xjuOnTGu",
+                        "label": "1.0_Basiskurs_participants copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldBNTRiANA3qx9zk",
+                        "label": "Form_Expectation",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldC01RIVdCcPdo3T",
+                        "label": "1.0_Basiskurs_participants copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldnJt5ll2KKUw0zV",
+                        "label": "1.0_Basiskurs_participants copy 2",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "fldlZvaVp4HDoKwxx",
+                        "label": "1.0_Basiskurs_participants",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldqd61M2EvuLVqiN",
+                        "label": "share_my_profile",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldlTgP4aef62CL5O",
+                        "label": "Lernerfolgskontrolle 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld6RPz67uf1GIPWf",
+                        "label": "AuswertungFeedback",
+                        "type": "text"
+                    },
+                    {
+                        "name": "flds96j0PJ7BwLR0C",
+                        "label": "Basiskurs copy",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fld7auHzcxS5zgDDb",
+                        "label": "Whatsapp",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldcEcHltHhwhxzCW",
+                        "label": "test_result_WG",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldrhC9V6Ujxn3A3Q",
+                        "label": "Video",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldBNg6U7zSKN2Va6",
+                        "label": "Show_bestanden_or_not",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldCw250rGZwVbACJ",
+                        "label": "Courses attended",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldG9vmIN1lwaFgjw",
+                        "label": "Last modified time",
+                        "type": "date"
+                    },
+                    {
+                        "name": "fldkifzLd6K6gizMW",
+                        "label": "Status Manual (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld440lrScmGy8lgL",
+                        "label": "Lecturer_skills",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "fldvnrmrU63SDvyZ2",
+                        "label": "Lecturer_Skills2",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "fldYFtrg7K6HKMWS3",
+                        "label": "Archive",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldSDehHAggj9XV7p",
+                        "label": "Resources comment",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldn9MjLN7vzWSNtN",
+                        "label": "Invoicing Info",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldjhh7NJPSZK2eKR",
+                        "label": "Last Modified By",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fldCaLiT4C9yubJGg",
+                        "label": "recordID",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldL3M2ZQObt5RbVp",
+                        "label": "Lecturer Invoicing",
+                        "type": "text"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 2,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "filter": {
+                "name": "Lecturers in Status Confirmed, Signed and Freelance without contract",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{4.fld5UdE0aHgVOUBhB}}",
+                            "o": "text:equal",
+                            "b": "Confirmed"
+                        }
+                    ],
+                    [
+                        {
+                            "a": "{{4.fld5UdE0aHgVOUBhB}}",
+                            "o": "text:equal",
+                            "b": "Contract signed"
+                        }
+                    ],
+                    [
+                        {
+                            "a": "{{4.fld5UdE0aHgVOUBhB}}",
+                            "o": "text:equal",
+                            "b": "Freelance without contract"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "base": "appIW2NHG67L20Pxm",
+                "table": "tblJ73GM0eChROsi4",
+                "formula": "{Name_Email (from Contacts)}=\"{{1.fldKBw4S0z6LMi74b}}\"",
+                "maxRecords": "1",
+                "useColumnId": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "Search in table Lecturers"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Lecturers"
+                        },
+                        "fields": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "dynamic": true,
+                                "options": []
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sort"
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "label": "Total number of bundles",
+                        "type": "uinteger"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "label": "Bundle order position",
+                        "type": "uinteger"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "fldDZtzNtsHQezq4g",
+                        "type": "text",
+                        "label": "Name"
+                    },
+                    {
+                        "name": "fldba7eDiqZRxxHuM",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Contacts"
+                    },
+                    {
+                        "name": "fldLHeNjXdljM02Xz",
+                        "type": "array",
+                        "label": "Name (from Contacts)"
+                    },
+                    {
+                        "name": "fldNenoDif41J4TVq",
+                        "type": "array",
+                        "label": "Name_Email (from Contacts)"
+                    },
+                    {
+                        "name": "fldyygeB9QKMHI3ys",
+                        "type": "array",
+                        "label": "Status Manual (from Contacts)"
+                    },
+                    {
+                        "name": "fldS2dSajliWvZ6Qy",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Profile_picture (from Contacts)"
+                    },
+                    {
+                        "name": "flddY9OB4bRGkYB1l",
+                        "type": "array",
+                        "label": "Consulting offering (from Contacts)"
+                    },
+                    {
+                        "name": "fld34JvSnt07QF7XN",
+                        "type": "array",
+                        "label": "Self_description (from Contacts)"
+                    },
+                    {
+                        "name": "fldH3auNs2WWIQ4dk",
+                        "type": "boolean",
+                        "label": "Live"
+                    },
+                    {
+                        "name": "fld60sP82IRMJbMxv",
+                        "type": "array",
+                        "label": "Course type assignment",
+                        "dynamic": true,
+                        "editable": true
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 3,
+            "module": "airtable:upsertRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
+            },
+            "mapper": {
+                "base": "appIW2NHG67L20Pxm",
+                "typecast": false,
+                "useColumnId": true,
+                "table": "tblJ73GM0eChROsi4",
+                "recordId": "{{2.id}}",
+                "record": {
+                    "fldqOJjX5Wmtf6uYt": "{{4.fld5UdE0aHgVOUBhB}}",
+                    "fldba7eDiqZRxxHuM": [
+                        "{{1.id}}"
+                    ]
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0,
+                    "name": "Upsert in table Lecturers"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "MD Airtable Token connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "base": {
+                            "label": "NetZero Academy"
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "label": "Lecturers"
+                        },
+                        "record": {
+                            "nested": {
+                                "fldba7eDiqZRxxHuM": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null
+                                    ]
+                                },
+                                "fldH3auNs2WWIQ4dk": {
+                                    "mode": "chose"
+                                },
+                                "fld60sP82IRMJbMxv": {
+                                    "mode": "chose"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "recordId",
+                        "type": "text",
+                        "label": "Record ID"
+                    },
+                    {
+                        "name": "record",
+                        "type": "collection",
+                        "label": "Record",
+                        "spec": [
+                            {
+                                "name": "fldqOJjX5Wmtf6uYt",
+                                "type": "text",
+                                "label": "Status_lecturer"
+                            },
+                            {
+                                "name": "fldba7eDiqZRxxHuM",
+                                "type": "array",
+                                "label": "Contacts",
+                                "spec": {
+                                    "label": "Record ID",
+                                    "name": "value"
+                                }
+                            },
+                            {
+                                "name": "fldH3auNs2WWIQ4dk",
+                                "type": "boolean",
+                                "label": "Live"
+                            },
+                            {
+                                "name": "fld60sP82IRMJbMxv",
+                                "type": "array",
+                                "label": "lectured_courses",
+                                "spec": {
+                                    "type": "select",
+                                    "dynamic": true,
+                                    "label": "Value",
+                                    "mode": "edit",
+                                    "validate": false,
+                                    "options": [
+                                        {
+                                            "label": "Energieberater Wohngebäude",
+                                            "value": "Energieberater Wohngebäude"
+                                        },
+                                        {
+                                            "label": "Energieberater Nichtwohngebäude",
+                                            "value": "Energieberater Nichtwohngebäude"
+                                        },
+                                        {
+                                            "label": "Energiemanagement Systeme",
+                                            "value": "Energiemanagement Systeme"
+                                        },
+                                        {
+                                            "label": "Treibhausgas",
+                                            "value": "Treibhausgas"
+                                        },
+                                        {
+                                            "label": "Wärmepumpen",
+                                            "value": "Wärmepumpen"
+                                        },
+                                        {
+                                            "label": "Energieberater Denkmal",
+                                            "value": "Energieberater Denkmal"
+                                        }
+                                    ],
+                                    "name": "value"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "fldDZtzNtsHQezq4g",
+                        "label": "Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldqOJjX5Wmtf6uYt",
+                        "label": "Status_lecturer",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fldba7eDiqZRxxHuM",
+                        "label": "Contacts",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "fldtiQMqJKxoTMHzr",
+                        "label": "Users (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "flduqp6PDP1TuNfRa",
+                        "label": "Nachname (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldLHeNjXdljM02Xz",
+                        "label": "Name (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldNenoDif41J4TVq",
+                        "label": "Name_Email (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldyygeB9QKMHI3ys",
+                        "label": "Status Manual (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldS2dSajliWvZ6Qy",
+                        "label": "Profile_picture (from Contacts)",
+                        "type": "array",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "label": "MIME type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "label": "Thumbnails",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "label": "Small",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "large",
+                                        "label": "Large",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "full",
+                                        "label": "Full",
+                                        "type": "collection",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "flddY9OB4bRGkYB1l",
+                        "label": "Consulting offering (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fld34JvSnt07QF7XN",
+                        "label": "Self_description (from Contacts)",
+                        "type": "array"
+                    },
+                    {
+                        "name": "fldH3auNs2WWIQ4dk",
+                        "label": "Live",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "fld60sP82IRMJbMxv",
+                        "label": "lectured_courses",
+                        "type": "array",
+                        "editable": true,
+                        "dynamic": true
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}
