@@ -7,13 +7,13 @@
             "version": 1,
             "parameters": {},
             "mapper": {
+                "scope": "roundtrip",
                 "variables": [
                     {
                         "name": "course ended days ago",
                         "value": "3"
                     }
-                ],
-                "scope": "roundtrip"
+                ]
             },
             "metadata": {
                 "designer": {
@@ -22,34 +22,34 @@
                 },
                 "restore": {
                     "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
                         "variables": {
                             "items": [
                                 null
                             ]
-                        },
-                        "scope": {
-                            "label": "One cycle"
                         }
                     }
                 },
                 "expect": [
                     {
                         "name": "variables",
-                        "type": "array",
-                        "label": "Variables",
                         "spec": [
                             {
                                 "name": "name",
-                                "label": "Variable name",
                                 "type": "text",
+                                "label": "Variable name",
                                 "required": true
                             },
                             {
                                 "name": "value",
-                                "label": "Variable value",
-                                "type": "any"
+                                "type": "any",
+                                "label": "Variable value"
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Variables"
                     },
                     {
                         "name": "scope",
@@ -67,8 +67,8 @@
                 "interface": [
                     {
                         "name": "course ended days ago",
-                        "label": "course ended days ago",
-                        "type": "any"
+                        "type": "any",
+                        "label": "course ended days ago"
                     }
                 ]
             }
@@ -82,16 +82,16 @@
             },
             "mapper": {
                 "base": "app4R2qm7WvWIFspd",
-                "useColumnId": false,
                 "table": "tblH4U1AWOEVTkoNE",
-                "formula": "AND(DATETIME_DIFF(TODAY(), End,'days') ={{1.`course ended days ago`}}, {Category} != \"Webinar\")",
-                "maxRecords": "10",
                 "fields": [
                     "Title",
                     "Lecturer",
                     "Start",
                     "End"
-                ]
+                ],
+                "formula": "AND(DATETIME_DIFF(TODAY(), End,'days') ={{1.`course ended days ago`}}, {Category} != \"Webinar\")",
+                "maxRecords": "10",
+                "useColumnId": false
             },
             "metadata": {
                 "designer": {
@@ -100,32 +100,20 @@
                     "name": "Find courses ending N days ago"
                 },
                 "restore": {
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "label": "MD Airtable Token connection",
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            }
-                        }
-                    },
                     "expect": {
                         "base": {
                             "mode": "chose",
                             "label": "NetZero Academy Courses"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        },
-                        "table": {
-                            "mode": "chose",
-                            "label": "Courses"
                         },
                         "sort": {
                             "mode": "chose"
                         },
                         "view": {
                             "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Courses"
                         },
                         "fields": {
                             "mode": "chose",
@@ -135,6 +123,18 @@
                                 "Start",
                                 "End"
                             ]
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -177,15 +177,13 @@
                     },
                     {
                         "name": "sort",
-                        "type": "array",
-                        "label": "Sort",
                         "spec": [
                             {
                                 "name": "field",
                                 "type": "select",
                                 "label": "Field",
-                                "options": [],
-                                "dynamic": true
+                                "dynamic": true,
+                                "options": []
                             },
                             {
                                 "name": "direction",
@@ -202,7 +200,9 @@
                                     }
                                 ]
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Sort"
                     },
                     {
                         "name": "view",
@@ -219,13 +219,13 @@
                 "interface": [
                     {
                         "name": "__IMTLENGTH__",
-                        "label": "Total number of bundles",
-                        "type": "uinteger"
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
                     },
                     {
                         "name": "__IMTINDEX__",
-                        "label": "Bundle order position",
-                        "type": "uinteger"
+                        "type": "uinteger",
+                        "label": "Bundle order position"
                     },
                     {
                         "name": "id",
@@ -239,28 +239,28 @@
                     },
                     {
                         "name": "Title",
-                        "label": "Title",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Title"
                     },
                     {
                         "name": "Lecturer",
-                        "label": "Lecturer",
-                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        }
+                        },
+                        "type": "array",
+                        "label": "Lecturer"
                     },
                     {
                         "name": "Start",
-                        "label": "Start",
+                        "time": false,
                         "type": "date",
-                        "time": false
+                        "label": "Start"
                     },
                     {
                         "name": "End",
-                        "label": "End",
+                        "time": false,
                         "type": "date",
-                        "time": false
+                        "label": "End"
                     }
                 ]
             }
@@ -547,17 +547,17 @@
                                             },
                                             "mapper": {
                                                 "base": "app4R2qm7WvWIFspd",
-                                                "typecast": false,
-                                                "useColumnId": false,
                                                 "table": "tbl52tUuOYZQXWX6M",
                                                 "record": {
-                                                    "fldoWhFnntDP0E4VT": [
-                                                        "{{2.id}}"
-                                                    ],
                                                     "fldoTpbfNJD74Kjvz": [
                                                         "{{3.fld9Kzulkd4VSlILw[]}}"
+                                                    ],
+                                                    "fldoWhFnntDP0E4VT": [
+                                                        "{{2.id}}"
                                                     ]
-                                                }
+                                                },
+                                                "typecast": false,
+                                                "useColumnId": false
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -566,26 +566,12 @@
                                                     "name": "Write to Lecturer invoicing table"
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "MD Airtable Token connection",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "base": {
                                                             "label": "NetZero Academy Courses"
                                                         },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        },
                                                         "table": {
+                                                            "label": "Lecturer Invoicing",
                                                             "nested": [
                                                                 {
                                                                     "name": "record",
@@ -655,16 +641,12 @@
                                                                     "type": "collection",
                                                                     "label": "Record"
                                                                 }
-                                                            ],
-                                                            "label": "Lecturer Invoicing"
+                                                            ]
                                                         },
                                                         "record": {
                                                             "nested": {
-                                                                "fldoWhFnntDP0E4VT": {
-                                                                    "mode": "chose",
-                                                                    "items": [
-                                                                        null
-                                                                    ]
+                                                                "fldZm7qyDoFNFm8hg": {
+                                                                    "mode": "edit"
                                                                 },
                                                                 "fldoTpbfNJD74Kjvz": {
                                                                     "mode": "chose",
@@ -672,13 +654,31 @@
                                                                         null
                                                                     ]
                                                                 },
+                                                                "fldoWhFnntDP0E4VT": {
+                                                                    "mode": "chose",
+                                                                    "items": [
+                                                                        null
+                                                                    ]
+                                                                },
                                                                 "fldrJvwyatH3G7n2V": {
                                                                     "mode": "chose"
-                                                                },
-                                                                "fldZm7qyDoFNFm8hg": {
-                                                                    "mode": "edit"
                                                                 }
                                                             }
+                                                        },
+                                                        "typecast": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "useColumnId": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "airtable2"
+                                                            },
+                                                            "label": "MD Airtable Token connection"
                                                         }
                                                     }
                                                 },
@@ -717,35 +717,33 @@
                                                     },
                                                     {
                                                         "name": "record",
-                                                        "type": "collection",
-                                                        "label": "Record",
                                                         "spec": [
                                                             {
                                                                 "name": "fldoWhFnntDP0E4VT",
-                                                                "type": "array",
-                                                                "label": "Course",
                                                                 "spec": {
-                                                                    "label": "Record ID",
-                                                                    "name": "value"
-                                                                }
+                                                                    "name": "value",
+                                                                    "label": "Record ID"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "Course"
                                                             },
                                                             {
                                                                 "name": "fldoTpbfNJD74Kjvz",
-                                                                "type": "array",
-                                                                "label": "Lecturer",
                                                                 "spec": {
-                                                                    "label": "Record ID",
-                                                                    "name": "value"
-                                                                }
+                                                                    "name": "value",
+                                                                    "label": "Record ID"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "Lecturer"
                                                             },
                                                             {
                                                                 "name": "fldrJvwyatH3G7n2V",
-                                                                "type": "array",
-                                                                "label": "Lecturer hourly per UE",
                                                                 "spec": {
-                                                                    "label": "Record ID",
-                                                                    "name": "value"
-                                                                }
+                                                                    "name": "value",
+                                                                    "label": "Record ID"
+                                                                },
+                                                                "type": "array",
+                                                                "label": "Lecturer hourly per UE"
                                                             },
                                                             {
                                                                 "name": "fldpr9GzBOGxiz54U",
@@ -763,12 +761,14 @@
                                                                 "label": "Rating"
                                                             },
                                                             {
+                                                                "mode": "edit",
                                                                 "name": "fldZm7qyDoFNFm8hg",
                                                                 "type": "select",
-                                                                "label": "Mail Status",
-                                                                "mode": "edit"
+                                                                "label": "Mail Status"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Record"
                                                     }
                                                 ],
                                                 "interface": [
@@ -784,140 +784,140 @@
                                                     },
                                                     {
                                                         "name": "Lecturer Invoice",
-                                                        "label": "Lecturer Invoice",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Lecturer Invoice"
                                                     },
                                                     {
                                                         "name": "Course",
-                                                        "label": "Course",
-                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        }
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Course"
                                                     },
                                                     {
                                                         "name": "Course Type (from Course)",
-                                                        "label": "Course Type (from Course)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "Course Type (from Course)"
                                                     },
                                                     {
                                                         "name": "Lecturer",
-                                                        "label": "Lecturer",
-                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        }
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Lecturer"
                                                     },
                                                     {
                                                         "name": "Name (from Lecturer)",
-                                                        "label": "Name (from Lecturer)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "Name (from Lecturer)"
                                                     },
                                                     {
                                                         "name": "E-Mail (from Lecturer)",
-                                                        "label": "E-Mail (from Lecturer)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "E-Mail (from Lecturer)"
                                                     },
                                                     {
                                                         "name": "Lecturer hourly per UE",
-                                                        "label": "Lecturer hourly per UE",
-                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        }
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Lecturer hourly per UE"
                                                     },
                                                     {
                                                         "name": "Course type (from Lecturer hourly per UE)",
-                                                        "label": "Course type (from Lecturer hourly per UE)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "Course type (from Lecturer hourly per UE)"
                                                     },
                                                     {
                                                         "name": "NetZero revenue (shared with lecturer)",
-                                                        "label": "NetZero revenue (shared with lecturer)",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "label": "NetZero revenue (shared with lecturer)"
                                                     },
                                                     {
                                                         "name": "Lecturer share (from Lecturer hourly per UE)",
-                                                        "label": "Lecturer share (from Lecturer hourly per UE)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "Lecturer share (from Lecturer hourly per UE)"
                                                     },
                                                     {
                                                         "name": "Base rate (from Lecturer hourly per UE)",
-                                                        "label": "Base rate (from Lecturer hourly per UE)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "Base rate (from Lecturer hourly per UE)"
                                                     },
                                                     {
                                                         "name": "Zusatzvergütung (from Lecturer hourly per UE)",
-                                                        "label": "Zusatzvergütung (from Lecturer hourly per UE)",
-                                                        "type": "array"
+                                                        "type": "array",
+                                                        "label": "Zusatzvergütung (from Lecturer hourly per UE)"
                                                     },
                                                     {
                                                         "name": "UE",
-                                                        "label": "UE",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "label": "UE"
                                                     },
                                                     {
                                                         "name": "Rating",
-                                                        "label": "Rating",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "label": "Rating"
                                                     },
                                                     {
                                                         "name": "Rating factor",
-                                                        "label": "Rating factor",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Rating factor"
                                                     },
                                                     {
                                                         "name": "Base total",
-                                                        "label": "Base total",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Base total"
                                                     },
                                                     {
                                                         "name": "Zusatzvergütung total",
-                                                        "label": "Zusatzvergütung total",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Zusatzvergütung total"
                                                     },
                                                     {
                                                         "name": "Bonus total",
-                                                        "label": "Bonus total",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Bonus total"
                                                     },
                                                     {
                                                         "name": "Total",
-                                                        "label": "Total",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Total"
                                                     },
                                                     {
                                                         "name": "Invoice bulletpoints",
-                                                        "label": "Invoice bulletpoints",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Invoice bulletpoints"
                                                     },
                                                     {
                                                         "name": "Mail text",
-                                                        "label": "Mail text",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Mail text"
                                                     },
                                                     {
                                                         "name": "Mail Status",
-                                                        "label": "Mail Status",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Mail Status"
                                                     },
                                                     {
                                                         "name": "Created ",
-                                                        "label": "Created ",
-                                                        "type": "date"
+                                                        "type": "date",
+                                                        "label": "Created "
                                                     },
                                                     {
                                                         "name": "Paid?",
-                                                        "label": "Paid?",
-                                                        "type": "text"
+                                                        "type": "text",
+                                                        "label": "Paid?"
                                                     },
                                                     {
                                                         "name": "Kopie von Courses",
-                                                        "label": "Kopie von Courses",
-                                                        "type": "array",
                                                         "spec": {
                                                             "label": "Record ID"
-                                                        }
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Kopie von Courses"
                                                     }
                                                 ]
                                             }
@@ -940,6 +940,10 @@
                                                         {
                                                             "a": "{{3.id}}",
                                                             "o": "notexist"
+                                                        },
+                                                        {
+                                                            "a": "{{2.Lecturer[]}}",
+                                                            "o": "exist"
                                                         }
                                                     ]
                                                 ]
