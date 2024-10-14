@@ -196,7 +196,7 @@
                 "base": "appIW2NHG67L20Pxm",
                 "useColumnId": false,
                 "table": "tbl2s7VdViMuULHP5",
-                "formula": "IF({Phone}, REGEX_MATCH(LEN(\"{{3.value}}\")>6, REGEX_REPLACE(REGEX_REPLACE(REGEX_REPLACE({Phone}, \"^\\\\s*\\\\+\", \"00\"), \"[/\\\\s-]\", \"\"), \"^0+\", \"\")&\"$\"),  FALSE())",
+                "formula": "IF(LEN({Phone}) > 6, REGEX_MATCH(\"{{3.value}}\", REGEX_REPLACE(REGEX_REPLACE(REGEX_REPLACE({Phone}, \"^\\\\s*\\\\+\", \"00\"), \"[/\\\\s-]\", \"\"), \"^0+\", \"\")&\"$\"),  FALSE())",
                 "maxRecords": "1",
                 "fields": [
                     "Name",
