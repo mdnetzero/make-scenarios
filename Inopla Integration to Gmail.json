@@ -25,9 +25,7 @@
                 "restore": {
                     "parameters": {
                         "folder": {
-                            "path": [
-                                "Inopla"
-                            ]
+                            "path": ["Inopla"]
                         },
                         "account": {
                             "data": {
@@ -57,10 +55,7 @@
                         "label": "Filter type",
                         "required": true,
                         "validate": {
-                            "enum": [
-                                "simple",
-                                "gmail"
-                            ]
+                            "enum": ["simple", "gmail"]
                         }
                     },
                     {
@@ -86,11 +81,7 @@
                         "label": "Criteria",
                         "required": true,
                         "validate": {
-                            "enum": [
-                                "ALL",
-                                "SEEN",
-                                "UNSEEN"
-                            ]
+                            "enum": ["ALL", "SEEN", "UNSEEN"]
                         }
                     },
                     {
@@ -198,12 +189,7 @@
                 "table": "tbl2s7VdViMuULHP5",
                 "formula": "IF(LEN({Phone}) > 6, REGEX_MATCH(\"{{3.value}}\", REGEX_REPLACE(REGEX_REPLACE(REGEX_REPLACE({Phone}, \"^\\\\s*\\\\+\", \"00\"), \"[/\\\\s-]\", \"\"), \"^0+\", \"\")&\"$\"),  FALSE())",
                 "maxRecords": "1",
-                "fields": [
-                    "Name",
-                    "E-Mail",
-                    "Phone",
-                    "Status Manual"
-                ]
+                "fields": ["Name", "E-Mail", "Phone", "Status Manual"]
             },
             "metadata": {
                 "designer": {
@@ -4651,9 +4637,7 @@
                                     "expect": {
                                         "folder": {
                                             "mode": "chose",
-                                            "path": [
-                                                "Inopla"
-                                            ]
+                                            "path": ["Inopla"]
                                         }
                                     },
                                     "parameters": {
@@ -4712,15 +4696,11 @@
                                     "expect": {
                                         "folder": {
                                             "mode": "chose",
-                                            "path": [
-                                                "Inopla"
-                                            ]
+                                            "path": ["Inopla"]
                                         },
                                         "destinationFolder": {
                                             "mode": "chose",
-                                            "path": [
-                                                "Trash"
-                                            ]
+                                            "path": ["Trash"]
                                         }
                                     },
                                     "parameters": {
