@@ -266,25 +266,235 @@
             }
         },
         {
-            "id": 8,
-            "module": "builtin:BasicRouter",
-            "version": 1,
-            "filter": {
-                "name": "Courses ending N days ago found",
-                "conditions": [
-                    [
-                        {
-                            "a": "{{2.`__IMTLENGTH__`}}",
-                            "b": "0",
-                            "o": "number:greater"
-                        }
-                    ]
-                ]
+            "id": 3,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2456185
             },
-            "mapper": null,
+            "mapper": {
+                "base": "app4R2qm7WvWIFspd",
+                "table": "tblCzJGFEEjADCwRO",
+                "fields": [
+                    "Course_day",
+                    "Course",
+                    "Course Type",
+                    "Teaching_hours_UE_paid",
+                    "UE_dena",
+                    "Lecturer",
+                    "Name (from Lecturer)",
+                    "RecordID (from Course)"
+                ],
+                "formula": "{RecordID (from Course)}=\"{{2.id}}\"",
+                "maxRecords": "100",
+                "useColumnId": true
+            },
             "metadata": {
                 "designer": {
                     "x": 600,
+                    "y": 300,
+                    "name": "Find course days to courses"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "NetZero Academy Courses"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "All_Courses_overview"
+                        },
+                        "fields": {
+                            "mode": "chose",
+                            "label": [
+                                "Course_day",
+                                "Course",
+                                "Course Type",
+                                "Teaching_hours_UE_paid",
+                                "UE_dena",
+                                "Lecturer",
+                                "Name (from Lecturer)",
+                                "RecordID (from Course)"
+                            ]
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "dynamic": true,
+                                "options": []
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sort"
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "fldo6Vhrzvw8Oi9Qr",
+                        "type": "text",
+                        "label": "Course_day"
+                    },
+                    {
+                        "name": "fldgNBKmFueWrvUqw",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Course"
+                    },
+                    {
+                        "name": "flduVYDv6N4zpstHT",
+                        "type": "text",
+                        "label": "Course Type"
+                    },
+                    {
+                        "name": "fld2BLTY3EzMRk7Bn",
+                        "type": "number",
+                        "label": "Teaching_hours_UE_paid"
+                    },
+                    {
+                        "name": "fld2Imm0mYifV74w4",
+                        "type": "number",
+                        "label": "UE_dena"
+                    },
+                    {
+                        "name": "fld9Kzulkd4VSlILw",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Lecturer"
+                    },
+                    {
+                        "name": "fldRwKSZzGzn1Vk8n",
+                        "type": "array",
+                        "label": "Name (from Lecturer)"
+                    },
+                    {
+                        "name": "fld8g93rFcUebkKaO",
+                        "type": "array",
+                        "label": "RecordID (from Course)"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 11,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 900,
                     "y": 300
                 }
             },
@@ -292,63 +502,149 @@
                 {
                     "flow": [
                         {
-                            "id": 3,
-                            "module": "airtable:ActionSearchRecords",
+                            "id": 5,
+                            "module": "airtable:ActionCreateRecord",
                             "version": 3,
                             "parameters": {
                                 "__IMTCONN__": 2456185
                             },
+                            "filter": {
+                                "name": "Course with Course_days",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{3.id}}",
+                                            "o": "exist"
+                                        },
+                                        {
+                                            "a": "{{3.fld9Kzulkd4VSlILw}}",
+                                            "o": "exist"
+                                        }
+                                    ]
+                                ]
+                            },
                             "mapper": {
                                 "base": "app4R2qm7WvWIFspd",
-                                "table": "tblCzJGFEEjADCwRO",
-                                "fields": [
-                                    "Course_day",
-                                    "Course",
-                                    "Course Type",
-                                    "Teaching_hours_UE_paid",
-                                    "UE_dena",
-                                    "Lecturer",
-                                    "Name (from Lecturer)",
-                                    "RecordID (from Course)"
-                                ],
-                                "formula": "{RecordID (from Course)}=\"{{2.id}}\"",
-                                "maxRecords": "100",
-                                "useColumnId": true
+                                "table": "tbl52tUuOYZQXWX6M",
+                                "record": {
+                                    "fldoTpbfNJD74Kjvz": [
+                                        "{{3.fld9Kzulkd4VSlILw[]}}"
+                                    ],
+                                    "fldoWhFnntDP0E4VT": [
+                                        "{{2.id}}"
+                                    ]
+                                },
+                                "typecast": false,
+                                "useColumnId": false
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 900,
-                                    "y": 150,
-                                    "name": "Find course days to courses"
+                                    "x": 1200,
+                                    "y": 0,
+                                    "name": "Write to Lecturer invoicing table"
                                 },
                                 "restore": {
                                     "expect": {
                                         "base": {
-                                            "mode": "chose",
                                             "label": "NetZero Academy Courses"
                                         },
-                                        "sort": {
-                                            "mode": "chose"
-                                        },
-                                        "view": {
-                                            "mode": "chose"
-                                        },
                                         "table": {
-                                            "mode": "chose",
-                                            "label": "All_Courses_overview"
-                                        },
-                                        "fields": {
-                                            "mode": "chose",
-                                            "label": [
-                                                "Course_day",
-                                                "Course",
-                                                "Course Type",
-                                                "Teaching_hours_UE_paid",
-                                                "UE_dena",
-                                                "Lecturer",
-                                                "Name (from Lecturer)",
-                                                "RecordID (from Course)"
+                                            "label": "Lecturer Invoicing",
+                                            "nested": [
+                                                {
+                                                    "name": "record",
+                                                    "spec": [
+                                                        {
+                                                            "name": "fldoWhFnntDP0E4VT",
+                                                            "spec": {
+                                                                "label": "Record ID"
+                                                            },
+                                                            "type": "array",
+                                                            "label": "Course"
+                                                        },
+                                                        {
+                                                            "name": "fldoTpbfNJD74Kjvz",
+                                                            "spec": {
+                                                                "label": "Record ID"
+                                                            },
+                                                            "type": "array",
+                                                            "label": "Lecturer"
+                                                        },
+                                                        {
+                                                            "name": "fldrJvwyatH3G7n2V",
+                                                            "spec": {
+                                                                "label": "Record ID"
+                                                            },
+                                                            "type": "array",
+                                                            "label": "Lecturer hourly per UE"
+                                                        },
+                                                        {
+                                                            "name": "fldpr9GzBOGxiz54U",
+                                                            "type": "number",
+                                                            "label": "NetZero revenue (shared with lecturer)"
+                                                        },
+                                                        {
+                                                            "name": "fldpj3CSttiF8OyG6",
+                                                            "type": "number",
+                                                            "label": "UE"
+                                                        },
+                                                        {
+                                                            "name": "fld7GoQONrqdAlEnz",
+                                                            "type": "number",
+                                                            "label": "Rating"
+                                                        },
+                                                        {
+                                                            "mode": "edit",
+                                                            "name": "fldZm7qyDoFNFm8hg",
+                                                            "type": "select",
+                                                            "label": "Mail Status",
+                                                            "dynamic": true,
+                                                            "options": [
+                                                                {
+                                                                    "label": "Prepare",
+                                                                    "value": "Prepare"
+                                                                },
+                                                                {
+                                                                    "label": "Send mail",
+                                                                    "value": "Send mail"
+                                                                },
+                                                                {
+                                                                    "label": "Mail sent",
+                                                                    "value": "Mail sent"
+                                                                }
+                                                            ],
+                                                            "validate": false
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Record"
+                                                }
                                             ]
+                                        },
+                                        "record": {
+                                            "nested": {
+                                                "fldZm7qyDoFNFm8hg": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldoTpbfNJD74Kjvz": {
+                                                    "mode": "chose",
+                                                    "items": [
+                                                        null
+                                                    ]
+                                                },
+                                                "fldoWhFnntDP0E4VT": {
+                                                    "mode": "chose",
+                                                    "items": [
+                                                        null
+                                                    ]
+                                                },
+                                                "fldrJvwyatH3G7n2V": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
                                         },
                                         "useColumnId": {
                                             "mode": "chose"
@@ -380,6 +676,12 @@
                                         "required": true
                                     },
                                     {
+                                        "name": "typecast",
+                                        "type": "boolean",
+                                        "label": "Smart links",
+                                        "required": true
+                                    },
+                                    {
                                         "name": "useColumnId",
                                         "type": "boolean",
                                         "label": "Use Column ID",
@@ -392,67 +694,62 @@
                                         "required": true
                                     },
                                     {
-                                        "name": "formula",
-                                        "type": "text",
-                                        "label": "Formula"
-                                    },
-                                    {
-                                        "name": "maxRecords",
-                                        "type": "integer",
-                                        "label": "Limit"
-                                    },
-                                    {
-                                        "name": "sort",
+                                        "name": "record",
                                         "spec": [
                                             {
-                                                "name": "field",
-                                                "type": "select",
-                                                "label": "Field",
-                                                "dynamic": true,
-                                                "options": []
+                                                "name": "fldoWhFnntDP0E4VT",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Course"
                                             },
                                             {
-                                                "name": "direction",
+                                                "name": "fldoTpbfNJD74Kjvz",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Lecturer"
+                                            },
+                                            {
+                                                "name": "fldrJvwyatH3G7n2V",
+                                                "spec": {
+                                                    "name": "value",
+                                                    "label": "Record ID"
+                                                },
+                                                "type": "array",
+                                                "label": "Lecturer hourly per UE"
+                                            },
+                                            {
+                                                "name": "fldpr9GzBOGxiz54U",
+                                                "type": "number",
+                                                "label": "NetZero revenue (shared with lecturer)"
+                                            },
+                                            {
+                                                "name": "fldpj3CSttiF8OyG6",
+                                                "type": "number",
+                                                "label": "UE"
+                                            },
+                                            {
+                                                "name": "fld7GoQONrqdAlEnz",
+                                                "type": "number",
+                                                "label": "Rating"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "fldZm7qyDoFNFm8hg",
                                                 "type": "select",
-                                                "label": "Direction",
-                                                "options": [
-                                                    {
-                                                        "label": "Descending",
-                                                        "value": "desc"
-                                                    },
-                                                    {
-                                                        "label": "Ascending",
-                                                        "value": "asc"
-                                                    }
-                                                ]
+                                                "label": "Mail Status"
                                             }
                                         ],
-                                        "type": "array",
-                                        "label": "Sort"
-                                    },
-                                    {
-                                        "name": "view",
-                                        "type": "select",
-                                        "label": "View"
-                                    },
-                                    {
-                                        "name": "fields",
-                                        "type": "select",
-                                        "label": "Output Fields",
-                                        "multiple": true
+                                        "type": "collection",
+                                        "label": "Record"
                                     }
                                 ],
                                 "interface": [
-                                    {
-                                        "name": "__IMTLENGTH__",
-                                        "type": "uinteger",
-                                        "label": "Total number of bundles"
-                                    },
-                                    {
-                                        "name": "__IMTINDEX__",
-                                        "type": "uinteger",
-                                        "label": "Bundle order position"
-                                    },
                                     {
                                         "name": "id",
                                         "type": "text",
@@ -464,12 +761,12 @@
                                         "label": "Created Time"
                                     },
                                     {
-                                        "name": "fldo6Vhrzvw8Oi9Qr",
+                                        "name": "Lecturer Invoice",
                                         "type": "text",
-                                        "label": "Course_day"
+                                        "label": "Lecturer Invoice"
                                     },
                                     {
-                                        "name": "fldgNBKmFueWrvUqw",
+                                        "name": "Course",
                                         "spec": {
                                             "label": "Record ID"
                                         },
@@ -477,22 +774,12 @@
                                         "label": "Course"
                                     },
                                     {
-                                        "name": "flduVYDv6N4zpstHT",
-                                        "type": "text",
-                                        "label": "Course Type"
+                                        "name": "Course Type (from Course)",
+                                        "type": "array",
+                                        "label": "Course Type (from Course)"
                                     },
                                     {
-                                        "name": "fld2BLTY3EzMRk7Bn",
-                                        "type": "number",
-                                        "label": "Teaching_hours_UE_paid"
-                                    },
-                                    {
-                                        "name": "fld2Imm0mYifV74w4",
-                                        "type": "number",
-                                        "label": "UE_dena"
-                                    },
-                                    {
-                                        "name": "fld9Kzulkd4VSlILw",
+                                        "name": "Lecturer",
                                         "spec": {
                                             "label": "Record ID"
                                         },
@@ -500,839 +787,149 @@
                                         "label": "Lecturer"
                                     },
                                     {
-                                        "name": "fldRwKSZzGzn1Vk8n",
+                                        "name": "Name (from Lecturer)",
                                         "type": "array",
                                         "label": "Name (from Lecturer)"
                                     },
                                     {
-                                        "name": "fld8g93rFcUebkKaO",
+                                        "name": "E-Mail (from Lecturer)",
                                         "type": "array",
-                                        "label": "RecordID (from Course)"
+                                        "label": "E-Mail (from Lecturer)"
+                                    },
+                                    {
+                                        "name": "Lecturer hourly per UE",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Lecturer hourly per UE"
+                                    },
+                                    {
+                                        "name": "Course type (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Course type (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "NetZero revenue (shared with lecturer)",
+                                        "type": "number",
+                                        "label": "NetZero revenue (shared with lecturer)"
+                                    },
+                                    {
+                                        "name": "Lecturer share (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Lecturer share (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "Base rate (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Base rate (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "Base rate (from Lecturer hourly per UE) as string",
+                                        "type": "text",
+                                        "label": "Base rate (from Lecturer hourly per UE) as string"
+                                    },
+                                    {
+                                        "name": "Zusatzvergütung (from Lecturer hourly per UE)",
+                                        "type": "array",
+                                        "label": "Zusatzvergütung (from Lecturer hourly per UE)"
+                                    },
+                                    {
+                                        "name": "Zusatzvergütung (from Lecturer hourly per UE) as string",
+                                        "type": "text",
+                                        "label": "Zusatzvergütung (from Lecturer hourly per UE) as string"
+                                    },
+                                    {
+                                        "name": "UE",
+                                        "type": "number",
+                                        "label": "UE"
+                                    },
+                                    {
+                                        "name": "Rating",
+                                        "type": "number",
+                                        "label": "Rating"
+                                    },
+                                    {
+                                        "name": "Rating factor",
+                                        "type": "text",
+                                        "label": "Rating factor"
+                                    },
+                                    {
+                                        "name": "Base total",
+                                        "type": "text",
+                                        "label": "Base total"
+                                    },
+                                    {
+                                        "name": "Base total as string",
+                                        "type": "text",
+                                        "label": "Base total as string"
+                                    },
+                                    {
+                                        "name": "Zusatzvergütung total",
+                                        "type": "text",
+                                        "label": "Zusatzvergütung total"
+                                    },
+                                    {
+                                        "name": "Zusatzvergütung total as string",
+                                        "type": "text",
+                                        "label": "Zusatzvergütung total as string"
+                                    },
+                                    {
+                                        "name": "Bonus total",
+                                        "type": "text",
+                                        "label": "Bonus total"
+                                    },
+                                    {
+                                        "name": "Bonus total as string",
+                                        "type": "text",
+                                        "label": "Bonus total as string"
+                                    },
+                                    {
+                                        "name": "Total",
+                                        "type": "text",
+                                        "label": "Total"
+                                    },
+                                    {
+                                        "name": "Total as string",
+                                        "type": "text",
+                                        "label": "Total as string"
+                                    },
+                                    {
+                                        "name": "Invoice bulletpoints",
+                                        "type": "text",
+                                        "label": "Invoice bulletpoints"
+                                    },
+                                    {
+                                        "name": "Mail text",
+                                        "type": "text",
+                                        "label": "Mail text"
+                                    },
+                                    {
+                                        "name": "Mail Status",
+                                        "type": "text",
+                                        "label": "Mail Status"
+                                    },
+                                    {
+                                        "name": "Created ",
+                                        "type": "date",
+                                        "label": "Created "
+                                    },
+                                    {
+                                        "name": "Paid?",
+                                        "type": "text",
+                                        "label": "Paid?"
+                                    },
+                                    {
+                                        "name": "Kopie von Courses",
+                                        "spec": {
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "Kopie von Courses"
                                     }
-                                ],
-                                "advanced": true
+                                ]
                             }
                         },
-                        {
-                            "id": 11,
-                            "module": "builtin:BasicRouter",
-                            "version": 1,
-                            "mapper": null,
-                            "metadata": {
-                                "designer": {
-                                    "x": 1200,
-                                    "y": 150
-                                }
-                            },
-                            "routes": [
-                                {
-                                    "flow": [
-                                        {
-                                            "id": 5,
-                                            "module": "airtable:ActionCreateRecord",
-                                            "version": 3,
-                                            "parameters": {
-                                                "__IMTCONN__": 2456185
-                                            },
-                                            "filter": {
-                                                "name": "Course with Course_days",
-                                                "conditions": [
-                                                    [
-                                                        {
-                                                            "a": "{{3.id}}",
-                                                            "o": "exist"
-                                                        }
-                                                    ]
-                                                ]
-                                            },
-                                            "mapper": {
-                                                "base": "app4R2qm7WvWIFspd",
-                                                "table": "tbl52tUuOYZQXWX6M",
-                                                "record": {
-                                                    "fldoTpbfNJD74Kjvz": [
-                                                        "{{3.fld9Kzulkd4VSlILw[]}}"
-                                                    ],
-                                                    "fldoWhFnntDP0E4VT": [
-                                                        "{{2.id}}"
-                                                    ]
-                                                },
-                                                "typecast": false,
-                                                "useColumnId": false
-                                            },
-                                            "metadata": {
-                                                "designer": {
-                                                    "x": 1500,
-                                                    "y": 0,
-                                                    "name": "Write to Lecturer invoicing table"
-                                                },
-                                                "restore": {
-                                                    "expect": {
-                                                        "base": {
-                                                            "label": "NetZero Academy Courses"
-                                                        },
-                                                        "table": {
-                                                            "label": "Lecturer Invoicing",
-                                                            "nested": [
-                                                                {
-                                                                    "name": "record",
-                                                                    "spec": [
-                                                                        {
-                                                                            "name": "fldoWhFnntDP0E4VT",
-                                                                            "spec": {
-                                                                                "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldoTpbfNJD74Kjvz",
-                                                                            "spec": {
-                                                                                "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Lecturer"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldrJvwyatH3G7n2V",
-                                                                            "spec": {
-                                                                                "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Lecturer hourly per UE"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldpr9GzBOGxiz54U",
-                                                                            "type": "number",
-                                                                            "label": "NetZero revenue (shared with lecturer)"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldpj3CSttiF8OyG6",
-                                                                            "type": "number",
-                                                                            "label": "UE"
-                                                                        },
-                                                                        {
-                                                                            "name": "fld7GoQONrqdAlEnz",
-                                                                            "type": "number",
-                                                                            "label": "Rating"
-                                                                        },
-                                                                        {
-                                                                            "mode": "edit",
-                                                                            "name": "fldZm7qyDoFNFm8hg",
-                                                                            "type": "select",
-                                                                            "label": "Mail Status",
-                                                                            "dynamic": true,
-                                                                            "options": [
-                                                                                {
-                                                                                    "label": "Prepare",
-                                                                                    "value": "Prepare"
-                                                                                },
-                                                                                {
-                                                                                    "label": "Send mail",
-                                                                                    "value": "Send mail"
-                                                                                },
-                                                                                {
-                                                                                    "label": "Mail sent",
-                                                                                    "value": "Mail sent"
-                                                                                }
-                                                                            ],
-                                                                            "validate": false
-                                                                        }
-                                                                    ],
-                                                                    "type": "collection",
-                                                                    "label": "Record"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "record": {
-                                                            "nested": {
-                                                                "fldZm7qyDoFNFm8hg": {
-                                                                    "mode": "edit"
-                                                                },
-                                                                "fldoTpbfNJD74Kjvz": {
-                                                                    "mode": "chose",
-                                                                    "items": [
-                                                                        null
-                                                                    ]
-                                                                },
-                                                                "fldoWhFnntDP0E4VT": {
-                                                                    "mode": "chose",
-                                                                    "items": [
-                                                                        null
-                                                                    ]
-                                                                },
-                                                                "fldrJvwyatH3G7n2V": {
-                                                                    "mode": "chose"
-                                                                }
-                                                            }
-                                                        },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            },
-                                                            "label": "MD Airtable Token connection"
-                                                        }
-                                                    }
-                                                },
-                                                "parameters": [
-                                                    {
-                                                        "name": "__IMTCONN__",
-                                                        "type": "account:airtable3,airtable2",
-                                                        "label": "Connection",
-                                                        "required": true
-                                                    }
-                                                ],
-                                                "expect": [
-                                                    {
-                                                        "name": "base",
-                                                        "type": "select",
-                                                        "label": "Base",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "typecast",
-                                                        "type": "boolean",
-                                                        "label": "Smart links",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "useColumnId",
-                                                        "type": "boolean",
-                                                        "label": "Use Column ID",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "table",
-                                                        "type": "select",
-                                                        "label": "Table",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "record",
-                                                        "spec": [
-                                                            {
-                                                                "name": "fldoWhFnntDP0E4VT",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
-                                                                "type": "array",
-                                                                "label": "Course"
-                                                            },
-                                                            {
-                                                                "name": "fldoTpbfNJD74Kjvz",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
-                                                                "type": "array",
-                                                                "label": "Lecturer"
-                                                            },
-                                                            {
-                                                                "name": "fldrJvwyatH3G7n2V",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
-                                                                "type": "array",
-                                                                "label": "Lecturer hourly per UE"
-                                                            },
-                                                            {
-                                                                "name": "fldpr9GzBOGxiz54U",
-                                                                "type": "number",
-                                                                "label": "NetZero revenue (shared with lecturer)"
-                                                            },
-                                                            {
-                                                                "name": "fldpj3CSttiF8OyG6",
-                                                                "type": "number",
-                                                                "label": "UE"
-                                                            },
-                                                            {
-                                                                "name": "fld7GoQONrqdAlEnz",
-                                                                "type": "number",
-                                                                "label": "Rating"
-                                                            },
-                                                            {
-                                                                "mode": "edit",
-                                                                "name": "fldZm7qyDoFNFm8hg",
-                                                                "type": "select",
-                                                                "label": "Mail Status"
-                                                            }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Record"
-                                                    }
-                                                ],
-                                                "interface": [
-                                                    {
-                                                        "name": "id",
-                                                        "type": "text",
-                                                        "label": "ID"
-                                                    },
-                                                    {
-                                                        "name": "createdTime",
-                                                        "type": "date",
-                                                        "label": "Created Time"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer Invoice",
-                                                        "type": "text",
-                                                        "label": "Lecturer Invoice"
-                                                    },
-                                                    {
-                                                        "name": "Course",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course"
-                                                    },
-                                                    {
-                                                        "name": "Course Type (from Course)",
-                                                        "type": "array",
-                                                        "label": "Course Type (from Course)"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Lecturer"
-                                                    },
-                                                    {
-                                                        "name": "Name (from Lecturer)",
-                                                        "type": "array",
-                                                        "label": "Name (from Lecturer)"
-                                                    },
-                                                    {
-                                                        "name": "E-Mail (from Lecturer)",
-                                                        "type": "array",
-                                                        "label": "E-Mail (from Lecturer)"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer hourly per UE",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Lecturer hourly per UE"
-                                                    },
-                                                    {
-                                                        "name": "Course type (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Course type (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "NetZero revenue (shared with lecturer)",
-                                                        "type": "number",
-                                                        "label": "NetZero revenue (shared with lecturer)"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer share (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Lecturer share (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "Base rate (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Base rate (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "Zusatzvergütung (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Zusatzvergütung (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "UE",
-                                                        "type": "number",
-                                                        "label": "UE"
-                                                    },
-                                                    {
-                                                        "name": "Rating",
-                                                        "type": "number",
-                                                        "label": "Rating"
-                                                    },
-                                                    {
-                                                        "name": "Rating factor",
-                                                        "type": "text",
-                                                        "label": "Rating factor"
-                                                    },
-                                                    {
-                                                        "name": "Base total",
-                                                        "type": "text",
-                                                        "label": "Base total"
-                                                    },
-                                                    {
-                                                        "name": "Zusatzvergütung total",
-                                                        "type": "text",
-                                                        "label": "Zusatzvergütung total"
-                                                    },
-                                                    {
-                                                        "name": "Bonus total",
-                                                        "type": "text",
-                                                        "label": "Bonus total"
-                                                    },
-                                                    {
-                                                        "name": "Total",
-                                                        "type": "text",
-                                                        "label": "Total"
-                                                    },
-                                                    {
-                                                        "name": "Invoice bulletpoints",
-                                                        "type": "text",
-                                                        "label": "Invoice bulletpoints"
-                                                    },
-                                                    {
-                                                        "name": "Mail text",
-                                                        "type": "text",
-                                                        "label": "Mail text"
-                                                    },
-                                                    {
-                                                        "name": "Mail Status",
-                                                        "type": "text",
-                                                        "label": "Mail Status"
-                                                    },
-                                                    {
-                                                        "name": "Created ",
-                                                        "type": "date",
-                                                        "label": "Created "
-                                                    },
-                                                    {
-                                                        "name": "Paid?",
-                                                        "type": "text",
-                                                        "label": "Paid?"
-                                                    },
-                                                    {
-                                                        "name": "Kopie von Courses",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Kopie von Courses"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "flow": [
-                                        {
-                                            "id": 10,
-                                            "module": "airtable:ActionCreateRecord",
-                                            "version": 3,
-                                            "parameters": {
-                                                "__IMTCONN__": 2456185
-                                            },
-                                            "filter": {
-                                                "name": "Course w/o Course_Day (Webinar...)",
-                                                "conditions": [
-                                                    [
-                                                        {
-                                                            "a": "{{3.id}}",
-                                                            "o": "notexist"
-                                                        },
-                                                        {
-                                                            "a": "{{2.Lecturer[]}}",
-                                                            "o": "exist"
-                                                        }
-                                                    ]
-                                                ]
-                                            },
-                                            "mapper": {
-                                                "base": "app4R2qm7WvWIFspd",
-                                                "table": "tbl52tUuOYZQXWX6M",
-                                                "record": {
-                                                    "fldoTpbfNJD74Kjvz": [
-                                                        "{{2.Lecturer[]}}"
-                                                    ],
-                                                    "fldoWhFnntDP0E4VT": [
-                                                        "{{2.id}}"
-                                                    ]
-                                                },
-                                                "typecast": false,
-                                                "useColumnId": false
-                                            },
-                                            "metadata": {
-                                                "designer": {
-                                                    "x": 1500,
-                                                    "y": 300,
-                                                    "name": "Write to Lecturer invoicing table"
-                                                },
-                                                "restore": {
-                                                    "expect": {
-                                                        "base": {
-                                                            "label": "NetZero Academy Courses"
-                                                        },
-                                                        "table": {
-                                                            "label": "Lecturer Invoicing",
-                                                            "nested": [
-                                                                {
-                                                                    "name": "record",
-                                                                    "spec": [
-                                                                        {
-                                                                            "name": "fldoWhFnntDP0E4VT",
-                                                                            "spec": {
-                                                                                "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Course"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldoTpbfNJD74Kjvz",
-                                                                            "spec": {
-                                                                                "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Lecturer"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldrJvwyatH3G7n2V",
-                                                                            "spec": {
-                                                                                "label": "Record ID"
-                                                                            },
-                                                                            "type": "array",
-                                                                            "label": "Lecturer hourly per UE"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldpr9GzBOGxiz54U",
-                                                                            "type": "number",
-                                                                            "label": "NetZero revenue (shared with lecturer)"
-                                                                        },
-                                                                        {
-                                                                            "name": "fldpj3CSttiF8OyG6",
-                                                                            "type": "number",
-                                                                            "label": "UE"
-                                                                        },
-                                                                        {
-                                                                            "name": "fld7GoQONrqdAlEnz",
-                                                                            "type": "number",
-                                                                            "label": "Rating"
-                                                                        },
-                                                                        {
-                                                                            "mode": "edit",
-                                                                            "name": "fldZm7qyDoFNFm8hg",
-                                                                            "type": "select",
-                                                                            "label": "Mail Status",
-                                                                            "dynamic": true,
-                                                                            "options": [
-                                                                                {
-                                                                                    "label": "Prepare",
-                                                                                    "value": "Prepare"
-                                                                                },
-                                                                                {
-                                                                                    "label": "Send mail",
-                                                                                    "value": "Send mail"
-                                                                                },
-                                                                                {
-                                                                                    "label": "Mail sent",
-                                                                                    "value": "Mail sent"
-                                                                                }
-                                                                            ],
-                                                                            "validate": false
-                                                                        }
-                                                                    ],
-                                                                    "type": "collection",
-                                                                    "label": "Record"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "record": {
-                                                            "nested": {
-                                                                "fldZm7qyDoFNFm8hg": {
-                                                                    "mode": "edit"
-                                                                },
-                                                                "fldoTpbfNJD74Kjvz": {
-                                                                    "mode": "chose",
-                                                                    "items": [
-                                                                        null
-                                                                    ]
-                                                                },
-                                                                "fldoWhFnntDP0E4VT": {
-                                                                    "mode": "chose",
-                                                                    "items": [
-                                                                        null
-                                                                    ]
-                                                                },
-                                                                "fldrJvwyatH3G7n2V": {
-                                                                    "mode": "chose"
-                                                                }
-                                                            }
-                                                        },
-                                                        "typecast": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "useColumnId": {
-                                                            "mode": "chose"
-                                                        }
-                                                    },
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "airtable2"
-                                                            },
-                                                            "label": "MD Airtable Token connection"
-                                                        }
-                                                    }
-                                                },
-                                                "parameters": [
-                                                    {
-                                                        "name": "__IMTCONN__",
-                                                        "type": "account:airtable3,airtable2",
-                                                        "label": "Connection",
-                                                        "required": true
-                                                    }
-                                                ],
-                                                "expect": [
-                                                    {
-                                                        "name": "base",
-                                                        "type": "select",
-                                                        "label": "Base",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "typecast",
-                                                        "type": "boolean",
-                                                        "label": "Smart links",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "useColumnId",
-                                                        "type": "boolean",
-                                                        "label": "Use Column ID",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "table",
-                                                        "type": "select",
-                                                        "label": "Table",
-                                                        "required": true
-                                                    },
-                                                    {
-                                                        "name": "record",
-                                                        "spec": [
-                                                            {
-                                                                "name": "fldoWhFnntDP0E4VT",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
-                                                                "type": "array",
-                                                                "label": "Course"
-                                                            },
-                                                            {
-                                                                "name": "fldoTpbfNJD74Kjvz",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
-                                                                "type": "array",
-                                                                "label": "Lecturer"
-                                                            },
-                                                            {
-                                                                "name": "fldrJvwyatH3G7n2V",
-                                                                "spec": {
-                                                                    "name": "value",
-                                                                    "label": "Record ID"
-                                                                },
-                                                                "type": "array",
-                                                                "label": "Lecturer hourly per UE"
-                                                            },
-                                                            {
-                                                                "name": "fldpr9GzBOGxiz54U",
-                                                                "type": "number",
-                                                                "label": "NetZero revenue (shared with lecturer)"
-                                                            },
-                                                            {
-                                                                "name": "fldpj3CSttiF8OyG6",
-                                                                "type": "number",
-                                                                "label": "UE"
-                                                            },
-                                                            {
-                                                                "name": "fld7GoQONrqdAlEnz",
-                                                                "type": "number",
-                                                                "label": "Rating"
-                                                            },
-                                                            {
-                                                                "mode": "edit",
-                                                                "name": "fldZm7qyDoFNFm8hg",
-                                                                "type": "select",
-                                                                "label": "Mail Status"
-                                                            }
-                                                        ],
-                                                        "type": "collection",
-                                                        "label": "Record"
-                                                    }
-                                                ],
-                                                "interface": [
-                                                    {
-                                                        "name": "id",
-                                                        "type": "text",
-                                                        "label": "ID"
-                                                    },
-                                                    {
-                                                        "name": "createdTime",
-                                                        "type": "date",
-                                                        "label": "Created Time"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer Invoice",
-                                                        "type": "text",
-                                                        "label": "Lecturer Invoice"
-                                                    },
-                                                    {
-                                                        "name": "Course",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Course"
-                                                    },
-                                                    {
-                                                        "name": "Course Type (from Course)",
-                                                        "type": "array",
-                                                        "label": "Course Type (from Course)"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Lecturer"
-                                                    },
-                                                    {
-                                                        "name": "Name (from Lecturer)",
-                                                        "type": "array",
-                                                        "label": "Name (from Lecturer)"
-                                                    },
-                                                    {
-                                                        "name": "E-Mail (from Lecturer)",
-                                                        "type": "array",
-                                                        "label": "E-Mail (from Lecturer)"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer hourly per UE",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Lecturer hourly per UE"
-                                                    },
-                                                    {
-                                                        "name": "Course type (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Course type (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "NetZero revenue (shared with lecturer)",
-                                                        "type": "number",
-                                                        "label": "NetZero revenue (shared with lecturer)"
-                                                    },
-                                                    {
-                                                        "name": "Lecturer share (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Lecturer share (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "Base rate (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Base rate (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "Zusatzvergütung (from Lecturer hourly per UE)",
-                                                        "type": "array",
-                                                        "label": "Zusatzvergütung (from Lecturer hourly per UE)"
-                                                    },
-                                                    {
-                                                        "name": "UE",
-                                                        "type": "number",
-                                                        "label": "UE"
-                                                    },
-                                                    {
-                                                        "name": "Rating",
-                                                        "type": "number",
-                                                        "label": "Rating"
-                                                    },
-                                                    {
-                                                        "name": "Rating factor",
-                                                        "type": "text",
-                                                        "label": "Rating factor"
-                                                    },
-                                                    {
-                                                        "name": "Base total",
-                                                        "type": "text",
-                                                        "label": "Base total"
-                                                    },
-                                                    {
-                                                        "name": "Zusatzvergütung total",
-                                                        "type": "text",
-                                                        "label": "Zusatzvergütung total"
-                                                    },
-                                                    {
-                                                        "name": "Bonus total",
-                                                        "type": "text",
-                                                        "label": "Bonus total"
-                                                    },
-                                                    {
-                                                        "name": "Total",
-                                                        "type": "text",
-                                                        "label": "Total"
-                                                    },
-                                                    {
-                                                        "name": "Invoice bulletpoints",
-                                                        "type": "text",
-                                                        "label": "Invoice bulletpoints"
-                                                    },
-                                                    {
-                                                        "name": "Mail text",
-                                                        "type": "text",
-                                                        "label": "Mail text"
-                                                    },
-                                                    {
-                                                        "name": "Mail Status",
-                                                        "type": "text",
-                                                        "label": "Mail Status"
-                                                    },
-                                                    {
-                                                        "name": "Created ",
-                                                        "type": "date",
-                                                        "label": "Created "
-                                                    },
-                                                    {
-                                                        "name": "Paid?",
-                                                        "type": "text",
-                                                        "label": "Paid?"
-                                                    },
-                                                    {
-                                                        "name": "Kopie von Courses",
-                                                        "spec": {
-                                                            "label": "Record ID"
-                                                        },
-                                                        "type": "array",
-                                                        "label": "Kopie von Courses"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "flow": [
                         {
                             "id": 7,
                             "module": "google-email:ActionSendEmail",
@@ -1353,8 +950,8 @@
                             },
                             "metadata": {
                                 "designer": {
-                                    "x": 900,
-                                    "y": 600
+                                    "x": 1500,
+                                    "y": 0
                                 },
                                 "restore": {
                                     "expect": {
@@ -1465,6 +1062,232 @@
                                         },
                                         "type": "array",
                                         "label": "Blind copy recipient"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 13,
+                            "module": "google-email:ActionSendEmail",
+                            "version": 2,
+                            "parameters": {
+                                "account": 2698556
+                            },
+                            "filter": {
+                                "name": "Course day found, but no lecturer defined",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{3.id}}",
+                                            "o": "exist"
+                                        },
+                                        {
+                                            "a": "{{3.fld9Kzulkd4VSlILw}}",
+                                            "o": "notexist"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "cc": [],
+                                "to": [
+                                    "service@netzeroacademy.de"
+                                ],
+                                "bcc": [],
+                                "from": "",
+                                "html": "Please add lecturer and run automation \"Initiate lecturer invoicing\" again.",
+                                "subject": "Lecturer invoicing: no lecturer defined for {{2.Title}} - Day: {{3.fldo6Vhrzvw8Oi9Qr}}",
+                                "attachments": []
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 300
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "cc": {
+                                            "mode": "chose"
+                                        },
+                                        "to": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bcc": {
+                                            "mode": "chose"
+                                        },
+                                        "attachments": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "account": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-restricted"
+                                            },
+                                            "label": "GMail NZ Service Account (service@netzeroacademy.de)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "account",
+                                        "type": "account:google-restricted",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "from",
+                                        "type": "text",
+                                        "label": "From"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Email address",
+                                            "required": true
+                                        },
+                                        "type": "array",
+                                        "label": "To",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "subject",
+                                        "type": "text",
+                                        "label": "Subject"
+                                    },
+                                    {
+                                        "name": "html",
+                                        "type": "text",
+                                        "label": "Content"
+                                    },
+                                    {
+                                        "name": "attachments",
+                                        "spec": [
+                                            {
+                                                "name": "fileName",
+                                                "type": "filename",
+                                                "label": "File name",
+                                                "required": true,
+                                                "semantic": "file:name"
+                                            },
+                                            {
+                                                "name": "data",
+                                                "type": "buffer",
+                                                "label": "Data",
+                                                "required": true,
+                                                "semantic": "file:data"
+                                            },
+                                            {
+                                                "name": "cid",
+                                                "type": "text",
+                                                "label": "Content-ID"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Attachments"
+                                    },
+                                    {
+                                        "name": "cc",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Email address"
+                                        },
+                                        "type": "array",
+                                        "label": "Copy recipient"
+                                    },
+                                    {
+                                        "name": "bcc",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Email address"
+                                        },
+                                        "type": "array",
+                                        "label": "Blind copy recipient"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 12,
+                            "module": "util:SetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "filter": {
+                                "name": "Course w/o Course_Day (Webinar...)",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{3.id}}",
+                                            "o": "notexist"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "name": "No course days found",
+                                "scope": "roundtrip",
+                                "value": "true"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 600
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "any",
+                                        "label": "Variable value"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "No course days found",
+                                        "type": "any",
+                                        "label": "No course days found"
                                     }
                                 ]
                             }
