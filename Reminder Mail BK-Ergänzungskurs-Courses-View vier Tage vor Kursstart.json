@@ -10,17 +10,17 @@
             },
             "mapper": {
                 "base": "app4R2qm7WvWIFspd",
-                "useColumnId": true,
-                "table": "tblH4U1AWOEVTkoNE",
-                "formula": "DATETIME_DIFF(Start, TODAY(),'days')=4",
-                "maxRecords": "100",
                 "view": "viwtit9x91DGV3Baa",
+                "table": "tblH4U1AWOEVTkoNE",
                 "fields": [
                     "Title",
                     "E-Mails_participants",
                     "Students_Name_Email",
                     "MS Teams meetings"
-                ]
+                ],
+                "formula": "DATETIME_DIFF(Start, TODAY(),'days')=4",
+                "maxRecords": "100",
+                "useColumnId": true
             },
             "metadata": {
                 "designer": {
@@ -29,26 +29,10 @@
                     "name": "Search courses starting today"
                 },
                 "restore": {
-                    "parameters": {
-                        "__IMTCONN__": {
-                            "label": "MD Airtable Token connection",
-                            "data": {
-                                "scoped": "true",
-                                "connection": "airtable2"
-                            }
-                        }
-                    },
                     "expect": {
                         "base": {
                             "mode": "chose",
                             "label": "NetZero Academy Courses"
-                        },
-                        "useColumnId": {
-                            "mode": "chose"
-                        },
-                        "table": {
-                            "mode": "chose",
-                            "label": "Courses"
                         },
                         "sort": {
                             "mode": "chose"
@@ -56,6 +40,10 @@
                         "view": {
                             "mode": "chose",
                             "label": "Courses_for_Reminder_Email_Ergänzung"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Courses"
                         },
                         "fields": {
                             "mode": "chose",
@@ -65,6 +53,18 @@
                                 "Students_Name_Email",
                                 "MS Teams meetings"
                             ]
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "MD Airtable Token connection"
                         }
                     }
                 },
@@ -107,15 +107,13 @@
                     },
                     {
                         "name": "sort",
-                        "type": "array",
-                        "label": "Sort",
                         "spec": [
                             {
                                 "name": "field",
                                 "type": "select",
                                 "label": "Field",
-                                "options": [],
-                                "dynamic": true
+                                "dynamic": true,
+                                "options": []
                             },
                             {
                                 "name": "direction",
@@ -132,7 +130,9 @@
                                     }
                                 ]
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Sort"
                     },
                     {
                         "name": "view",
@@ -149,13 +149,13 @@
                 "interface": [
                     {
                         "name": "__IMTLENGTH__",
-                        "label": "Total number of bundles",
-                        "type": "uinteger"
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
                     },
                     {
                         "name": "__IMTINDEX__",
-                        "label": "Bundle order position",
-                        "type": "uinteger"
+                        "type": "uinteger",
+                        "label": "Bundle order position"
                     },
                     {
                         "name": "id",
@@ -169,26 +169,26 @@
                     },
                     {
                         "name": "fldx7FfUMeXZBWN5F",
-                        "label": "Title",
-                        "type": "text"
+                        "type": "text",
+                        "label": "Title"
                     },
                     {
                         "name": "fldluJo9qxw0G2ZXq",
-                        "label": "E-Mails_participants",
-                        "type": "array"
+                        "type": "array",
+                        "label": "E-Mails_participants"
                     },
                     {
                         "name": "fldfc5x5HyTf4NUjh",
-                        "label": "Students_Name_Email",
-                        "type": "array"
+                        "type": "array",
+                        "label": "Students_Name_Email"
                     },
                     {
                         "name": "fldTHJR3NqsvixzMG",
-                        "label": "MS Teams meetings",
-                        "type": "array",
                         "spec": {
                             "label": "Record ID"
-                        }
+                        },
+                        "type": "array",
+                        "label": "MS Teams meetings"
                     }
                 ],
                 "advanced": true
@@ -205,8 +205,8 @@
                     [
                         {
                             "a": "{{1.`__IMTLENGTH__`}}",
-                            "o": "number:greater",
-                            "b": "0"
+                            "b": "0",
+                            "o": "number:greater"
                         }
                     ]
                 ]
@@ -228,11 +228,11 @@
                 },
                 "expect": [
                     {
-                        "name": "array",
-                        "type": "array",
-                        "label": "Array",
                         "mode": "edit",
-                        "spec": []
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
                     }
                 ]
             }
@@ -243,6 +243,7 @@
             "version": 1,
             "parameters": {},
             "mapper": {
+                "scope": "roundtrip",
                 "variables": [
                     {
                         "name": "Name",
@@ -252,8 +253,7 @@
                         "name": "Email",
                         "value": "{{replace(5.value; \"/.*\\((.*)\\)/\"; \"$1\")}}"
                     }
-                ],
-                "scope": "roundtrip"
+                ]
             },
             "metadata": {
                 "designer": {
@@ -262,35 +262,35 @@
                 },
                 "restore": {
                     "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
                         "variables": {
                             "items": [
                                 null,
                                 null
                             ]
-                        },
-                        "scope": {
-                            "label": "One cycle"
                         }
                     }
                 },
                 "expect": [
                     {
                         "name": "variables",
-                        "type": "array",
-                        "label": "Variables",
                         "spec": [
                             {
                                 "name": "name",
-                                "label": "Variable name",
                                 "type": "text",
+                                "label": "Variable name",
                                 "required": true
                             },
                             {
                                 "name": "value",
-                                "label": "Variable value",
-                                "type": "any"
+                                "type": "any",
+                                "label": "Variable value"
                             }
-                        ]
+                        ],
+                        "type": "array",
+                        "label": "Variables"
                     },
                     {
                         "name": "scope",
@@ -308,13 +308,13 @@
                 "interface": [
                     {
                         "name": "Name",
-                        "label": "Name",
-                        "type": "any"
+                        "type": "any",
+                        "label": "Name"
                     },
                     {
                         "name": "Email",
-                        "label": "Email",
-                        "type": "any"
+                        "type": "any",
+                        "label": "Email"
                     }
                 ],
                 "advanced": true
@@ -333,7 +333,7 @@
                     "{{9.Email}}"
                 ],
                 "subject": "Reminder: Deine Selbstlernphase zum Basiskurs startet bald",
-                "html": "Hallo {{9.Name}},\n<br><br>\nDeine Selbstlernphase zum Basiskurs startet in vier Tagen. Während dieser Phase kannst Du Dich intensiv mit den im Lern-Portal zur Verfügung stehenden Lernmaterialien auseinandersetzen sowie mit der LernApp. Dabei steht Dir das Team der NetZero Academy für Fragen per Chat und E-Mail zur Verfügung. \n<br><br>\nMit besten Grüßen<br>\nElisa",
+                "html": "Hallo {{9.Name}},\n<br><br>\nDeine Selbstlernphase zum Basiskurs startet in vier Tagen. Während dieser Phase kannst Du Dich intensiv mit den im Lern-Portal zur Verfügung stehenden Lernmaterialien auseinandersetzen sowie mit der LernApp. Dabei steht Dir das Team der NetZero Academy für Fragen per Chat und E-Mail zur Verfügung. \n<br><br>\nMit besten Grüßen<br>\nElisa\n<br>\n<br>\n--\n<br>\n<br>\n<span>Kundenbetreuung <br>NetZero Academy<br>+49 (0) 30-5445-3114-0\n<br>\n</span><a href=\"mailto:service@netzeroacademy.de\" >service@netzeroacademy.de</a></span> <br> <span >Rollbergstr. 28a, 12053 Berlin</span><br> <a href=\"https://www.netzeroacademy.de/\" >www.netzeroacademy.de</a>\n<br>\n<br>\n<img src=\"https://assets.softr-files.com/applications/24a0ca2f-ea75-42f4-a6aa-3fe8d0cd7412/assets/22d9ea67-8fd7-4747-b852-d41c8b4606d5.png\" alt=\"\" width=\"150\" height=\"42\" style=\"display:block;border:0px;max-width:150px\"> <p style=\"padding:30px 1px 0px 0px;font-family:Arial,sans-serif;font-size:10px;line-height:13px;color:rgb(136,136,136)\">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</p>",
                 "attachments": [],
                 "cc": [],
                 "bcc": []
